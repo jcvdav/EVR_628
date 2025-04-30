@@ -1,4 +1,4 @@
-# EVR_628 - Introduction to Data Management and Visualization for Environmental Scientists
+# EVR 528 / 628 - Intro to Data Management and Visualization for Environmental Scientists
 
 ## Course description for UM Bulletin
 “_Introduction to Data Management and Visualization for Environmental Scientists_"
@@ -16,7 +16,7 @@ By the end of the course, students will be comfortable working in R.
 
 You will learn how to access, work with, and visualize many different types of data. Some examples are below:
 
-- Access hurricane tracks and [build interactive visualizations](./hurricane_milton_track.gif)
+- Access hurricane tracks and [build animated visualizations](./hurricane_milton_track.gif)
 - Track fishing vessels form space [and build maps of fishing activity](gom_fishing_effort_2024_total.png)
 - Develop [interactive web-based apps]( https://682wxr-juan0carlos-villasenor0derbez.shinyapps.io/gom_fishing/) to allow others explore your data
 - Create [slides with interactive content](https://jcvdav.github.io/EVR_662/slides/02_data_models_vector#/example-rosenstiel) for effective communication
