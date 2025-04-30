@@ -1,4 +1,3 @@
-# EVR 528 / 628 - Intro to Data Management and Visualization for Environmental Scientists
 
 ## Course description for UM Bulletin
 “_Introduction to Data Management and Visualization for Environmental Scientists_"
@@ -14,7 +13,7 @@ By the end of the course, students will be comfortable working in R.
 
 ## What will you learn?
 
-You will learn how to access, work with, and visualize many different types of data. Some examples are below:
+You will learn how to access, work with, and visualize many different types of environmental data. For example:
 
 - Access hurricane tracks and [build animated visualizations](./hurricane_milton_track.gif)
 - Track fishing vessels form space [and build maps of fishing activity](gom_fishing_effort_2024_total.png)
