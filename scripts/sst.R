@@ -25,7 +25,7 @@ biscayne_park_bbox <- c(
 fetch_sst_data <- function(start_date, end_date) {
   # Use the NOAA OI SST v2 dataset with coarser resolution (1 degree)
   # This is a lower-resolution dataset available from 1981 to present
-  sst_info <- info('ncdcOisst2Agg1_LonPM180')
+  sst_info <- info('ncdcOisst21Agg_LonPM180')
   
   # Extract data for Biscayne National Park region
   sst_data <- griddap(
