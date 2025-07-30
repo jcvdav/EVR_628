@@ -2,3 +2,89 @@
 title: "EVR 628 - Intro to Environmental Data Science"
 subtitle: "Intro"
 ---
+
+# About the class
+
+## Introductions and expectations
+
+## The (_general_) instruction format
+
+:::: {.columns}
+
+::: {.column width="50%"}
+### Lecture sessions (Usually Mondays)
+- Slide-based delivery of content
+- Emphasis on the _why_ of an approach
+- The first few might feel tedious and boring
+- It will be important that you do the assigned readings or software installation
+:::
+
+::: {.column width="50%"}
+### Hands-on sessions (Usually Wednesdays)
+- No slides, mostly live coding (you follow along)
+- Emphasis on _how_ of an approach
+- 90% of troubleshooting will ocur during the first sessions
+- We will work towards finding a balance of content and time for you to get things done
+:::
+
+::::
+
+## Course materials and content
+
+Course website at: [jcvdav.github.io/EVR_628](https://jcvdav.github.io/EVR_628/)
+
+![](img/qrcode_jcvdav.github.io.png){width=1pt}
+
+
+## Grading
+- Lab exercise and attendance: 20%
+- Assignments: 30%
+- Midterm exam: 10%
+- Individual project: 40%
+
+## Lab exercise and attendance (20%)
+- These are the Wednesdays hands-on days
+- We will be coding side-by-side and you should get these done at the same time as I do
+- Basically, 20% of your grade for free
+
+## Assignments (30%)
+- There will be 3-4 short assignments
+- Designed to gauge whether you are up to speed
+- You will submit them via email to me at jc_villasenor@miami.edu
+
+## Exams (10%)
+- Midterm exam only
+- _Likely_ take-home, date TBD
+- A combination of theory (quesitons) and practice (coding problems)
+
+## Final project (40%)
+We will design a project where you will apply your newly acquired tools and techniques to your own research or application. As such, individual projects will meet the following criteria:
+
+1. All data and code must be primarily analyzed or processed using R and RStudio
+2. The student will show they have mastered the course material by correctly and successfully employing **two tools and techniques covered in part 1 of the course and two tools and techniques covered in part 2 of the course**.
+3. The final product will be a 5-7 page report and a 5-7 slide presentation
+
+## Software requirements
+
+- Download and install the latest version of R (currently v 4.4.x)
+    - [MacOS](https://cran.r-project.org/bin/macosx/)
+    - [Windows](https://cran.r-project.org/bin/windows/base/)
+- Download and install the latest version of [RStudio Desktop](https://posit.co/download/rstudio-desktop/)
+
+Copy the code below and run it on your session in the server (one line at a time)
+
+
+```{r, eval = FALSE}
+#| code-fold: false
+install.packages("sf")
+install.packages("terra")
+install.packages("tidyverse")
+install.packages("rnaturalearth")
+```
+
+In R, run `installed.packages()`, copy the output, and paste it in an R script called `Lastname_assig1.R` (e.g. `Villasenor_assig1.R`).
+
+In R, run `sessionInfo()` and copy the output to the same R script
+
+
+
