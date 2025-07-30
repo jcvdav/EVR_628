@@ -62,7 +62,11 @@ Students must complete any assigned readings and software tests before class. No
 - Version control with [git](https://git-scm.com/downloads) and [GitHub](https://github.com/)
 - Building your first repository (hello world!)
 
-_First assignment: Setting up your portfolio in GitHub_
+---
+
+**First assignment:** _Setting up your portfolio in GitHub_
+
+---
 
 ### Week 4, Sept 8 - Sept 12: Good coding principles
 - Code style and documentation
