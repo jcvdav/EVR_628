@@ -34,3 +34,5 @@ rsconnect/
 *.Rproj
 _site/
 Gemfile.lock
+
+/.quarto/
