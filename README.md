@@ -72,7 +72,8 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
 
 ---
 
-## Week 4 (Sep 9-12): Good coding principles
+## Week 4 (Sep 9-12)
+**Good coding principles**
 - Code style and documentation
 - File structure and organization
 - Classes, objects, variables, values
