@@ -2,7 +2,6 @@
 ---
 
 @import "{{ site.theme }}";
-
 header {
     padding: 25px 20px 40px 20px;
     margin: 0;
@@ -18,7 +17,6 @@ header {
     -webkit-font-smoothing: antialiased;
     min-height: 76px;
 }
-
 banner {
     z-index: 100;
     left: 0;
