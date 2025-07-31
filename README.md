@@ -50,7 +50,7 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
 - Overview of R Studio IDE
 - R Studio Projects and project organization
 - R scripts
-- R packages: [`tidyverse`](https://www.tidyverse.org/), [`EVR628`]()
+- R packages: [`tidyverse`](https://www.tidyverse.org/), [`EVR628`](https://jcvdav.github.io/EVR628tools/)
 
 **Relevant links for the week**
 - [Instructions to install R and RStudio](https://jcvdav.github.io/EVR_628/docs/01_installing_R_RStudio.html)

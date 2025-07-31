@@ -19,9 +19,13 @@ Use [this link](https://posit.co/download/rstudio-desktop/) and use the blue but
 
 Yes, you'll need to install two pieces of software because each does different things. Think about R as the car's engine, and R Studio as the car itself. R takes care of the actual computations. R Studio is an "Integrated Development Environment" (IDE) that allows us to interface with R, as well as to develop projects, connect to external data bases, and visualize our products.
 
-There are two tabs below. One with instructions to install R and one for R Studio. You can always click on an image to make it show in full screen mode.
+## But I already have R and RStudio in my computer. Should I still do it?
+
+Yes. I'm glad to hear you already have them. Please make sure you install the latest version of both. The class will flow better if everyone in the classroom has the same versions of R and RStudio.
 
 # 2. Installation instructions
+
+There are two tabs below. One with instructions to install R and one for R Studio. You can always click on an image to make it show in full screen mode.
 
 :::: {.panel-tabset}
 
