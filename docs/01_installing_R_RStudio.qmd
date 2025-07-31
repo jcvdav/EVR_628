@@ -1,0 +1,132 @@
+---
+title: "EVR 628 - Intro to Environmental Data Science"
+subtitle: "Installing R and RStudio"
+lightbox: true
+format:
+  html:
+    toc: true
+  pdf:
+    documentclass: article
+---
+
+::: {.callout-tip}
+# TL;DR:
+Use [this link](https://posit.co/download/rstudio-desktop/) and use the blue buttons to install R and RStudio in your laptop.
+:::
+
+
+# 1. R **AND** RStudio?
+
+Yes, you'll need to install two pieces of software because each does different things. Think about R as the car's engine, and R Studio as the car itself. R takes care of the actual computations. R Studio is an "Integrated Development Environment" (IDE) that allows us to interface with R, as well as to develop projects, connect to external data bases, and visualize our products.
+
+There are two tabs below. One with instructions to install R and one for R Studio. You can always click on an image to make it show in full screen mode.
+
+# 2. Installation instructions
+
+:::: {.panel-tabset}
+
+## 2.1 Installing R
+
+The first step is to install R on your laptop. It doesn't matter if you are running Windows, MacOS, or some Linux distro^[If you are using Linux, I assume you know what you are doing and you'll be able to install R using whatever package manager you prefer.], but you will need to have admin privileges. If you own your laptop, then you _should_ have admin privileges.
+
+### MacOS and Windows users:
+1. Click on [this link](https://posit.co/download/rstudio-desktop/)
+2. Under the label "1: Install R" you will see a blue button that says "DOWNLOAD AND INSTALL R". Click on it.
+3. You'll be taken to a [new page](https://cran.rstudio.com/). At the top of the page you will see a box with three links. Click the version link that matches your machine.
+
+![](img/1_install_r.png)
+
+:::: {.panel-tabset}
+
+#### On MacOS
+
+4. Determine which processor (chip) your laptop has by using the spotlight search function (`Cmd` + `Space bar`) and type "About this mac". The screenshot below shows my desktop has the Apple M2 Ultra chip (Apple silicon), while my laptop has an Intel processor.
+
+![](img/2_about_this_mac.png){width=30%}
+
+5. Click on the version of R that matches your processor. On my desktop I clicked on `R-4.5.1-arm64.pkg`.
+
+
+#### On Windows
+
+4. You will be given four options (see figure). Click on the one that says `base`
+
+![](img/3_windows.png)
+
+5. You will be taken to a new page. Click on the download link at the top, which says "Download R-44.5.1 for Windows". A file called `R-4.5.1-win.exe` will download.
+
+::::
+
+6. (Optional) You might be prompted to save it in a desired location. Place it in your Downloads or Desktop folder, it doesn't really matter.
+7. Navigate to the folder where it was downloaded and double-click on it. If you were not prompted to select a location, the file is likely under your Downloads folder.
+8. Follow the installation instructions (basically, click continue until you are done). A screenshot of the installer on MacOS is below. The Windows one will look similar.
+
+![](img/4_R_installer.png){width=50%}
+
+9. You are done! Now proceed to installing R Studio
+
+### Linux users:
+
+The above instructions also work because you can install precompiled binay distributions. If you prefer to do it yourself, here are some resources depending on your distro:
+
+- Ubuntu instructions are [here](https://cran.r-project.org/bin/linux/ubuntu/fullREADME.html).
+- Fedora, CentOS, and RHEL instructions are [here](https://cran.r-project.org/bin/linux/fedora/)
+- Debian instructions are [here](https://cran.r-project.org/bin/linux/debian/)
+- Redhat instructions are [here](https://cran.r-project.org/bin/linux/redhat/)
+
+## 2.2 Installing RStudio
+
+::: {.callout-important}
+Do not attempt to install RStudio if you have not installed R!
+:::
+
+1. Click on [this link](https://posit.co/download/rstudio-desktop/)
+2. Under the label "2: Install RStudio" you will se a blue button that says "DOWNLOAD RSTUDIO DESKTOP FOR ...". Click on it.
+3. A file will download.
+4. (Optional) You might be prompted to save it in a desired location. Place it in your Downloads or Desktop folder, it doesn't really matter.
+5. Navigate to the folder where it was downloaded and double-click on it. If you were not prompted to select a location, the file is likely under your Downloads folder.
+
+:::: {.panel-tabset}
+
+#### On MacOS
+6. A window will pop up. Drag and drop the RStudio Icon into the Applications folder.
+
+![](img/5_RStudio_installer.png){width=75%}
+
+#### On Windows
+
+6. Follow the installation instructions (basically, click continue until you are done).
+
+::::
+
+7. You are done!
+
+::::
+
+---
+
+# 3. Testing installations
+
+::: {.callout-important}
+Do not attempt to test installations until you have installed R **AND** RStudio! Go back up and make sure you've gone through **both** sets of instructions under sections `2.1` and `2.2`.
+:::
+
+
+1. Open RStudio.
+
+::: {.callout-note}
+I said "Open RStudio" not "Open R". The RStudio logo looks like this: ![](img/6_RStudio_logo.png){width=5%}, while the R logo looks like this: ![](img/7_R_logo.png){width=5%}. Use the first one.
+:::
+
+
+2. You should see something like what's shown on the screenshopt below. Yours might look a bit different, but you **should see three or four main windows**.
+
+![](img/8_RStudio.png)
+
+3. If you got here, you are ready to go. See you in class! If you see something like the screenshot below, you opened R, not RStudio. Try again.
+
+![](img/9_R.png){width="50%"}
+
+4. If you have not been able to install or confirm installation, come meet me _before_ class.
+
+
