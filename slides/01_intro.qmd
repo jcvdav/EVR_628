@@ -1,73 +1,178 @@
 ---
-title: "EVR 628 - Intro to Environmental Data Science"
-subtitle: "Intro"
+subtitle: "Week 1: Introduction to Data Science and RStudio IDE"
 ---
 
-# About the class
-
-## Introductions and expectations
-
-## The (_general_) instruction format
-
-:::: {.columns}
-
-::: {.column width="50%"}
-### Lecture sessions (Usually Mondays)
-- Slide-based delivery of content
-- Emphasis on the _why_ of an approach
-- The first few might feel tedious and boring
-- It will be important that you do the assigned readings or software installation
-:::
-
-::: {.column width="50%"}
-### Hands-on sessions (Usually Wednesdays)
-- No slides, mostly live coding (you follow along)
-- Emphasis on _how_ of an approach
-- 90% of troubleshooting will ocur during the first sessions
-- We will work towards finding a balance of content and time for you to get things done
-:::
-
-::::
+# Rules of the game
 
 ## Course materials and content
 
 Course website at: [jcvdav.github.io/EVR_628](https://jcvdav.github.io/EVR_628/)
 
-![](img/qrcode_jcvdav.github.io.png){width=1pt}
+![](img/qrcode_jcvdav.github.io.png){.nostretch fig-align="center" width="400"}
 
 ## Grading
-- Assistance and participation: 50%
-- Assignments: 40% (10% each, graded as completed / not completed)
-- Final presentation: 10%
+- Assistance and participation: 50% - come _prepared_ to participate
+- Assignments: 40% (n = 4; 10% each, graded as completed / not completed)
+- Final presentation / Data Science portfolio: 10%
 
-## Final project (40%)
-We will design a project where you will apply your newly acquired tools and techniques to your own research or application. As such, individual projects will meet the following criteria:
+## The (general) instruction format
 
-1. All data and code must be primarily analyzed or processed using R and RStudio
-2. The student will show they have mastered the course material by correctly and successfully employing **two tools and techniques covered in part 1 of the course and two tools and techniques covered in part 2 of the course**.
-3. The final product will be a 5-7 page report and a 5-7 slide presentation
+:::: {.columns}
 
-## Software requirements
+::: {.column width="50%"}
+#### Lecture sessions (Tuesdays)
+- Slide-based delivery of content
+- Emphasis on the _why_ of an approach
+:::
 
-- Download and install the latest version of R (currently v 4.4.x)
-    - [MacOS](https://cran.r-project.org/bin/macosx/)
-    - [Windows](https://cran.r-project.org/bin/windows/base/)
-- Download and install the latest version of [RStudio Desktop](https://posit.co/download/rstudio-desktop/)
+::: {.column width="50%"}
+#### Hands-on sessions (Thursdays)
+- No slides, mostly live coding (you follow along)
+- Emphasis on _how_ of an approach
+- Expect the first sessions to be rocky as you get up to speed and we standardize our computers
 
-Copy the code below and run it on your session in the server (one line at a time)
+:::
 
+::::
 
-```{r, eval = FALSE}
-#| code-fold: false
-install.packages("sf")
-install.packages("terra")
-install.packages("tidyverse")
-install.packages("rnaturalearth")
+. . .
+
+::: {.callout-important collapse="true"}
+Make sure to complete assigned readings or software installation _before_ class. This will count towards participation.
+:::
+
+# Introduction to Data Science
+
+## What is Data Science?
+
+```{r, echo = T, folding = T}
+#| fig-width: 4
+#| fig-height: 4
+#| fig-align: center
+#| fig-cap: "Conceptual model of data science"
+library(tidyverse)
+library(ggrepel)
+
+tibble(skill = c("Coding", "Stats", "Domain"),
+       x = c(-1, 1, 0),
+       y = c(1, 1, -1)) |> 
+  ggplot(aes(x = x, y = y, label = skill, color = skill)) +
+  geom_point(size = 100, alpha = 0.5) +
+  geom_text(mapping = aes(label = skill),
+            color = "black",
+            nudge_x = c(-2, 2, 0),
+            nudge_y = c(0.5, 0.5, -2)) +
+  geom_text(x = 0, y = 0, label = "Data Science",
+            color = "black") +
+  coord_equal() +
+  lims(x = c(-4, 4),
+       y = c(-4, 4)) +
+  theme_void() +
+  theme(legend.position = "none")
 ```
+. . .
 
-In R, run `installed.packages()`, copy the output, and paste it in an R script called `Lastname_assig1.R` (e.g. `Villasenor_assig1.R`).
+This course only covers one bubble
 
-In R, run `sessionInfo()` and copy the output to the same R script
+## How will we approach data science?
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+#### How we think about projects
+
+![Modified from @Wickham2023-aa](https://r4ds.hadley.nz/diagrams/data-science/base.png){.nostretch fig-align="center" width="95%"}
+
+:::
+
+::: {.column width="50%"}
+
+#### How we'll learn things
+
+- Organization
+- Visualization
+- Reproducibility
+- Data management, transformation, wrangling
+- Spatial data and other extensions
+- **No modelling!**
+- **No communication**(-ish)
+
+:::
+
+::::
+
+## Our toolkit
+
+- [**R**](https://www.r-project.org/) will be our _software environment for statistical computing_
+- [**RStudio**](https://posit.co/products/open-source/rstudio/) will be our _Integrated Development Environment_ (IDE)
+- [**Git**](https://git-scm.com/) will help us keep track of our code
+- [**GitHub**](https://github.com/) will allow us to share our code with the world
+- [EVR628tools](https://jcvdav.github.io/EVR628tools/) contains data and a few functions to support the course
+
+. . .
+
+::: {.callout-important collapse="true"}
+# You should have already done this
+::: {.nonincremental}
+- Download and install the latest version of R (currently v 4.5.x) for [MacOS](https://cran.r-project.org/bin/macosx/) or [Windows](https://cran.r-project.org/bin/windows/base/)
+- Download and install the latest version of [RStudio Desktop](https://posit.co/download/rstudio-desktop/)
+- Full set of instructions available [here](https://jcvdav.github.io/EVR_628/docs/01_installing_R_RStudio.html).
+:::
+:::
+
+# Let's jump in
+
+## Learning objectives
+
+:::{.callout-tip}
+# By the end of this week, you should be able to:
+- Open RStudio
+- Identify the main work areas
+- Start a project and a script
+- Install packages
+:::
+
+## Getting to know R Studio
+
+## Why RStudio
+
+- IDE
+- Cognitive costs of switching between screens
+- There are other solutions
+
+## RStudio projects
+
+- One folder = one project
+
+## R Scripts
+
+Hands-on tasks:
+
+:::: {.columns}
+
+::: {.column width="50%"}
+::: {.nonincremental}
+- [ ] Open RStudio
+- [ ] Modify appearance
+- [ ] Start a project
+- [ ] Close and reopen project
+- [ ] Install `tidyverse`
+- [ ] Fail to install `EVR628tools`, then succeed
+- [ ] Load packages
+:::
+:::
+
+::: {.column width="50%"}
+::: {.nonincremental}
+- [ ] Restart R
+- [ ] A simple calculation
+- [ ] First script
+:::
+:::
+
+::::
 
 
+# References
 

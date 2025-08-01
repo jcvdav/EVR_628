@@ -93,7 +93,27 @@
     code span.va { color: #111111; } /* Variable */
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="01_intro_files/libs/revealjs/dist/theme/quarto-8f3eebe07241f08526c91a7e9cbef8fd.css">
   <link href="01_intro_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="01_intro_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -193,7 +213,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">EVR 628 - Intro to Environmental Data Science</h1>
-  <p class="subtitle">Intro</p>
+  <p class="subtitle">Week 1: Introduction to Data Science and RStudio IDE</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -205,77 +225,236 @@ Juan Carlos Villaseñor-Derbez (JC)
 
 </section>
 <section>
-<section id="about-the-class" class="title-slide slide level1 center">
-<h1>About the class</h1>
+<section id="rules-of-the-game" class="title-slide slide level1 center">
+<h1>Rules of the game</h1>
 
-</section>
-<section id="introductions-and-expectations" class="slide level2">
-<h2>Introductions and expectations</h2>
-</section>
-<section id="the-general-instruction-format" class="slide level2">
-<h2>The (<em>general</em>) instruction format</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<h3 id="lecture-sessions-usually-mondays">Lecture sessions (Usually Mondays)</h3>
-<ul>
-<li class="fragment">Slide-based delivery of content</li>
-<li class="fragment">Emphasis on the <em>why</em> of an approach</li>
-<li class="fragment">The first few might feel tedious and boring</li>
-<li class="fragment">It will be important that you do the assigned readings or software installation</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<h3 id="hands-on-sessions-usually-wednesdays">Hands-on sessions (Usually Wednesdays)</h3>
-<ul>
-<li class="fragment">No slides, mostly live coding (you follow along)</li>
-<li class="fragment">Emphasis on <em>how</em> of an approach</li>
-<li class="fragment">90% of troubleshooting will ocur during the first sessions</li>
-<li class="fragment">We will work towards finding a balance of content and time for you to get things done</li>
-</ul>
-</div></div>
 </section>
 <section id="course-materials-and-content" class="slide level2">
 <h2>Course materials and content</h2>
 <p>Course website at: <a href="https://jcvdav.github.io/EVR_628/">jcvdav.github.io/EVR_628</a></p>
-
-<img data-src="img/qrcode_jcvdav.github.io.png" style="width:0.01389in" class="r-stretch"></section>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/qrcode_jcvdav.github.io.png" class="quarto-figure quarto-figure-center" width="400"></p>
+</figure>
+</div>
+</section>
 <section id="grading" class="slide level2">
 <h2>Grading</h2>
 <ul>
-<li class="fragment">Assistance and participation: 50%</li>
-<li class="fragment">Assignments: 40% (10% each, graded as completed / not completed)</li>
-<li class="fragment">Final presentation: 10%</li>
+<li class="fragment">Assistance and participation: 50% - come <em>prepared</em> to participate</li>
+<li class="fragment">Assignments: 40% (n = 4; 10% each, graded as completed / not completed)</li>
+<li class="fragment">Final presentation / Data Science portfolio: 10%</li>
 </ul>
 </section>
-<section id="final-project-40" class="slide level2">
-<h2>Final project (40%)</h2>
-<p>We will design a project where you will apply your newly acquired tools and techniques to your own research or application. As such, individual projects will meet the following criteria:</p>
-<ol type="1">
-<li class="fragment">All data and code must be primarily analyzed or processed using R and RStudio</li>
-<li class="fragment">The student will show they have mastered the course material by correctly and successfully employing <strong>two tools and techniques covered in part 1 of the course and two tools and techniques covered in part 2 of the course</strong>.</li>
-<li class="fragment">The final product will be a 5-7 page report and a 5-7 slide presentation</li>
-</ol>
-</section>
-<section id="software-requirements" class="slide level2">
-<h2>Software requirements</h2>
+<section id="the-general-instruction-format" class="slide level2">
+<h2>The (general) instruction format</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h4 id="lecture-sessions-tuesdays">Lecture sessions (Tuesdays)</h4>
 <ul>
-<li class="fragment">Download and install the latest version of R (currently v 4.4.x)
-<ul>
-<li class="fragment"><a href="https://cran.r-project.org/bin/macosx/">MacOS</a></li>
-<li class="fragment"><a href="https://cran.r-project.org/bin/windows/base/">Windows</a></li>
-</ul></li>
-<li class="fragment">Download and install the latest version of <a href="https://posit.co/download/rstudio-desktop/">RStudio Desktop</a></li>
+<li class="fragment">Slide-based delivery of content</li>
+<li class="fragment">Emphasis on the <em>why</em> of an approach</li>
 </ul>
-<p>Copy the code below and run it on your session in the server (one line at a time)</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"sf"</span>)</span>
-<span id="cb1-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"terra"</span>)</span>
-<span id="cb1-3"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
-<span id="cb1-4"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"rnaturalearth"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<h4 id="hands-on-sessions-thursdays">Hands-on sessions (Thursdays)</h4>
+<ul>
+<li class="fragment">No slides, mostly live coding (you follow along)</li>
+<li class="fragment">Emphasis on <em>how</em> of an approach</li>
+<li class="fragment">Expect the first sessions to be rocky as you get up to speed and we standardize our computers</li>
+</ul>
+</div></div>
+<div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>In R, run <code>installed.packages()</code>, copy the output, and paste it in an R script called <code>Lastname_assig1.R</code> (e.g.&nbsp;<code>Villasenor_assig1.R</code>).</p>
-<p>In R, run <code>sessionInfo()</code> and copy the output to the same R script</p>
-
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>Make sure to complete assigned readings or software installation <em>before</em> class. This will count towards participation.</p>
+</div>
+</div>
+</div>
+</div>
 </section></section>
+<section>
+<section id="introduction-to-data-science" class="title-slide slide level1 center">
+<h1>Introduction to Data Science</h1>
+
+</section>
+<section id="what-is-data-science" class="slide level2">
+<h2>What is Data Science?</h2>
+<div class="cell" data-layout-align="center" data-folding="true">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href=""></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb1-3"><a href=""></a></span>
+<span id="cb1-4"><a href=""></a><span class="fu">tibble</span>(<span class="at">skill =</span> <span class="fu">c</span>(<span class="st">"Coding"</span>, <span class="st">"Stats"</span>, <span class="st">"Domain"</span>),</span>
+<span id="cb1-5"><a href=""></a>       <span class="at">x =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb1-6"><a href=""></a>       <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb1-7"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">label =</span> skill, <span class="at">color =</span> skill)) <span class="sc">+</span></span>
+<span id="cb1-8"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">100</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb1-9"><a href=""></a>  <span class="fu">geom_text</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">label =</span> skill),</span>
+<span id="cb1-10"><a href=""></a>            <span class="at">color =</span> <span class="st">"black"</span>,</span>
+<span id="cb1-11"><a href=""></a>            <span class="at">nudge_x =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">0</span>),</span>
+<span id="cb1-12"><a href=""></a>            <span class="at">nudge_y =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="sc">-</span><span class="dv">2</span>)) <span class="sc">+</span></span>
+<span id="cb1-13"><a href=""></a>  <span class="fu">geom_text</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">label =</span> <span class="st">"Data Science"</span>,</span>
+<span id="cb1-14"><a href=""></a>            <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb1-15"><a href=""></a>  <span class="fu">coord_equal</span>() <span class="sc">+</span></span>
+<span id="cb1-16"><a href=""></a>  <span class="fu">lims</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>),</span>
+<span id="cb1-17"><a href=""></a>       <span class="at">y =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>)) <span class="sc">+</span></span>
+<span id="cb1-18"><a href=""></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb1-19"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="01_intro_files/figure-revealjs/unnamed-chunk-1-1.png" width="384"></p>
+<figcaption>Conceptual model of data science</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>This course only covers one bubble</p>
+</div>
+</section>
+<section id="how-will-we-approach-data-science" class="slide level2">
+<h2>How will we approach data science?</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h4 id="how-we-think-about-projects">How we think about projects</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://r4ds.hadley.nz/diagrams/data-science/base.png" class="" style="width:95.0%"></p>
+<figcaption>Modified from <span class="citation" data-cites="Wickham2023-aa">Wickham, Mine Cetinkaya-Rundel, and Grolemund (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span></figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<h4 id="how-well-learn-things">How we’ll learn things</h4>
+<ul>
+<li class="fragment">Organization</li>
+<li class="fragment">Visualization</li>
+<li class="fragment">Reproducibility</li>
+<li class="fragment">Data management, transformation, wrangling</li>
+<li class="fragment">Spatial data and other extensions</li>
+<li class="fragment"><strong>No modelling!</strong></li>
+<li class="fragment"><strong>No communication</strong>(-ish)</li>
+</ul>
+</div></div>
+</section>
+<section id="our-toolkit" class="slide level2">
+<h2>Our toolkit</h2>
+<ul>
+<li class="fragment"><a href="https://www.r-project.org/"><strong>R</strong></a> will be our <em>software environment for statistical computing</em></li>
+<li class="fragment"><a href="https://posit.co/products/open-source/rstudio/"><strong>RStudio</strong></a> will be our <em>Integrated Development Environment</em> (IDE)</li>
+<li class="fragment"><a href="https://git-scm.com/"><strong>Git</strong></a> will help us keep track of our code</li>
+<li class="fragment"><a href="https://github.com/"><strong>GitHub</strong></a> will allow us to share our code with the world</li>
+<li class="fragment"><a href="https://jcvdav.github.io/EVR628tools/">EVR628tools</a> contains data and a few functions to support the course</li>
+</ul>
+<div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>You should have already done this</strong></p>
+</div>
+<div class="callout-content">
+<div>
+<ul>
+<li>Download and install the latest version of R (currently v 4.5.x) for <a href="https://cran.r-project.org/bin/macosx/">MacOS</a> or <a href="https://cran.r-project.org/bin/windows/base/">Windows</a></li>
+<li>Download and install the latest version of <a href="https://posit.co/download/rstudio-desktop/">RStudio Desktop</a></li>
+<li>Full set of instructions available <a href="https://jcvdav.github.io/EVR_628/docs/01_installing_R_RStudio.html">here</a>.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="lets-jump-in" class="title-slide slide level1 center">
+<h1>Let’s jump in</h1>
+
+</section>
+<section id="learning-objectives" class="slide level2">
+<h2>Learning objectives</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>By the end of this week, you should be able to:</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li class="fragment">Open RStudio</li>
+<li class="fragment">Identify the main work areas</li>
+<li class="fragment">Start a project and a script</li>
+<li class="fragment">Install packages</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="getting-to-know-r-studio" class="slide level2">
+<h2>Getting to know R Studio</h2>
+</section>
+<section id="why-rstudio" class="slide level2">
+<h2>Why RStudio</h2>
+<ul>
+<li class="fragment">IDE</li>
+<li class="fragment">Cognitive costs of switching between screens</li>
+<li class="fragment">There are other solutions</li>
+</ul>
+</section>
+<section id="rstudio-projects" class="slide level2">
+<h2>RStudio projects</h2>
+<ul>
+<li class="fragment">One folder = one project</li>
+</ul>
+</section>
+<section id="r-scripts" class="slide level2">
+<h2>R Scripts</h2>
+<p>Hands-on tasks:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div>
+<ul class="task-list">
+<li><label><input type="checkbox">Open RStudio</label></li>
+<li><label><input type="checkbox">Modify appearance</label></li>
+<li><label><input type="checkbox">Start a project</label></li>
+<li><label><input type="checkbox">Close and reopen project</label></li>
+<li><label><input type="checkbox">Install <code>tidyverse</code></label></li>
+<li><label><input type="checkbox">Fail to install <code>EVR628tools</code>, then succeed</label></li>
+<li><label><input type="checkbox">Load packages</label></li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<div>
+<ul class="task-list">
+<li><label><input type="checkbox">Restart R</label></li>
+<li><label><input type="checkbox">A simple calculation</label></li>
+<li><label><input type="checkbox">First script</label></li>
+</ul>
+</div>
+</div></div>
+</section></section>
+<section id="references" class="title-slide slide level1 smaller scrollable">
+<h1>References</h1>
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Wickham2023-aa" class="csl-entry" role="listitem">
+Wickham, Hadley, Mine Cetinkaya-Rundel, and Garrett Grolemund. 2023. <em><span>R</span> for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. 2nd ed. Sebastopol, CA: O’Reilly Media.
+</div>
+</div>
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="https://ucomm.miami.edu/_assets/images/tools-and-resources/signatures/png/um-horizontal-rgb.png" class="slide-logo"></p>

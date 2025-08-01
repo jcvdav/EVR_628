@@ -1,3 +1,4 @@
+title: "EVR 628 - Intro to Environmental Data Science"
 author: "Juan Carlos Villaseñor-Derbez (JC)"
 affiliation: "Rosenstiel School of Marine, Atmospheric, and Earth Science and Institute for Data Science and Computing"
 
@@ -5,7 +6,7 @@ project:
   output-dir: .
   execute-dir: project
 
-#bibliography: references.bib
+bibliography: references.bib
 format:
   revealjs:
     theme: simple
@@ -17,4 +18,5 @@ format:
     echo: true
     slide-number: true
     smaller: true
-    fig-align: center
+    fig-align: "center"
+    auto-stretch: false
