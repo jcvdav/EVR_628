@@ -43,9 +43,9 @@ The first step is to install R on your laptop. It doesn't matter if you are runn
 
 #### On MacOS
 
-4. Determine which processor (chip) your laptop has by using the spotlight search function (`Cmd` + `Space bar`) and type "About this mac". The screenshot below shows my desktop has the Apple M2 Ultra chip (Apple silicon), while my laptop has an Intel processor.
+4. Determine which processor (chip) your laptop has by using the spotlight search function (`Cmd` + `Space bar`) and type "About this mac". The screenshot below shows my desktop has the Apple M2 Ultra chip (Apple silicon), while my laptop has an Intel processor (Inter Core i9).
 
-![](img/2_about_this_mac.png){width=30%}
+![](img/2_about_this_mac.png){width=30%}![](img/2b_about_this_mac.png){width=28%}
 
 5. Click on the version of R that matches your processor. On my desktop I clicked on `R-4.5.1-arm64.pkg`.
 
