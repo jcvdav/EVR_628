@@ -55,10 +55,10 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
 
 ## Week 2 (Aug 25-29)
 **Data visualization**
-- The grammar of graphics and the [`ggplot2`](https://github.com/tidyverse/ggplot2) package
 - Types of visualization
 - Visualization principles
 - Colorblindness, IPCC’s visual style guide, and the [`viridis`](https://github.com/sjmgarnier/viridis/) package
+- The grammar of graphics and the [`ggplot2`](https://github.com/tidyverse/ggplot2) package
 
 ## *Week3 (Sep 1-5)
 **Keeping track of your code with Git and GitHub**
