@@ -246,11 +246,62 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div>
 </section>
 <section>
-<section id="types-of-visualization" class="title-slide slide level1 center">
-<h1>Types of visualization</h1>
+<section id="types-of-data" class="title-slide slide level1 center">
+<h1>Types of data</h1>
 
 </section>
-<section id="types-of-data" class="slide level2">
+<section id="some-jargon" class="slide level2">
+<h2>Some jargon</h2>
+<ul>
+<li class="fragment">Variable: A measurable quality, quantity or property</li>
+<li class="fragment">Value: The state of the variable</li>
+<li class="fragment">Observation: A data point to which variables and values are assigned</li>
+<li class="fragment"><em>Tabular</em> data: The way we store and represent information. Allows us to relate a variable (column) to an observation (row)</li>
+</ul>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="cell" data-folding="true">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>data_lionfish[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>)] <span class="sc">|&gt;</span> </span>
+<span id="cb1-2"><a href=""></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">id</th>
+<th style="text-align: right;">total_length_mm</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">001-Po-16/05/10</td>
+<td style="text-align: right;">213</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">002-Po-29/05/10</td>
+<td style="text-align: right;">124</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">003-Pd-29/05/10</td>
+<td style="text-align: right;">166</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<ul>
+<li class="fragment">Which of these is a variable?</li>
+<li class="fragment">A value of that variable?</li>
+<li class="fragment">How many observations?</li>
+</ul>
+</div></div>
+</div>
+</section>
+<section id="types-of-data-1" class="slide level2">
 <h2>Types of data</h2>
 <p>The <em>type</em> of data you have can influence how you visualize them</p>
 <ul>
@@ -271,8 +322,8 @@ Juan Carlos Villaseñor-Derbez (JC)
 </figure>
 </div>
 <ul>
-<li class="fragment"><code>data_lionfish</code>, from the <code>EVR628tools</code> package</li>
-<li class="fragment">contains biometric measurements for 109 lionfish (<em>Pterois volitans</em>) captured off Puerto Aventuras (Mexico)</li>
+<li class="fragment"><code>data_lionfish</code>, from the <a href="https://jcvdav.github.io/EVR628tools/index.html"><code>EVR628tools</code></a> package</li>
+<li class="fragment">Contains biometric measurements for 109 lionfish (<em>Pterois volitans</em>) captured off Puerto Aventuras (Mexico)</li>
 </ul>
 <div class="fragment">
 <div class="callout callout-tip callout-titled callout-style-default">
@@ -295,8 +346,8 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="cell" data-folding="true">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>data_lionfish[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">9</span>)] <span class="sc">|&gt;</span> </span>
-<span id="cb1-2"><a href=""></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>data_lionfish[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">9</span>)] <span class="sc">|&gt;</span> </span>
+<span id="cb2-2"><a href=""></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <table class="caption-top">
@@ -364,11 +415,11 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>data_milton <span class="sc">|&gt;</span> </span>
-<span id="cb2-2"><a href=""></a>  <span class="fu">select</span>(name, iso_time, lat, lon, sshs) <span class="sc">|&gt;</span> </span>
-<span id="cb2-3"><a href=""></a>  <span class="fu">head</span>(<span class="dv">10</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb2-4"><a href=""></a>  <span class="fu">tail</span>(<span class="dv">5</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb2-5"><a href=""></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>data_milton <span class="sc">|&gt;</span> </span>
+<span id="cb3-2"><a href=""></a>  <span class="fu">select</span>(name, iso_time, lat, lon, sshs) <span class="sc">|&gt;</span> </span>
+<span id="cb3-3"><a href=""></a>  <span class="fu">head</span>(<span class="dv">10</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb3-4"><a href=""></a>  <span class="fu">tail</span>(<span class="dv">5</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb3-5"><a href=""></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <table class="caption-top">
@@ -378,7 +429,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <th style="text-align: left;">iso_time</th>
 <th style="text-align: right;">lat</th>
 <th style="text-align: right;">lon</th>
-<th style="text-align: right;">sshs</th>
+<th style="text-align: left;">sshs</th>
 </tr>
 </thead>
 <tbody>
@@ -387,35 +438,35 @@ Juan Carlos Villaseñor-Derbez (JC)
 <td style="text-align: left;">2024-10-05 09:00:00</td>
 <td style="text-align: right;">21.7</td>
 <td style="text-align: right;">-95.5</td>
-<td style="text-align: right;">-3</td>
+<td style="text-align: left;">-3</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">MILTON</td>
 <td style="text-align: left;">2024-10-05 12:00:00</td>
 <td style="text-align: right;">22.0</td>
 <td style="text-align: right;">-95.5</td>
-<td style="text-align: right;">-1</td>
+<td style="text-align: left;">-1</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">MILTON</td>
 <td style="text-align: left;">2024-10-05 15:00:00</td>
 <td style="text-align: right;">22.3</td>
 <td style="text-align: right;">-95.5</td>
-<td style="text-align: right;">-1</td>
+<td style="text-align: left;">-1</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">MILTON</td>
 <td style="text-align: left;">2024-10-05 18:00:00</td>
 <td style="text-align: right;">22.5</td>
 <td style="text-align: right;">-95.5</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: left;">0</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">MILTON</td>
 <td style="text-align: left;">2024-10-05 21:00:00</td>
 <td style="text-align: right;">22.6</td>
 <td style="text-align: right;">-95.5</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: left;">0</td>
 </tr>
 </tbody>
 </table>
@@ -442,63 +493,13 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="fragment">
 <p>Can you add <code>sshs</code> and obtain something meaningful?</p>
 </div>
+</section></section>
+<section>
+<section id="types-of-visualizations" class="title-slide slide level1 center">
+<h1>Types of visualizations</h1>
+
 </section>
-<section id="some-jargon" class="slide level2">
-<h2>Some jargon</h2>
-<ul>
-<li class="fragment">Variable: A measurable quality, quantity or property</li>
-<li class="fragment">Value: The state of the variable</li>
-<li class="fragment">Observation: A data point to which variables and values are assigned</li>
-<li class="fragment"><em>Tabular</em> data: The way we store and represent information. Allows us to relate a variable (column) to an observation (row)</li>
-</ul>
-<div class="fragment">
-<div class="columns">
-<div class="column" style="width:60%;">
-<div class="cell" data-folding="true">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>data_lionfish[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span><span class="sc">:</span><span class="dv">6</span>)] <span class="sc">|&gt;</span> </span>
-<span id="cb3-2"><a href=""></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: left;">site</th>
-<th style="text-align: right;">total_length_mm</th>
-<th style="text-align: right;">total_weight_gr</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Paraiso</td>
-<td style="text-align: right;">213</td>
-<td style="text-align: right;">112.7</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Paraiso</td>
-<td style="text-align: right;">124</td>
-<td style="text-align: right;">27.6</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Pared</td>
-<td style="text-align: right;">166</td>
-<td style="text-align: right;">52.3</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div><div class="column" style="width:40%;">
-<ul>
-<li class="fragment">Which of these is a variable?</li>
-<li class="fragment">A value of that variable?</li>
-<li class="fragment">How many observations?</li>
-</ul>
-</div></div>
-</div>
-</section>
-<section id="types-of-visualizations" class="slide level2">
+<section id="types-of-visualizations-1" class="slide level2">
 <h2>Types of visualizations</h2>
 <p>There are many, many, MANY types of visualizations:</p>
 <ul>
@@ -512,7 +513,15 @@ Juan Carlos Villaseñor-Derbez (JC)
 <li class="fragment">You should have creative freedom</li>
 <li class="fragment">We have one goal: To communicate something to the viewer (our ourselves)</li>
 </ul>
-<!-- k -->
+</div>
+</section>
+<section id="visualizing-for-yourself" class="slide level2">
+<h2>Visualizing for yourself</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://r4ds.hadley.nz/diagrams/data-science/base.png" class="" style="width:95.0%"></p>
+<figcaption>Modified from <span class="citation" data-cites="Wickham2023-aa">Wickham, Mine Cetinkaya-Rundel, and Grolemund (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span></figcaption>
+</figure>
 </div>
 </section>
 <section id="examples" class="slide level2">
@@ -526,7 +535,8 @@ Juan Carlos Villaseñor-Derbez (JC)
 <span id="cb4-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> total_length_mm)) <span class="sc">+</span></span>
 <span id="cb4-3"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">8</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
 <span id="cb4-4"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Total length (mm)"</span>,</span>
-<span id="cb4-5"><a href=""></a>       <span class="at">y =</span> <span class="st">"N"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-5"><a href=""></a>       <span class="at">y =</span> <span class="st">"N"</span>,</span>
+<span id="cb4-6"><a href=""></a>       <span class="at">title =</span> <span class="st">"Distribution of lionfish size"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -577,7 +587,8 @@ Juan Carlos Villaseñor-Derbez (JC)
 <span id="cb5-3"><a href=""></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb5-4"><a href=""></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
 <span id="cb5-5"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Site"</span>,</span>
-<span id="cb5-6"><a href=""></a>       <span class="at">y =</span> <span class="st">"Total weight (gr)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-6"><a href=""></a>       <span class="at">y =</span> <span class="st">"Total weight (gr)"</span>,</span>
+<span id="cb5-7"><a href=""></a>       <span class="at">title =</span> <span class="st">"Distribution of lionfish size by</span><span class="sc">\n</span><span class="st">sampling site"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -598,6 +609,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <li class="fragment">Points are “outlying” observations</li>
 </ul>
 </div></div>
+<div class="fragment">
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -611,6 +623,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div>
 </div>
 </div>
+</div>
 </section>
 <section id="examples-2" class="slide level2">
 <h2>Examples</h2>
@@ -620,146 +633,17 @@ Juan Carlos Villaseñor-Derbez (JC)
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
-<span id="cb6-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> total_length_mm,</span>
-<span id="cb6-3"><a href=""></a>                     <span class="at">y =</span> total_weight_gr)) <span class="sc">+</span></span>
-<span id="cb6-4"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb6-5"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Total length (mm)"</span>,</span>
-<span id="cb6-6"><a href=""></a>       <span class="at">y =</span> <span class="st">"Total weight (gr)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> size_class, <span class="at">y =</span> site)) <span class="sc">+</span></span>
+<span id="cb6-3"><a href=""></a>  <span class="fu">geom_bin_2d</span>() <span class="sc">+</span></span>
+<span id="cb6-4"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Size class"</span>,</span>
+<span id="cb6-5"><a href=""></a>       <span class="at">y =</span> <span class="st">"Site"</span>,</span>
+<span id="cb6-6"><a href=""></a>       <span class="at">fill =</span> <span class="st">"N"</span>,</span>
+<span id="cb6-7"><a href=""></a>       <span class="at">title =</span> <span class="st">"Distribution of observations</span><span class="sc">\n</span><span class="st">across sites and sizes"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure>
 <p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-7-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Message: “Look, slightly larger fish are waaaay heavier!”</p>
-</div><div class="column" style="width:40%;">
-<h3 id="scatterplot"><span style="color:blue">Scatterplot:</span></h3>
-<ul>
-<li class="fragment">Relationship between two numeric variables</li>
-<li class="fragment">Represented with points</li>
-<li class="fragment">Uses <code>ggplot2::geom_point()</code></li>
-</ul>
-</div></div>
-</section>
-<section id="examples-3" class="slide level2">
-<h2>Examples</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_milton, </span>
-<span id="cb7-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> iso_time, <span class="at">y =</span> wind_speed)) <span class="sc">+</span></span>
-<span id="cb7-3"><a href=""></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb7-4"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Date"</span>,</span>
-<span id="cb7-5"><a href=""></a>       <span class="at">y =</span> <span class="st">"Wind speed (knots)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Message: “The wind speed of a hurricane was highest the night of Oct 7th”</p>
-</div><div class="column" style="width:40%;">
-<h3 id="line-chart"><span style="color:red">Line chart:</span></h3>
-<ul>
-<li class="fragment">Evolution of one variable along another</li>
-<li class="fragment">Conveys a sense of continuity even if our observations are not</li>
-<li class="fragment">Uses <code>ggplot::geom_line()</code></li>
-</ul>
-</div></div>
-</section>
-<section id="examples-4" class="slide level2">
-<h2>Examples</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
-<span id="cb8-2"><a href=""></a>      <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> site)) <span class="sc">+</span></span>
-<span id="cb8-3"><a href=""></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb8-4"><a href=""></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb8-5"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Site"</span>,</span>
-<span id="cb8-6"><a href=""></a>       <span class="at">y =</span> <span class="st">"N"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Message: “Most fish come from Paamul”</p>
-</div><div class="column" style="width:40%;">
-<h3 id="column"><span style="color:gray">Column:</span></h3>
-<ul>
-<li class="fragment">Relationship between categorical and numeric variable</li>
-<li class="fragment">Represented with “columns” or “bars”</li>
-<li class="fragment">This case uses <code>ggplot2::geom_bar()</code>, but there is also <code>ggplot2::geom_col()</code></li>
-</ul>
-</div></div>
-</section>
-<section id="now-im-confused" class="slide level2">
-<h2>Now I’m confused…</h2>
-<ul>
-<li class="fragment">Good!</li>
-<li class="fragment">That confusion might be critical thinking</li>
-<li class="fragment">You can always try visualizing the same data in more than one way</li>
-<li class="fragment">Let’s try to organize your thoughts</li>
-</ul>
-</section>
-<section id="right-visuals-for-your-data" class="slide level2">
-<h2>Right visuals for your data</h2>
-<p>Remember our goal:</p>
-<blockquote>
-<p>To communicate something to the viewer (our ourselves)</p>
-</blockquote>
-<div class="fragment">
-<p>That <em>something</em> could be a:</p>
-<ul>
-<li class="fragment"><p><span style="color:green">Distribution</span>: “Most of my fish are quite small” (<a href="#/examples">example</a>)</p></li>
-<li class="fragment"><p><span style="color:blue">Relationship</span> (or correlation): “Look, slightly larger fish are waaaay heavier!” (<a href="#/examples-2">example</a>)</p></li>
-<li class="fragment"><p><span style="color:red">Evolution</span>: “The wind speed of a hurricane was highest the night of Oct 7th”(<a href="#/examples-3">example</a>)</p></li>
-<li class="fragment"><p><span style="color:gray">Ranking / Part of a whole</span>: “Most fish come from Paamul”(<a href="#/examples-5">example</a>)</p></li>
-</ul>
-</div>
-<div class="fragment">
-<p>Any visual can usually achieve more than one of this at a time</p>
-</div>
-<div class="fragment">
-<p>Most visuals can only achieve <em>one</em> of these at a time</p>
-</div>
-</section></section>
-<section>
-<section id="lets-go-back-to-the-examples" class="title-slide slide level1 center">
-<h1>Lets go back to the <a href="#/examples">examples</a></h1>
-
-</section>
-<section id="some-visuals-are-more-than-one-type" class="slide level2">
-<h2>Some visuals are more than one type</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
-<span id="cb9-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> size_class, <span class="at">y =</span> site)) <span class="sc">+</span></span>
-<span id="cb9-3"><a href=""></a>  <span class="fu">geom_bin_2d</span>() <span class="sc">+</span></span>
-<span id="cb9-4"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Size class"</span>,</span>
-<span id="cb9-5"><a href=""></a>       <span class="at">y =</span> <span class="st">"Site"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-10-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -787,99 +671,721 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div>
 </div>
 </div>
+</section>
+<section id="examples-3" class="slide level2">
+<h2>Examples</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
+<span id="cb7-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> total_length_mm,</span>
+<span id="cb7-3"><a href=""></a>                     <span class="at">y =</span> total_weight_gr)) <span class="sc">+</span></span>
+<span id="cb7-4"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb7-5"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Total length (mm)"</span>,</span>
+<span id="cb7-6"><a href=""></a>       <span class="at">y =</span> <span class="st">"Total weight (gr)"</span>,</span>
+<span id="cb7-7"><a href=""></a>       <span class="at">title =</span> <span class="st">"Relationship between lionfish length</span><span class="sc">\n</span><span class="st">and weight"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Message: “Look, slightly larger fish are waaaay heavier!”</p>
+</div><div class="column" style="width:40%;">
+<h3 id="scatterplot"><span style="color:blue">Scatterplot:</span></h3>
+<ul>
+<li class="fragment">Relationship between two continuous numeric variables</li>
+<li class="fragment">Represented with points</li>
+<li class="fragment">Uses <code>ggplot2::geom_point()</code></li>
+</ul>
+</div></div>
+</section>
+<section id="examples-4" class="slide level2">
+<h2>Examples</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_milton, </span>
+<span id="cb8-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> iso_time, <span class="at">y =</span> wind_speed)) <span class="sc">+</span></span>
+<span id="cb8-3"><a href=""></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb8-4"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Date"</span>,</span>
+<span id="cb8-5"><a href=""></a>       <span class="at">y =</span> <span class="st">"Wind speed (knots)"</span>,</span>
+<span id="cb8-6"><a href=""></a>       <span class="at">title =</span> <span class="st">"Evolution of wind speed for</span><span class="sc">\n</span><span class="st">Hurricane Milton"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Message: “The wind speed of a hurricane was highest the night of Oct 7th”</p>
+</div><div class="column" style="width:40%;">
+<h3 id="line-chart"><span style="color:red">Line chart:</span></h3>
+<ul>
+<li class="fragment">Evolution of one variable along another</li>
+<li class="fragment">Conveys a sense of continuity even if our observations are not</li>
+<li class="fragment">Uses <code>ggplot::geom_line()</code></li>
+</ul>
+</div></div>
+</section>
+<section id="examples-5" class="slide level2">
+<h2>Examples</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>data_lionfish <span class="sc">|&gt;</span> </span>
+<span id="cb9-2"><a href=""></a>  <span class="fu">group_by</span>(site) <span class="sc">|&gt;</span> </span>
+<span id="cb9-3"><a href=""></a>  <span class="fu">summarize</span>(<span class="at">largest =</span> <span class="fu">max</span>(total_length_mm)) <span class="sc">|&gt;</span> </span>
+<span id="cb9-4"><a href=""></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> site, <span class="at">y =</span> largest)) <span class="sc">+</span></span>
+<span id="cb9-5"><a href=""></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb9-6"><a href=""></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb9-7"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Site"</span>,</span>
+<span id="cb9-8"><a href=""></a>       <span class="at">y =</span> <span class="st">"Largest fish (mm)"</span>,</span>
+<span id="cb9-9"><a href=""></a>       <span class="at">title =</span> <span class="st">"Size of largest fish by site"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-10-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Message: “Largest fish comes from Castillo”</p>
+</div><div class="column" style="width:40%;">
+<h3 id="column"><span style="color:gray">Column:</span></h3>
+<ul>
+<li class="fragment">Relationship between categorical and numeric variable</li>
+<li class="fragment">Represented with “columns” or “bars”</li>
+<li class="fragment">This case uses <code>ggplot2::geom_col()</code>, but there is also <code>ggplot2::geom_bar()</code></li>
+</ul>
+</div></div>
+</section>
+<section id="now-im-confused" class="slide level2">
+<h2>Now I’m confused…</h2>
+<ul>
+<li class="fragment">Good!</li>
+<li class="fragment">That confusion might be critical thinking</li>
+<li class="fragment">You can always try visualizing the same data in more than one way</li>
+<li class="fragment">Let’s try to organize your thoughts</li>
+</ul>
+</section>
+<section id="right-visuals-for-your-data" class="slide level2">
+<h2>Right visuals for your data</h2>
+<p>Remember our goal:</p>
+<blockquote>
+<p>To communicate <em>something</em> to the viewer (our ourselves)</p>
+</blockquote>
+<div class="fragment">
+<p>That <em>something</em> could be a:</p>
+<ul>
+<li class="fragment"><p><span style="color:green">Distribution</span>: “Most of my fish are quite small” (<a href="#/examples">example</a>)</p></li>
+<li class="fragment"><p><span style="color:blue">Relationship</span> (or correlation): “Look, slightly larger fish are waaaay heavier!” (<a href="#/examples-3">example</a>)</p></li>
+<li class="fragment"><p><span style="color:red">Evolution</span>: “The wind speed of a hurricane was highest the night of Oct 7th”(<a href="#/examples-4">example</a>)</p></li>
+<li class="fragment"><p><span style="color:gray">Ranking / Part of a whole</span>: “Largest fish comes from Castillo”(<a href="#/examples-6">example</a>)</p></li>
+</ul>
+</div>
+<div class="fragment">
+<p>Any visual can usually achieve more than one of this at a time</p>
+</div>
+<div class="fragment">
+<p>Most visuals can only achieve <em>one</em> of these <em>effectively</em> at a time</p>
+</div>
+</section>
+<section id="same-data-multiple-plots" class="slide level2">
+<h2>Same data, multiple plots</h2>
+<p>Which of this is best at showing the relationship between size and weight?</p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-11-1.png" width="288"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-11-2.png" width="288"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-12-1.png" width="288"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-13-1.png" width="371"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</div>
+<div class="fragment">
+<p>Which one is best at showing the size and weight of most fish?</p>
+</div>
+</section>
+<section id="same-data-multiple-plots-1" class="slide level2">
+<h2>Same data, multiple plots</h2>
+<p>Which is best at shwoing me the number of samples by site and size?</p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-14-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-15-1.png" width="624"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-16-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-16-2.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section id="chosing-the-right-visual" class="slide level2">
+<h2>Chosing the “right” visual</h2>
+<ul>
+<li class="fragment"><p>The right visual is the one that gets the message across</p></li>
+<li class="fragment"><p>Ask yourself some questions:</p>
+<ul>
+<li class="fragment">How many variables do I want to represent?</li>
+<li class="fragment">What type of data do I have for each variable?</li>
+<li class="fragment">What pattern or message do I want to convey?</li>
+</ul></li>
+<li class="fragment"><p>There are resources to help you brainstorm:</p>
+<ul>
+<li class="fragment"><a href="https://r-graph-gallery.com/">r-graph-gallery</a></li>
+<li class="fragment"><a href="https://www.data-to-viz.com/">data-to-viz</a></li>
+<li class="fragment">What others in your field do</li>
+</ul></li>
+</ul>
 </section></section>
 <section>
-<section id="just-because-you-can-doesnt-mean-you-should" class="title-slide slide level1 center">
-<h1>Just because you can doesn’t mean you should</h1>
+<section id="principles-of-visualization" class="title-slide slide level1 center">
+<h1>Principles of visualization</h1>
 
 </section>
-<section id="is-this-good-or-bad" class="slide level2">
-<h2>Is this good or bad?</h2>
+<section id="small-parentheses-add-lightness" class="slide level2">
+<h2>Small parentheses: “Add lightness”</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="http://www.diseno-art.com/news_content/wp-content/uploads/2014/09/evolution-of-the-mazda-mx-5.jpg" class="" style="width:40.0%"></p>
+<figcaption>Source: Diseno-art.com</figcaption>
+</figure>
+</div>
+<div class="fragment">
+<p>Instead of “what should I <em>add</em> to improve my plot?” think “what can I <em>remove</em> to improve my plot?</p>
+</div>
+</section>
+<section id="jambor2025-pds-guide-to-visualization" class="slide level2">
+<h2><span class="citation" data-cites="Jambor2025-pd">Jambor (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>’s guide to visualization</h2>
+<ul>
+<li class="fragment"><a href="#/simplify">Simplify</a>: Improving annotations, labels, and layouts helps you retain the audience’s attention</li>
+<li class="fragment"><a href="#/text">Text</a>: Appropriate font size, avoid non-horizontal text</li>
+<li class="fragment"><a href="#/color-scheme">Color scheme:</a>
+<ul>
+<li class="fragment">Prioritize accessibility and <strong>consistency</strong></li>
+<li class="fragment">Don’t abuse color; Use only when you must draw attention</li>
+</ul></li>
+<li class="fragment">If you absolutely need color, consider data encoding:
+<ul>
+<li class="fragment"><a href="#/categorical">categorical</a>: Use a discrete color palette (e.g.&nbsp;<code>EVR628tools::palette_UM()</code>)</li>
+<li class="fragment"><a href="#/sequential">sequential</a> (i.e.&nbsp;ordinal and numeric): single hue with varying saturation (e.g.&nbsp;) or multihue <em>designed</em> for sequential (e.g.&nbsp;<code>viridis</code> colors)</li>
+<li class="fragment"><a href="#/diverging">diverging</a> data: two contrasting hues and neutral center is better than a single hue or multihues</li>
+</ul></li>
+</ul>
+</section>
+<section id="simplify" class="slide level2">
+<h2>Simplify</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
-<span id="cb10-2"><a href=""></a>       <span class="fu">aes</span>(<span class="at">x =</span> site,</span>
-<span id="cb10-3"><a href=""></a>           <span class="at">y =</span> total_length_mm)) <span class="sc">+</span></span>
-<span id="cb10-4"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Site"</span>,</span>
-<span id="cb10-5"><a href=""></a>       <span class="at">y =</span> <span class="st">"Total length (mm)"</span>)</span>
-<span id="cb10-6"><a href=""></a></span>
-<span id="cb10-7"><a href=""></a>p <span class="sc">+</span></span>
-<span id="cb10-8"><a href=""></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> total_length_mm,</span>
+<span id="cb10-3"><a href=""></a>                     <span class="at">y =</span> total_weight_gr)) <span class="sc">+</span></span>
+<span id="cb10-4"><a href=""></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb10-5"><a href=""></a></span>
+<span id="cb10-6"><a href=""></a>p <span class="sc">+</span></span>
+<span id="cb10-7"><a href=""></a>  <span class="fu">theme_gray</span>() <span class="sc">+</span></span>
+<span id="cb10-8"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">350</span>, <span class="at">by =</span> <span class="dv">15</span>),</span>
+<span id="cb10-9"><a href=""></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">350</span>)) <span class="sc">+</span></span>
+<span id="cb10-10"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">400</span>, <span class="at">by =</span> <span class="dv">20</span>),</span>
+<span id="cb10-11"><a href=""></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">400</span>)) <span class="sc">+</span></span>
+<span id="cb10-12"><a href=""></a>  <span class="fu">theme</span>(<span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"black"</span>),</span>
+<span id="cb10-13"><a href=""></a>        <span class="at">panel.grid =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"black"</span>)) <span class="sc">+</span></span>
+<span id="cb10-14"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Total length (mm) vs total weight (gr) for 109 lionfish sampled from Mexico"</span>,</span>
+<span id="cb10-15"><a href=""></a>       <span class="at">subtitle =</span> <span class="st">"Note that the largest fish is not the heaviest fish"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>
+<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-17-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="is-this-better-or-worse" class="slide level2">
-<h2>Is this better or worse?</h2>
+</div><div class="column" style="width:50%;">
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>p <span class="sc">+</span></span>
-<span id="cb11-2"><a href=""></a>  <span class="fu">geom_jitter</span>(<span class="at">height =</span> <span class="dv">0</span>, <span class="at">width =</span> <span class="fl">0.25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>longest <span class="ot">&lt;-</span> data_lionfish <span class="sc">|&gt;</span> <span class="fu">slice_max</span>(total_length_mm)</span>
+<span id="cb11-2"><a href=""></a>heaviest <span class="ot">&lt;-</span> data_lionfish <span class="sc">|&gt;</span> <span class="fu">slice_max</span>(total_weight_gr)</span>
+<span id="cb11-3"><a href=""></a></span>
+<span id="cb11-4"><a href=""></a>p <span class="sc">+</span> </span>
+<span id="cb11-5"><a href=""></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> longest,</span>
+<span id="cb11-6"><a href=""></a>                  <span class="at">label =</span> <span class="st">"Longest"</span>,</span>
+<span id="cb11-7"><a href=""></a>                  <span class="at">nudge_x =</span> <span class="sc">-</span><span class="dv">5</span>,</span>
+<span id="cb11-8"><a href=""></a>                  <span class="at">nudge_y =</span> <span class="sc">-</span><span class="dv">150</span>,</span>
+<span id="cb11-9"><a href=""></a>                  <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb11-10"><a href=""></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> heaviest,</span>
+<span id="cb11-11"><a href=""></a>                  <span class="at">label =</span> <span class="st">"Heaviest"</span>,</span>
+<span id="cb11-12"><a href=""></a>                  <span class="at">nudge_x =</span> <span class="sc">-</span><span class="dv">50</span>,</span>
+<span id="cb11-13"><a href=""></a>                  <span class="at">nudge_y =</span> <span class="sc">-</span><span class="dv">10</span>,</span>
+<span id="cb11-14"><a href=""></a>                  <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb11-15"><a href=""></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb11-16"><a href=""></a>  <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb11-17"><a href=""></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">12</span>)) <span class="sc">+</span></span>
+<span id="cb11-18"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Total length (mm)"</span>,</span>
+<span id="cb11-19"><a href=""></a>       <span class="at">y =</span> <span class="st">"Total weight (gr)"</span>) <span class="sc">+</span></span>
+<span id="cb11-20"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"There's always a bigger fish"</span>,</span>
+<span id="cb11-21"><a href=""></a>       <span class="at">subtitle =</span> <span class="st">"The largest fish is not the heaviest fish"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-12-1.png" width="960"></p>
+<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-18-1.png" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
+</div></div>
 </section>
-<section id="how-about-now" class="slide level2">
-<h2>How about now?</h2>
+<section id="text" class="slide level2">
+<h2>Text</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>p <span class="sc">+</span></span>
-<span id="cb12-2"><a href=""></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
+<span id="cb12-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> site)) <span class="sc">+</span></span>
+<span id="cb12-3"><a href=""></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb12-4"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Site"</span>, <span class="at">y =</span> <span class="st">"N"</span>)</span>
+<span id="cb12-5"><a href=""></a></span>
+<span id="cb12-6"><a href=""></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-13-1.png" width="960"></p>
+<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-19-1.png" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>p <span class="sc">+</span></span>
+<span id="cb13-2"><a href=""></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-20-1.png" width="1152"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>p <span class="sc">+</span></span>
+<span id="cb14-2"><a href=""></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-21-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>p <span class="sc">+</span></span>
+<span id="cb15-2"><a href=""></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-22-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
 </section>
-<section id="resources" class="slide level2">
-<h2>Resources</h2>
+<section id="color-scheme" class="slide level2">
+<h2>Color scheme</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
+<span id="cb16-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> site, <span class="at">fill =</span> site)) <span class="sc">+</span></span>
+<span id="cb16-3"><a href=""></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb16-4"><a href=""></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb16-5"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Site"</span>,</span>
+<span id="cb16-6"><a href=""></a>       <span class="at">y =</span> <span class="st">"N"</span>,</span>
+<span id="cb16-7"><a href=""></a>       <span class="at">title =</span> <span class="st">"Most samples come from Paamul</span><span class="sc">\n</span><span class="st">(N = 31; teal)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-23-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
+<span id="cb17-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> site, <span class="at">fill =</span> site <span class="sc">==</span> <span class="st">"Paamul"</span>)) <span class="sc">+</span></span>
+<span id="cb17-3"><a href=""></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb17-4"><a href=""></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"FALSE"</span> <span class="ot">=</span> <span class="st">"gray"</span>,</span>
+<span id="cb17-5"><a href=""></a>                               <span class="st">"TRUE"</span> <span class="ot">=</span> <span class="st">"darkred"</span>)) <span class="sc">+</span></span>
+<span id="cb17-6"><a href=""></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb17-7"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Site"</span>, <span class="at">y =</span> <span class="st">"N"</span>,</span>
+<span id="cb17-8"><a href=""></a>       <span class="at">title =</span> <span class="st">"N = 31 come from &lt;span style='color:darkred;'&gt;Paamul&lt;/span&gt;"</span>) <span class="sc">+</span></span>
+<span id="cb17-9"><a href=""></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_markdown</span>(),</span>
+<span id="cb17-10"><a href=""></a>        <span class="at">axis.title.y =</span> <span class="fu">element_markdown</span>(),</span>
+<span id="cb17-11"><a href=""></a>        <span class="at">legend.position =</span> <span class="st">"None"</span>) <span class="sc">+</span></span>
+<span id="cb17-12"><a href=""></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb17-13"><a href=""></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">32</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-24-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+<div class="fragment">
+<p>Do you really need to use color?</p>
+</div>
+<div class="fragment">
+<p>Use better colors</p>
+</div>
+<div class="fragment">
+<p>Avoid redundant use of your limited aesthetics (x, y, size, color, shape)</p>
+</div>
+</section>
+<section id="categorical" class="slide level2">
+<h2>Categorical</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a>p <span class="sc">+</span></span>
+<span id="cb18-2"><a href=""></a>  <span class="fu">scale_fill_grey</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-26-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a>p <span class="sc">+</span></span>
+<span id="cb19-2"><a href=""></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">palette_UM</span>(<span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-27-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+<div class="fragment">
+<p>Use a discrete color palette for categorical data</p>
+</div>
+<div class="fragment">
+<p>It is difficult to track more than (6) 10 colors</p>
+</div>
+<div class="fragment">
+<p>These colors come from <a href="https://jcvdav.github.io/EVR628tools/reference/palette_UM.html"><code>EVR628tools::palette_UM()</code></a>, using <a href="https://webcomm.miami.edu/resources/identity/color/index.html">UM’s visual style guide</a></p>
+</div>
+</section>
+<section id="sequential" class="slide level2">
+<h2>Sequential</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p>Diverging palette</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a>p <span class="sc">+</span></span>
+<span id="cb20-2"><a href=""></a>  <span class="fu">scale_fill_gradientn</span>(<span class="at">colors =</span> <span class="fu">palette_IPCC</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-29-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a>p2 <span class="sc">+</span></span>
+<span id="cb21-2"><a href=""></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">unname</span>(<span class="fu">palette_IPCC</span>()[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">128</span>, <span class="dv">256</span>)]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-29-2.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:33%;">
+<p>Multihue palette</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a>p <span class="sc">+</span></span>
+<span id="cb22-2"><a href=""></a>  <span class="fu">scale_fill_viridis_c</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-30-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>p2 <span class="sc">+</span> </span>
+<span id="cb23-2"><a href=""></a>  <span class="fu">scale_fill_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-30-2.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:33%;">
+<p>Single hue palette</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a>p <span class="sc">+</span></span>
+<span id="cb24-2"><a href=""></a>  <span class="fu">scale_fill_distiller</span>(<span class="at">palette =</span> <span class="st">"Blues"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-31-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a>p2 <span class="sc">+</span></span>
+<span id="cb25-2"><a href=""></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Blues"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-31-2.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="diverging" class="slide level2">
+<h2>Diverging</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> my_sst,</span>
+<span id="cb26-2"><a href=""></a>            <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> month, <span class="at">y =</span> year,</span>
+<span id="cb26-3"><a href=""></a>                          <span class="at">fill =</span> SST <span class="sc">-</span> <span class="fu">mean</span>(SST))) <span class="sc">+</span></span>
+<span id="cb26-4"><a href=""></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span></span>
+<span id="cb26-5"><a href=""></a>  <span class="co"># theme(legend.position = "top", legend.title.position = "top") +</span></span>
+<span id="cb26-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Month"</span>, <span class="at">y =</span> <span class="st">"Year"</span>, <span class="at">fill =</span> <span class="st">"SST Anomaly (°C)"</span>)</span>
+<span id="cb26-7"><a href=""></a></span>
+<span id="cb26-8"><a href=""></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-33-1.png" width="912"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a>p <span class="sc">+</span></span>
+<span id="cb27-2"><a href=""></a>  <span class="fu">scale_fill_gradientn</span>(<span class="at">colours =</span> <span class="fu">palette_IPCC</span>(<span class="at">var =</span> <span class="st">"temp"</span>, <span class="at">type =</span> <span class="st">"div"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-34-1.png" width="912"></p>
+</figure>
+</div>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a>p <span class="sc">+</span></span>
+<span id="cb28-2"><a href=""></a>  <span class="fu">scale_fill_gradientn</span>(<span class="at">colours =</span> <span class="fu">palette_IPCC</span>(<span class="at">var =</span> <span class="st">"temp"</span>, <span class="at">type =</span> <span class="st">"seq"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-34-2.png" width="912"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="resources-on-style" class="slide level2">
+<h2>Resources on style</h2>
 <ul>
-<li class="fragment"><a href="https://www.data-to-viz.com/">data-to-viz</a> resources</li>
-<li class="fragment"><em>A checklist for designing and improving the visualization of scientific data</em> by <span class="citation" data-cites="Jambor2025-pd">Jambor (<a href="#/the-grammar-of-graphics" role="doc-biblioref" onclick="">2025</a>)</span></li>
+<li class="fragment"><em>A <a href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41556-025-01684-z/MediaObjects/41556_2025_1684_MOESM1_ESM.pdf">checklist</a> for designing and improving the visualization of scientific data</em> by <span class="citation" data-cites="Jambor2025-pd">Jambor (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span></li>
 </ul>
 </section></section>
-<section id="visualization-principles" class="title-slide slide level1 center">
-<h1>Visualization principles</h1>
-<ul>
-<li class="fragment">There are only two rules:
-<ul>
-<li class="fragment">Transparency (don’t hide or manipulate data, or be clear about how you do so)</li>
-<li class="fragment">Clarity (get your message through)</li>
-</ul></li>
-</ul>
-</section>
+<section>
+<section id="intro-to-ggplot2" class="title-slide slide level1 center">
+<h1>Intro to <code>ggplot2</code></h1>
 
-<section id="other-considerations-contrast-colorblindness-standards" class="title-slide slide level1 center">
-<h1>Other considerations (contrast, colorblindness, standards)</h1>
-<p>IPCC’s visual style guide, and the <a href="https://github.com/sjmgarnier/viridis/"><code>viridis</code></a> package</p>
 </section>
-
-<section id="the-grammar-of-graphics" class="title-slide slide level1 smaller scrollable">
-<h1>THE grammar of graphics</h1>
-<p>The grammar of graphics and the <a href="https://github.com/tidyverse/ggplot2"><code>ggplot2</code></a> package</p>
+<section id="the-grammar-of-graphics" class="slide level2">
+<h2>THE grammar of graphics</h2>
+</section>
+<section id="goal" class="slide level2">
+<h2>Goal</h2>
+</section>
+<section id="specify-the-data" class="slide level2">
+<h2>Specify the data</h2>
+</section>
+<section id="specify-the-axis" class="slide level2">
+<h2>Specify the axis</h2>
+</section>
+<section id="specify-the-geometric-representation" class="slide level2">
+<h2>Specify the geometric representation</h2>
+</section>
+<section id="adding-aesthetics-mapped-to-data" class="slide level2">
+<h2>Adding aesthetics mapped to data</h2>
+</section>
+<section id="adding-other-aesthetics" class="slide level2">
+<h2>Adding other aesthetics</h2>
+</section>
+<section id="layering-other-geoms" class="slide level2">
+<h2>Layering other geoms</h2>
+</section>
+<section id="grouping" class="slide level2">
+<h2>Grouping</h2>
+</section>
+<section id="facetting" class="slide level2">
+<h2>Facetting</h2>
+</section>
+<section id="saving-a-plot" class="slide level2">
+<h2>Saving a plot</h2>
+</section>
+<section id="scripting-is-about-being-lazy" class="slide level2">
+<h2>Scripting is about being lazy</h2>
+</section>
+<section id="parameters-in-frequent-geoms" class="slide level2">
+<h2>Parameters in frequent geoms</h2>
+</section></section>
+<section id="references" class="title-slide slide level1 smaller scrollable">
+<h1>References</h1>
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-Jambor2025-pd" class="csl-entry" role="listitem">
 Jambor, Helena Klara. 2025. <span>“A Checklist for Designing and Improving the Visualization of Scientific Data.”</span> <em>Nat. Cell Biol.</em> 27 (June): 879–83.
+</div>
+<div id="ref-Wickham2023-aa" class="csl-entry" role="listitem">
+Wickham, Hadley, Mine Cetinkaya-Rundel, and Garrett Grolemund. 2023. <em><span>R</span> for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. 2nd ed. Sebastopol, CA: O’Reilly Media.
 </div>
 </div>
 </section>

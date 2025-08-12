@@ -7,6 +7,8 @@ subtitle: "Data visualization"
 #| include: false
 suppressPackageStartupMessages({
   library(tidyverse)
+  library(ggrepel)
+  library(ggtext)
   library(EVR628tools)
   library(knitr)
 })
@@ -32,7 +34,32 @@ theme_set(
 :::
 
 
-# Types of visualization
+# Types of data
+
+## Some jargon
+
+- Variable: A measurable quality, quantity or property
+- Value: The state of the variable
+- Observation: A data point to which variables and values are assigned
+- _Tabular_ data: The way we store and represent information. Allows us to relate a variable (column) to an observation (row)
+
+. . .
+
+:::: {.columns}
+::: {.column width="60%"}
+
+```{r}
+#| folding: true
+data_lionfish[1:3,c(1, 5)] |> 
+  kable()
+```
+:::
+::: {.column width="40%"}
+- Which of these is a variable?
+- A value of that variable?
+- How many observations?
+:::
+::::
 
 ## Types of data
 
@@ -48,8 +75,8 @@ The _type_ of data you have can influence how you visualize them
 
 ![](img/lionfish.JPG){.nostretch fig-align="center" width="40%"}
 
-- `data_lionfish`, from the `EVR628tools` package
-- contains biometric measurements for 109 lionfish (_Pterois volitans_) captured off Puerto Aventuras (Mexico)
+- `data_lionfish`, from the [`EVR628tools`](https://jcvdav.github.io/EVR628tools/index.html) package
+- Contains biometric measurements for 109 lionfish (_Pterois volitans_) captured off Puerto Aventuras (Mexico)
 
 . . .
 
@@ -61,7 +88,7 @@ Use `?data_lionfish` to look at the [documentation](https://jcvdav.github.io/EVR
 
 ```{r}
 #| folding: true
-data_lionfish[1:6,c(1:2, 5, 9)] |> 
+data_lionfish[1:6,c(1, 2, 5, 9)] |> 
   kable()
 ```
 
@@ -102,32 +129,7 @@ Use `?data_milton` to look at the [documentation](https://jcvdav.github.io/EVR62
 
 Can you add `sshs` and obtain something meaningful?
 
-
-## Some jargon
-
-- Variable: A measurable quality, quantity or property
-- Value: The state of the variable
-- Observation: A data point to which variables and values are assigned
-- _Tabular_ data: The way we store and represent information. Allows us to relate a variable (column) to an observation (row)
-
-. . .
-
-:::: {.columns}
-::: {.column width="60%"}
-
-```{r}
-#| folding: true
-data_lionfish[1:3,c(2, 5:6)] |> 
-  kable()
-```
-:::
-::: {.column width="40%"}
-- Which of these is a variable?
-- A value of that variable?
-- How many observations?
-:::
-::::
-
+# Types of visualizations
 
 ## Types of visualizations
 
@@ -144,7 +146,9 @@ But what really matters:
 - You should have creative freedom
 - We have one goal: To communicate something to the viewer (our ourselves)
 
-<!-- k -->
+## Visualizing for yourself
+
+![Modified from @Wickham2023-aa](https://r4ds.hadley.nz/diagrams/data-science/base.png){.nostretch fig-align="center" width="95%"}
 
 ## Examples
 :::: {.columns}
@@ -154,7 +158,8 @@ ggplot(data = data_lionfish,
        mapping = aes(x = total_length_mm)) +
   geom_histogram(bins = 8, color = "black") +
   labs(x = "Total length (mm)",
-       y = "N")
+       y = "N",
+       title = "Distribution of lionfish size")
 ```
 
 Message: "Most lionfish are around 100 mm in length"
@@ -187,7 +192,8 @@ ggplot(data = data_lionfish,
   geom_boxplot() +
   coord_flip() +
   labs(x = "Site",
-       y = "Total weight (gr)")
+       y = "Total weight (gr)",
+       title = "Distribution of lionfish size by\nsampling site")
 ```
 
 Message: "Tzimin-Ha has the heaviest fish"
@@ -204,120 +210,14 @@ Message: "Tzimin-Ha has the heaviest fish"
 :::
 ::::
 
+. . .
+
 :::: {.callout-tip}
 Use this one with care. It packs a lot of information and not everyone knows (remembers) how to read it.
 ::::
 
-## Examples
-
-:::: {.columns}
-::: {.column width="60%"}
-```{r}
-ggplot(data = data_lionfish,
-       mapping = aes(x = total_length_mm,
-                     y = total_weight_gr)) +
-  geom_point() +
-  labs(x = "Total length (mm)",
-       y = "Total weight (gr)")
-```
-Message: "Look, slightly larger fish are waaaay heavier!"
-
-:::
-
-::: {.column width="40%"}
-### [Scatterplot:]{style="color:blue"}
-- Relationship between two numeric variables
-- Represented with points
-- Uses `ggplot2::geom_point()`
-:::
-::::
-
 
 ## Examples
-:::: {.columns}
-::: {.column width="60%"}
-```{r}
-ggplot(data = data_milton, 
-       mapping = aes(x = iso_time, y = wind_speed)) +
-  geom_line() +
-  labs(x = "Date",
-       y = "Wind speed (knots)")
-```
-
-Message: "The wind speed of a hurricane was highest the night of Oct 7th"
-
-:::
-
-::: {.column width="40%"}
-### [Line chart:]{style="color:red"}
-- Evolution of one variable along another
-- Conveys a sense of continuity even if our observations are not
-- Uses `ggplot::geom_line()`
-:::
-::::
-
-
-## Examples
-:::: {.columns}
-::: {.column width="60%"}
-```{r}
-ggplot(data = data_lionfish,
-      mapping = aes(x = site)) +
-  geom_bar() +
-  coord_flip() +
-  labs(x = "Site",
-       y = "N")
-```
-
-Message: "Most fish come from Paamul"
-
-:::
-
-::: {.column width="40%"}
-### [Column:]{style="color:gray"}
-- Relationship between categorical and numeric variable
-- Represented with "columns" or "bars"
-- This case uses `ggplot2::geom_bar()`, but there is also `ggplot2::geom_col()`
-:::
-::::
-
-
-## Now I'm confused...
-
-- Good!
-- That confusion might be critical thinking
-- You can always try visualizing the same data in more than one way
-- Let's try to organize your thoughts
-
-## Right visuals for your data
-
-Remember our goal:
-
-> To communicate something to the viewer (our ourselves)
-
-. . .
-
-That _something_ could be a:
-
-- [Distribution]{style="color:green"}: "Most of my fish are quite small" ([example](#examples))
-
-- [Relationship]{style="color:blue"} (or correlation): "Look, slightly larger fish are waaaay heavier!" ([example](#examples-2))
-
-- [Evolution]{style="color:red"}: "The wind speed of a hurricane was highest the night of Oct 7th"([example](#examples-3))
-
-- [Ranking / Part of a whole]{style="color:gray"}: "Most fish come from Paamul"([example](#examples-5))
-
-. . .
-
-Any visual can usually achieve more than one of this at a time
-
-. . .
-
-Most visuals can only achieve _one_ of these at a time
-
-# Lets go back to the [examples](#examples)
-
-## Some visuals are more than one type
 :::: {.columns}
 ::: {.column width="60%"}
 ```{r}
@@ -325,7 +225,9 @@ ggplot(data = data_lionfish,
        mapping = aes(x = size_class, y = site)) +
   geom_bin_2d() +
   labs(x = "Size class",
-       y = "Site")
+       y = "Site",
+       fill = "N",
+       title = "Distribution of observations\nacross sites and sizes")
 ```
 
 Message: "Most fish are medium sized and come from Paamul"
@@ -348,54 +250,594 @@ R does not know that there is a logical order (small -> medium -> large).
 ::::
 
 
-# Just because you can doesn't mean you should
+## Examples
 
-## Is this good or bad?
+:::: {.columns}
+::: {.column width="60%"}
+```{r}
+ggplot(data = data_lionfish,
+       mapping = aes(x = total_length_mm,
+                     y = total_weight_gr)) +
+  geom_point() +
+  labs(x = "Total length (mm)",
+       y = "Total weight (gr)",
+       title = "Relationship between lionfish length\nand weight")
+```
+Message: "Look, slightly larger fish are waaaay heavier!"
+
+:::
+
+::: {.column width="40%"}
+### [Scatterplot:]{style="color:blue"}
+- Relationship between two continuous numeric variables
+- Represented with points
+- Uses `ggplot2::geom_point()`
+:::
+::::
+
+
+## Examples
+:::: {.columns}
+::: {.column width="60%"}
+```{r}
+ggplot(data = data_milton, 
+       mapping = aes(x = iso_time, y = wind_speed)) +
+  geom_line() +
+  labs(x = "Date",
+       y = "Wind speed (knots)",
+       title = "Evolution of wind speed for\nHurricane Milton")
+```
+
+Message: "The wind speed of a hurricane was highest the night of Oct 7th"
+
+:::
+
+::: {.column width="40%"}
+### [Line chart:]{style="color:red"}
+- Evolution of one variable along another
+- Conveys a sense of continuity even if our observations are not
+- Uses `ggplot::geom_line()`
+:::
+::::
+
+
+## Examples
+:::: {.columns}
+::: {.column width="60%"}
+```{r}
+data_lionfish |> 
+  group_by(site) |> 
+  summarize(largest = max(total_length_mm)) |> 
+  ggplot(mapping = aes(x = site, y = largest)) +
+  geom_col() +
+  coord_flip() +
+  labs(x = "Site",
+       y = "Largest fish (mm)",
+       title = "Size of largest fish by site")
+```
+
+Message: "Largest fish comes from Castillo"
+
+:::
+
+::: {.column width="40%"}
+### [Column:]{style="color:gray"}
+- Relationship between categorical and numeric variable
+- Represented with "columns" or "bars"
+- This case uses `ggplot2::geom_col()`, but there is also `ggplot2::geom_bar()`
+:::
+::::
+
+## Now I'm confused...
+
+- Good!
+- That confusion might be critical thinking
+- You can always try visualizing the same data in more than one way
+- Let's try to organize your thoughts
+
+## Right visuals for your data
+
+Remember our goal:
+
+> To communicate _something_ to the viewer (our ourselves)
+
+. . .
+
+That _something_ could be a:
+
+- [Distribution]{style="color:green"}: "Most of my fish are quite small" ([example](#examples))
+
+- [Relationship]{style="color:blue"} (or correlation): "Look, slightly larger fish are waaaay heavier!" ([example](#examples-3))
+
+- [Evolution]{style="color:red"}: "The wind speed of a hurricane was highest the night of Oct 7th"([example](#examples-4))
+
+- [Ranking / Part of a whole]{style="color:gray"}: "Largest fish comes from Castillo"([example](#examples-6))
+
+. . .
+
+Any visual can usually achieve more than one of this at a time
+
+. . .
+
+Most visuals can only achieve _one_ of these _effectively_ at a time
+
+## Same data, multiple plots
+
+Which of this is best at showing the relationship between size and weight?
+
+. . .
+
+:::: {.columns}
+::: {.column width="50%"}
+
+```{r}
+#| fig-width: 3
+#| fig-height: 2
+#| echo: false
+p <- ggplot(data = data_lionfish,
+            mapping = aes(x = total_length_mm, total_weight_gr)) +
+  labs(x = "Total length (mm)",
+       y = "Total weight (gr)") +
+  theme_bw()
+
+p + geom_point()
+
+p + geom_line()
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-width: 3
+#| fig-height: 2
+#| echo: false
+p + geom_col()
+
+```
+
+```{r}
+#| fig-width: 3.87
+#| fig-height: 2
+#| echo: false
+p + geom_bin_2d(bins = 10) + labs(fill = "N")
+```
+
+:::
+::::
+
+. . .
+
+Which one is best at showing the size and weight of most fish?
+
+
+## Same data, multiple plots
+
+Which is best at shwoing me the number of samples by site and size?
+
+. . . 
+
+:::: {.columns}
+::: {.column width="50%"}
+```{r}
+#| fig-width: 5
+#| fig-height: 2.75
+#| echo: false
+p <- ggplot(data = data_lionfish,
+            aes(x = site, y = size_class)) +
+  coord_flip() +
+  labs(x = "Site",
+       y = "Size class")
+
+p + geom_point()
+
+```
+
+```{r}
+#| fig-width: 6.5
+#| fig-height: 2.75
+#| echo: false
+p + geom_bin2d(bins = 10) + labs(fill = "N")
+```
+
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-width: 5
+#| fig-height: 2.75
+#| echo: false
+p + geom_line(aes(group = site))
+
+p + geom_line(aes(group = size_class))
+```
+
+:::
+::::
+
+
+## Chosing the "right" visual
+
+- The right visual is the one that gets the message across
+
+- Ask yourself some questions:
+  - How many variables do I want to represent?
+  - What type of data do I have for each variable?
+  - What pattern or message do I want to convey?
+
+- There are resources to help you brainstorm:
+  - [r-graph-gallery](https://r-graph-gallery.com/)
+  - [data-to-viz](https://www.data-to-viz.com/)
+  - What others in your field do
+
+
+# Principles of visualization
+
+## Small parentheses: "Add lightness"
+
+![Source: Diseno-art.com](http://www.diseno-art.com/news_content/wp-content/uploads/2014/09/evolution-of-the-mazda-mx-5.jpg){.nostretch fig-align="center" width="40%"}
+
+. . .
+
+Instead  of "what should I _add_ to improve my plot?" think "what can I _remove_ to improve my plot?
+
+## @Jambor2025-pd's guide to visualization
+
+- [Simplify](#simplify): Improving annotations, labels, and layouts helps you retain the audience's attention
+- [Text](#text): Appropriate font size, avoid non-horizontal text
+- [Color scheme:](#color-scheme)
+  - Prioritize accessibility and **consistency**
+  - Don't abuse color; Use only when you must draw attention
+- If you absolutely need color, consider data encoding:
+  - [categorical](#categorical): Use a discrete color palette (e.g. `EVR628tools::palette_UM()`)
+  - [sequential](#sequential) (i.e. ordinal and numeric): single hue with varying saturation (e.g. ) or multihue _designed_ for sequential (e.g. `viridis` colors)
+  - [diverging](#diverging) data: two contrasting hues and neutral center is better than a single hue or multihues
+
+## Simplify
+
+:::: {.columns}
+
+::: {.column width="50%"}
 
 ```{r}
 p <- ggplot(data = data_lionfish,
-       aes(x = site,
-           y = total_length_mm)) +
-  labs(x = "Site",
-       y = "Total length (mm)")
-
-p +
+       mapping = aes(x = total_length_mm,
+                     y = total_weight_gr)) +
   geom_point()
+
+p +
+  theme_gray() +
+  scale_x_continuous(breaks = seq(0, 350, by = 15),
+                     limits = c(0, 350)) +
+  scale_y_continuous(breaks = seq(0, 400, by = 20),
+                     limits = c(0, 400)) +
+  theme(axis.line = element_line(color = "black"),
+        panel.grid = element_line(color = "black")) +
+  labs(title = "Total length (mm) vs total weight (gr) for 109 lionfish sampled from Mexico",
+       subtitle = "Note that the largest fish is not the heaviest fish")
+
+
 ```
 
-## Is this better or worse?
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| fig-width: 5
+#| fig-height: 4
+longest <- data_lionfish |> slice_max(total_length_mm)
+heaviest <- data_lionfish |> slice_max(total_weight_gr)
+
+p + 
+  geom_text_repel(data = longest,
+                  label = "Longest",
+                  nudge_x = -5,
+                  nudge_y = -150,
+                  size = 5) +
+  geom_text_repel(data = heaviest,
+                  label = "Heaviest",
+                  nudge_x = -50,
+                  nudge_y = -10,
+                  size = 5) +
+  theme_minimal(base_size = 14) +
+  theme(axis.text = element_text(color = "black", size = 10),
+        axis.title = element_text(color = "black", size = 12)) +
+  labs(x = "Total length (mm)",
+       y = "Total weight (gr)") +
+  labs(title = "There's always a bigger fish",
+       subtitle = "The largest fish is not the heaviest fish")
+```
+
+:::
+::::
+
+## Text
+
+:::: {.columns}
+::: {.column width="50%"}
+```{r}
+#| fig-width: 6
+#| fig-height: 3
+p <- ggplot(data = data_lionfish,
+       mapping = aes(x = site)) +
+  geom_bar() +
+  labs(x = "Site", y = "N")
+
+p
+```
+
+```{r}
+#| fig-width: 12
+#| fig-height: 3
+p +
+  theme_bw(base_size = 12)
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| fig-width: 6
+#| fig-height: 2.5
+p +
+  theme(axis.text.x = element_text(angle = 90))
+```
+
+```{r}
+#| fig-width: 6
+#| fig-height: 3
+p +
+  coord_flip()
+```
+
+:::
+::::
+
+
+## Color scheme
+
+:::: {.columns}
+::: {.column width="50%"}
+```{r}
+ggplot(data = data_lionfish,
+       mapping = aes(x = site, fill = site)) +
+  geom_bar() +
+  coord_flip() +
+  labs(x = "Site",
+       y = "N",
+       title = "Most samples come from Paamul\n(N = 31; teal)")
+```
+:::
+::: {.column width="50%"}
+
+```{r}
+ggplot(data = data_lionfish,
+       mapping = aes(x = site, fill = site == "Paamul")) +
+  geom_bar() +
+  scale_fill_manual(values = c("FALSE" = "gray",
+                               "TRUE" = "darkred")) +
+  coord_flip() +
+  labs(x = "Site", y = "N",
+       title = "N = 31 come from <span style='color:darkred;'>Paamul</span>") +
+  theme(plot.title = element_markdown(),
+        axis.title.y = element_markdown(),
+        legend.position = "None") +
+  scale_y_continuous(expand = c(0, 0),
+                     limits = c(0, 32))
+```
+:::
+::::
+
+. . .
+
+Do you really need to use color?
+
+. . . 
+
+Use better colors
+
+. . .
+
+Avoid redundant use of your limited aesthetics (x, y, size, color, shape)
+
+## Categorical
+
+:::: {.columns}
+:::: {.column width="50%"}
+
+```{r}
+#| echo: false
+p <- ggplot(data = data_lionfish,
+       mapping = aes(x = total_length_mm,
+                     y = total_weight_gr,
+                     fill = site)) +
+  geom_point(color = "black",
+             shape = 21,
+             size = 3) +
+    labs(x = "Total length (mm)",
+       y = "Total weight (gr)",
+       fill = "Site")
+```
+
 
 ```{r}
 p +
-  geom_jitter(height = 0, width = 0.25)
+  scale_fill_grey()
 ```
-
-## How about now?
+:::
+:::: {.column width="50%"}
 
 ```{r}
 p +
-  geom_boxplot()
+  scale_fill_manual(values = palette_UM(10))
+```
+:::
+::::
+
+. . .
+
+Use a discrete color palette for categorical data
+
+. . .
+
+It is difficult to track more than  (6) 10 colors
+
+. . .
+
+These colors come from [`EVR628tools::palette_UM()`](https://jcvdav.github.io/EVR628tools/reference/palette_UM.html), using [UM's visual style guide](https://webcomm.miami.edu/resources/identity/color/index.html)
+
+## Sequential
+
+```{r}
+#| echo: false
+p <- ggplot(data = data_lionfish,
+            mapping = aes(x = size_class, y = site)) +
+  geom_bin_2d() +
+  labs(x = "Size class",
+       y = "Site",
+       fill = "N")
+
+p2 <- ggplot(data = data_lionfish |> 
+               mutate(size_class = fct_relevel(size_class, c("small", "medium", "large"))),
+             mapping = aes(x = site,
+                           fill = size_class)) +
+  geom_bar(position = "dodge",
+           color = "black") +
+  coord_flip() +
+  labs(x = "Site",
+       y = "N",
+       fill = "Size class")
+  
 ```
 
 
-## Resources
-- [data-to-viz](https://www.data-to-viz.com/) resources
-- _A checklist for designing and improving the visualization of scientific data_ by @Jambor2025-pd
+:::: {.columns}
+
+::: {.column width='33%'}
+Diverging palette
+
+```{r}
+p +
+  scale_fill_gradientn(colors = palette_IPCC())
+
+p2 +
+  scale_fill_manual(values = unname(palette_IPCC()[c(1, 128, 256)]))
+```
+
+:::
+
+::: {.column width='33%'}
+
+Multihue palette
+
+```{r}
+p +
+  scale_fill_viridis_c()
+
+p2 + 
+  scale_fill_viridis_d()
+```
 
 
+:::
 
-# Visualization principles
+::: {.column width='33%'}
+Single hue palette
+```{r}
+p +
+  scale_fill_distiller(palette = "Blues")
 
-- There are only two rules:
-  - Transparency (don't hide or manipulate data, or be clear about how you do so)
-  - Clarity (get your message through)
+p2 +
+  scale_fill_brewer(palette = "Blues")
+```
+:::
 
-# Other considerations (contrast, colorblindness, standards)
+::::
 
-IPCC’s visual style guide, and the [`viridis`](https://github.com/sjmgarnier/viridis/) package
+## Diverging
 
-# THE grammar of graphics
-The grammar of graphics and the [`ggplot2`](https://github.com/tidyverse/ggplot2) package
+```{r}
+#| echo: false
+my_sst <- data_sst |> 
+  mutate(month = month(date, label = TRUE, abbr = TRUE),
+         year = year(date)) |> 
+  group_by(year, month) |> 
+  summarize(SST = mean(temperature_C),
+            .groups = "drop")
+```
+
+
+:::: {.columns}
+
+::: {.column width='50%'}
+```{r}
+#| fig-width: 9.5
+#| fig-height: 4
+p <- ggplot(data = my_sst,
+            mapping = aes(x = month, y = year,
+                          fill = SST - mean(SST))) +
+  geom_tile() +
+  # theme(legend.position = "top", legend.title.position = "top") +
+  labs(x = "Month", y = "Year", fill = "SST Anomaly (°C)")
+
+p
+```
+
+:::
+
+::: {.column width='50%'}
+```{r}
+#| fig-width: 9.5
+#| fig-height: 4
+p +
+  scale_fill_gradientn(colours = palette_IPCC(var = "temp", type = "div"))
+
+p +
+  scale_fill_gradientn(colours = palette_IPCC(var = "temp", type = "seq"))
+```
+
+:::
+
+
+::::
+
+
+## Resources on style  
+- _A [checklist](https://static-content.springer.com/esm/art%3A10.1038%2Fs41556-025-01684-z/MediaObjects/41556_2025_1684_MOESM1_ESM.pdf) for designing and improving the visualization of scientific data_ by @Jambor2025-pd
+
+# Intro to `ggplot2`
+
+## THE grammar of graphics
+
+## Goal
+
+## Specify the data
+
+## Specify the axis
+
+## Specify the geometric representation
+
+## Adding aesthetics mapped to data
+
+## Adding other aesthetics
+
+## Layering other geoms
+
+## Grouping
+
+## Facetting
+
+## Saving a plot
+
+## Scripting is about being lazy
+
+## Parameters in frequent geoms
+
+# References 
+
 
 
 
