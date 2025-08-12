@@ -475,7 +475,7 @@ p + geom_line(aes(group = size_class))
 
 ## Small parentheses: "Add lightness"
 
-![Source: Diseno-art.com](http://www.diseno-art.com/news_content/wp-content/uploads/2014/09/evolution-of-the-mazda-mx-5.jpg){.nostretch fig-align="center" width="40%"}
+![Source: Diseno-art.com](img/mx5){.nostretch fig-align="center" width="40%"}
 
 . . .
 
