@@ -1,15 +1,5 @@
 # EVR 528 / 628
 
-## What will you learn?
-
-You will learn how to access, work with, and visualize many different types of environmental data. For example:
-
-- Access hurricane tracks and [build animated visualizations](./hurricane_milton_track.gif)
-- Track fishing vessels form space [and build maps of fishing activity](gom_fishing_effort_2024_total.png)
-- Develop [interactive web-based apps]( https://682wxr-juan0carlos-villasenor0derbez.shinyapps.io/gom_fishing/) to allow others explore your data
-- Create [slides with interactive content](https://jcvdav.github.io/EVR_662/slides/02_data_models_vector#/example-rosenstiel) for effective communication
-- And much more!
-
 ## Course description
 
 “_Introduction to Data Management and Visualization for Environmental Scientists_"
@@ -23,17 +13,9 @@ questions. In-class exercises and homework assignments will mimic the types of
 tasks and questions that students will encounter in the workforce. 
 By the end of the course, students will be comfortable working in R.
 
-## Reading resources
-- Books and manuals:
-    - [R for data science](https://r4ds.hadley.nz/) by Hadley Wickham et al
-    - [Visual Style Guide](https://www.ipcc.ch/site/assets/uploads/2022/09/IPCC_AR6_WGI_VisualStyleGuide_2022.pdf) by the IPCC
-    - [Geocomputation with R](https://r.geocompx.org/) by Robin Lovelace et al
-- Ad hoc peer review literature and blog posts:
-    - Brett et al., ["Ocean data need a sea change to help navigate the warming world"](https://doi.org/10.1038/d41586-020-01668-z). Nature 582, no. 7811 (2020): 181-183.
-    - Jambor, H.K. ["A checklist for designing and improving the visualization of scientific data."](https://doi.org/10.1038/s41556-025-01684-z) Nat Cell Biol 27, 879–883 (2025).
-    - Englander, G. [“Timeless principles for better figure design”](https://blogs.worldbank.org/en/impactevaluations/timeless-principles-for-better-figure-design). The World Bank. (2024).
-- Other relevant sources:
-    - [The Visual Display of Quantitative Information](https://www.edwardtufte.com/book/the-visual-display-of-quantitative-information/) by Edward Tufte
+## Resources
+
+- [Syllabus](docs/syllabus.pdf)
 
 # Course schedule
 
@@ -59,6 +41,17 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
 - Visualization principles
 - Colorblindness, IPCC’s visual style guide, and the [`viridis`](https://github.com/sjmgarnier/viridis/) package
 - The grammar of graphics and the [`ggplot2`](https://github.com/tidyverse/ggplot2) package
+
+**Relevant links for the week**
+- [Slide deck]()
+- Assigned readings: 
+  - Jambor, H.K. ["A checklist for designing and improving the visualization of scientific data."](https://doi.org/10.1038/s41556-025-01684-z) Nat Cell Biol 27, 879–883 (2025).
+  - R4DS [CH2](https://r4ds.hadley.nz/data-visualize.html)
+- Other links: 
+  - Englander, G. [“Timeless principles for better figure design”](https://blogs.worldbank.org/en/impactevaluations/timeless-principles-for-better-figure-design). The World Ban
+  - IPCC [Visual Style Guide](https://www.ipcc.ch/site/assets/uploads/2022/09/IPCC_AR6_WGI_VisualStyleGuide_2022.pdf) by the IPCC
+  - The [R Graph Gallery](https://r-graph-gallery.com/)
+  - [Data-to-viz](https://www.data-to-viz.com/)
 
 ## *Week3 (Sep 1-5)
 **Keeping track of your code with Git and GitHub**
@@ -177,3 +170,23 @@ Final presentations (egg timers)
 
 ---
 
+## What will you learn?
+
+You will learn how to access, work with, and visualize many different types of environmental data. For example:
+
+- Access hurricane tracks and [build animated visualizations](./hurricane_milton_track.gif)
+- Track fishing vessels form space [and build maps of fishing activity](gom_fishing_effort_2024_total.png)
+- Develop [interactive web-based apps]( https://682wxr-juan0carlos-villasenor0derbez.shinyapps.io/gom_fishing/) to allow others explore your data
+- Create [slides with interactive content](https://jcvdav.github.io/EVR_662/slides/02_data_models_vector#/example-rosenstiel) for effective communication
+- And much more!
+
+## Reading resources
+- Books and manuals:
+    - [R for data science](https://r4ds.hadley.nz/) by Hadley Wickham et al
+    - [Geocomputation with R](https://r.geocompx.org/) by Robin Lovelace et al
+- Ad hoc peer review literature and blog posts:
+    - Brett et al., ["Ocean data need a sea change to help navigate the warming world"](https://doi.org/10.1038/d41586-020-01668-z). Nature 582, no. 7811 (2020): 181-183.
+    - Jambor, H.K. ["A checklist for designing and improving the visualization of scientific data."](https://doi.org/10.1038/s41556-025-01684-z) Nat Cell Biol 27, 879–883 (2025).
+    - Englander, G. [“Timeless principles for better figure design”](https://blogs.worldbank.org/en/impactevaluations/timeless-principles-for-better-figure-design). The World Bank. (2024).
+- Other relevant sources:
+    - [The Visual Display of Quantitative Information](https://www.edwardtufte.com/book/the-visual-display-of-quantitative-information/) by Edward Tufte
