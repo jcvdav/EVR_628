@@ -1009,6 +1009,16 @@ ggplot(data = data_lionfish,
 - Package [vignettes](https://ggplot2.tidyverse.org/articles/ggplot2-specs.html)
 - @layered-grammar
 
+## Learning objectives - revisited
+
+:::{.callout-note}
+# By the end of this week, you should be able to:
+- Identify types of data
+- Use correct jargon when referring to data
+- Decide which types of visualizations are better suited for different types of data
+- Build a figure using `ggplot2`
+:::
+
 # Let's get coding
 
 # References 

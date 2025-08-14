@@ -92,6 +92,7 @@ plot(mpg ~ disp, data = mtcars)
 
 :::{.callout-note}
 # By the end of this week, you should be able to:
+- Understand the difference between R and RStudio
 - Open the RStudio IDE
 - Identify the main work areas
 - Start a project and a script
@@ -265,6 +266,17 @@ BUT!
 - This entire course will be one project in your computer
 - A project tells R what the "working directory" is (where to find files)
 - Needs to live in your computer (not the cloud!^[You can use RStudio server for that])
+
+## Learning objectives - revisited
+
+:::{.callout-note}
+# By the end of this week, you should be able to:
+- Understand the difference between R and RStudio
+- Open the RStudio IDE
+- Identify the main work areas
+- Start a project and a script
+- Install R packages
+:::
 
 # That's it for today
 
