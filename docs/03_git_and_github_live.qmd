@@ -1,0 +1,154 @@
+---
+title: "03_git_and_github_live"
+lightbox: true
+format:
+  html:
+    toc: true
+  pdf:
+    documentclass: article
+---
+
+# Hands-on: Building Your First Repository
+
+## Hands-on: Building Your First Repository
+
+**Let's create a repository for your environmental data project!**
+
+1. Create a GitHub account (if you don't have one)
+2. Create a new repository on GitHub
+3. Clone it to your computer
+4. Add your project files
+5. Make your first commit
+6. Push to GitHub
+
+## Step 1: Create a GitHub Repository
+
+1. Go to [github.com](https://github.com) and sign in
+2. Click the "+" icon in the top right
+3. Select "New repository"
+4. Choose a descriptive name: `environmental-data-project`
+5. Add a description: "Analysis of environmental data for EVR 628"
+6. Make it **Public** (for portfolio building)
+7. Check "Add a README file"
+8. Click "Create repository"
+
+## Step 2: Clone to Your Computer
+
+**In RStudio**:
+1. Go to File → New Project
+2. Choose "Version Control"
+3. Select "Git"
+4. Paste your repository URL
+5. Choose where to save it locally
+6. Click "Create Project"
+
+## Step 3: Set Up Your Project Structure
+
+Create these folders in your repository:
+
+```
+environmental-data-project/
+├── data/
+│   ├── raw/
+│   ├── processed/
+|   └── output/
+├── scripts/
+│   ├── 01_processing/
+│   ├── 02_analysis/
+│   └── 03_content/
+├── results/
+│   ├── figures/
+│   └── tables/
+├── docs/
+└── README.md
+```
+
+Use:
+
+```{r}
+#| eval: false
+#| code-fold: false
+EVR628tools::create_dirs()
+```
+
+
+## Step 4: Create a .gitignore File
+
+Create a `.gitignore` file to exclude unnecessary files:
+
+```gitignore
+# R specific
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj.user/
+
+# Data files (if large)
+*.csv
+*.rds
+*.xlsx
+
+# Results (if large)
+*.png
+*.pdf
+*.jpg
+
+# System files
+.DS_Store
+Thumbs.db
+```
+
+**Note**: You can always add specific files with `git add -f filename`, edit the `.gitignore` file or use the git pane
+
+## Step 5: Add Your First Analysis
+
+Create a simple R script in `scripts/analysis/`:
+```{r}
+#| eval: false
+#| code-fold: false
+# Example: environmental_data_analysis.R
+library(EVR628tools)
+library(tidyverse)
+
+# Create a simple plot
+p <- ggplot(data_milton, aes(x = iso_time, y = wind_speed)) +
+  geom_point()
+
+# Save plot
+ggsave(plot = p, filename = "results/figures/first_plot.png") # <-- This shouldn't work, why?
+```
+
+
+Commit and push:
+
+## Step 6: Update Your README
+
+Create a comprehensive README.md
+
+```markdown
+# Environmental Data Project
+
+## Description
+Analysis of environmental data for EVR 628 course.
+
+## Project Structure
+- `data/`: Raw and processed data files
+- `scripts/`: R scripts for analysis
+- `results/`: Output figures and tables
+- `docs/`: Documentation
+
+## Getting Started
+1. Clone this repository
+2. Install required R packages
+3. Run analysis scripts
+
+## Author
+[Your Name]
+```
+
+Commit and push your README file
+
+
+
+
+
