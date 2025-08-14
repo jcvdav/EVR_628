@@ -575,34 +575,51 @@ Juan Carlos Villaseñor-Derbez (JC)
 </section>
 <section id="git-workflow-the-basic-cycle" class="slide level2">
 <h2>Git Workflow: The Basic Cycle</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
 <ol type="1">
 <li class="fragment"><strong>Modify</strong> files in your working directory</li>
-<li class="fragment"><strong>Stage</strong> changes you want to commit (<code>git add</code>)</li>
-<li class="fragment"><strong>Commit</strong> staged changes with a message (<code>git commit</code>)</li>
+<li class="fragment"><strong>Stage</strong> changes you want to commit</li>
+<li class="fragment"><strong>Commit</strong> staged changes with a message</li>
 <li class="fragment"><strong>Repeat</strong> as you work on your project</li>
 </ol>
+</div><div class="column" style="width:40%;">
+<p><img data-src="img/stage.png"></p>
+</div></div>
 <div class="fragment">
+<p><strong>Push</strong> the changes up to GitHub</p>
 <p><strong>This cycle creates a timeline of your project’s development</strong></p>
 </div>
 </section>
 <section id="git-commands-the-essentials" class="slide level2">
 <h2>Git Commands: The Essentials</h2>
-<p><strong>Getting started</strong>:</p>
+<p>We can do most things in RStudio, but you should know:</p>
+<div class="fragment">
+<ul>
+<li class="fragment">Getting started
 <ul>
 <li class="fragment"><code>git init</code>: Create a new repository</li>
 <li class="fragment"><code>git clone</code>: Copy a repository from remote to local</li>
-</ul>
-<p><strong>Daily workflow</strong>:</p>
+</ul></li>
+<li class="fragment">Daily workflow
 <ul>
 <li class="fragment"><code>git status</code>: See what’s changed</li>
 <li class="fragment"><code>git add</code>: Stage changes for commit</li>
 <li class="fragment"><code>git commit</code>: Save changes with a message</li>
 <li class="fragment"><code>git log</code>: View commit history</li>
-</ul>
-<p><strong>Sharing</strong>:</p>
+</ul></li>
+<li class="fragment">Connecting with GitHub
 <ul>
 <li class="fragment"><code>git push</code>: Upload changes to remote repository</li>
 <li class="fragment"><code>git pull</code>: Download changes from remote repository</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="when-what-to-commit" class="slide level2">
+<h2>When / What to commit</h2>
+<ul>
+<li class="fragment"></li>
 </ul>
 </section>
 <section id="writing-good-commit-messages" class="slide level2">
@@ -610,18 +627,22 @@ Juan Carlos Villaseñor-Derbez (JC)
 <p><strong>Good commit messages</strong>:</p>
 <ul>
 <li class="fragment">Are descriptive and specific</li>
-<li class="fragment">Explain WHAT was changed and WHY</li>
-<li class="fragment">Use present tense (“Add function” not “Added function”)</li>
+<li class="fragment">Explain WHAT and/or WHY and/or HOW things changed</li>
 <li class="fragment">Are concise but informative</li>
 </ul>
+<div class="fragment">
 <p><strong>Examples</strong>:</p>
 <ul>
-<li class="fragment">✅ <code>Add sea surface temperature data processing function</code></li>
-<li class="fragment">✅ <code>Fix bug in monthly trend calculation</code></li>
-<li class="fragment">✅ <code>Update README with installation instructions</code></li>
-<li class="fragment">❌ <code>stuff</code></li>
-<li class="fragment">❌ <code>fixed things</code></li>
+<li class="fragment"><code>Add sea surface temperature data processing function</code></li>
+<li class="fragment"><code>Fix bug in monthly trend calculation</code></li>
+<li class="fragment"><code>Update README with installation instructions</code></li>
+<li class="fragment"><code>stuff</code></li>
+<li class="fragment"><code>fixed things</code></li>
 </ul>
+</div>
+<div class="fragment">
+<p>Which are good?</p>
+</div>
 </section>
 <section id="github-the-social-platform-for-code" class="slide level2">
 <h2>GitHub: The Social Platform for Code</h2>
@@ -632,22 +653,76 @@ Juan Carlos Villaseñor-Derbez (JC)
 <li class="fragment">Collaboration tools: Issues, pull requests, discussions</li>
 <li class="fragment">Project management: Wikis, project boards, releases</li>
 <li class="fragment">Integration: Connects with other tools and services</li>
-<li class="fragment">Portfolio: Showcase your work to potential employers</li>
+<li class="fragment"><strong>Portfolio: Showcase your work to potential employers</strong></li>
 </ul>
 </section>
-<section id="github-workflow-collaboration" class="slide level2">
-<h2>GitHub Workflow: Collaboration</h2>
-<p><strong>Fork</strong>: Create your own copy of someone else’s repository <strong>Clone</strong>: Download the repository to your computer <strong>Branch</strong>: Create a separate line of development <strong>Commit</strong>: Make and save your changes <strong>Push</strong>: Upload your changes to GitHub <strong>Pull Request</strong>: Propose changes to the original repository <strong>Review</strong>: Get feedback and approval from collaborators <strong>Merge</strong>: Integrate approved changes into the main project</p>
+<section id="github-workflows" class="slide level2">
+<h2>GitHub Workflows</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>By yourself</p>
+<ul>
+<li class="fragment"><strong>Clone</strong>: Download the repository to your computer</li>
+<li class="fragment"><strong>Commit</strong>: Make and save your changes</li>
+<li class="fragment"><strong>Push</strong>: Upload your changes to GitHub</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p>In a group</p>
+<ul>
+<li class="fragment"><strong>Clone</strong>: Download the repository to your computer</li>
+<li class="fragment"><strong>Branch</strong>: Create a separate line of development</li>
+<li class="fragment"><strong>Commit</strong>: Make and save your changes</li>
+<li class="fragment"><strong>Push</strong>: Upload your changes to GitHub</li>
+<li class="fragment"><strong>Pull Request</strong>: Propose changes to the original repository</li>
+<li class="fragment"><strong>Review</strong>: Get feedback and approval from collaborators</li>
+<li class="fragment"><strong>Merge</strong>: Integrate approved changes into the main project</li>
+</ul>
+</div></div>
 </section>
 <section id="github-features-for-environmental-science" class="slide level2">
 <h2>GitHub Features for Environmental Science</h2>
-<p><strong>Issues</strong>: Track bugs, feature requests, and research questions <strong>Pull Requests</strong>: Review and discuss code changes <strong>Releases</strong>: Tag specific versions of your research <strong>Actions</strong>: Automate testing and deployment <strong>Pages</strong>: Host project websites and documentation <strong>Discussions</strong>: Have conversations about your research <strong>Wiki</strong>: Document methods and procedures</p>
+<ul>
+<li class="fragment"><strong>Issues</strong>: Track bugs, feature requests, <a href="https://github.com/chaisemartinPackages/did_multiplegt_dyn/issues/99">contact</a> authors</li>
+<li class="fragment"><strong>Releases</strong>: Tag specific versions of your research</li>
+<li class="fragment"><strong>Actions</strong>: Automate testing and deployment</li>
+<li class="fragment"><strong>Pages</strong>: Host project websites and documentation</li>
+<li class="fragment"><strong>Discussions</strong>: Have conversations about your research</li>
+<li class="fragment"><strong>Wiki</strong>: Document methods and procedures</li>
+</ul>
 </section>
 <section id="best-practices-for-research-repositories" class="slide level2">
 <h2>Best Practices for Research Repositories</h2>
-<p><strong>Structure</strong>: - Clear README with project description - Well-organized file structure - Comprehensive documentation - License file</p>
-<p><strong>Content</strong>: - Include raw and processed data (or data access instructions) - Document all processing steps - Provide clear installation instructions - Include example workflows</p>
-<p><strong>Collaboration</strong>: - Use descriptive commit messages - Review code before merging - Maintain consistent coding standards - Document decisions and assumptions</p>
+<p><strong>Structure</strong>:</p>
+<ul>
+<li class="fragment">Clear README with project description</li>
+<li class="fragment">Well-organized file structure</li>
+<li class="fragment">Comprehensive documentation</li>
+<li class="fragment">License file (optional)</li>
+</ul>
+<div class="fragment">
+<p><strong>Content</strong>:</p>
+<ul>
+<li class="fragment">Include raw and processed data (or data access instructions)</li>
+<li class="fragment">Document all processing steps</li>
+<li class="fragment">Provide clear installation instructions</li>
+<li class="fragment">Include example workflows</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Collaboration</strong>:</p>
+<ul>
+<li class="fragment">Use descriptive commit messages</li>
+<li class="fragment">Review code before merging</li>
+<li class="fragment">Maintain consistent coding standards</li>
+<li class="fragment">Document decisions and assumptions</li>
+</ul>
+<p>Files that you don’t want on GitHub:</p>
+<ul>
+<li class="fragment">Files larger than 100 MB</li>
+<li class="fragment">Files containing passwords / authentication tokens</li>
+<li class="fragment">Binary files (.docx, .xlsx, .ppt…)</li>
+</ul>
+</div>
 </section>
 <section id="hands-on-building-your-first-repository" class="slide level2">
 <h2>Hands-on: Building Your First Repository</h2>

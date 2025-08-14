@@ -323,51 +323,71 @@ Push / Pull
 
 ## Git Workflow: The Basic Cycle
 
+:::: {.columns}
+
+::: {.column width='60%'}
 1. **Modify** files in your working directory
-2. **Stage** changes you want to commit (`git add`)
-3. **Commit** staged changes with a message (`git commit`)
+2. **Stage** changes you want to commit
+3. **Commit** staged changes with a message
 4. **Repeat** as you work on your project
+:::
+
+::: {.column width='40%'}
+![](img/stage.png)
+:::
+
+::::
 
 . . .
+
+**Push** the changes up to GitHub
 
 **This cycle creates a timeline of your project's development**
 
 
 ## Git Commands: The Essentials
 
-**Getting started**:
+We can do most things in RStudio, but you should know:
 
-- `git init`: Create a new repository
-- `git clone`: Copy a repository from remote to local
+. . .
 
-**Daily workflow**:
+- Getting started
+  - `git init`: Create a new repository
+  - `git clone`: Copy a repository from remote to local
+- Daily workflow
+  - `git status`: See what's changed
+  - `git add`: Stage changes for commit
+  - `git commit`: Save changes with a message
+  - `git log`: View commit history
+- Connecting with GitHub
+  - `git push`: Upload changes to remote repository
+  - `git pull`: Download changes from remote repository
 
-- `git status`: See what's changed
-- `git add`: Stage changes for commit
-- `git commit`: Save changes with a message
-- `git log`: View commit history
+## When / What to commit
 
-**Sharing**:
-
-- `git push`: Upload changes to remote repository
-- `git pull`: Download changes from remote repository
+- 
 
 ## Writing Good Commit Messages
 
 **Good commit messages**:
 
 - Are descriptive and specific
-- Explain WHAT was changed and WHY
-- Use present tense ("Add function" not "Added function")
+- Explain WHAT and/or WHY and/or HOW things changed
 - Are concise but informative
+
+. . .
 
 **Examples**:
 
-- ✅ `Add sea surface temperature data processing function`
-- ✅ `Fix bug in monthly trend calculation`
-- ✅ `Update README with installation instructions`
-- ❌ `stuff`
-- ❌ `fixed things`
+- `Add sea surface temperature data processing function`
+- `Fix bug in monthly trend calculation`
+- `Update README with installation instructions`
+- `stuff`
+- `fixed things`
+
+. . .
+
+Which are good?
 
 ## GitHub: The Social Platform for Code
 
@@ -379,49 +399,81 @@ Push / Pull
 - Collaboration tools: Issues, pull requests, discussions
 - Project management: Wikis, project boards, releases
 - Integration: Connects with other tools and services
-- Portfolio: Showcase your work to potential employers
+- **Portfolio: Showcase your work to potential employers**
 
 
-## GitHub Workflow: Collaboration
+## GitHub Workflows
 
-**Fork**: Create your own copy of someone else's repository
-**Clone**: Download the repository to your computer
-**Branch**: Create a separate line of development
-**Commit**: Make and save your changes
-**Push**: Upload your changes to GitHub
-**Pull Request**: Propose changes to the original repository
-**Review**: Get feedback and approval from collaborators
-**Merge**: Integrate approved changes into the main project
+:::: {.columns}
+
+::: {.column width='50%'}
+By yourself
+
+- **Clone**: Download the repository to your computer
+- **Commit**: Make and save your changes
+- **Push**: Upload your changes to GitHub
+
+:::
+
+
+
+::: {.column width='50%'}
+In a group
+
+- **Clone**: Download the repository to your computer
+- **Branch**: Create a separate line of development
+- **Commit**: Make and save your changes
+- **Push**: Upload your changes to GitHub
+- **Pull Request**: Propose changes to the original repository
+- **Review**: Get feedback and approval from collaborators
+- **Merge**: Integrate approved changes into the main project
+:::
+
+::::
+
 
 ## GitHub Features for Environmental Science
 
-**Issues**: Track bugs, feature requests, and research questions
-**Pull Requests**: Review and discuss code changes
-**Releases**: Tag specific versions of your research
-**Actions**: Automate testing and deployment
-**Pages**: Host project websites and documentation
-**Discussions**: Have conversations about your research
-**Wiki**: Document methods and procedures
+- **Issues**: Track bugs, feature requests, [contact](https://github.com/chaisemartinPackages/did_multiplegt_dyn/issues/99) authors
+- **Releases**: Tag specific versions of your research
+- **Actions**: Automate testing and deployment
+- **Pages**: Host project websites and documentation
+- **Discussions**: Have conversations about your research
+- **Wiki**: Document methods and procedures
 
 ## Best Practices for Research Repositories
 
 **Structure**:
+
 - Clear README with project description
 - Well-organized file structure
 - Comprehensive documentation
-- License file
+- License file (optional)
+
+. . .
 
 **Content**:
+
 - Include raw and processed data (or data access instructions)
 - Document all processing steps
 - Provide clear installation instructions
 - Include example workflows
 
+. . .
+
 **Collaboration**:
+
 - Use descriptive commit messages
 - Review code before merging
 - Maintain consistent coding standards
 - Document decisions and assumptions
+
+Files that you don't want on GitHub:
+
+- Files larger than 100 MB
+- Files containing passwords / authentication tokens
+- Binary files (.docx, .xlsx, .ppt...)
+
 
 ## Hands-on: Building Your First Repository
 
