@@ -43,12 +43,13 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
 - The grammar of graphics and the [`ggplot2`](https://github.com/tidyverse/ggplot2) package
 
 **Relevant links for the week**
-- [Slide deck]()
+- [Slide deck](./slides/02_data_vis.html)
+- [Slide deck](slides/02_data_vis.html)
 - Assigned readings: 
   - Jambor, H.K. ["A checklist for designing and improving the visualization of scientific data."](https://doi.org/10.1038/s41556-025-01684-z) Nat Cell Biol 27, 879–883 (2025).
   - R4DS [CH1: Data visualization](https://r4ds.hadley.nz/data-visualize.html)
 - Other links: 
-  - Englander, G. [“Timeless principles for better figure design”](https://blogs.worldbank.org/en/impactevaluations/timeless-principles-for-better-figure-design). The World Ban
+  - Englander, G. [“Timeless principles for better figure design”](https://blogs.worldbank.org/en/impactevaluations/timeless-principles-for-better-figure-design). The World Bank
   - IPCC [Visual Style Guide](https://www.ipcc.ch/site/assets/uploads/2022/09/IPCC_AR6_WGI_VisualStyleGuide_2022.pdf) by the IPCC
   - The [R Graph Gallery](https://r-graph-gallery.com/)
   - [Data-to-viz](https://www.data-to-viz.com/)
@@ -69,14 +70,13 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
 ## Week 4 (Sep 9-12)
 **Good coding principles**
 - Code style and documentation
-- File structure and organization
 - Classes, objects, variables, values
 - Indexing and subsetting vectors and data frames
-- Useful functions in base and stats
+- Useful functions in `base` and `stats`
 
 ## Week 5 (Sep 15-19)
 **Scaling up your code and visualizations**
-- Layers, geometries, and aesthetics in ggplot2
+- Refresh on layers, geometries, and aesthetics in ggplot2
 - Themes with ggplot2
 - Summarizing data on the fly (`stat_summary`, `geom_smooth`)
 - Plot extensions (`cowplot`, `GGally`, `ggrepel`)
@@ -91,31 +91,33 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
 
 ## Week 6 (Sep 22-26)
 **Data management**
-- Reading and writing tabular data with here
-- Metadata and documentation
-- Retrieving environmental datasets from the Internet
 - Raw data vs processed data
+- Metadata and documentation
+- Relative vs absolute paths and the `here` package
+- Reading and writing tabular data (`*.tsv` `*.csv`)
+- Reading and writing `*.rds` files
+- Retrieving environmental datasets from the Internet (`gfwr`, `rerddap`)
 
 ## Week 7, Sept 29-Oct 3
 **Data transformation**
-- data.frames and tibbles in the tidyverse
-- Rows (filter, arrange, distinct) in dplyr
-- Columns (select, rename) in dplyr
+- data frames and tibbles in the `tidyverse`
+- Rows (filter, arrange, distinct) in `dplyr`
+- Columns (select, rename) in `dplyr`
 - The pipe (native and magrittr)
 - Grouping and summarizing data
 
 ## Week 8 (Oct 6-10)
 **Data tidying and wrangling**
 - Principles of tidy data
-- Lengthening data with tidyr
-- Widening data with tidyr
-- Combining multiple sources of data (*_joins)
+- Lengthening data with `tidyr`
+- Widening data with `tidyr`
+- Combining multiple sources of data (`*_joins`)
 
 ## Week 9 (Oct 13-17)
 **Dealing with text, dates, and factors**
-- Managing dates and times with lubridate
-- Regular expressions with stringr
-- Ordering factors with forcats
+- Managing dates and times with `lubridate`
+- Regular expressions with `stringr`
+- Ordering factors with `forcats`
 
 ---
 
@@ -125,9 +127,9 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
 
 ## Week 10 (Oct 20-24)
 **Working with spatial data in R**
-- Vector data and sf
-- Raster data and terra
-- Exploratory visualizations with plot and mapview
+- Vector data and `sf`
+- Raster data and `terra`
+- Exploratory visualizations with `plot` and `mapview`
 
 ## Week 11 (Oct 27-31)
 **Visualizing spatial data**
