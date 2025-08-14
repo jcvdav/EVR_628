@@ -32,6 +32,10 @@ glimpse(data_lionfish)
 - Show documentation: point out data and mapping
 - Specify data
 
+```{r}
+ggplot(data = data_lionfish)
+```
+
 ## The `aes` function
 - Show documentation
 - Then specify mapping
@@ -39,12 +43,23 @@ glimpse(data_lionfish)
 - Show what happens when you don't name arguments
 - Multiple lines and parentheses
 
+```{r}
+ggplot(data = data_lionfish,
+       mapping = aes(x = depth_m, y = total_length_mm))
+```
+
 ## The `geom_point` function
 - Emphasiz on `+` for layering
 - Run with simple points
 - Show documentation and scroll down to the **Aesthetics** section
 - Show how to change colors / sizes etc...
 - Emphasize difference between using variables and constant values (inside vs outisde aes)
+
+```{r}
+ggplot(data = data_lionfish,
+       mapping = aes(x = depth_m, y = total_length_mm)) +
+  geom_point()
+```
 
 ## `labs` function
 
@@ -69,6 +84,19 @@ ggplot(data = data_lionfish,
 - Show documentation of ggsave
 - Emphasize on creating plot objects
 
+```{r}
+# Save plot to object
+p <- ggplot(data = data_lionfish,
+            mapping = aes(x = depth_m, y = total_length_mm)) +
+  geom_point(shape = 21, fill = "steelblue", size = 2) +
+  labs(x = "Depth (m)",
+       y = "Total length (mm)",
+       title = "Body length and depth")
+
+# Save plot to file
+# ggsave("lionfish_depth_length.png", p, width = 8, height = 6, dpi = 300)
+```
+
 # Part 3: Visualizing distributions
 
 - Categorical variable with `geom_bar()`
@@ -78,6 +106,30 @@ ggplot(data = data_lionfish,
 - Numerical variable with `geom_histogram()`
   - Distribution of lengths
 
+```{r}
+# Basic bar plot with site
+ggplot(data = data_lionfish, aes(x = site)) +
+  geom_bar() +
+  coord_flip() +
+  labs(x = "Site", y = "Number of fish")
+
+# Bar plot with sites ordered by frequency
+ggplot(data = data_lionfish, aes(x = fct_infreq(site))) +
+  geom_bar() +
+  coord_flip() +
+  labs(x = "Site", y = "Number of fish")
+
+# Bar plot with size class (ordered)
+ggplot(data = data_lionfish, aes(x = fct_relevel(size_class, c("small", "medium", "large")))) +
+  geom_bar() +
+  labs(x = "Size class", y = "Number of fish")
+
+# Histogram of lengths
+ggplot(data = data_lionfish, aes(x = total_length_mm)) +
+  geom_histogram(bins = 15, fill = "steelblue", color = "black") +
+  labs(x = "Total length (mm)", y = "Count")
+```
+
 # Part 4: Visualizing relationships
 - A numerical and a categorical variable : depth by size class
 - Two categorical variables: N by size class and site
@@ -85,6 +137,33 @@ ggplot(data = data_lionfish,
 
 ## Three or more
 - length vs depth with size for weight and color for temp?
+
+```{r}
+# Numerical vs categorical: depth by size class
+ggplot(data = data_lionfish, aes(x = size_class, y = depth_m)) +
+  geom_boxplot() +
+  labs(x = "Size class", y = "Depth (m)")
+
+# Two categorical variables: N by size class and site
+ggplot(data = data_lionfish, aes(x = site, fill = size_class)) +
+  geom_bar(position = "dodge") +
+  coord_flip() +
+  labs(x = "Site", y = "Number of fish", fill = "Size class")
+
+# Two numerical variables: depth vs temperature
+ggplot(data = data_lionfish, aes(x = depth_m, y = temperature_C)) +
+  geom_point() +
+  labs(x = "Depth (m)", y = "Temperature (°C)")
+
+# Three or more variables: length vs depth with size for weight and color for temp
+ggplot(data = data_lionfish, aes(x = depth_m, y = total_length_mm, 
+                                 size = total_weight_gr, color = temperature_C)) +
+  geom_point(alpha = 0.7) +
+  scale_size_continuous(range = c(1, 5)) +
+  scale_color_viridis_c() +
+  labs(x = "Depth (m)", y = "Total length (mm)", 
+       size = "Weight (g)", color = "Temperature (°C)")
+```
 
 # Part 5: Layering
 - Show `data_milton` documentation again
@@ -155,13 +234,39 @@ p +
 
 ## Part 8: `scale_*_manual`
 
+```{r}
+# Example with manual color scale for discrete variables
+ggplot(data = data_lionfish, aes(x = site, fill = size_class)) +
+  geom_bar(position = "dodge") +
+  scale_fill_manual(values = c("small" = "lightblue", 
+                               "medium" = "blue", 
+                               "large" = "darkblue")) +
+  labs(x = "Site", y = "Number of fish", fill = "Size class")
+```
+
 # Part 7: Facetting
 
 - Show documentation for `facet_wrap` and `facet_grid`
 - Show how each of these work
 
 ```{r}
+# Facet wrap example
+ggplot(data = data_lionfish, aes(x = depth_m, y = total_length_mm)) +
+  geom_point() +
+  facet_wrap(~size_class, ncol = 3) +
+  labs(x = "Depth (m)", y = "Total length (mm)")
 
+# Facet grid example
+ggplot(data = data_lionfish, aes(x = depth_m, y = total_length_mm)) +
+  geom_point() +
+  facet_grid(size_class ~ site) +
+  labs(x = "Depth (m)", y = "Total length (mm)")
+
+# Facet wrap with different scales
+ggplot(data = data_lionfish, aes(x = depth_m, y = total_length_mm)) +
+  geom_point() +
+  facet_wrap(~size_class, ncol = 3, scales = "free_y") +
+  labs(x = "Depth (m)", y = "Total length (mm)")
 ```
 
 
