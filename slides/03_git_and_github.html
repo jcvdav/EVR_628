@@ -93,7 +93,27 @@
     code span.va { color: #111111; } /* Variable */
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="03_git_and_github_files/libs/revealjs/dist/theme/quarto-8f3eebe07241f08526c91a7e9cbef8fd.css">
   <link href="03_git_and_github_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="03_git_and_github_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -204,15 +224,55 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div>
 
 </section>
+<section id="learning-objectives" class="slide level2">
+<h2>Learning objectives</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>By the end of this week, you should be able to:</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li class="fragment">Understand the importance of reproducibility</li>
+<li class="fragment">Create the basic structure for an organized project</li>
+<li class="fragment">Explain the difference between Git and GitHub</li>
+<li class="fragment">Create and “clone” a “repo”</li>
+<li class="fragment">“commit” and “push”</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Learning Git and GitHub may (will) be painful</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li class="fragment">Usually taught later in courses</li>
+<li class="fragment">Limited use if you learn it at the end</li>
+<li class="fragment">I would rather push materials to later in the course, but have you dominate this</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="todays-agenda" class="slide level2">
 <h2>Today’s Agenda</h2>
 <ul>
-<li class="fragment"><strong>Reproducible Research</strong> (10 min)</li>
-<li class="fragment"><strong>File Structure &amp; Organization</strong> (10 min)<br>
-</li>
-<li class="fragment"><strong>Version Control with Git</strong> (15 min)</li>
-<li class="fragment"><strong>GitHub &amp; Collaboration</strong> (10 min)</li>
-<li class="fragment"><strong>Hands-on: Building Your Repository</strong> (15 min)</li>
+<li class="fragment"><strong>Reproducible Research</strong></li>
+<li class="fragment"><strong>File Structure &amp; Organization</strong></li>
+<li class="fragment"><strong>Version Control with Git</strong></li>
+<li class="fragment"><strong>GitHub &amp; Collaboration</strong></li>
+<li class="fragment"><strong>Hands-on: Building Your Repository</strong></li>
 </ul>
 </section>
 <section id="why-should-you-care" class="slide level2">
@@ -259,9 +319,9 @@ Juan Carlos Villaseñor-Derbez (JC)
 <section id="the-reproducibility-crisis" class="slide level2">
 <h2>The Reproducibility Crisis</h2>
 <ul>
-<li class="fragment">70% of researchers have tried and failed to reproduce another scientist’s experiments</li>
-<li class="fragment">50% of researchers have failed to reproduce their own experiments</li>
-<li class="fragment">$28 billion wasted annually on irreproducible preclinical research</li>
+<li class="fragment">70% of researchers have tried and failed to reproduce another scientist’s experiments <span class="citation" data-cites="Baker2016-aa">(<a href="#/references" role="doc-biblioref" onclick="">Baker 2016</a>)</span></li>
+<li class="fragment">50% of researchers have failed to reproduce their own experiments <span class="citation" data-cites="Baker2016-aa">(<a href="#/references" role="doc-biblioref" onclick="">Baker 2016</a>)</span></li>
+<li class="fragment">$28 billion wasted annually on irreproducible preclinical research <span class="citation" data-cites="Freedman2015-aa">(<a href="#/references" role="doc-biblioref" onclick="">Freedman, Cockburn, and Simcoe 2016</a>)</span></li>
 <li class="fragment">Environmental science is not immune to these issues</li>
 </ul>
 </section>
@@ -385,22 +445,133 @@ Juan Carlos Villaseñor-Derbez (JC)
 <li class="fragment">If I ever want to go back to an earlier version, I <a href="https://github.com/mex-fisheries/mex_ports/commit/8c4a903e66d331b47eff18119b142ac500e1076a">can</a>!</li>
 </ul>
 </section>
-<section id="git-the-most-popular-version-control-system" class="slide level2">
-<h2>Git: The Most Popular Version Control System</h2>
-<p><strong>Git</strong> was created by Linus Torvalds (creator of Linux) in 2005</p>
-<p><strong>Key Features</strong>: - Distributed: Every copy is a complete backup - Fast: Most operations are local - Branching: Work on features without affecting main code - Merging: Combine changes from different sources - Free and open source: No licensing costs</p>
+<section id="git-vs-github" class="slide level2">
+<h2>Git vs GitHub</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="git">Git</h3>
+<ul>
+<li class="fragment">Software</li>
+<li class="fragment">Something you install in your computer</li>
+<li class="fragment">A command line tool (but we can bypass that)</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="github">Git<strong>Hub</strong></h3>
+<ul>
+<li class="fragment">A service (offered by Microsoft)</li>
+<li class="fragment">Lives “on the cloud”</li>
+<li class="fragment">Provides a graphical interface</li>
+<li class="fragment">How you connect your computer to your colleague’s computer</li>
+<li class="fragment">Back up of your code</li>
+</ul>
+</div></div>
+</section>
+<section id="git-vs-github-1" class="slide level2">
+<h2>Git vs GitHub</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/git_gitHub.png"></p>
+<figcaption>Source: https://www.edureka.co/blog/git-vs-github/</figcaption>
+</figure>
+</div>
+</section>
+<section id="git-1" class="slide level2">
+<h2>Git</h2>
+<p><strong>Git</strong> was created by <a href="https://en.wikipedia.org/wiki/Linus_Torvalds">Linus Torvalds</a> (creator of Linux) in 2005</p>
+<p><strong>Key Features</strong>:</p>
+<ul>
+<li class="fragment">Free and open source: No licensing costs</li>
+<li class="fragment">Fast: Most operations are local</li>
+<li class="fragment">Branching: Work on features without affecting main code</li>
+<li class="fragment">Merging: Combine changes from different sources</li>
+<li class="fragment">The Most Popular Version Control System</li>
+</ul>
+</section>
+<section>
+<section id="four-git-concepts" class="title-slide slide level1 center">
+<h1>Four Git concepts</h1>
+<p>Repository</p>
+<p>Clone</p>
+<p>Commit</p>
+<p>Push / Pull</p>
 </section>
 <section id="git-concepts-the-repository" class="slide level2">
 <h2>Git Concepts: The Repository</h2>
 <p><strong>Repository (repo)</strong>: A directory containing your project and its complete history</p>
-<p><strong>Think of it as</strong>: - A project folder with superpowers - A database of all your changes - A collaboration space for your team</p>
-<p><strong>Types</strong>: - Local repository: On your computer - Remote repository: On a server (like GitHub)</p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Think of it as</strong>:</p>
+<ul>
+<li class="fragment">A project folder with superpowers</li>
+<li class="fragment">A database of all your changes</li>
+<li class="fragment">A collaboration space for your team</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Types</strong>:</p>
+<ul>
+<li class="fragment">Local repository: On your computer</li>
+<li class="fragment">Remote repository: On a server (like GitHub)</li>
+</ul>
+</div></div>
+</div>
+<div class="fragment">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Example</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li class="fragment">The folder on my computer called <code>mex_ports</code> is the local repo</li>
+<li class="fragment">What you saw <a href="https://github.com/mex-fisheries/mex_ports">online</a> was the remote repo</li>
+<li class="fragment">1 folder = 1 RStudio project = 1 repo</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="git-concepts-cloning" class="slide level2">
+<h2>Git Concepts: Cloning</h2>
+<p><strong>Cloning</strong>: The process of bringing a repo from the remote to local for <em>the first time</em></p>
+<div class="fragment">
+<p><strong>When you clone a repo</strong>:</p>
+<ul>
+<li class="fragment">You get all files available in the remote, at that point in time</li>
+<li class="fragment">You only do this once per project (unless you have more than one computer)</li>
+<li class="fragment">RStudio has a nice way of doing it without having to use the command line</li>
+<li class="fragment">Cloning is just GitHub’s way of referring to “download and connect remote to local”</li>
+</ul>
+</div>
 </section>
 <section id="git-concepts-commits" class="slide level2">
 <h2>Git Concepts: Commits</h2>
 <p><strong>Commit</strong>: A snapshot of your project at a specific point in time</p>
-<p><strong>Each commit contains</strong>: - Changes: What files were modified - Message: Description of what was changed and why - Author: Who made the changes - Timestamp: When the changes were made - Unique ID: A hash that identifies this commit</p>
-<p><strong>Think of commits as</strong>: - Checkpoints in your project’s history - Save points in a video game - Pages in a project’s storybook</p>
+<div class="fragment">
+<p><strong>Each commit contains</strong>:</p>
+<ul>
+<li class="fragment">Changes: What files were modified</li>
+<li class="fragment">Message: Description of what was changed and why</li>
+<li class="fragment">Author: Who made the changes</li>
+<li class="fragment">Timestamp: When the changes were made</li>
+<li class="fragment">Unique ID: A hash that identifies this commit</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Think of commits as</strong>:</p>
+<ul>
+<li class="fragment">Checkpoints in your project’s history</li>
+<li class="fragment">Save points in a video game</li>
+<li class="fragment">Pages in a project’s storybook</li>
+</ul>
+</div>
+<div class="fragment">
+<p><img data-src="img/commit_example.png" class="absolute" style="top: 50px; right: 10px; "></p>
+</div>
 </section>
 <section id="git-workflow-the-basic-cycle" class="slide level2">
 <h2>Git Workflow: The Basic Cycle</h2>
@@ -410,23 +581,59 @@ Juan Carlos Villaseñor-Derbez (JC)
 <li class="fragment"><strong>Commit</strong> staged changes with a message (<code>git commit</code>)</li>
 <li class="fragment"><strong>Repeat</strong> as you work on your project</li>
 </ol>
+<div class="fragment">
 <p><strong>This cycle creates a timeline of your project’s development</strong></p>
+</div>
 </section>
 <section id="git-commands-the-essentials" class="slide level2">
 <h2>Git Commands: The Essentials</h2>
-<p><strong>Getting started</strong>: - <code>git init</code>: Create a new repository - <code>git clone</code>: Copy a repository from remote to local</p>
-<p><strong>Daily workflow</strong>: - <code>git status</code>: See what’s changed - <code>git add</code>: Stage changes for commit - <code>git commit</code>: Save changes with a message - <code>git log</code>: View commit history</p>
-<p><strong>Sharing</strong>: - <code>git push</code>: Upload changes to remote repository - <code>git pull</code>: Download changes from remote repository</p>
+<p><strong>Getting started</strong>:</p>
+<ul>
+<li class="fragment"><code>git init</code>: Create a new repository</li>
+<li class="fragment"><code>git clone</code>: Copy a repository from remote to local</li>
+</ul>
+<p><strong>Daily workflow</strong>:</p>
+<ul>
+<li class="fragment"><code>git status</code>: See what’s changed</li>
+<li class="fragment"><code>git add</code>: Stage changes for commit</li>
+<li class="fragment"><code>git commit</code>: Save changes with a message</li>
+<li class="fragment"><code>git log</code>: View commit history</li>
+</ul>
+<p><strong>Sharing</strong>:</p>
+<ul>
+<li class="fragment"><code>git push</code>: Upload changes to remote repository</li>
+<li class="fragment"><code>git pull</code>: Download changes from remote repository</li>
+</ul>
 </section>
 <section id="writing-good-commit-messages" class="slide level2">
 <h2>Writing Good Commit Messages</h2>
-<p><strong>Good commit messages</strong>: - Are descriptive and specific - Explain WHAT was changed and WHY - Use present tense (“Add function” not “Added function”) - Are concise but informative</p>
-<p><strong>Examples</strong>: - ✅ <code>Add sea surface temperature data processing function</code> - ✅ <code>Fix bug in monthly trend calculation</code> - ✅ <code>Update README with installation instructions</code> - ❌ <code>stuff</code> - ❌ <code>fixed things</code></p>
+<p><strong>Good commit messages</strong>:</p>
+<ul>
+<li class="fragment">Are descriptive and specific</li>
+<li class="fragment">Explain WHAT was changed and WHY</li>
+<li class="fragment">Use present tense (“Add function” not “Added function”)</li>
+<li class="fragment">Are concise but informative</li>
+</ul>
+<p><strong>Examples</strong>:</p>
+<ul>
+<li class="fragment">✅ <code>Add sea surface temperature data processing function</code></li>
+<li class="fragment">✅ <code>Fix bug in monthly trend calculation</code></li>
+<li class="fragment">✅ <code>Update README with installation instructions</code></li>
+<li class="fragment">❌ <code>stuff</code></li>
+<li class="fragment">❌ <code>fixed things</code></li>
+</ul>
 </section>
 <section id="github-the-social-platform-for-code" class="slide level2">
 <h2>GitHub: The Social Platform for Code</h2>
 <p><strong>GitHub</strong> is a web-based platform that hosts Git repositories</p>
-<p><strong>Key Features</strong>: - Free hosting for public repositories - Collaboration tools: Issues, pull requests, discussions - Project management: Wikis, project boards, releases - Integration: Connects with other tools and services - Portfolio: Showcase your work to potential employers</p>
+<p><strong>Key Features</strong>:</p>
+<ul>
+<li class="fragment">Free hosting for public repositories</li>
+<li class="fragment">Collaboration tools: Issues, pull requests, discussions</li>
+<li class="fragment">Project management: Wikis, project boards, releases</li>
+<li class="fragment">Integration: Connects with other tools and services</li>
+<li class="fragment">Portfolio: Showcase your work to potential employers</li>
+</ul>
 </section>
 <section id="github-workflow-collaboration" class="slide level2">
 <h2>GitHub Workflow: Collaboration</h2>
@@ -622,8 +829,19 @@ Juan Carlos Villaseñor-Derbez (JC)
 <p><strong>Due next week</strong>: 1. Create a GitHub repository for your course project 2. Set up proper file structure 3. Add at least one analysis script 4. Create a comprehensive README 5. Make at least 5 meaningful commits 6. Share your repository link</p>
 <p><strong>Grading criteria</strong>: - Repository organization and structure - Quality of commit messages - Documentation and README - Code quality and comments - Regular commits throughout the week</p>
 <p><strong>Remember</strong>: Version control is a skill that gets better with practice. Start using Git for everything!</p>
-
 </section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Baker2016-aa" class="csl-entry" role="listitem">
+Baker, Monya. 2016. <span>“1,500 Scientists Lift the Lid on Reproducibility.”</span> <em>Nature</em> 533 (May): 452–54. <a href="https://doi.org/10.1038/533452a">https://doi.org/10.1038/533452a</a>.
+</div>
+<div id="ref-Freedman2015-aa" class="csl-entry" role="listitem">
+Freedman, Leonard P, Iain M Cockburn, and Timothy S Simcoe. 2016. <span>“The Economics of Reproducibility in Preclinical Research.”</span> <em>PLOS Biology</em> 13 (June): e1002165. <a href="https://doi.org/10.1371/journal.pbio.1002165">https://doi.org/10.1371/journal.pbio.1002165</a>.
+</div>
+</div>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="https://ucomm.miami.edu/_assets/images/tools-and-resources/signatures/png/um-horizontal-rgb.png" class="slide-logo"></p>

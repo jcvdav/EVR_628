@@ -2,13 +2,34 @@
 subtitle: "Keeping track of your code with Git and GitHub"
 ---
 
+## Learning objectives
+
+:::{.callout-note}
+## By the end of this week, you should be able to:
+- Understand the importance of reproducibility
+- Create the basic structure for an organized project
+- Explain the difference between Git and GitHub
+- Create and "clone" a "repo"
+- "commit" and "push"
+:::
+
+. . .
+
+:::{.callout-warning}
+## Learning Git and GitHub may (will) be painful
+
+- Usually taught later in courses
+- Limited use if you learn it at the end
+- I would rather push materials to later in the course, but have you dominate this
+:::
+
 ## Today's Agenda
 
-- **Reproducible Research** (10 min)
-- **File Structure & Organization** (10 min)  
-- **Version Control with Git** (15 min)
-- **GitHub & Collaboration** (10 min)
-- **Hands-on: Building Your Repository** (15 min)
+- **Reproducible Research**
+- **File Structure & Organization**
+- **Version Control with Git**
+- **GitHub & Collaboration**
+- **Hands-on: Building Your Repository**
 
 
 ## Why Should You Care?
@@ -48,9 +69,9 @@ Research that can be repeated by others using the same data and methods
 
 ## The Reproducibility Crisis
 
-- 70% of researchers have tried and failed to reproduce another scientist's experiments
-- 50% of researchers have failed to reproduce their own experiments
-- $28 billion wasted annually on irreproducible preclinical research
+- 70% of researchers have tried and failed to reproduce another scientist's experiments [@Baker2016-aa]
+- 50% of researchers have failed to reproduce their own experiments [@Baker2016-aa]
+- $28 billion wasted annually on irreproducible preclinical research [@Freedman2015-aa]
 - Environmental science is not immune to these issues
 
 
@@ -174,47 +195,130 @@ A system that tracks changes to files over time
 - No need to have V1 (didn't work) and V2 (works) in the same repo
 - If I ever want to go back to an earlier version, I [can](https://github.com/mex-fisheries/mex_ports/commit/8c4a903e66d331b47eff18119b142ac500e1076a)!
 
+## Git vs GitHub
 
-## Git: The Most Popular Version Control System
+:::: {.columns}
+::: {.column width='50%'}
+### Git
 
-**Git** was created by Linus Torvalds (creator of Linux) in 2005
+- Software
+- Something you install in your computer
+- A command line tool (but we can bypass that)
+:::
+
+::: {.column width='50%'}
+### Git**Hub**
+
+- A service (offered by Microsoft)
+- Lives "on the cloud"
+- Provides a graphical interface
+- How you connect your computer to your colleague's computer
+- Back up of your code
+:::
+::::
+
+## Git vs GitHub
+
+![Source: https://www.edureka.co/blog/git-vs-github/](img/git_gitHub.png)
+
+## Git
+
+**Git** was created by [Linus Torvalds](https://en.wikipedia.org/wiki/Linus_Torvalds) (creator of Linux) in 2005
 
 **Key Features**:
-- Distributed: Every copy is a complete backup
+
+- Free and open source: No licensing costs
 - Fast: Most operations are local
 - Branching: Work on features without affecting main code
 - Merging: Combine changes from different sources
-- Free and open source: No licensing costs
+- The Most Popular Version Control System
 
+# Four Git concepts
+
+Repository
+
+Clone
+
+Commit
+
+Push / Pull
 
 ## Git Concepts: The Repository
 
 **Repository (repo)**: A directory containing your project and its complete history
 
+. . .
+
+
+:::: {.columns}
+
+::: {.column width='50%'}
 **Think of it as**:
+
 - A project folder with superpowers
 - A database of all your changes
 - A collaboration space for your team
+:::
 
+::: {.column width='50%'}
 **Types**:
+
 - Local repository: On your computer
 - Remote repository: On a server (like GitHub)
+:::
+
+::::
+
+. . .
+
+:::{.callout-tip}
+# Example
+
+- The folder on my computer called `mex_ports` is the local repo
+- What you saw [online](https://github.com/mex-fisheries/mex_ports) was the remote repo
+- 1 folder = 1 RStudio project = 1 repo
+:::
+
+
+## Git Concepts: Cloning
+
+**Cloning**: The process of bringing a repo from the remote to local for _the first time_
+
+. . .
+
+**When you clone a repo**:
+
+- You get all files available in the remote, at that point in time
+- You only do this once per project (unless you have more than one computer)
+- RStudio has a nice way of doing it without having to use the command line
+- Cloning is just GitHub's way of referring to "download and connect remote to local"
+
 
 ## Git Concepts: Commits
 
 **Commit**: A snapshot of your project at a specific point in time
 
+. . .
+
 **Each commit contains**:
+
 - Changes: What files were modified
 - Message: Description of what was changed and why
 - Author: Who made the changes
 - Timestamp: When the changes were made
 - Unique ID: A hash that identifies this commit
 
+. . .
+
 **Think of commits as**:
+
 - Checkpoints in your project's history
 - Save points in a video game
 - Pages in a project's storybook
+
+. . .
+
+![](img/commit_example.png){.absolute top="50" right="10"}
 
 
 ## Git Workflow: The Basic Cycle
@@ -224,34 +328,41 @@ A system that tracks changes to files over time
 3. **Commit** staged changes with a message (`git commit`)
 4. **Repeat** as you work on your project
 
+. . .
+
 **This cycle creates a timeline of your project's development**
 
 
 ## Git Commands: The Essentials
 
 **Getting started**:
+
 - `git init`: Create a new repository
 - `git clone`: Copy a repository from remote to local
 
 **Daily workflow**:
+
 - `git status`: See what's changed
 - `git add`: Stage changes for commit
 - `git commit`: Save changes with a message
 - `git log`: View commit history
 
 **Sharing**:
+
 - `git push`: Upload changes to remote repository
 - `git pull`: Download changes from remote repository
 
 ## Writing Good Commit Messages
 
 **Good commit messages**:
+
 - Are descriptive and specific
 - Explain WHAT was changed and WHY
 - Use present tense ("Add function" not "Added function")
 - Are concise but informative
 
 **Examples**:
+
 - ✅ `Add sea surface temperature data processing function`
 - ✅ `Fix bug in monthly trend calculation`
 - ✅ `Update README with installation instructions`
@@ -263,6 +374,7 @@ A system that tracks changes to files over time
 **GitHub** is a web-based platform that hosts Git repositories
 
 **Key Features**:
+
 - Free hosting for public repositories
 - Collaboration tools: Issues, pull requests, discussions
 - Project management: Wikis, project boards, releases
@@ -576,3 +688,5 @@ git push origin new-feature
 - Regular commits throughout the week
 
 **Remember**: Version control is a skill that gets better with practice. Start using Git for everything! 
+
+## References
