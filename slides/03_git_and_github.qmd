@@ -1,10 +1,578 @@
 ---
-title: "EVR 628 - Intro to Environmental Data Science"
 subtitle: "Keeping track of your code with Git and GitHub"
 ---
 
-# Reproducible research
+## Today's Agenda
 
-# Introduction to file structure
+- **Reproducible Research** (10 min)
+- **File Structure & Organization** (10 min)  
+- **Version Control with Git** (15 min)
+- **GitHub & Collaboration** (10 min)
+- **Hands-on: Building Your Repository** (15 min)
 
-# 
+
+## Why Should You Care?
+
+- Career advancement: Version control is a required skill in data science
+  - Example job postings [industry](https://jobs.schmidtmarine.org/companies/global-fishing-watch/jobs/35650809-data-scientist-vessel-tracking-and-behavior-remote), [academia](https://jobs.chronicle.com/job/37833047/post-doctoral-fellow-plant-ecology/), and [government](https://nmfs-opensci.github.io/GitHub-Guide/)
+- Collaboration: Work with others without breaking each other's code
+- Reproducibility: Essential for scientific integrity / managing the real world
+- Backup & recovery: Never lose your work again
+- Portfolio building: Showcase your projects to employers
+
+
+## The Problem: Research can be chaotic
+
+- File naming: `analysis_final_v2_really_final_USE_THIS_ONE.R`
+  - (And the filenames contained might look even worse)
+- Lost work: "Where did I put that working version?"
+- Collaboration conflicts: "Who changed what and when?"
+- Reproducibility failures: "It worked on my computer!"
+- Publication delays: "I can't reproduce my own results"
+
+
+## Reproducible Research
+
+Research that can be repeated by others using the same data and methods
+
+. . .
+
+**Key Components:**
+
+- Data: Raw, processed, and metadata
+- Code: Scripts, functions, and workflows  
+- Documentation: Methods, assumptions, and decisions
+- Environment: Software versions and dependencies
+- Results: Outputs, figures, and interpretations
+
+
+## The Reproducibility Crisis
+
+- 70% of researchers have tried and failed to reproduce another scientist's experiments
+- 50% of researchers have failed to reproduce their own experiments
+- $28 billion wasted annually on irreproducible preclinical research
+- Environmental science is not immune to these issues
+
+
+## Real-World Example: Climate Data Analysis
+
+**Scenario**: You're analyzing sea surface temperature trends
+
+:::: {.columns}
+
+::: {.column width='40%'}
+**Without version control**:
+
+- Multiple versions of scripts with unclear differences
+- No record of data processing steps
+- Can't track which parameters produced which results
+- Collaboration becomes chaotic
+:::
+
+::: {.column width='60%'}
+**With version control**:
+
+- Clear history of all changes
+- Reproducible workflow from raw data to final results
+- Easy collaboration and peer review
+- Confidence in your results
+:::
+
+::::
+
+
+
+
+
+## File Structure Fundamentals
+
+:::{.callout-important}
+Good file organization is the foundation of reproducible research
+:::
+
+**Principles**:
+
+- Consistency: Use the same structure across projects
+- Clarity: Names should be self-explanatory
+- Separation: Keep raw data, processed data, and outputs separate
+- Documentation: Include README files and metadata
+
+
+## Recommended Project Structure
+
+```
+project_name/
+├── data/
+│   ├── raw/           # Original, unmodified data
+│   ├── processed/     # Cleaned, transformed data
+|   └── output/        # Output from your analyses
+├── scripts/
+│   ├── 01_processing/
+│   ├── 02_analysis/
+│   └── 03_contents/
+├── results/
+│   ├── figures/
+│   ├── tables/
+├── docs/              # Documents
+├── slides/            # Slides
+├── README.md          # Project overview
+└── .gitignore         # Files to exclude from version control
+```
+
+## Example
+
+![](img/structure.png)
+
+## File Naming Best Practices
+
+:::: {.columns}
+
+::: {.column width='50%'}
+**DO**:
+
+- Use descriptive names: `sea_surface_temp_analysis.R`
+  - I prefer `snake_case`, but `CamelCase` is appropriate too
+- Use consistent separators: underscores or hyphens
+:::
+
+::: {.column width='50%'}
+**DON'T**:
+
+- Use spaces: `my file.R`
+- Use special characters: `analysis@final.R`
+- Use vague names: `stuff.R`
+- Use different naming conventions within the same project
+- Use versions for code `analysis_v1.2.R` = `analysis_final_v2_really_final_USE_THIS_ONE.R`
+:::
+
+::::
+
+. . .
+
+Sometimes: include dates (e.g. `data_2024_01_15.csv`) 
+
+## What is Version Control?
+
+A system that tracks changes to files over time
+
+**Think of it as**:
+
+- A time machine for your code
+- A detailed history book of your project
+- A safety net for your work
+- A collaboration tool for teams
+
+## An example
+
+- [`mex_ports` repository](https://github.com/mex-fisheries/mex_ports)
+  - I [created](https://github.com/mex-fisheries/mex_ports/commit/8c4a903e66d331b47eff18119b142ac500e1076a) a new R script on August 1st
+  - Emma (student intern) [worked](https://github.com/mex-fisheries/mex_ports/commits/main/) on other files in the repo Aug 5 - Aug 11
+  - Emma was having trouble reading data I had created
+  - I had made a [minor](https://github.com/mex-fisheries/mex_ports/commit/f599235f81426c3778750effe24110f883ebee54) mistake, which I fixed
+
+- Note how I simply overwrite the file
+- No need to have V1 (didn't work) and V2 (works) in the same repo
+- If I ever want to go back to an earlier version, I [can](https://github.com/mex-fisheries/mex_ports/commit/8c4a903e66d331b47eff18119b142ac500e1076a)!
+
+
+## Git: The Most Popular Version Control System
+
+**Git** was created by Linus Torvalds (creator of Linux) in 2005
+
+**Key Features**:
+- Distributed: Every copy is a complete backup
+- Fast: Most operations are local
+- Branching: Work on features without affecting main code
+- Merging: Combine changes from different sources
+- Free and open source: No licensing costs
+
+
+## Git Concepts: The Repository
+
+**Repository (repo)**: A directory containing your project and its complete history
+
+**Think of it as**:
+- A project folder with superpowers
+- A database of all your changes
+- A collaboration space for your team
+
+**Types**:
+- Local repository: On your computer
+- Remote repository: On a server (like GitHub)
+
+## Git Concepts: Commits
+
+**Commit**: A snapshot of your project at a specific point in time
+
+**Each commit contains**:
+- Changes: What files were modified
+- Message: Description of what was changed and why
+- Author: Who made the changes
+- Timestamp: When the changes were made
+- Unique ID: A hash that identifies this commit
+
+**Think of commits as**:
+- Checkpoints in your project's history
+- Save points in a video game
+- Pages in a project's storybook
+
+
+## Git Workflow: The Basic Cycle
+
+1. **Modify** files in your working directory
+2. **Stage** changes you want to commit (`git add`)
+3. **Commit** staged changes with a message (`git commit`)
+4. **Repeat** as you work on your project
+
+**This cycle creates a timeline of your project's development**
+
+
+## Git Commands: The Essentials
+
+**Getting started**:
+- `git init`: Create a new repository
+- `git clone`: Copy a repository from remote to local
+
+**Daily workflow**:
+- `git status`: See what's changed
+- `git add`: Stage changes for commit
+- `git commit`: Save changes with a message
+- `git log`: View commit history
+
+**Sharing**:
+- `git push`: Upload changes to remote repository
+- `git pull`: Download changes from remote repository
+
+## Writing Good Commit Messages
+
+**Good commit messages**:
+- Are descriptive and specific
+- Explain WHAT was changed and WHY
+- Use present tense ("Add function" not "Added function")
+- Are concise but informative
+
+**Examples**:
+- ✅ `Add sea surface temperature data processing function`
+- ✅ `Fix bug in monthly trend calculation`
+- ✅ `Update README with installation instructions`
+- ❌ `stuff`
+- ❌ `fixed things`
+
+## GitHub: The Social Platform for Code
+
+**GitHub** is a web-based platform that hosts Git repositories
+
+**Key Features**:
+- Free hosting for public repositories
+- Collaboration tools: Issues, pull requests, discussions
+- Project management: Wikis, project boards, releases
+- Integration: Connects with other tools and services
+- Portfolio: Showcase your work to potential employers
+
+
+## GitHub Workflow: Collaboration
+
+**Fork**: Create your own copy of someone else's repository
+**Clone**: Download the repository to your computer
+**Branch**: Create a separate line of development
+**Commit**: Make and save your changes
+**Push**: Upload your changes to GitHub
+**Pull Request**: Propose changes to the original repository
+**Review**: Get feedback and approval from collaborators
+**Merge**: Integrate approved changes into the main project
+
+## GitHub Features for Environmental Science
+
+**Issues**: Track bugs, feature requests, and research questions
+**Pull Requests**: Review and discuss code changes
+**Releases**: Tag specific versions of your research
+**Actions**: Automate testing and deployment
+**Pages**: Host project websites and documentation
+**Discussions**: Have conversations about your research
+**Wiki**: Document methods and procedures
+
+## Best Practices for Research Repositories
+
+**Structure**:
+- Clear README with project description
+- Well-organized file structure
+- Comprehensive documentation
+- License file
+
+**Content**:
+- Include raw and processed data (or data access instructions)
+- Document all processing steps
+- Provide clear installation instructions
+- Include example workflows
+
+**Collaboration**:
+- Use descriptive commit messages
+- Review code before merging
+- Maintain consistent coding standards
+- Document decisions and assumptions
+
+## Hands-on: Building Your First Repository
+
+**Let's create a repository for your environmental data project!**
+
+1. Create a GitHub account (if you don't have one)
+2. Create a new repository on GitHub
+3. Clone it to your computer
+4. Add your project files
+5. Make your first commit
+6. Push to GitHub
+
+## Step 1: Create a GitHub Repository
+
+1. Go to [github.com](https://github.com) and sign in
+2. Click the "+" icon in the top right
+3. Select "New repository"
+4. Choose a descriptive name: `environmental-data-project`
+5. Add a description: "Analysis of environmental data for EVR 628"
+6. Make it **Public** (for portfolio building)
+7. Check "Add a README file"
+8. Click "Create repository"
+
+## Step 2: Clone to Your Computer
+
+**In RStudio**:
+1. Go to File → New Project
+2. Choose "Version Control"
+3. Select "Git"
+4. Paste your repository URL
+5. Choose where to save it locally
+6. Click "Create Project"
+
+**Or in Terminal**:
+```bash
+git clone https://github.com/yourusername/environmental-data-project.git
+cd environmental-data-project
+```
+
+## Step 3: Set Up Your Project Structure
+
+Create these folders in your repository:
+```
+environmental-data-project/
+├── data/
+│   ├── raw/
+│   └── processed/
+├── scripts/
+│   ├── data_processing/
+│   ├── analysis/
+│   └── visualization/
+├── results/
+│   ├── figures/
+│   └── tables/
+├── docs/
+└── README.md
+```
+
+## Step 4: Create a .gitignore File
+
+Create a `.gitignore` file to exclude unnecessary files:
+
+```gitignore
+# R specific
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj.user/
+
+# Data files (if large)
+*.csv
+*.rds
+*.xlsx
+
+# Results (if large)
+*.png
+*.pdf
+*.jpg
+
+# System files
+.DS_Store
+Thumbs.db
+```
+
+**Note**: You can always add specific files with `git add -f filename`
+
+## Step 5: Make Your First Commit
+
+1. Stage your files:
+   ```bash
+   git add .
+   ```
+
+2. Check what's staged:
+   ```bash
+   git status
+   ```
+
+3. Make your first commit:
+   ```bash
+   git commit -m "Initial project setup with folder structure"
+   ```
+
+4. Push to GitHub:
+   ```bash
+   git push origin main
+   ```
+
+## Step 6: Add Your First Analysis
+
+1. Create a simple R script in `scripts/analysis/`:
+   ```r
+   # Example: environmental_data_analysis.R
+   library(tidyverse)
+   
+   # Load data
+   data <- read.csv("../data/processed/sample_data.csv")
+   
+   # Create a simple plot
+   ggplot(data, aes(x = variable1, y = variable2)) +
+     geom_point() +
+     theme_minimal() +
+     labs(title = "Environmental Data Analysis")
+   
+   # Save plot
+   ggsave("../results/figures/first_plot.png")
+   ```
+
+2. Commit and push:
+   ```bash
+   git add .
+   git commit -m "Add initial data analysis script"
+   git push origin main
+   ```
+
+## Step 7: Update Your README
+
+**Create a comprehensive README.md**:
+
+```markdown
+# Environmental Data Project
+
+## Description
+Analysis of environmental data for EVR 628 course.
+
+## Project Structure
+- `data/`: Raw and processed data files
+- `scripts/`: R scripts for analysis
+- `results/`: Output figures and tables
+- `docs/`: Documentation
+
+## Getting Started
+1. Clone this repository
+2. Install required R packages
+3. Run analysis scripts
+
+## Author
+[Your Name]
+
+## License
+MIT License
+```
+
+**Commit and push your README**:
+```bash
+git add README.md
+git commit -m "Update README with project description"
+git push origin main
+```
+
+## Congratulations!
+
+You now have:
+- ✅ A professional GitHub repository
+- ✅ Proper project structure
+- ✅ Version control for your work
+- ✅ A portfolio piece for your career
+- ✅ A foundation for reproducible research
+
+**Next steps**:
+- Add your actual environmental data
+- Create analysis scripts
+- Document your methods
+- Share with collaborators
+
+## Common Git Scenarios
+
+**"I made a mistake in my last commit"**:
+```bash
+git commit --amend -m "Better commit message"
+```
+
+**"I want to see what changed"**:
+```bash
+git diff
+git log --oneline
+```
+
+**"I want to go back to a previous version"**:
+```bash
+git checkout <commit-hash>
+```
+
+**"I want to create a new feature"**:
+```bash
+git checkout -b new-feature
+# make changes
+git add .
+git commit -m "Add new feature"
+git push origin new-feature
+```
+
+## Git Best Practices for Research
+
+**Commit frequently**: Small, logical changes
+**Write clear messages**: Explain what and why
+**Use branches**: Keep main branch stable
+**Review before merging**: Check your own work
+**Document everything**: README, comments, commit messages
+**Back up regularly**: Push to remote repository
+**Test your code**: Make sure it runs before committing
+**Keep data separate**: Use .gitignore for large files
+
+## Resources for Learning More
+
+**Git and GitHub**:
+- [GitHub Guides](https://guides.github.com/)
+- [Git Handbook](https://guides.github.com/introduction/git-handbook/)
+- [GitHub Desktop](https://desktop.github.com/) (GUI for Git)
+
+**R and Git**:
+- [Happy Git with R](https://happygitwithr.com/)
+- [RStudio Git Integration](https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN)
+
+**Reproducible Research**:
+- [Reproducible Research with R](https://www.coursera.org/learn/reproducible-research)
+- [The Turing Way](https://the-turing-way.netlify.app/)
+
+## Questions & Discussion
+
+**Discussion topics**:
+- How might version control help in your research?
+- What challenges do you anticipate with Git?
+- How can we ensure reproducibility in environmental science?
+- What are the benefits of open science and sharing code?
+
+**Next class**: We'll dive deeper into data management and organization
+
+## Assignment: Build Your Portfolio
+
+**Due next week**:
+1. Create a GitHub repository for your course project
+2. Set up proper file structure
+3. Add at least one analysis script
+4. Create a comprehensive README
+5. Make at least 5 meaningful commits
+6. Share your repository link
+
+**Grading criteria**:
+- Repository organization and structure
+- Quality of commit messages
+- Documentation and README
+- Code quality and comments
+- Regular commits throughout the week
+
+**Remember**: Version control is a skill that gets better with practice. Start using Git for everything! 
