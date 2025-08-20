@@ -348,7 +348,10 @@ BUT!
 
 # Getting to Know R Studio
 
-## Announcements: 
+## Announcements:
+
+- This week only: Office Hours shifted to 10:15-12:00 **FRIDAY**
+- [Software Carpentry](https://idsc.miami.edu/software-carpentry-workshops/) date TBD, but keep an eye
 
 ## Dynamics
 
