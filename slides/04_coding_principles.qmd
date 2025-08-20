@@ -6,9 +6,9 @@ subtitle: "Coding principles"
 
 :::{.callout-note}
 ## By the end of this week, you should be able to:
-- Code style and documentation
-- Classes, objects, variables, values
-- Indexing and subsetting vectors and data frames
+- Understand and check object classes
+- Explain the importance of code style and documentation
+- Index and subsetting vectors and data frames
 - Useful functions in `base` and `stats`
 :::
 
