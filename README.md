@@ -38,7 +38,6 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
 **Data visualization** | [slides](slides/02_data_vis.html)
 - Types of visualization
 - Visualization principles
-- Colorblindness, IPCC’s visual style guide, and the [`viridis`](https://github.com/sjmgarnier/viridis/) package
 - The grammar of graphics and the [`ggplot2`](https://github.com/tidyverse/ggplot2) package
 
 **Relevant links for the week**
@@ -81,6 +80,7 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
 **Scaling up your code and visualizations** | slides
 - Refresh on layers, geometries, and aesthetics in ggplot2
 - Themes with ggplot2
+- Colorblindness, IPCC’s visual style guide, and the [`viridis`](https://github.com/sjmgarnier/viridis/) package
 - Summarizing data on the fly (`stat_summary`, `geom_smooth`)
 - Plot extensions (`cowplot`, `GGally`, `ggrepel`)
 - Animated plots (`ggplotly`)
