@@ -32,10 +32,10 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
 - R packages: [`tidyverse`](https://www.tidyverse.org/), [`EVR628`](https://jcvdav.github.io/EVR628tools/)
 
 **Relevant links for the week**
-- [Instructions to install R and RStudioslides](docs/01_installing_R_RStudio.html)
+- [Instructions to install R and RStudio](docs/01_installing_R_RStudio.html)
 
 ## Week 2 (Aug 25-29)
-[**Data visualization**](slides/02_data_vis.html)
+**Data visualization** | [slides](slides/02_data_vis.html)
 - Types of visualization
 - Visualization principles
 - Colorblindness, IPCC’s visual style guide, and the [`viridis`](https://github.com/sjmgarnier/viridis/) package
