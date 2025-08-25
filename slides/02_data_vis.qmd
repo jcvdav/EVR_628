@@ -21,7 +21,7 @@ theme_set(
 
 - [C + J symposium](https://events.miami.edu/event/cplusj-2025):
   - Dec 11-12, but register soon
-  - POssibility of contributed talks
+  - Possibility of contributed talks
 
 - [IDSC Data Science Fellowship](https://idsc.miami.edu/idsc-fellows/):
   - Deadline for 2025-2026 is Tuesday, September 30, 2025, by 5:00 PM
@@ -41,9 +41,9 @@ theme_set(
 
 ## Some Jargon
 
-- Variable: A measurable quality, quantity or property
-- Value: The state of the variable
-- Observation: A data point to which variables and values are assigned
+- _Variable_: A measurable quality, quantity or property
+- _Value_: The state of the variable
+- _Observation_: A data point to which variables and values are assigned
 - _Tabular_ data: The way we store and represent information. Allows us to relate a variable (column) to an observation (row)
 
 ## Example: Lionfish Biometry
@@ -81,11 +81,11 @@ data_lionfish[1:3,c(1, 5)] |>
 
 The _type_ of data you have can influence how you visualize them
 
-- Numerical: (AKA "quantitative") a measurement expressed in numbers, instead of words
+- _Numerical_: (AKA "quantitative") a measurement expressed in numbers, instead of words
     - Discrete numerical: Counts, integer numbers
     - Continuous numerical: Think decimal numbers
-- Categorical: (AKA "qualitative") a measurement expressed in words, instead of numbers
-- Ordinal: A special type of cetegorical data, where the order of the categories has a meaning
+- _Categorical_: (AKA "qualitative") a measurement expressed in words, instead of numbers
+- _Ordinal_: A special type of categorical data, where the order of the categories has a meaning
 
 ## Examples: Lionfish Biometry
 
@@ -131,7 +131,7 @@ Use `?data_milton` to look at the [documentation](https://jcvdav.github.io/EVR62
 
 . . .
 
-Can you add `sshs` and obtain something meaningful?
+What would -2.5 in `sshs` mean?
 
 # Types of visualizations
 
@@ -153,6 +153,32 @@ But what really matters:
 ## Visualizing for Yourself
 
 ![Modified from @Wickham2023-aa](https://r4ds.hadley.nz/diagrams/data-science/base.png){.nostretch fig-align="center" width="95%"}
+
+## Right Visuals for Your Data
+
+Remember our goal:
+
+> To communicate _something_ to the viewer (our ourselves)
+
+. . .
+
+That _something_ is usually one of 4:
+
+- [Distribution]{style="color:green"}: "Most of my fish are quite small" ([example](#examples))
+
+- [Relationship]{style="color:blue"} (or correlation): "Look, slightly larger fish are waaaay heavier!" ([example](#examples-3))
+
+- [Evolution]{style="color:red"}: "The wind speed of a hurricane was highest the night of Oct 7th"([example](#examples-4))
+
+- [**Ranking / Part of a whole**]{style="color:gray"}: "Largest fish comes from Castillo"([example](#examples-6))
+
+. . .
+
+Any visual can usually achieve more than one of this at a time
+
+. . .
+
+Most visuals can only achieve _one_ of these _effectively_ at a time
 
 ## Examples
 :::: {.columns}
@@ -178,12 +204,6 @@ Message: "Most lionfish are around 100 mm in length"
 - Shows the _distribution_ of the data
 - Built with `ggplot2::geom_histogram()`
 :::
-::::
-
-. . .
-
-:::: {.callout-tip}
-Every histogram is a bar chart, but not every bar chart is a histogram
 ::::
 
 
@@ -337,37 +357,10 @@ Message: "Largest fish comes from Castillo"
 - Good!
 - That confusion might be critical thinking
 - You can always try visualizing the same data in more than one way
-- Let's try to organize your thoughts
-
-## Right Visuals for Your Data
-
-Remember our goal:
-
-> To communicate _something_ to the viewer (our ourselves)
-
-. . .
-
-That _something_ could be a:
-
-- [Distribution]{style="color:green"}: "Most of my fish are quite small" ([example](#examples))
-
-- [Relationship]{style="color:blue"} (or correlation): "Look, slightly larger fish are waaaay heavier!" ([example](#examples-3))
-
-- [Evolution]{style="color:red"}: "The wind speed of a hurricane was highest the night of Oct 7th"([example](#examples-4))
-
-- [Ranking / Part of a whole]{style="color:gray"}: "Largest fish comes from Castillo"([example](#examples-6))
-
-. . .
-
-Any visual can usually achieve more than one of this at a time
-
-. . .
-
-Most visuals can only achieve _one_ of these _effectively_ at a time
 
 ## Same Data, Multiple Plots
 
-Which of this is best at showing the relationship between size and weight?
+Which is best at showing the relationship between size and weight?
 
 . . .
 
@@ -411,12 +404,12 @@ p + geom_bin_2d(bins = 10) + labs(fill = "N")
 
 . . .
 
-Which one is best at showing the size and weight of most fish?
+Which is best at showing the size and weight of most fish?
 
 
 ## Same Data, Multiple Plots
 
-Which is best at shwoing me the number of samples by site and size?
+Which is best at showing me the number of samples by site and size?
 
 . . . 
 
@@ -882,7 +875,7 @@ Grammar of graphics:
 `ggplot2`:
 
 - Developed by Hadley Wickham
-- Leverages the _layerd grammar of graphics_ proposed in @layered-grammar
+- Leverages the _layered grammar of graphics_ proposed in @layered-grammar
 - Focuses on a layered approach to describe and construct graphs
 - Most of the time you will work with `aes`thetic mappings and `geom`etric objects
 

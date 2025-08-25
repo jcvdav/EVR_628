@@ -230,7 +230,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <li class="fragment"><a href="https://events.miami.edu/event/cplusj-2025">C + J symposium</a>:
 <ul>
 <li class="fragment">Dec 11-12, but register soon</li>
-<li class="fragment">POssibility of contributed talks</li>
+<li class="fragment">Possibility of contributed talks</li>
 </ul></li>
 <li class="fragment"><a href="https://idsc.miami.edu/idsc-fellows/">IDSC Data Science Fellowship</a>:
 <ul>
@@ -267,9 +267,9 @@ Juan Carlos Villaseñor-Derbez (JC)
 <section id="some-jargon" class="slide level2">
 <h2>Some Jargon</h2>
 <ul>
-<li class="fragment">Variable: A measurable quality, quantity or property</li>
-<li class="fragment">Value: The state of the variable</li>
-<li class="fragment">Observation: A data point to which variables and values are assigned</li>
+<li class="fragment"><em>Variable</em>: A measurable quality, quantity or property</li>
+<li class="fragment"><em>Value</em>: The state of the variable</li>
+<li class="fragment"><em>Observation</em>: A data point to which variables and values are assigned</li>
 <li class="fragment"><em>Tabular</em> data: The way we store and represent information. Allows us to relate a variable (column) to an observation (row)</li>
 </ul>
 </section>
@@ -347,13 +347,13 @@ Juan Carlos Villaseñor-Derbez (JC)
 <h2>Types of Data</h2>
 <p>The <em>type</em> of data you have can influence how you visualize them</p>
 <ul>
-<li class="fragment">Numerical: (AKA “quantitative”) a measurement expressed in numbers, instead of words
+<li class="fragment"><em>Numerical</em>: (AKA “quantitative”) a measurement expressed in numbers, instead of words
 <ul>
 <li class="fragment">Discrete numerical: Counts, integer numbers</li>
 <li class="fragment">Continuous numerical: Think decimal numbers</li>
 </ul></li>
-<li class="fragment">Categorical: (AKA “qualitative”) a measurement expressed in words, instead of numbers</li>
-<li class="fragment">Ordinal: A special type of cetegorical data, where the order of the categories has a meaning</li>
+<li class="fragment"><em>Categorical</em>: (AKA “qualitative”) a measurement expressed in words, instead of numbers</li>
+<li class="fragment"><em>Ordinal</em>: A special type of categorical data, where the order of the categories has a meaning</li>
 </ul>
 </section>
 <section id="examples-lionfish-biometry" class="slide level2">
@@ -506,7 +506,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div>
 </div>
 <div class="fragment">
-<p>Can you add <code>sshs</code> and obtain something meaningful?</p>
+<p>What would -2.5 in <code>sshs</code> mean?</p>
 </div>
 </section></section>
 <section>
@@ -537,6 +537,28 @@ Juan Carlos Villaseñor-Derbez (JC)
 <p><img data-src="https://r4ds.hadley.nz/diagrams/data-science/base.png" class="" style="width:95.0%"></p>
 <figcaption>Modified from <span class="citation" data-cites="Wickham2023-aa">Wickham, Mine Cetinkaya-Rundel, and Grolemund (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span></figcaption>
 </figure>
+</div>
+</section>
+<section id="right-visuals-for-your-data" class="slide level2">
+<h2>Right Visuals for Your Data</h2>
+<p>Remember our goal:</p>
+<blockquote>
+<p>To communicate <em>something</em> to the viewer (our ourselves)</p>
+</blockquote>
+<div class="fragment">
+<p>That <em>something</em> is usually one of 4:</p>
+<ul>
+<li class="fragment"><p><span style="color:green">Distribution</span>: “Most of my fish are quite small” (<a href="#/examples">example</a>)</p></li>
+<li class="fragment"><p><span style="color:blue">Relationship</span> (or correlation): “Look, slightly larger fish are waaaay heavier!” (<a href="#/examples-3">example</a>)</p></li>
+<li class="fragment"><p><span style="color:red">Evolution</span>: “The wind speed of a hurricane was highest the night of Oct 7th”(<a href="#/examples-4">example</a>)</p></li>
+<li class="fragment"><p><span style="color:gray"><strong>Ranking / Part of a whole</strong></span>: “Largest fish comes from Castillo”(<a href="#/examples-6">example</a>)</p></li>
+</ul>
+</div>
+<div class="fragment">
+<p>Any visual can usually achieve more than one of this at a time</p>
+</div>
+<div class="fragment">
+<p>Most visuals can only achieve <em>one</em> of these <em>effectively</em> at a time</p>
 </div>
 </section>
 <section id="examples" class="slide level2">
@@ -574,21 +596,6 @@ Juan Carlos Villaseñor-Derbez (JC)
 <li class="fragment">Built with <code>ggplot2::geom_histogram()</code></li>
 </ul>
 </div></div>
-<div class="fragment">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Tip</strong></p>
-</div>
-<div class="callout-content">
-<p>Every histogram is a bar chart, but not every bar chart is a histogram</p>
-</div>
-</div>
-</div>
-</div>
 </section>
 <section id="examples-1" class="slide level2">
 <h2>Examples</h2>
@@ -793,34 +800,11 @@ Juan Carlos Villaseñor-Derbez (JC)
 <li class="fragment">Good!</li>
 <li class="fragment">That confusion might be critical thinking</li>
 <li class="fragment">You can always try visualizing the same data in more than one way</li>
-<li class="fragment">Let’s try to organize your thoughts</li>
 </ul>
-</section>
-<section id="right-visuals-for-your-data" class="slide level2">
-<h2>Right Visuals for Your Data</h2>
-<p>Remember our goal:</p>
-<blockquote>
-<p>To communicate <em>something</em> to the viewer (our ourselves)</p>
-</blockquote>
-<div class="fragment">
-<p>That <em>something</em> could be a:</p>
-<ul>
-<li class="fragment"><p><span style="color:green">Distribution</span>: “Most of my fish are quite small” (<a href="#/examples">example</a>)</p></li>
-<li class="fragment"><p><span style="color:blue">Relationship</span> (or correlation): “Look, slightly larger fish are waaaay heavier!” (<a href="#/examples-3">example</a>)</p></li>
-<li class="fragment"><p><span style="color:red">Evolution</span>: “The wind speed of a hurricane was highest the night of Oct 7th”(<a href="#/examples-4">example</a>)</p></li>
-<li class="fragment"><p><span style="color:gray">Ranking / Part of a whole</span>: “Largest fish comes from Castillo”(<a href="#/examples-6">example</a>)</p></li>
-</ul>
-</div>
-<div class="fragment">
-<p>Any visual can usually achieve more than one of this at a time</p>
-</div>
-<div class="fragment">
-<p>Most visuals can only achieve <em>one</em> of these <em>effectively</em> at a time</p>
-</div>
 </section>
 <section id="same-data-multiple-plots" class="slide level2">
 <h2>Same Data, Multiple Plots</h2>
-<p>Which of this is best at showing the relationship between size and weight?</p>
+<p>Which is best at showing the relationship between size and weight?</p>
 <div class="fragment">
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -862,12 +846,12 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div></div>
 </div>
 <div class="fragment">
-<p>Which one is best at showing the size and weight of most fish?</p>
+<p>Which is best at showing the size and weight of most fish?</p>
 </div>
 </section>
 <section id="same-data-multiple-plots-1" class="slide level2">
 <h2>Same Data, Multiple Plots</h2>
-<p>Which is best at shwoing me the number of samples by site and size?</p>
+<p>Which is best at showing me the number of samples by site and size?</p>
 <div class="fragment">
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -1402,7 +1386,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <p><code>ggplot2</code>:</p>
 <ul>
 <li class="fragment">Developed by Hadley Wickham</li>
-<li class="fragment">Leverages the <em>layerd grammar of graphics</em> proposed in <span class="citation" data-cites="layered-grammar">Wickham (<a href="#/references" role="doc-biblioref" onclick="">2010</a>)</span></li>
+<li class="fragment">Leverages the <em>layered grammar of graphics</em> proposed in <span class="citation" data-cites="layered-grammar">Wickham (<a href="#/references" role="doc-biblioref" onclick="">2010</a>)</span></li>
 <li class="fragment">Focuses on a layered approach to describe and construct graphs</li>
 <li class="fragment">Most of the time you will work with <code>aes</code>thetic mappings and <code>geom</code>etric objects</li>
 </ul>
