@@ -20,15 +20,19 @@ theme_set(
 ## Announcements
 
 - [C + J symposium](https://events.miami.edu/event/cplusj-2025):
-  - Dec 11-12
+  - Dec 11-12, but register soon
+  - POssibility of contributed talks
 
+- [IDSC Data Science Fellowship](https://idsc.miami.edu/idsc-fellows/):
+  - Deadline for 2025-2026 is Tuesday, September 30, 2025, by 5:00 PM
+  
 ## Learning Objectives
 
 :::{.callout-note}
 # By the end of this week, you should be able to:
 - Identify types of data
 - Use correct jargon when referring to data
-- Decide which types of visualizations are better suited for different types of data
+- Know that some types of visualizations are better suited for different types of data
 - Build a figure using `ggplot2`
 :::
 
@@ -42,7 +46,20 @@ theme_set(
 - Observation: A data point to which variables and values are assigned
 - _Tabular_ data: The way we store and represent information. Allows us to relate a variable (column) to an observation (row)
 
+## Example: Lionfish Biometry
+
+![](img/lionfish.JPG){.nostretch fig-align="center" width="40%"}
+
+- `data_lionfish`, from the [`EVR628tools`](https://jcvdav.github.io/EVR628tools/index.html) package
+- Contains biometric measurements for 109 lionfish (_Pterois volitans_) captured off Puerto Aventuras (Mexico)
+
 . . .
+
+:::: {.callout-tip}
+Use `?data_lionfish` to look at the [documentation](https://jcvdav.github.io/EVR628tools/reference/data_lionfish.html).
+::::
+
+## Example: Lionfish Biometry
 
 :::: {.columns}
 ::: {.column width="60%"}
@@ -67,33 +84,20 @@ The _type_ of data you have can influence how you visualize them
 - Numerical: (AKA "quantitative") a measurement expressed in numbers, instead of words
     - Discrete numerical: Counts, integer numbers
     - Continuous numerical: Think decimal numbers
-- Categorical: (AKA "qualitative") a measurement expressed in words, instead of numbers (often)
+- Categorical: (AKA "qualitative") a measurement expressed in words, instead of numbers
 - Ordinal: A special type of cetegorical data, where the order of the categories has a meaning
-
-## Examples: Lionfish Biometry
-
-![](img/lionfish.JPG){.nostretch fig-align="center" width="40%"}
-
-- `data_lionfish`, from the [`EVR628tools`](https://jcvdav.github.io/EVR628tools/index.html) package
-- Contains biometric measurements for 109 lionfish (_Pterois volitans_) captured off Puerto Aventuras (Mexico)
-
-. . .
-
-:::: {.callout-tip}
-Use `?data_lionfish` to look at the [documentation](https://jcvdav.github.io/EVR628tools/reference/data_lionfish.html).
-::::
 
 ## Examples: Lionfish Biometry
 
 ```{r}
 #| folding: true
-data_lionfish[1:6,c(1, 2, 5, 9)] |> 
+data_lionfish[1:6,c(1, 2, 5, 7)] |> 
   kable()
 ```
 
 . . .
 
-What type of data is `id`?
+What _type_ of data is shown in _variable_ `id`?
 
 . . . 
 
@@ -120,7 +124,8 @@ What type of data is `sshs`?
 
 . . .
 
-:::: {.callout-tip}
+:::: {.callout-warning}
+# Trick question!
 Use `?data_milton` to look at the [documentation](https://jcvdav.github.io/EVR628tools/reference/data_milton.html).
 ::::
 
@@ -493,12 +498,14 @@ Instead  of thinking "what can I _add_ to my plot?" think "what can I _remove_ f
 - [Color scheme:](#color-scheme)
   - Prioritize accessibility and **consistency**
   - Don't abuse color; Use only when you must draw attention
-- If you absolutely need color, consider data encoding:
-  - [categorical](#categorical): Use a discrete color palette (e.g. `EVR628tools::palette_UM()`)
-  - [sequential](#sequential) (i.e. ordinal and numeric): single hue with varying saturation (e.g. ) or multihue _designed_ for sequential (e.g. `viridis` colors)
-  - [diverging](#diverging) data: two contrasting hues and neutral center is better than a single hue or multihues
+- If you absolutely need color, consider _type_ of data:
+  - [categorical](#categorical-data): Use a discrete color palette (e.g. `EVR628tools::palette_UM()`)
+  - [ordinal and numeric](#ordinal-or-numeric): single hue with varying saturation or multihue _designed_ for sequential (e.g. `viridis` colors)
+  - If ordinal but [diverging](#diverging) data: two contrasting hues and neutral center is better than a single hue or multihues
 
 ## Simplify
+
+Which one is better? Why?
 
 :::: {.columns}
 
@@ -648,10 +655,12 @@ Use better colors
 
 Avoid redundant use of your limited aesthetics (x, y, size, color, shape)
 
-## Categorical
+## Categorical data
 
 :::: {.columns}
 :::: {.column width="50%"}
+
+**Continuous palette**
 
 ```{r}
 #| echo: false
@@ -675,6 +684,8 @@ p +
 :::
 :::: {.column width="50%"}
 
+**Categorical palette**
+
 ```{r}
 p +
   scale_fill_manual(values = palette_UM(10))
@@ -694,7 +705,7 @@ It is difficult to track more than  (6) 10 colors
 
 These colors come from [`EVR628tools::palette_UM()`](https://jcvdav.github.io/EVR628tools/reference/palette_UM.html), using [UM's visual style guide](https://webcomm.miami.edu/resources/identity/color/index.html)
 
-## Sequential
+## Ordinal or numeric
 
 ```{r}
 #| echo: false
@@ -704,17 +715,6 @@ p <- ggplot(data = data_lionfish,
   labs(x = "Size class",
        y = "Site",
        fill = "N")
-
-p2 <- ggplot(data = data_lionfish |> 
-               mutate(size_class = fct_relevel(size_class, c("small", "medium", "large"))),
-             mapping = aes(x = site,
-                           fill = size_class)) +
-  geom_bar(position = "dodge",
-           color = "black") +
-  coord_flip() +
-  labs(x = "Site",
-       y = "N",
-       fill = "Size class")
   
 ```
 
@@ -728,8 +728,6 @@ Diverging palette
 p +
   scale_fill_gradientn(colors = palette_IPCC())
 
-p2 +
-  scale_fill_manual(values = unname(palette_IPCC()[c(1, 128, 256)]))
 ```
 
 :::
@@ -742,8 +740,6 @@ Multihue palette
 p +
   scale_fill_viridis_c()
 
-p2 + 
-  scale_fill_viridis_d()
 ```
 
 
@@ -754,15 +750,14 @@ Single hue palette
 ```{r}
 p +
   scale_fill_distiller(palette = "Blues")
-
-p2 +
-  scale_fill_brewer(palette = "Blues")
 ```
 :::
 
 ::::
 
 ## Diverging
+
+When was it warmer / colder / average?
 
 ```{r}
 #| echo: false
@@ -778,6 +773,8 @@ my_sst <- data_sst |>
 :::: {.columns}
 
 ::: {.column width='50%'}
+
+Single hue palette 
 ```{r}
 #| fig-width: 9.5
 #| fig-height: 4
@@ -794,14 +791,13 @@ p
 :::
 
 ::: {.column width='50%'}
+Diverging hues
+
 ```{r}
 #| fig-width: 9.5
 #| fig-height: 4
 p +
   scale_fill_gradientn(colours = palette_IPCC(var = "temp", type = "div"))
-
-p +
-  scale_fill_gradientn(colours = palette_IPCC(var = "temp", type = "seq"))
 ```
 
 :::
@@ -844,6 +840,26 @@ ggplot(data = data_lionfish,
 
 ## Resources on Style  
 - _A [checklist](https://static-content.springer.com/esm/art%3A10.1038%2Fs41556-025-01684-z/MediaObjects/41556_2025_1684_MOESM1_ESM.pdf) for designing and improving the visualization of scientific data_ by @Jambor2025-pd
+- [r-graph-gallery](https://r-graph-gallery.com/)
+- [data-to-viz](https://www.data-to-viz.com/)
+
+. . .
+
+Use these as guidelines, not as absolute truths
+
+## Learning Objectives - Revisited
+
+:::{.callout-note}
+# By the end of this week, you should be able to:
+- Identify types of data
+- Use correct jargon when referring to data
+- Know that some types of visualizations are better suited for different types of data
+- Build a figure using `ggplot2`
+:::
+
+. . .
+
+Before Thursday: Read [Chapter 1](https://r4ds.hadley.nz/data-visualize.html) of R4DS
 
 # Intro to `ggplot2`
 
@@ -1013,16 +1029,6 @@ ggplot(data = data_lionfish,
 - `ggplot2` [cheatsheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf)
 - Package [vignettes](https://ggplot2.tidyverse.org/articles/ggplot2-specs.html)
 - @layered-grammar
-
-## Learning Objectives - Revisited
-
-:::{.callout-note}
-# By the end of this week, you should be able to:
-- Identify types of data
-- Use correct jargon when referring to data
-- Decide which types of visualizations are better suited for different types of data
-- Build a figure using `ggplot2`
-:::
 
 # Let's get coding
 

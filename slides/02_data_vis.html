@@ -229,7 +229,12 @@ Juan Carlos Villaseñor-Derbez (JC)
 <ul>
 <li class="fragment"><a href="https://events.miami.edu/event/cplusj-2025">C + J symposium</a>:
 <ul>
-<li class="fragment">Dec 11-12</li>
+<li class="fragment">Dec 11-12, but register soon</li>
+<li class="fragment">POssibility of contributed talks</li>
+</ul></li>
+<li class="fragment"><a href="https://idsc.miami.edu/idsc-fellows/">IDSC Data Science Fellowship</a>:
+<ul>
+<li class="fragment">Deadline for 2025-2026 is Tuesday, September 30, 2025, by 5:00 PM</li>
 </ul></li>
 </ul>
 </section>
@@ -247,7 +252,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <ul>
 <li class="fragment">Identify types of data</li>
 <li class="fragment">Use correct jargon when referring to data</li>
-<li class="fragment">Decide which types of visualizations are better suited for different types of data</li>
+<li class="fragment">Know that some types of visualizations are better suited for different types of data</li>
 <li class="fragment">Build a figure using <code>ggplot2</code></li>
 </ul>
 </div>
@@ -267,7 +272,36 @@ Juan Carlos Villaseñor-Derbez (JC)
 <li class="fragment">Observation: A data point to which variables and values are assigned</li>
 <li class="fragment"><em>Tabular</em> data: The way we store and represent information. Allows us to relate a variable (column) to an observation (row)</li>
 </ul>
+</section>
+<section id="example-lionfish-biometry" class="slide level2">
+<h2>Example: Lionfish Biometry</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/lionfish.JPG" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
+</figure>
+</div>
+<ul>
+<li class="fragment"><code>data_lionfish</code>, from the <a href="https://jcvdav.github.io/EVR628tools/index.html"><code>EVR628tools</code></a> package</li>
+<li class="fragment">Contains biometric measurements for 109 lionfish (<em>Pterois volitans</em>) captured off Puerto Aventuras (Mexico)</li>
+</ul>
 <div class="fragment">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Use <code>?data_lionfish</code> to look at the <a href="https://jcvdav.github.io/EVR628tools/reference/data_lionfish.html">documentation</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="example-lionfish-biometry-1" class="slide level2">
+<h2>Example: Lionfish Biometry</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
 <div class="cell" data-folding="true">
@@ -308,7 +342,6 @@ Juan Carlos Villaseñor-Derbez (JC)
 <li class="fragment">How many observations?</li>
 </ul>
 </div></div>
-</div>
 </section>
 <section id="types-of-data-1" class="slide level2">
 <h2>Types of Data</h2>
@@ -319,43 +352,16 @@ Juan Carlos Villaseñor-Derbez (JC)
 <li class="fragment">Discrete numerical: Counts, integer numbers</li>
 <li class="fragment">Continuous numerical: Think decimal numbers</li>
 </ul></li>
-<li class="fragment">Categorical: (AKA “qualitative”) a measurement expressed in words, instead of numbers (often)</li>
+<li class="fragment">Categorical: (AKA “qualitative”) a measurement expressed in words, instead of numbers</li>
 <li class="fragment">Ordinal: A special type of cetegorical data, where the order of the categories has a meaning</li>
 </ul>
 </section>
 <section id="examples-lionfish-biometry" class="slide level2">
 <h2>Examples: Lionfish Biometry</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/lionfish.JPG" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
-</figure>
-</div>
-<ul>
-<li class="fragment"><code>data_lionfish</code>, from the <a href="https://jcvdav.github.io/EVR628tools/index.html"><code>EVR628tools</code></a> package</li>
-<li class="fragment">Contains biometric measurements for 109 lionfish (<em>Pterois volitans</em>) captured off Puerto Aventuras (Mexico)</li>
-</ul>
-<div class="fragment">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Tip</strong></p>
-</div>
-<div class="callout-content">
-<p>Use <code>?data_lionfish</code> to look at the <a href="https://jcvdav.github.io/EVR628tools/reference/data_lionfish.html">documentation</a>.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="examples-lionfish-biometry-1" class="slide level2">
-<h2>Examples: Lionfish Biometry</h2>
 <div class="cell" data-folding="true">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>data_lionfish[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">9</span>)] <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>data_lionfish[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">7</span>)] <span class="sc">|&gt;</span> </span>
 <span id="cb2-2"><a href=""></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
@@ -365,7 +371,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <th style="text-align: left;">id</th>
 <th style="text-align: left;">site</th>
 <th style="text-align: right;">total_length_mm</th>
-<th style="text-align: right;">temperature_C</th>
+<th style="text-align: left;">size_class</th>
 </tr>
 </thead>
 <tbody>
@@ -373,44 +379,44 @@ Juan Carlos Villaseñor-Derbez (JC)
 <td style="text-align: left;">001-Po-16/05/10</td>
 <td style="text-align: left;">Paraiso</td>
 <td style="text-align: right;">213</td>
-<td style="text-align: right;">28</td>
+<td style="text-align: left;">large</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">002-Po-29/05/10</td>
 <td style="text-align: left;">Paraiso</td>
 <td style="text-align: right;">124</td>
-<td style="text-align: right;">28</td>
+<td style="text-align: left;">medium</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">003-Pd-29/05/10</td>
 <td style="text-align: left;">Pared</td>
 <td style="text-align: right;">166</td>
-<td style="text-align: right;">28</td>
+<td style="text-align: left;">medium</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">004-Cs-12/06/10</td>
 <td style="text-align: left;">Canones</td>
 <td style="text-align: right;">203</td>
-<td style="text-align: right;">28</td>
+<td style="text-align: left;">large</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">005-Cs-12/06/10</td>
 <td style="text-align: left;">Canones</td>
 <td style="text-align: right;">212</td>
-<td style="text-align: right;">28</td>
+<td style="text-align: left;">large</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">006-Pl-21/06/10</td>
 <td style="text-align: left;">Paamul</td>
 <td style="text-align: right;">210</td>
-<td style="text-align: right;">29</td>
+<td style="text-align: left;">large</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="fragment">
-<p>What type of data is <code>id</code>?</p>
+<p>What <em>type</em> of data is shown in <em>variable</em> <code>id</code>?</p>
 </div>
 <div class="fragment">
 <p>How about <code>total_length_mm</code>?</p>
@@ -485,13 +491,13 @@ Juan Carlos Villaseñor-Derbez (JC)
 <p>What type of data is <code>sshs</code>?</p>
 </div>
 <div class="fragment">
-<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Tip</strong></p>
+<p><strong>Trick question!</strong></p>
 </div>
 <div class="callout-content">
 <p>Use <code>?data_milton</code> to look at the <a href="https://jcvdav.github.io/EVR628tools/reference/data_milton.html">documentation</a>.</p>
@@ -952,16 +958,17 @@ Juan Carlos Villaseñor-Derbez (JC)
 <li class="fragment">Prioritize accessibility and <strong>consistency</strong></li>
 <li class="fragment">Don’t abuse color; Use only when you must draw attention</li>
 </ul></li>
-<li class="fragment">If you absolutely need color, consider data encoding:
+<li class="fragment">If you absolutely need color, consider <em>type</em> of data:
 <ul>
-<li class="fragment"><a href="#/categorical">categorical</a>: Use a discrete color palette (e.g.&nbsp;<code>EVR628tools::palette_UM()</code>)</li>
-<li class="fragment"><a href="#/sequential">sequential</a> (i.e.&nbsp;ordinal and numeric): single hue with varying saturation (e.g.&nbsp;) or multihue <em>designed</em> for sequential (e.g.&nbsp;<code>viridis</code> colors)</li>
-<li class="fragment"><a href="#/diverging">diverging</a> data: two contrasting hues and neutral center is better than a single hue or multihues</li>
+<li class="fragment"><a href="#/categorical-data">categorical</a>: Use a discrete color palette (e.g.&nbsp;<code>EVR628tools::palette_UM()</code>)</li>
+<li class="fragment"><a href="#/ordinal-or-numeric">ordinal and numeric</a>: single hue with varying saturation or multihue <em>designed</em> for sequential (e.g.&nbsp;<code>viridis</code> colors)</li>
+<li class="fragment">If ordinal but <a href="#/diverging">diverging</a> data: two contrasting hues and neutral center is better than a single hue or multihues</li>
 </ul></li>
 </ul>
 </section>
 <section id="simplify" class="slide level2">
 <h2>Simplify</h2>
+<p>Which one is better? Why?</p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
@@ -1154,10 +1161,11 @@ Juan Carlos Villaseñor-Derbez (JC)
 <p>Avoid redundant use of your limited aesthetics (x, y, size, color, shape)</p>
 </div>
 </section>
-<section id="categorical" class="slide level2">
-<h2>Categorical</h2>
+<section id="categorical-data" class="slide level2">
+<h2>Categorical data</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
+<p><strong>Continuous palette</strong></p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -1173,6 +1181,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div>
 </div>
 </div><div class="column" style="width:50%;">
+<p><strong>Categorical palette</strong></p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -1198,8 +1207,8 @@ Juan Carlos Villaseñor-Derbez (JC)
 <p>These colors come from <a href="https://jcvdav.github.io/EVR628tools/reference/palette_UM.html"><code>EVR628tools::palette_UM()</code></a>, using <a href="https://webcomm.miami.edu/resources/identity/color/index.html">UM’s visual style guide</a></p>
 </div>
 </section>
-<section id="sequential" class="slide level2">
-<h2>Sequential</h2>
+<section id="ordinal-or-numeric" class="slide level2">
+<h2>Ordinal or numeric</h2>
 <div class="columns">
 <div class="column" style="width:33%;">
 <p>Diverging palette</p>
@@ -1216,43 +1225,19 @@ Juan Carlos Villaseñor-Derbez (JC)
 </figure>
 </div>
 </div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a>p2 <span class="sc">+</span></span>
-<span id="cb21-2"><a href=""></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">unname</span>(<span class="fu">palette_IPCC</span>()[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">128</span>, <span class="dv">256</span>)]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-29-2.png" width="960"></p>
-</figure>
-</div>
-</div>
 </div>
 </div><div class="column" style="width:33%;">
 <p>Multihue palette</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a>p <span class="sc">+</span></span>
-<span id="cb22-2"><a href=""></a>  <span class="fu">scale_fill_viridis_c</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a>p <span class="sc">+</span></span>
+<span id="cb21-2"><a href=""></a>  <span class="fu">scale_fill_viridis_c</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure>
 <p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-30-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>p2 <span class="sc">+</span> </span>
-<span id="cb23-2"><a href=""></a>  <span class="fu">scale_fill_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-30-2.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1262,8 +1247,8 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a>p <span class="sc">+</span></span>
-<span id="cb24-2"><a href=""></a>  <span class="fu">scale_fill_distiller</span>(<span class="at">palette =</span> <span class="st">"Blues"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a>p <span class="sc">+</span></span>
+<span id="cb22-2"><a href=""></a>  <span class="fu">scale_fill_distiller</span>(<span class="at">palette =</span> <span class="st">"Blues"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -1272,36 +1257,26 @@ Juan Carlos Villaseñor-Derbez (JC)
 </figure>
 </div>
 </div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a>p2 <span class="sc">+</span></span>
-<span id="cb25-2"><a href=""></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Blues"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-31-2.png" width="960"></p>
-</figure>
-</div>
-</div>
 </div>
 </div></div>
 </section>
 <section id="diverging" class="slide level2">
 <h2>Diverging</h2>
+<p>When was it warmer / colder / average?</p>
 <div class="columns">
 <div class="column" style="width:50%;">
+<p>Single hue palette</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> my_sst,</span>
-<span id="cb26-2"><a href=""></a>            <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> month, <span class="at">y =</span> year,</span>
-<span id="cb26-3"><a href=""></a>                          <span class="at">fill =</span> SST <span class="sc">-</span> <span class="fu">mean</span>(SST))) <span class="sc">+</span></span>
-<span id="cb26-4"><a href=""></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span></span>
-<span id="cb26-5"><a href=""></a>  <span class="co"># theme(legend.position = "top", legend.title.position = "top") +</span></span>
-<span id="cb26-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Month"</span>, <span class="at">y =</span> <span class="st">"Year"</span>, <span class="at">fill =</span> <span class="st">"SST Anomaly (°C)"</span>)</span>
-<span id="cb26-7"><a href=""></a></span>
-<span id="cb26-8"><a href=""></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> my_sst,</span>
+<span id="cb23-2"><a href=""></a>            <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> month, <span class="at">y =</span> year,</span>
+<span id="cb23-3"><a href=""></a>                          <span class="at">fill =</span> SST <span class="sc">-</span> <span class="fu">mean</span>(SST))) <span class="sc">+</span></span>
+<span id="cb23-4"><a href=""></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span></span>
+<span id="cb23-5"><a href=""></a>  <span class="co"># theme(legend.position = "top", legend.title.position = "top") +</span></span>
+<span id="cb23-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Month"</span>, <span class="at">y =</span> <span class="st">"Year"</span>, <span class="at">fill =</span> <span class="st">"SST Anomaly (°C)"</span>)</span>
+<span id="cb23-7"><a href=""></a></span>
+<span id="cb23-8"><a href=""></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -1312,28 +1287,17 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div>
 </div>
 </div><div class="column" style="width:50%;">
+<p>Diverging hues</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a>p <span class="sc">+</span></span>
-<span id="cb27-2"><a href=""></a>  <span class="fu">scale_fill_gradientn</span>(<span class="at">colours =</span> <span class="fu">palette_IPCC</span>(<span class="at">var =</span> <span class="st">"temp"</span>, <span class="at">type =</span> <span class="st">"div"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a>p <span class="sc">+</span></span>
+<span id="cb24-2"><a href=""></a>  <span class="fu">scale_fill_gradientn</span>(<span class="at">colours =</span> <span class="fu">palette_IPCC</span>(<span class="at">var =</span> <span class="st">"temp"</span>, <span class="at">type =</span> <span class="st">"div"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure>
 <p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-34-1.png" width="912"></p>
-</figure>
-</div>
-</div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a>p <span class="sc">+</span></span>
-<span id="cb28-2"><a href=""></a>  <span class="fu">scale_fill_gradientn</span>(<span class="at">colours =</span> <span class="fu">palette_IPCC</span>(<span class="at">var =</span> <span class="st">"temp"</span>, <span class="at">type =</span> <span class="st">"seq"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="02_data_vis_files/figure-revealjs/unnamed-chunk-34-2.png" width="912"></p>
 </figure>
 </div>
 </div>
@@ -1360,15 +1324,15 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
-<span id="cb29-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> total_length_mm, <span class="at">y =</span> total_weight_gr, <span class="at">color =</span> depth_m, <span class="at">size =</span> <span class="fu">fct_relevel</span>(size_class, <span class="fu">c</span>(<span class="st">"small"</span>, <span class="st">"medium"</span>, <span class="st">"large"</span>)), <span class="at">shape =</span> site)) <span class="sc">+</span></span>
-<span id="cb29-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb29-4"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Total length (mm)"</span>,</span>
-<span id="cb29-5"><a href=""></a>       <span class="at">y =</span> <span class="st">"Total weight (gr)"</span>,</span>
-<span id="cb29-6"><a href=""></a>       <span class="at">color =</span> <span class="st">"Site"</span>,</span>
-<span id="cb29-7"><a href=""></a>       <span class="at">shape =</span> <span class="st">"Site"</span>,</span>
-<span id="cb29-8"><a href=""></a>       <span class="at">size =</span> <span class="st">"Size class"</span>) <span class="sc">+</span></span>
-<span id="cb29-9"><a href=""></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
+<span id="cb25-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> total_length_mm, <span class="at">y =</span> total_weight_gr, <span class="at">color =</span> depth_m, <span class="at">size =</span> <span class="fu">fct_relevel</span>(size_class, <span class="fu">c</span>(<span class="st">"small"</span>, <span class="st">"medium"</span>, <span class="st">"large"</span>)), <span class="at">shape =</span> site)) <span class="sc">+</span></span>
+<span id="cb25-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb25-4"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Total length (mm)"</span>,</span>
+<span id="cb25-5"><a href=""></a>       <span class="at">y =</span> <span class="st">"Total weight (gr)"</span>,</span>
+<span id="cb25-6"><a href=""></a>       <span class="at">color =</span> <span class="st">"Site"</span>,</span>
+<span id="cb25-7"><a href=""></a>       <span class="at">shape =</span> <span class="st">"Site"</span>,</span>
+<span id="cb25-8"><a href=""></a>       <span class="at">size =</span> <span class="st">"Size class"</span>) <span class="sc">+</span></span>
+<span id="cb25-9"><a href=""></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -1384,7 +1348,36 @@ Juan Carlos Villaseñor-Derbez (JC)
 <h2>Resources on Style</h2>
 <ul>
 <li class="fragment"><em>A <a href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41556-025-01684-z/MediaObjects/41556_2025_1684_MOESM1_ESM.pdf">checklist</a> for designing and improving the visualization of scientific data</em> by <span class="citation" data-cites="Jambor2025-pd">Jambor (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span></li>
+<li class="fragment"><a href="https://r-graph-gallery.com/">r-graph-gallery</a></li>
+<li class="fragment"><a href="https://www.data-to-viz.com/">data-to-viz</a></li>
 </ul>
+<div class="fragment">
+<p>Use these as guidelines, not as absolute truths</p>
+</div>
+</section>
+<section id="learning-objectives---revisited" class="slide level2">
+<h2>Learning Objectives - Revisited</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>By the end of this week, you should be able to:</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li class="fragment">Identify types of data</li>
+<li class="fragment">Use correct jargon when referring to data</li>
+<li class="fragment">Know that some types of visualizations are better suited for different types of data</li>
+<li class="fragment">Build a figure using <code>ggplot2</code></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Before Thursday: Read <a href="https://r4ds.hadley.nz/data-visualize.html">Chapter 1</a> of R4DS</p>
+</div>
 </section></section>
 <section>
 <section id="intro-to-ggplot2" class="title-slide slide level1 center">
@@ -1419,15 +1412,15 @@ Juan Carlos Villaseñor-Derbez (JC)
 <h2>Requirements</h2>
 <p>You will need to load two packages</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a><span class="fu">library</span>(EVR628tools)</span>
-<span id="cb30-2"><a href=""></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a><span class="fu">library</span>(EVR628tools)</span>
+<span id="cb26-2"><a href=""></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="goal" class="slide level2">
 <h2>Goal</h2>
 <p>Recall the <code>data_lionfish</code> data:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a><span class="fu">glimpse</span>(data_lionfish)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a><span class="fu">glimpse</span>(data_lionfish)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 109
 Columns: 9
@@ -1468,7 +1461,7 @@ $ temperature_C   &lt;dbl&gt; 28, 28, 28, 28, 28, 29, 29, 29, 29, 29, 28, 28, 28
 <section id="specify-the-data" class="slide level2">
 <h2>1. Specify the Data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -1481,8 +1474,8 @@ $ temperature_C   &lt;dbl&gt; 28, 28, 28, 28, 28, 29, 29, 29, 29, 29, 28, 28, 28
 <section id="specify-the-aesthetics" class="slide level2">
 <h2>2. Specify the <code>aes</code>thetics</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
-<span id="cb34-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> depth_m))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
+<span id="cb30-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> depth_m))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -1495,8 +1488,8 @@ $ temperature_C   &lt;dbl&gt; 28, 28, 28, 28, 28, 29, 29, 29, 29, 29, 28, 28, 28
 <section id="specify-the-aesthetics-1" class="slide level2">
 <h2>2. Specify the <code>aes</code>thetics</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
-<span id="cb35-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> depth_m, <span class="at">y =</span> total_length_mm))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
+<span id="cb31-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> depth_m, <span class="at">y =</span> total_length_mm))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -1509,9 +1502,9 @@ $ temperature_C   &lt;dbl&gt; 28, 28, 28, 28, 28, 29, 29, 29, 29, 29, 28, 28, 28
 <section id="specify-the-geometric-representation" class="slide level2">
 <h2>3. Specify the <code>geom</code>etric Representation</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
-<span id="cb36-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> depth_m, <span class="at">y =</span> total_length_mm)) <span class="sc">+</span></span>
-<span id="cb36-3"><a href=""></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
+<span id="cb32-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> depth_m, <span class="at">y =</span> total_length_mm)) <span class="sc">+</span></span>
+<span id="cb32-3"><a href=""></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -1524,9 +1517,9 @@ $ temperature_C   &lt;dbl&gt; 28, 28, 28, 28, 28, 29, 29, 29, 29, 29, 28, 28, 28
 <section id="modify-geoms-as-needed" class="slide level2">
 <h2>5. Modify Geoms as Needed</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
-<span id="cb37-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> depth_m, <span class="at">y =</span> total_length_mm)) <span class="sc">+</span></span>
-<span id="cb37-3"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">size =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
+<span id="cb33-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> depth_m, <span class="at">y =</span> total_length_mm)) <span class="sc">+</span></span>
+<span id="cb33-3"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">size =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -1539,10 +1532,10 @@ $ temperature_C   &lt;dbl&gt; 28, 28, 28, 28, 28, 29, 29, 29, 29, 29, 28, 28, 28
 <section id="modify-labels-as-needed" class="slide level2">
 <h2>4. Modify Labels as Needed</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
-<span id="cb38-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> depth_m, <span class="at">y =</span> total_length_mm)) <span class="sc">+</span></span>
-<span id="cb38-3"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb38-4"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Depth (m)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
+<span id="cb34-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> depth_m, <span class="at">y =</span> total_length_mm)) <span class="sc">+</span></span>
+<span id="cb34-3"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb34-4"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Depth (m)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -1555,14 +1548,14 @@ $ temperature_C   &lt;dbl&gt; 28, 28, 28, 28, 28, 29, 29, 29, 29, 29, 28, 28, 28
 <section id="modify-labels-as-needed-1" class="slide level2">
 <h2>4. Modify Labels as Needed</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39" data-code-line-numbers="4-8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
-<span id="cb39-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> depth_m, <span class="at">y =</span> total_length_mm)) <span class="sc">+</span></span>
-<span id="cb39-3"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb39-4"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Depth (m)"</span>,</span>
-<span id="cb39-5"><a href=""></a>       <span class="at">y =</span> <span class="st">"Total length (mm)"</span>,</span>
-<span id="cb39-6"><a href=""></a>       <span class="at">title =</span> <span class="st">"Body length and depth"</span>,</span>
-<span id="cb39-7"><a href=""></a>       <span class="at">subtitle =</span> <span class="st">"Larger fish tend to live deeper"</span>,</span>
-<span id="cb39-8"><a href=""></a>       <span class="at">caption =</span> <span class="st">"Source EVR628tools::data_lionfish"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35" data-code-line-numbers="4-8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
+<span id="cb35-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> depth_m, <span class="at">y =</span> total_length_mm)) <span class="sc">+</span></span>
+<span id="cb35-3"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb35-4"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Depth (m)"</span>,</span>
+<span id="cb35-5"><a href=""></a>       <span class="at">y =</span> <span class="st">"Total length (mm)"</span>,</span>
+<span id="cb35-6"><a href=""></a>       <span class="at">title =</span> <span class="st">"Body length and depth"</span>,</span>
+<span id="cb35-7"><a href=""></a>       <span class="at">subtitle =</span> <span class="st">"Larger fish tend to live deeper"</span>,</span>
+<span id="cb35-8"><a href=""></a>       <span class="at">caption =</span> <span class="st">"Source EVR628tools::data_lionfish"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -1579,27 +1572,6 @@ $ temperature_C   &lt;dbl&gt; 28, 28, 28, 28, 28, 29, 29, 29, 29, 29, 28, 28, 28
 <li class="fragment">Package <a href="https://ggplot2.tidyverse.org/articles/ggplot2-specs.html">vignettes</a></li>
 <li class="fragment"><span class="citation" data-cites="layered-grammar">Wickham (<a href="#/references" role="doc-biblioref" onclick="">2010</a>)</span></li>
 </ul>
-</section>
-<section id="learning-objectives---revisited" class="slide level2">
-<h2>Learning Objectives - Revisited</h2>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>By the end of this week, you should be able to:</strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li class="fragment">Identify types of data</li>
-<li class="fragment">Use correct jargon when referring to data</li>
-<li class="fragment">Decide which types of visualizations are better suited for different types of data</li>
-<li class="fragment">Build a figure using <code>ggplot2</code></li>
-</ul>
-</div>
-</div>
-</div>
 </section></section>
 <section>
 <section id="lets-get-coding" class="title-slide slide level1 center">
