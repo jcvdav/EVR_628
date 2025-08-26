@@ -259,9 +259,21 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div>
 </div>
 </section>
+<section id="todays-class" class="slide level2">
+<h2>Today’s class</h2>
+<ul>
+<li class="fragment">Common ground
+<ul>
+<li class="fragment">Data jargon</li>
+<li class="fragment">Types of data</li>
+</ul></li>
+<li class="fragment">Common visualization goals and charts</li>
+<li class="fragment">Principles of visualization</li>
+</ul>
+</section>
 <section>
-<section id="types-of-data" class="title-slide slide level1 center">
-<h1>Types of data</h1>
+<section id="common-ground" class="title-slide slide level1 center">
+<h1>Common ground</h1>
 
 </section>
 <section id="some-jargon" class="slide level2">
@@ -343,7 +355,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 </ul>
 </div></div>
 </section>
-<section id="types-of-data-1" class="slide level2">
+<section id="types-of-data" class="slide level2">
 <h2>Types of Data</h2>
 <p>The <em>type</em> of data you have can influence how you visualize them</p>
 <ul>
@@ -510,12 +522,12 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div>
 </section></section>
 <section>
-<section id="types-of-visualizations" class="title-slide slide level1 center">
-<h1>Types of visualizations</h1>
+<section id="common-visualization-goals-and-charts" class="title-slide slide level1 center">
+<h1>Common visualization goals and charts</h1>
 
 </section>
-<section id="types-of-visualizations-1" class="slide level2">
-<h2>Types of Visualizations</h2>
+<section id="many-types-of-visualizations" class="slide level2">
+<h2>Many Types of Visualizations</h2>
 <p>There are many, many, MANY types of visualizations:</p>
 <ul>
 <li class="fragment">scatter plot, column chart (stacked columns, dodge columns), histogram, 2d-histogram, violin plots, boxplots, pie charts (eww), heatmaps, line graphs, area charts, stacked area, density, voronoi plots, alluvial diagrams…</li>
@@ -539,8 +551,8 @@ Juan Carlos Villaseñor-Derbez (JC)
 </figure>
 </div>
 </section>
-<section id="right-visuals-for-your-data" class="slide level2">
-<h2>Right Visuals for Your Data</h2>
+<section id="right-visuals-for-your-goal" class="slide level2">
+<h2>Right Visuals for Your Goal</h2>
 <p>Remember our goal:</p>
 <blockquote>
 <p>To communicate <em>something</em> to the viewer (our ourselves)</p>
@@ -914,23 +926,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <section>
 <section id="principles-of-visualization" class="title-slide slide level1 center">
 <h1>Principles of visualization</h1>
-
-</section>
-<section id="principles-of-visualization-1" class="slide level2">
-<h2>Principles of Visualization</h2>
-<p>You know what <em>type</em> of graph you want, lets make it pretty</p>
-<div class="fragment">
-<p>Small parentheses: “Add lightness”</p>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/mx5.jpg" class="" style="width:40.0%"></p>
-<figcaption>Source: Diseno-art.com</figcaption>
-</figure>
-</div>
-</div>
-<div class="fragment">
-<p>Instead of thinking “what can I <em>add</em> to my plot?” think “what can I <em>remove</em> from my plot?</p>
-</div>
+<p>You know what <em>type</em> of graph you want, lets make it effective</p>
 </section>
 <section id="jambor2025-pds-guide-to-visualization" class="slide level2">
 <h2><span class="citation" data-cites="Jambor2025-pd">Jambor (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>’s Guide to Visualization</h2>
@@ -1438,7 +1434,7 @@ $ temperature_C   &lt;dbl&gt; 28, 28, 28, 28, 28, 29, 29, 29, 29, 29, 28, 28, 28
 <li class="fragment">Specify your data</li>
 <li class="fragment">Specify your x (and y) axis <code>aes</code>thetic mappings</li>
 <li class="fragment">Specify your <code>geom</code>etric representation</li>
-<li class="fragment">Modify geoms as needed</li>
+<li class="fragment">Modify <code>geom</code>s as needed (optional)</li>
 <li class="fragment">Modify your labels as needed</li>
 </ol>
 </section>
@@ -1499,7 +1495,7 @@ $ temperature_C   &lt;dbl&gt; 28, 28, 28, 28, 28, 29, 29, 29, 29, 29, 28, 28, 28
 </div>
 </section>
 <section id="modify-geoms-as-needed" class="slide level2">
-<h2>5. Modify Geoms as Needed</h2>
+<h2>4. Modify Geoms as Needed</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb33" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
 <span id="cb33-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> depth_m, <span class="at">y =</span> total_length_mm)) <span class="sc">+</span></span>
@@ -1514,7 +1510,7 @@ $ temperature_C   &lt;dbl&gt; 28, 28, 28, 28, 28, 29, 29, 29, 29, 29, 28, 28, 28
 </div>
 </section>
 <section id="modify-labels-as-needed" class="slide level2">
-<h2>4. Modify Labels as Needed</h2>
+<h2>5. Modify Labels as Needed</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb34" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
 <span id="cb34-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> depth_m, <span class="at">y =</span> total_length_mm)) <span class="sc">+</span></span>
@@ -1530,7 +1526,7 @@ $ temperature_C   &lt;dbl&gt; 28, 28, 28, 28, 28, 29, 29, 29, 29, 29, 28, 28, 28
 </div>
 </section>
 <section id="modify-labels-as-needed-1" class="slide level2">
-<h2>4. Modify Labels as Needed</h2>
+<h2>5. Modify Labels as Needed</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb35" data-code-line-numbers="4-8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
 <span id="cb35-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> depth_m, <span class="at">y =</span> total_length_mm)) <span class="sc">+</span></span>

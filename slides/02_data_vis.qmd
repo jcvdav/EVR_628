@@ -36,8 +36,15 @@ theme_set(
 - Build a figure using `ggplot2`
 :::
 
+## Today's class
 
-# Types of data
+- Common ground
+  - Data jargon
+  - Types of data
+- Common visualization goals and charts
+- Principles of visualization
+
+# Common ground
 
 ## Some Jargon
 
@@ -133,9 +140,9 @@ Use `?data_milton` to look at the [documentation](https://jcvdav.github.io/EVR62
 
 What would -2.5 in `sshs` mean?
 
-# Types of visualizations
+# Common visualization goals and charts
 
-## Types of Visualizations
+## Many Types of Visualizations
 
 There are many, many, MANY types of visualizations:
 
@@ -154,7 +161,7 @@ But what really matters:
 
 ![Modified from @Wickham2023-aa](https://r4ds.hadley.nz/diagrams/data-science/base.png){.nostretch fig-align="center" width="95%"}
 
-## Right Visuals for Your Data
+## Right Visuals for Your Goal
 
 Remember our goal:
 
@@ -470,19 +477,7 @@ p + geom_line(aes(group = size_class))
 
 # Principles of visualization
 
-## Principles of Visualization
-
-You know what _type_ of graph you want, lets make it pretty
-
-. . .
-
-Small parentheses: "Add lightness"
-
-![Source: Diseno-art.com](img/mx5.jpg){.nostretch fig-align="center" width="40%"}
-
-. . .
-
-Instead  of thinking "what can I _add_ to my plot?" think "what can I _remove_ from my plot?
+You know what _type_ of graph you want, lets make it effective
 
 ## @Jambor2025-pd's Guide to Visualization
 
@@ -929,7 +924,7 @@ ggplot(data = data_lionfish,
 1. Specify your data
 2. Specify your x (and y) axis `aes`thetic mappings
 3. Specify your `geom`etric representation
-4. Modify geoms as needed
+4. Modify `geom`s as needed (optional)
 5. Modify your labels as needed
 
 ## 1. Specify the Data
@@ -975,7 +970,7 @@ ggplot(data = data_lionfish,
   geom_point()
 ```
 
-## 5. Modify Geoms as Needed
+## 4. Modify Geoms as Needed
 
 ```{r}
 #| code-fold: false
@@ -987,7 +982,7 @@ ggplot(data = data_lionfish,
   geom_point(shape = 21, fill = "steelblue", size = 2)
 ```
 
-## 4. Modify Labels as Needed
+## 5. Modify Labels as Needed
 
 ```{r}
 #| code-fold: false
@@ -1000,7 +995,7 @@ ggplot(data = data_lionfish,
   labs(x = "Depth (m)")
 ```
 
-## 4. Modify Labels as Needed
+## 5. Modify Labels as Needed
 
 ```{r}
 #| code-fold: false
