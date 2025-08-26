@@ -1,0 +1,19 @@
+---
+title: "04_live"
+format: html
+---
+
+# Show difference between `<-` and `=`
+
+```{r}
+# Objects colors, numbers, and letters are not created
+data.frame(colors = c("red", "green"),
+           numbers = c(1, 2),
+           letters = c("A", "B"))
+
+# Objects colors, numbers, and letters ARE creates
+data.frame(colors <- c("red", "green"),
+           numbers <- c(1, 2),
+           letters <- c("A", "B"))
+```
+

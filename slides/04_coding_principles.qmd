@@ -7,9 +7,8 @@ subtitle: "Coding principles"
 :::{.callout-note}
 ## By the end of this week, you should be able to:
 - Understand and check object classes
-- Explain the importance of code style and documentation
 - Index and subsetting vectors and data frames
-- Useful functions in `base` and `stats`
+- Explain the importance of code style and documentation
 :::
 
 ## So far
@@ -29,7 +28,7 @@ Working with data involves:
 - Making new **objects** that derive from your inputs
 - Documenting your steps
 - Calling **functions** that work on your data
-- Working with **objects** of different **objects**
+- Working with **objects** of different **classes**
 
 ## Motivation
 
@@ -70,7 +69,7 @@ And you have data with values 1:10
 # This creates the "x" object (could come form a file)
 x <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 # This calculates a value of y for each value of x
-y <- (1.609) + 10
+y <- 1.609 * x
 y
 ```
 
@@ -105,7 +104,7 @@ Excel has many great features. It's just not the right tool for the job.
 ```
 
 :::{.callout-note}
-Values are "printed" to the slide (console), never to be seen again
+In these examples the values are "printed" to the console (slide), never to be seen again
 :::
 
 :::
@@ -122,71 +121,160 @@ Values are "printed" to the slide (console), never to be seen again
 
 ::::
 
+# "Objects" and "Classes"
+
 ## Creating "objects"
 
 - If you'll need a value, dataset or plot for later, you should "assign it"
-- This will retain the object in your environment
+- This will retain the object in your **environment** tab, leaving available for later
 - You will use the _assignment operator_: `<-`
-  - Mac shortcut: `Opt` + `dash`
+  - Mac shortcut: `Opt` + `-`
   - Windows shortcut: `Alt` + `-`
-- Read '`<-`' as: "object name gets value"
+- Read "`<-`" as: "object name gets value"
   
 . . .
 
-:::: {.columns}
-::: {.column width='50%'}
 
-Save something
+Save something (pretty much anything) by creating an object
 
 ```{r}
 #| code-fold: false
 #| code-line-numbers: "1-2|3-6|7-8"
-# A value
-my_val <- 2
+# A number
+my_num <- 2 # Read as "my_num" gets a value of 2
 # A function
 my_fun <- function(name){
-  paste("My name is", name)
+  cat("My name is", name)
 }
 # piece of text
 my_name <- "JC"
 ```
 
+
+
+## Creating "objects"
+
+
+:::: {.columns}
+
+::: {.column width='50%'}
+They will appear in your **environment** pane
+
+![](img/environment.png)
+
 :::
 
 ::: {.column width='50%'}
 
-
-And call them later
+And you can "call them" later in your console
 
 ```{r}
 #| code-fold: false
 #| error: true
-my_val + 2
+my_num # Call your object in the console
 
-my_value #should fail.. why?
+my_num + 2 # Use your object in other operations
 
-my_fun(my_name)
+my_number # This line should fail.. Why?
+
+my_fun(my_name) # Use your own functions
 ```
 
 :::
 ::::
 
-## Combine elements with `c()`
+. . .
+
+:::{.callout-tip collapse=false appearance='default' icon=true}
+- An R function is a nice way to "wrap" a bit of code that you use repetaedly
+- Instead of copying and pasting the same bit of code many times, wrap it in a function
+- Examples:
+  - The `create_dirs()` function
+  - The `palette_UM()` function
+:::
+
+## Object _classes_
+
+The most common _atomic_ classes are:
+
+- character, like `"a"` or `'b'` (note the quotation marks)
+- numeric, like `2` or `10e3` (note scientific notation)
+- logical, like `TRUE`/`FALSE` or `T`/`F`, but never `true`/`false` (note no quotations)
+
+. . .
+
+:::: {.columns}
+
+::: {.column width='50%'}
+You can check classes with function `class()`
 
 ```{r}
 #| code-fold: false
-colors <- c("red", "blue", "green")
+class("a")
+
+class(2)
+
+class("2") # This is no longer a number
+
+class(TRUE)
+```
+
+
+:::
+
+::: {.column width='50%'}
+`class()` works on all R objects
+
+```{r}
+#| code-fold: false
+class(my_num)
+```
+
+
+Coercing "up" is safe
+
+```{r}
+#| code-fold: false
+as.numeric("a") # Character to numeric
+as.numeric(TRUE) # Logical to numeric
+```
+
+:::
+
+::::
+
+
+
+## Combining atomic elements
+
+You can combine atomic elements with function "`c()`"
+
+```{r}
+#| code-fold: false
+colors <- c("red", "blue", "green", "orange", "black")
 
 numbers <- c(1, 40, 1, 5, 6)
 
-more_numbers <- c(my_val, numbers)
+more_numbers <- c(my_num, numbers)
 ```
 
-- The objects called `colors`, `numbers` and `more_numbers` are "vectors"
+- The objects called `colors`, `numbers` and `more_numbers` are _vectors_ of characters and numbers
 
-- If the vector is numeric, arithmetic operations are applied to every element automatically
+- Vectors are like columns in a spreadsheet
+
+- Vectors have lengths (number of elements)
 
 . . .
+
+```{r}
+#| code-fold: false
+length(colors)
+```
+
+
+## Operating on vectors
+
+If the vector is numeric, arithmetic operations are applied to every element automatically
 
 ```{r}
 #| code-fold: false
@@ -206,8 +294,309 @@ colors * 2
 
 - What does this error message mean?
 
+## Combining vectors of different class
+
+- R's basic class is _data.frame_
+- Different classes between columns is OK, not within
+- All vectors **must** be the same length
+
+. . .
+
+Build data.frame from vectors
+
+```{r}
+#| code-fold: false
+# Column names are automatically assigned
+data.frame(colors,
+           numbers)
+```
+
+## Combining vectors of different class
+
+Build data.frame straight from atomic elements
+
+```{r}
+#| code-fold: false
+# I must assign column names
+# Note use of " = " and not " <- "
+data.frame(colors = c("red", "green"),
+           numbers = c(1, 2))
+```
+
+. . .
+
+Using vectors of different lengths fails
+
+```{r}
+#| code-fold: false
+#| error: true
+data.frame(colors = c("red", "green", "blue"),
+           numbers = c(1, 2))
+```
+
+. . .
+
+Unless they can be recycled
+
+```{r}
+#| code-fold: false
+#| error: true
+data.frame(colors = c("red", "green", "blue", "orange"),
+           numbers = c(4, 2))
+```
 
 
+## Combining vectors of different class
+
+Build a data.frame and save it to an object
+
+```{r}
+#| code-fold: false
+my_data <- data.frame(colors = c("red", "green"),
+                      numbers = c(1, 2),
+                      letters = c("A", "B"))
+
+# Check class
+class(my_data)
+```
+
+data.frames have two _dimensions_
+
+```{r}
+#| code-fold: false
+dim(my_data)
+
+nrow(my_data)
+
+ncol(my_data)
+```
+
+
+## Tibbles vs data.frame
+
+- Tibbles are a special type of data.frame used in tidyverse and spatial libraries
+
+- They work in the same way
+
+. . .
+
+```{r}
+#| code-fold: false
+tidyr::tibble(colors,
+              numbers)
+```
+
+- But cells can contain objects that are not atomic
+
+. . .
+
+```{r}
+#| code-fold: false
+tidyr::tibble(colors = c("red", "green"),
+              numbers = c(1, 2),
+              weird = list(c(1, 2, 3),
+                           c("a", "b", "c")))
+
+```
+
+## Note 1: Matrices and arrays
+
+:::{.callout-note}
+- All columns must be of the same class
+- You can do linear algebra on them
+- Matrices are 2-dimensional arrays, which can be multidimensional
+:::
+
+. . .
+
+```{r}
+#| code-fold: false
+mat1 <- cbind(numbers, numbers) # cbind is for "column binding"
+mat1
+```
+
+. . .
+
+```{r}
+#| code-fold: false
+mat2 <- rbind(numbers, numbers) # rbind is for... "tow binding"
+mat2
+```
+
+. . .
+
+```{r}
+#| code-fold: false
+mat3 <- matrix(data = c(1, 2, 3, 4, 5, 6), nrow = 3) # You can also build it from scratch
+mat3
+```
+
+## Note 2: lists
+
+:::{.callout-note}
+- We won't cover lists yet
+- lists are flexible
+- lists combine vectors of different class and sizes
+- The flexibility may be great for the programmer, but not for the user
+- data.frames and tibbles are both _technically_ lists of equally-sized vectors
+:::
+
+## Note 3: calling functions
+
+:::{.callout-note}
+- R comes with many built-in functions
+- R packages typically provide additional functions
+- "Calling" a function is like invoking it
+- You do so like this
+:::
+
+. . .
+
+```r
+function_name(argument1 = value1, argument2 = value2, ...)
+```
+
+- Different functions take different numbers and types of arguments
+- R uses "named arguments", which often have an order
+
+## Indexing objects with `[]`
+
+Indexing = subsetting or extracting elements within an object
+
+**Vectors**
+
+```{r}
+#| code-fold: false
+colors <- c("red", "blue", "green", "orange", "black") # Create a character vector of colors
+```
+
+. . .
+
+I can extract the first element with:
+
+```{r}
+#| code-fold: false
+colors[1] # Extract first element
+```
+
+. . .
+
+Extract the first and third elements
+
+```{r}
+#| code-fold: false
+colors[c(1, 3)] # Extract elements 1 and 3
+```
+. . .
+
+Extract elements 2 through 4
+
+```{r}
+#| code-fold: false
+colors[2:4] # Extract elements 2,3, 4
+```
+
+
+## Indexing objects with `[]`
+
+**data.frames and tibbles**
+
+data.frames are two-dimensional, so we use two numbers: `[rows, cols]`
+
+. . .
+
+Extract values for first observation across all variables, implicitly
+
+```{r}
+#| code-fold: false
+my_data
+my_data [1,] # row one, all columns
+```
+
+. . .
+
+Extract values for first variable across all observations, implicitly
+
+```{r}
+#| code-fold: false
+my_data[ , 1]
+```
+
+. . .
+
+Extract the value for the second observation anad third variable
+
+```{r}
+#| code-fold: false
+my_data[1 , 3]
+```
+
+
+## Indexing with `[]` and modify with ` <- `
+
+For vectors
+
+```{r}
+#| code-fold: false
+colors <- c("red", "blue", "green", "orange", "black") # Create a character vector of colors
+colors
+```
+
+. . .
+
+Let's modify red to white
+
+```{r}
+#| code-fold: false
+colors[1] <- "white" # The first element of "colors" takes the value "white"
+
+colors
+```
+
+. . .
+
+Number of elements indexed must match number of elements assigned
+
+```{r}
+#| code-fold: false
+#| error: true
+#| warning: true
+colors[1] <- c("white", "yellow")
+
+colors
+```
+
+## Indexing with `[]` and modify with ` <- `
+
+For data.frames
+
+```{r}
+#| code-fold: false
+my_data
+```
+
+. . .
+
+
+
+```{r}
+#| code-fold: false
+my_data[1, 1] <- "this is not a color"
+```
+
+Which value will change?
+
+. . .
+
+```{r}
+#| code-fold: false
+my_data
+```
+
+
+# Code _style_
+
+Helping others (and future you) read your code
 
 ## Comments
 
@@ -217,6 +606,13 @@ colors * 2
 
 - We use the `#` sign to prevent the computer from reading it
   - Works in R, Python, Make, Julia, SQL
+
+## Comments: Some guidelines
+
+- What are you doing?
+- Why are you doing it _that way_?
+  - Focus on explaining _why_ you did something, not _what_ you are doing (or _how_)
+- Try to keep your comments within the vertical line show in RStudio
 
 . . .
 
@@ -243,11 +639,9 @@ my_fun <- function(name){      # Takes a parameter called "name"
 }                              # End of "my_fun"
 ```
 
+
 ## Comments: Common mistakes
 
-:::: {.columns}
-
-::: {.column width='50%'}
 Too much commenting
 
 ```{r}
@@ -257,12 +651,13 @@ my_other_fun <- function(x){   # Start function
   y <- (2*x) + 10              # This line takes the value of x and multiplies it by two in (2*x). It then adds 10 in the part that says "+10"
 }
 ```
-:::
 
-::: {.column width='50%'}
-Better, but forgot to use `#`
+. . .
+
+Better, but forgot to use "`#`"
 
 ```{r}
+#| code-fold: false
 #| error: true
 #| code-line-numbers: "|1"
 Define my second function
@@ -270,47 +665,20 @@ my_other_fun <- function(x){ # Start function
   y <- (2*x) + 10            # Perform the calculation
 }
 ```
-:::
 
-::::
+## Sectioning with comments
 
-## Calling functions
+- A script contains more than one bit of code, often dozens of lines
 
-- R comes with many built-in functions
-- R packages typically provide additional functions
-- "Calling" a function is like invoking it
-- You do so like this
+- Use comments to guide the user through your script
+
+- R can detect up to 6 levels, as indicated by the number of "`#`"
 
 . . .
 
-```r
-function_name(argument1 = value1, argument2 = value2, ...)
-```
 
-- Different functions take different numbers and types of arguments
-- R uses the named arguments
+![](img/outline_comments.png){.nostretch fig-align="center" width="40%"}
 
-
-## Classes, objects, variables, values
-
-## Indexing and subsetting vectors and data frames
-
-## Useful functions in `base` and `stats`
-
-- `dim`
-- `nrow`
-- `ncol`
-- `length`
-- `unique`
-- `min`, max
-- `range`
-- `glimpse`
-- `summary`
-- `mean`
-
-# Code _style_
-
-Best practices for nice code
 
 ## The importance of style
 
@@ -320,71 +688,122 @@ Best practices for nice code
 
 ## Naming conventions
 
+```{r}
+#| eval: false
+#| code-fold: false
+i_use_snake_case                   # This is my preference
+otherPeopleUseCamelCase            # This sometimes works
+some.people.use.periods            # This is dangerous, especially in python
+And_aFew.People_RENOUNCEconvention # You need help
+ALL_CAPS                           # Reserved for super important stuff
 ```
-i_use_snake_case
-otherPeopleUseCamelCase
-some.people.use.periods
-And_aFew.People_RENOUNCEconvention
-```
+
 
 ## Spaces
 
-## Commenting
-
-- What are you doing?
-- Why are you doing it _that way_?
-  - Focus on explaining _why_ you did something, not _what_ you are doing (or _how_)
-- Try to keep your comments within the vertical line show in RStudio
-
-## Calling functions
-
 ## Pipes
 
-## ggplot2
+Imagine having the following numeric vector
 
-## Sectioning with comments
+```{r}
+#| code-fold: false
+numbers <- c(1, 5, 2, 7, 9, 2, 3, 6, 3, 2, 1,
+             1, 6, 8, 3, 2, 1, 6, 1, 2, 8, 3,
+             6, 8, 9, 0, 5, 3, 2, 1, 2, 6, 9)
 
-- A script contains more than one bit of code, often dozens of lines
-
-- Use comments to guide the user through your script
+```
 
 . . .
+
+And wanting to know how many unique numbers there were
+
+Before 2013 you had two options:
 
 :::: {.columns}
 
 ::: {.column width='50%'}
+
+1: Call each function at a time
+
 ```{r}
 #| code-fold: false
-################################################
-# Description goes here
-################################################
-
-# SET UP #######################################
-
-## Load packages -------------------------------
-
-## Load data -----------------------------------
-
-
-# PROCESSING ###################################
-
-## Some step -----------------------------------
-
-
-# VISUALIZE ####################################
-
-## Another step --------------------------------
-
-
-# EXPORT #######################################
-
-## The final step ------------------------------
+unique_values <- unique(numbers) # Forces you to create objects
+unique_values
+length(unique_values)
 ```
+
 :::
 
 ::: {.column width='50%'}
-![](img/outline_comments.png){.nostretch fig-align="center" width="90%"}
+2: Use nested functions
+
+```{r}
+#| code-fold: false
+length(unique(numbers)) # Doesn't take much space, but hard to read
+```
+
+
 :::
 
 ::::
 
+
+## Pipes After 2013
+
+The `magrittr` package introduced the _pipe_ operator "`%>%`"
+
+![The Treachery of Images by René Magritte](http://adolfoalvarez.cl/blog/2021-09-16-plumbers-chains-and-famous-painters-the-history-of-the-pipe-operator-in-r/MagrittePipe.jpg)
+
+. . .
+
+The pipe was later popularized by `{dplyr}`
+
+. . .
+
+```{r}
+#| code-fold: false
+library(magrittr) # Load the magrittr package
+
+# Build a pipeline
+numbers %>%      # Thead the pipe as "then" or "goes into"
+  unique() %>% 
+  length()
+```
+
+
+## Pipes Since 2021
+
+The R community saw the usefulness of this and developed a "native" pipe "`|>`"
+
+. . .
+
+You no longer need to load a package to use a pipe
+
+```{r}
+#| code-fold: false
+numbers |> 
+  unique() |> 
+  length()
+```
+
+. . .
+
+Other languages have pipes:
+
+- bash uses `|`
+- Julia uses `|>`
+- python uses `|` in the `Pipe` module but `.pipe()` in pandas
+- In a sense, `{ggplot2}` uses `+`
+
+
+## Useful functions in `base` and `stats`
+
+- `length`
+- `dim`
+- `nrow`
+- `ncol`
+- `unique`
+- `min`, `max`
+- `range`
+- `summary`
+- `mean`
