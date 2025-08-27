@@ -111,6 +111,8 @@ ggplot(data = data_lionfish, aes(x = fct_infreq(site))) +
 
 - Numerical variable with `geom_histogram()`
   - Distribution of lengths
+  - Show bins vs bin width
+   - $k = 1 + 3.322 \times log_{10}(N)$
 
 ```{r}
 # Histogram of lengths
