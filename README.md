@@ -29,7 +29,7 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
 - Overview of R Studio IDE
 - R Studio Projects and project organization
 - R scripts
-- R packages: [`tidyverse`](https://www.tidyverse.org/), [`EVR628`](https://jcvdav.github.io/EVR628tools/)
+- R packages: [`{tidyverse}`](https://www.tidyverse.org/), [`{EVR628}`](https://jcvdav.github.io/EVR628tools/)
 
 **Relevant links for the week**
 - [Instructions to install R and RStudio](docs/01_installing_R_RStudio.html)
@@ -38,7 +38,7 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
 **Data visualization** | [slides](slides/02_data_vis.html)
 - Types of visualization
 - Visualization principles
-- The grammar of graphics and the [`ggplot2`](https://github.com/tidyverse/ggplot2) package
+- The grammar of graphics and the [`{ggplot2}`](https://github.com/tidyverse/ggplot2) package
 
 **Relevant links for the week**
 - Assigned readings: 

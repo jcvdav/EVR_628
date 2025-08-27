@@ -23,6 +23,13 @@ library(EVR628tools)
 library(tidyverse)
 ```
 
+- Load data
+
+```{r}
+data(data_lionfish)
+```
+
+
 - Inspect data
 
 ```{r}
@@ -40,10 +47,9 @@ ggplot(data = data_lionfish)
 
 ## The `aes` function
 - Show documentation
-- A function inside a function
+- Explain a function inside a function
 - Then specify mapping
-- Emphasis of use of commas and named arguments
-- Show what happens when you don't name arguments
+  - Emphasis on use of commas and named arguments without quotations
 - Multiple lines and parentheses
 
 ```{r}
@@ -82,6 +88,8 @@ ggplot(data = data_lionfish,
 
 # Part 2: Visualizing distributions
 
+## Distribution of a cateogrical variable
+
 - Categorical variable with `geom_bar()`
   - basic with site
   - with `fct_infreq` and site
@@ -99,69 +107,93 @@ ggplot(data = data_lionfish, aes(x = fct_infreq(site))) +
   coord_flip() +
   labs(x = "Site", y = "Number of fish")
 ```
+## Distribution of a numeric variable
+
 - Numerical variable with `geom_histogram()`
   - Distribution of lengths
 
 ```{r}
 # Histogram of lengths
 ggplot(data = data_lionfish, aes(x = total_length_mm)) +
-  geom_histogram(bins = 15, fill = "steelblue", color = "black") +
+  geom_histogram(bins = 15) +
   labs(x = "Total length (mm)", y = "Count")
 ```
 
-
 # Part 3: Visualizing relationships
-- A numerical and a categorical variable : depth by size class
-- Two categorical variables: N by size class and site
-- Two numerical variables: depth vs temp
-- Three or more: length vs depth with size for weight and color for temp
+
+## A numerical and a categorical variable
+
+- depth by size class
 
 ```{r}
 # Numerical vs categorical: depth by size class
 ggplot(data = data_lionfish, aes(x = size_class, y = depth_m)) +
   geom_boxplot() +
   labs(x = "Size class", y = "Depth (m)")
+```
 
+
+## Two categorical variables
+
+- N by size class and site
+
+```{r}
 # Two categorical variables: N by size class and site
-ggplot(data = data_lionfish, aes(x = site, fill = size_class)) +
-  geom_bar(position = "dodge") +
+ggplot(data = data_lionfish, aes(x = site, y = size_class)) +
+  geom_bin2d() +
   coord_flip() +
   labs(x = "Site", y = "Number of fish", fill = "Size class")
+```
 
-# Two numerical variables: depth vs temperature
-ggplot(data = data_lionfish, aes(x = depth_m, y = temperature_C)) +
-  geom_point() +
-  labs(x = "Depth (m)", y = "Temperature (°C)")
+## Three or more
 
+- length vs depth with size for weight and color for temperature
+
+```{r}
 # Three or more variables: length vs depth with size for weight
-ggplot(data = data_lionfish, aes(x = depth_m, y = total_length_mm, 
-                                 size = total_weight_gr)) +
-  geom_point(alpha = 0.7) +
+ggplot(data = data_lionfish,
+       aes(x = depth_m, y = total_length_mm, 
+           size = total_weight_gr,
+           color = temperature_C)) +
+  geom_point() +
   scale_size_continuous(range = c(1, 5)) +
-  scale_color_viridis_c() +
   labs(x = "Depth (m)", y = "Total length (mm)", 
-       size = "Weight (g)")
+       size = "Weight (gr)", color = "Temperature (°C)")
 ```
 
 # Part 4: Modifying colors
 
-```{r}
-p <- ggplot(data = data_lionfish, aes(x = depth_m, y = total_length_mm, 
-                                      color = temperature_C)) +
-  geom_point(alpha = 0.7)
+## `scale_*_viridis_*`
 
-p
-```
-
-- The easiest way is to use `scale_*viridis_*`
+- The easiest way is to use `scale_*_viridis_*`
   - Check documentation
   - An example
 
 ```{r}
-p + 
+p <- ggplot(data = data_lionfish,
+       aes(x = depth_m, y = total_length_mm, 
+           size = total_weight_gr,
+           color = temperature_C)) +
+  geom_point() +
+  scale_size_continuous(range = c(1, 5)) +
+  labs(x = "Depth (m)", y = "Total length (mm)", 
+       size = "Weight (gr)", color = "Temperature (°C)") +
   scale_color_viridis_c()
+
+p
 ```
 
+## viridis options
+
+- Show errors for wrong type of scale
+- Change to `mako`
+
+```{r}
+p + 
+  scale_color_viridis_c(option = "mako")
+```
+
+## `scale_color_gradientn`
 
 - `scale_color_gradientn` for continuous and custom palette
   - Check documentation
@@ -172,6 +204,8 @@ p +
 p +
   scale_color_gradientn(colours = palette_IPCC(var = "temp", type = "seq"))
 ```
+
+## `scale_color_gradient2`
 
 - `scale_color_gradient` vs `scale_color_gradient2` for continuous / divergent with ends
   - Check documentation
@@ -194,7 +228,7 @@ p +
   scale_color_gradient2(low = "green",
                        mid = "white",
                        high = "orange",
-                       midpoint = 120)
+                       midpoint = 29)
 ```
 
 - `scale_color_manual` for discrete
@@ -203,7 +237,7 @@ p +
   
 ```{r}
 p <- ggplot(data = data_milton,
-            aes(x = iso_time, y = wind_speed, color = sshs)) +
+            aes(x = iso_time, y = pressure, color = sshs)) +
   geom_point()
 
 p
@@ -227,6 +261,10 @@ ggplot(data = data_lionfish, aes(x = site, fill = size_class)) +
   labs(x = "Site", y = "Number of fish", fill = "Size class")
 ```
 
+## Helpful resources
+
+- [ggplot cheatsheet](https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf)
+
 
 # Part 5: Extra material if time allows
 
@@ -235,7 +273,7 @@ ggplot(data = data_lionfish, aes(x = site, fill = size_class)) +
 - Repeat the entire process, one line at a time, showing how to save to an object
 - Then show how to save plot with ggsave
 - Show documentation of ggsave
-- Emphasize on creating plot objects
+- Emphasize creating plot objects
 
 ```{r}
 # Save plot to object
