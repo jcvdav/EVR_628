@@ -108,6 +108,7 @@ Research that can be repeated by others using the same data and methods
 . . .
 
 ![](img/messy_project_sample.png)
+
 . . .
 
 - Who did what?
@@ -148,9 +149,9 @@ Good file organization is the foundation of reproducible research
 ```
 cool_project/
 ├── data/
-│   ├── raw/           # Original, unmodified data
-│   ├── processed/     # Cleaned, transformed data
-|   └── output/        # Output from your analyses
+│   ├── raw/              # Original, unmodified data
+│   ├── processed/        # Cleaned, transformed data
+|   └── output/           # Output from your analyses
 ├── scripts/
 │   ├── 01_processing/
 │   ├── 02_analysis/
@@ -158,15 +159,20 @@ cool_project/
 ├── results/
 │   ├── figures/
 │   └── tables/
-├── docs/              # Documents (optional)
-├── slides/            # Slides (optional)
-├── README.md          # Project overview (MANDATORY)
-└── .gitignore         # Files to exclude from version control
+├── docs/                 # Documents (optional)
+├── slides/               # Slides (optional)
+├── coool_project.Rproj   # Rstudio project (MANDATORY)
+├── README.md             # Project overview (MANDATORY)
+└── .gitignore            # Files to exclude from version control
 ```
 
 ## Example
 
 ![](img/structure.png)
+
+. . .
+
+What's missing?
 
 ## File Naming Best Practices
 
