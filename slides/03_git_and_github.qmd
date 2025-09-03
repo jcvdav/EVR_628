@@ -489,9 +489,65 @@ Instructions available [here](https://jcvdav.github.io/EVR_628/docs/03_installin
 - Understand the importance of reproducibility
 - Create the basic structure for an organized project
 - Explain the difference between Git and GitHub
-- Create and "clone" a "repo"
-- "commit" and "push"
+- **Create and "clone" a "repo"**
+- **"commit" and "push"**
 :::
+
+# Assignment
+
+## Assignment: Build Your Portfolio
+
+:::: {.columns}
+
+::: {.column width='60%'}
+**Due Sunday, September 14, 2025 11:59 PM via Canvas**:
+
+1. Create a GitHub repository for your portfolio (I suggest you call it `portfolio`)
+  a. The repository should be public, or shared with my github username: [`jcvdav`](https://github.com/jcvdav)
+2. Add information to your `README.md` file
+3. Update your `.gitignore` file
+4. Make at least 2 meaningful commits
+5. Share your repository link via Canvas
+
+:::
+
+::: {.column width='40%'}
+**Grading criteria**:
+
+Repository:
+
+- exists
+- has a `README.md` file with content (name, about you, about the project)
+- has a `.gitignore` file
+- has at least two commits, in addition to the default one
+
+:::
+
+::::
+
+. . .
+
+**Remember**: Version control is a skill that gets better with practice. Start using Git for everything! 
+
+
+# Extra slides
+
+## Essential Git Commands
+
+We can do most things in RStudio, but you should know:
+
+. . .
+
+- Getting started
+  - `git init`: Create a new repository
+  - `git clone`: Copy a repository from remote to local
+- Daily workflow
+  - `git status`: See what's changed
+  - `git add`: Stage changes for commit
+  - `git commit`: Save changes with a message
+- Connecting with GitHub
+  - `git push`: Upload changes to remote repository
+  - `git pull`: Download changes from remote repository
 
 ## GitHub Workflows
 
@@ -520,55 +576,4 @@ In a group
 
 ::::
 
-
-# Assignment
-
-## Assignment: Build Your Portfolio
-
-:::: {.columns}
-
-::: {.column width='60%'}
-**Due next week**:
-
-1. Create a GitHub repository for your portfolio (I suggest you call it `portfolio`)
-2. Add information to your `README.md` file
-3. Update your `.gitignore` file
-4. Make at least 2 meaningful commits
-5. Share your repository link via Canvas
-
-:::
-
-::: {.column width='40%'}
-**Grading criteria**:
-
-- Repository has a `README.d` and a `.gitignore` file
-- There are clear commit messages
-:::
-
-::::
-
-. . .
-
-**Remember**: Version control is a skill that gets better with practice. Start using Git for everything! 
-
-
-# Extra slides
-
-## Essential Git Commands
-
-We can do most things in RStudio, but you should know:
-
-. . .
-
-- Getting started
-  - `git init`: Create a new repository
-  - `git clone`: Copy a repository from remote to local
-- Daily workflow
-  - `git status`: See what's changed
-  - `git add`: Stage changes for commit
-  - `git commit`: Save changes with a message
-- Connecting with GitHub
-  - `git push`: Upload changes to remote repository
-  - `git pull`: Download changes from remote repository
-  
 ## References
