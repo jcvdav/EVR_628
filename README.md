@@ -29,7 +29,7 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
 - Overview of R Studio IDE
 - R Studio Projects and project organization
 - R scripts
-- R packages: [`{tidyverse}`](https://www.tidyverse.org/), [`{EVR628}`](https://jcvdav.github.io/EVR628tools/)
+- R packages: [`{tidyverse}`](https://www.tidyverse.org/), [`{EVR628tools}`](https://jcvdav.github.io/EVR628tools/)
 
 **Relevant links for the week**
 - [Instructions to install R and RStudio](docs/01_installing_R_RStudio.html)
@@ -76,6 +76,10 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
 - Classes, objects, variables, values
 - Indexing and subsetting vectors and data frames
 - Useful functions in `{base}` and `{stats}`
+
+- Assigned readings: 
+  - R4DS [CH2: Worflow: basics](https://r4ds.hadley.nz/workflow-basics.html)
+  - R4DS [CH4: Workflow: code style](https://r4ds.hadley.nz/workflow-style.html)
 
 ## Week 5 (Sep 15-19)
 **Scaling up your code and visualizations** | slides
