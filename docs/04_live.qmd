@@ -1,37 +1,186 @@
 ---
-title: "04_live"
-format: html
+title: "Coding Principles Exercises"
+lightbox: true
+format:
+  html:
+    toc: true
+  pdf:
+    documentclass: article
 ---
 
-# Show difference between `<-` and `=`
+```{r}
+#| echo: false
+#| warnings: false
+#| message: false
+library(EVR628tools)
+library(tidyverse)
+```
+
+# Exercise 1: Object Classes and Assignment (10 minutes)
+
+## Part A: Create and Check Object Classes
+
+Create objects of different classes and check their types:
+
+- Create a character object called `my_name` with your name
+- Create a numeric object called `my_age` with your age
+- Create a logical object called `is_student` with TRUE or FALSE
+- Check the class of each object using `class()`
 
 ```{r}
-# Objects colors, numbers, and letters are not created
-data.frame(colors = c("red", "green"),
-           numbers = c(1, 2),
-           letters = c("A", "B"))
+# My code will be here
 
-# Objects colors, numbers, and letters ARE creates
-data.frame(colors <- c("red", "green"),
-           numbers <- c(1, 2),
-           letters <- c("A", "B"))
+```
+
+## Part B: Object Coercion
+
+- Convert your age to character using `as.character()`
+- Convert TRUE to numeric using `as.numeric()`
+- Try to convert "hello" to numeric - what happens?
+- Check the class of each result
+
+```{r}
+# My code will be here
+
+```
+
+# Exercise 2: Vectors and Operations (15 minutes)
+
+## Part A: Create and Manipulate Vectors
+
+- Create a numeric vector called `length_m` with values: 3.2, 4.1, 2.8, 5.5, 3.9 (in meters)
+- Create a character vector called `shark_species` with: "Great White Shark", "Lemon Shark", "Bull Shark", "Hammerhead Shark", "Mako Shark"
+- Find the length of both vectors using `length()`
+- Calculate the mean length using `mean()`
+- Find the maximum length using `max()`
+
+```{r}
+# My code will be here
+
+```
+
+::: {.callout-important}
+- When passing arguments to functions, use `=` not `<-`
+- When creating objects, use `<-` not `=`
+:::
+
+
+## Part B: Vector Operations and Indexing
+
+- Convert the `length` from meters to feet (multiply by 3.281), save the output into `length_ft`
+- Extract the first 3 shark species using indexing with `[]` and save them to an object called `first_3`
+- Extract shark species where maximum length is greater than 4 meters
+- Create a logical vector showing which sharks have max length above 4 meters
+
+```{r}
+# My code will be here
+
+```
+
+## Part C: Another carrot: `rfishbase`
+
+- Install the package with: `install.packages("rfisbhase")`
+- Use the `first_3` object to get the plausible scientific names of the sharks with `rfishbase::common_to_sci()`
+- Save the results into an object called `shark_sci_names`
+
+```{r}
+# My code will be here
+
+```
+
+# Exercise 3: Data Frames and Tibbles (15 minutes)
+
+## Part A: Create a Data Frame
+
+- Create a data frame called `shark_data` with columns called:
+  - `species`: the `shark_species` vector from Exercise 2
+  - `length_meters`: the `length_m` vector from Exercise 2
+  - `length_feet`: the converted lengths in feet
+- Check the dimensions of your data frame using `dim()`
+- Display the first few rows using `head()`
+
+```{r}
+# My code will be here
+
+```
+
+## Part B: Indexing and Modifying Data Frames
+
+- Extract the maximum length of the 3rd shark species
+- Extract all data for Great White sharks
+- Extract the species column using the `$` operator
+- Change the maximum length of the 2nd shark to 4.5 meters
+- Add a new column called `size_category` with values "Large" for all sharks
+- Create a new column called `sci_name` and use indexing to assign the correct one from `shark_sci_names$Species`
+- Use the new `sci_name` column to get 
+
+```{r}
+# My code will be here
+
 ```
 
 
-# Pipelines
+# Exercise 4: Functions (10 minutes)
+
+## Part A: Use Built-in Functions
+
+Using the `shark_data` from Exercise 3:
+- Calculate the mean, median, and standard deviation of maximum lengths using `mean()`, `median()`, and `sd()`
+- Find the shark species with the highest maximum length using `which.max()`
+- Count how many sharks have maximum lengths above 4 meters using `sum()`
 
 ```{r}
-data_lionfish |> 
-  _[data_lionfish$site == "Canones", ] |>
-  _[data_lionfish$size_class == "large", ] |> 
-  lm(log(total_weight_gr) ~ log(total_length_mm) , data = _) |>
-  summary()
+# My code will be here
+
+```
+
+## Part B: Create Your Own Function
+
+- Create a function called `length_converter` that:
+  - Takes a length in meters as input
+  - Converts it to feet
+  - Returns the result
+- Test your function with a few different lengths
+- Use your function to convert all lengths in your data frame
+
+```{r}
+# My code will be here
+
+```
+
+# Exercise 5: Pipes (10 minutes)
+
+## Part A: Basic Pipes
+
+```{r}
+# My code will be here
+
+```
+
+
+# Exercise 6: Code Style and Documentation (10 minutes)
+
+## Part A: Fix Code Style
+
+Fix the style issues in this code:
+```r
+myfunction<-function(x,y){
+result=x+y*2
+return(result)
+}
+mydataframe=data.frame(species=c("Great White","Tiger"),length=c(4.5,3.2))
+mean(mydataframe$length,na.rm=TRUE)
 ```
 
 ```{r}
-data_milton |> 
-  _[ , ] |> 
-  cor.test(formula =  ~ wind_speed + pressure, data = _)
+# My improved code will be here
+
 ```
 
+## Part B: Add Comments and Section Headers
 
+Take your shark analysis from Exercise 5 and:
+- Add section headers with `###`
+- Add meaningful comments explaining what each step does
+- Add a comment explaining WHY you're doing the analysis
+- Make sure your code follows good naming conventions
