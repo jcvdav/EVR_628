@@ -55,7 +55,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="04_live_files/libs/clipboard/clipboard.min.js"></script>
@@ -93,13 +113,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#exercise-3-data-frames-and-tibbles-15-minutes" id="toc-exercise-3-data-frames-and-tibbles-15-minutes" class="nav-link" data-scroll-target="#exercise-3-data-frames-and-tibbles-15-minutes">Exercise 3: Data Frames and Tibbles (15 minutes)</a>
   <ul class="collapse">
-  <li><a href="#part-a-create-a-data-frame" id="toc-part-a-create-a-data-frame" class="nav-link" data-scroll-target="#part-a-create-a-data-frame">Part A: Create a Data Frame</a></li>
-  <li><a href="#part-b-indexing-and-modifying-data-frames" id="toc-part-b-indexing-and-modifying-data-frames" class="nav-link" data-scroll-target="#part-b-indexing-and-modifying-data-frames">Part B: Indexing and Modifying Data Frames</a></li>
+  <li><a href="#part-a-estimate-the-effect-of-a-marine-protected-area-on-biomass" id="toc-part-a-estimate-the-effect-of-a-marine-protected-area-on-biomass" class="nav-link" data-scroll-target="#part-a-estimate-the-effect-of-a-marine-protected-area-on-biomass">Part A: Estimate the effect of a Marine Protected Area on Biomass</a></li>
   </ul></li>
-  <li><a href="#exercise-4-functions-10-minutes" id="toc-exercise-4-functions-10-minutes" class="nav-link" data-scroll-target="#exercise-4-functions-10-minutes">Exercise 4: Functions (10 minutes)</a>
+  <li><a href="#exercise-4-building-functions-15-minutes" id="toc-exercise-4-building-functions-15-minutes" class="nav-link" data-scroll-target="#exercise-4-building-functions-15-minutes">Exercise 4: Building Functions (15 minutes)</a>
   <ul class="collapse">
-  <li><a href="#part-a-use-built-in-functions" id="toc-part-a-use-built-in-functions" class="nav-link" data-scroll-target="#part-a-use-built-in-functions">Part A: Use Built-in Functions</a></li>
-  <li><a href="#part-b-create-your-own-function" id="toc-part-b-create-your-own-function" class="nav-link" data-scroll-target="#part-b-create-your-own-function">Part B: Create Your Own Function</a></li>
+  <li><a href="#part-a-create-your-own-function" id="toc-part-a-create-your-own-function" class="nav-link" data-scroll-target="#part-a-create-your-own-function">Part A: Create Your Own Function</a></li>
   </ul></li>
   <li><a href="#exercise-5-pipes-10-minutes" id="toc-exercise-5-pipes-10-minutes" class="nav-link" data-scroll-target="#exercise-5-pipes-10-minutes">Exercise 5: Pipes (10 minutes)</a>
   <ul class="collapse">
@@ -225,61 +243,46 @@ Important
 </section>
 <section id="exercise-3-data-frames-and-tibbles-15-minutes" class="level1">
 <h1>Exercise 3: Data Frames and Tibbles (15 minutes)</h1>
-<section id="part-a-create-a-data-frame" class="level2">
-<h2 class="anchored" data-anchor-id="part-a-create-a-data-frame">Part A: Create a Data Frame</h2>
+<section id="part-a-estimate-the-effect-of-a-marine-protected-area-on-biomass" class="level2">
+<h2 class="anchored" data-anchor-id="part-a-estimate-the-effect-of-a-marine-protected-area-on-biomass">Part A: Estimate the effect of a Marine Protected Area on Biomass</h2>
+<p>Create four objects containing:</p>
 <ul>
-<li>Create a data frame called <code>shark_data</code> with columns called:
-<ul>
-<li><code>species</code>: the <code>shark_species</code> vector from Exercise 2</li>
-<li><code>length_meters</code>: the <code>length_m</code> vector from Exercise 2</li>
-<li><code>length_feet</code>: the converted lengths in feet</li>
-</ul></li>
-<li>Check the dimensions of your data frame using <code>dim()</code></li>
-<li>Display the first few rows using <code>head()</code></li>
+<li>The average biomass inside the MPA before it was protected</li>
+<li>The average biomass inside the MPA after it was protected</li>
+<li>The average biomass outside the MPA before the MPA was created</li>
+<li>The average biomass outside the MPA after the MPA was created</li>
 </ul>
+<p>Then, calculate:</p>
+<ul>
+<li>Change after vs before for the protected site</li>
+<li>Change after vs before for the unprotected site</li>
+</ul>
+<p>Finally:</p>
+<ul>
+<li>The difference between these two sites</li>
+</ul>
+<p>This is called the <em>naive</em> difference-in-differences estimate. See <span class="citation" data-cites="villasenor2018user">Villasenor-Derbez et al. (<a href="#ref-villasenor2018user" role="doc-biblioref">2018</a>)</span> and <span class="citation" data-cites="lynham2024evidence">Lynham and Villaseñor-Derbez (<a href="#ref-lynham2024evidence" role="doc-biblioref">2024</a>)</span> for details.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># My code will be here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="part-b-indexing-and-modifying-data-frames" class="level2">
-<h2 class="anchored" data-anchor-id="part-b-indexing-and-modifying-data-frames">Part B: Indexing and Modifying Data Frames</h2>
+</section>
+<section id="exercise-4-building-functions-15-minutes" class="level1">
+<h1>Exercise 4: Building Functions (15 minutes)</h1>
+<section id="part-a-create-your-own-function" class="level2">
+<h2 class="anchored" data-anchor-id="part-a-create-your-own-function">Part A: Create Your Own Function</h2>
 <ul>
-<li>Extract the maximum length of the 3rd shark species</li>
-<li>Extract all data for Great White sharks</li>
-<li>Extract the species column using the <code>$</code> operator</li>
-<li>Change the maximum length of the 2nd shark to 4.5 meters</li>
-<li>Add a new column called <code>size_category</code> with values “Large” for all sharks</li>
-<li>Create a new column called <code>sci_name</code> and use indexing to assign the correct one from <code>shark_sci_names$Species</code></li>
-<li>Use the new <code>sci_name</code> column to get</li>
+<li>Create a function called <code>did</code> that takes three vectors:
+<ul>
+<li><code>after</code></li>
+<li><code>treated</code></li>
+<li>and <code>outcome</code></li>
+</ul></li>
+<li>Calculates a DiD estimate</li>
+<li>Test your function using the <code>data_MPA</code></li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># My code will be here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-</section>
-<section id="exercise-4-functions-10-minutes" class="level1">
-<h1>Exercise 4: Functions (10 minutes)</h1>
-<section id="part-a-use-built-in-functions" class="level2">
-<h2 class="anchored" data-anchor-id="part-a-use-built-in-functions">Part A: Use Built-in Functions</h2>
-<p>Using the <code>shark_data</code> from Exercise 3: - Calculate the mean, median, and standard deviation of maximum lengths using <code>mean()</code>, <code>median()</code>, and <code>sd()</code> - Find the shark species with the highest maximum length using <code>which.max()</code> - Count how many sharks have maximum lengths above 4 meters using <code>sum()</code></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># My code will be here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="part-b-create-your-own-function" class="level2">
-<h2 class="anchored" data-anchor-id="part-b-create-your-own-function">Part B: Create Your Own Function</h2>
-<ul>
-<li>Create a function called <code>length_converter</code> that:
-<ul>
-<li>Takes a length in meters as input</li>
-<li>Converts it to feet</li>
-<li>Returns the result</li>
-</ul></li>
-<li>Test your function with a few different lengths</li>
-<li>Use your function to convert all lengths in your data frame</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># My code will be here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -288,7 +291,7 @@ Important
 <section id="part-a-basic-pipes" class="level2">
 <h2 class="anchored" data-anchor-id="part-a-basic-pipes">Part A: Basic Pipes</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># My code will be here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># My code will be here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -297,23 +300,31 @@ Important
 <section id="part-a-fix-code-style" class="level2">
 <h2 class="anchored" data-anchor-id="part-a-fix-code-style">Part A: Fix Code Style</h2>
 <p>Fix the style issues in this code:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>myfunction<span class="ot">&lt;-</span><span class="cf">function</span>(x,y){</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>result<span class="ot">=</span>x<span class="sc">+</span>y<span class="sc">*</span><span class="dv">2</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(result)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>mydataframe<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">species=</span><span class="fu">c</span>(<span class="st">"Great White"</span>,<span class="st">"Tiger"</span>),<span class="at">length=</span><span class="fu">c</span>(<span class="fl">4.5</span>,<span class="fl">3.2</span>))</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(mydataframe<span class="sc">$</span>length,<span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>myfunction<span class="ot">&lt;-</span><span class="cf">function</span>(x,y){</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>result<span class="ot">=</span>x<span class="sc">+</span>y<span class="sc">*</span><span class="dv">2</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(result)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>mydataframe<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">species=</span><span class="fu">c</span>(<span class="st">"Great White"</span>,<span class="st">"Tiger"</span>),<span class="at">length=</span><span class="fu">c</span>(<span class="fl">4.5</span>,<span class="fl">3.2</span>))</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(mydataframe<span class="sc">$</span>length,<span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># My improved code will be here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># My improved code will be here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="part-b-add-comments-and-section-headers" class="level2">
 <h2 class="anchored" data-anchor-id="part-b-add-comments-and-section-headers">Part B: Add Comments and Section Headers</h2>
 <p>Take your shark analysis from Exercise 5 and: - Add section headers with <code>###</code> - Add meaningful comments explaining what each step does - Add a comment explaining WHY you’re doing the analysis - Make sure your code follows good naming conventions</p>
+
 </section>
 </section>
 
-</main>
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-lynham2024evidence" class="csl-entry" role="listitem">
+Lynham, John, and Juan Carlos Villaseñor-Derbez. 2024. <span>“Evidence of Spillover Benefits from Large-Scale Marine Protected Areas to Purse Seine Fisheries.”</span> <em>Science</em> 386 (6727): 1276–81.
+</div>
+<div id="ref-villasenor2018user" class="csl-entry" role="listitem">
+Villasenor-Derbez, Juan Carlos, Caio Faro, Melaina Wright, Jael Martinez, Sean Fitzgerald, Stuart Fulton, Maria del Mar Mancha-Cisneros, et al. 2018. <span>“A User-Friendly Tool to Evaluate the Effectiveness of No-Take Marine Reserves.”</span> <em>PLoS One</em> 13 (1): e0191821.
+</div>
+</div></section></div></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

@@ -90,7 +90,25 @@ Create objects of different classes and check their types:
 
 # Exercise 3: Data Frames and Tibbles (15 minutes)
 
-## Part A: Estimate the effect of a Marine Protected Area
+## Part A: Estimate the effect of a Marine Protected Area on Biomass
+
+Create four objects containing:
+
+- The average biomass inside the MPA before it was protected
+- The average biomass inside the MPA after it was protected
+- The average biomass outside the MPA before the MPA was created
+- The average biomass outside the MPA after the MPA was created
+
+Then, calculate:
+
+- Change after vs before for the protected site
+- Change after vs before for the unprotected site
+
+Finally:
+
+- The difference between these two sites
+
+This is called the *naive* difference-in-differences estimate. See @villasenor2018user and @lynham2024evidence for details.
 
 
 ```{r}
@@ -113,56 +131,35 @@ mean_protected_after <- mean(data_MPA$biomass[data_MPA$protected == 1 & data_MPA
 mean_control_before <- mean(data_MPA$biomass[data_MPA$protected == 0 & data_MPA$after == 0])
 mean_control_after <- mean(data_MPA$biomass[data_MPA$protected == 0 & data_MPA$after == 1])
 
-change_protected <- mean_protected_after - mean_protected_before
-change_control <- mean_control_after - mean_control_before
+# Difference in time for each site
+dif_protected <- mean_protected_after - mean_protected_before
+dif_control <- mean_control_after - mean_control_before
 
-net_change <- change_protected - change_control
+# Differences across sites
+dif_in_dif <- dif_protected - dif_control
 
-net_change
+dif_in_dif
 
 lm(biomass ~ after + protected + after * protected,
       data = data_MPA) |> 
   summary()
 ```
 
-## Part B: Indexing and Modifying Data Frames
-
-- Extract the maximum length of the 3rd shark species
-- Extract all data for Great White sharks
-- Extract the species column using the `$` operator
-- Change the maximum length of the 2nd shark to 4.5 meters
-- Add a new column called `size_category` with values "Large" for all sharks
-- Create a new column called `sci_name` and use indexing to assign the correct one from `shark_sci_names$Species`
-- Use the new `sci_name` column to get 
-
 ```{r}
 # My code will be here
 
 ```
 
+# Exercise 4: Building Functions (15 minutes)
 
-# Exercise 4: Functions (10 minutes)
+## Part A: Create Your Own Function
 
-## Part A: Use Built-in Functions
-
-Using the `shark_data` from Exercise 3:
-- Calculate the mean, median, and standard deviation of maximum lengths using `mean()`, `median()`, and `sd()`
-- Find the shark species with the highest maximum length using `which.max()`
-- Count how many sharks have maximum lengths above 4 meters using `sum()`
-
-```{r}
-# My code will be here
-
-```
-
-## Part B: Create Your Own Function
-
-- Create a function called `length_converter` that:
-  - Takes a length in meters as input
-  - Converts it to feet
-  - Returns the result
-- Test your function with a few different lengths
-- Use your function to convert all lengths in your data frame
+- Create a function called `did` that takes three vectors:
+  - `after`
+  - `treated`
+  - and `outcome`
+- Calculates a DiD estimate
+- Test your function using the `data_MPA`
 
 ```{r}
 # My code will be here
