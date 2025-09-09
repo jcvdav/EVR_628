@@ -90,18 +90,39 @@ Create objects of different classes and check their types:
 
 # Exercise 3: Data Frames and Tibbles (15 minutes)
 
-## Part A: Create a Data Frame
+## Part A: Estimate the effect of a Marine Protected Area
 
-- Create a data frame called `shark_data` with columns called:
-  - `species`: the `shark_species` vector from Exercise 2
-  - `length_meters`: the `length_m` vector from Exercise 2
-  - `length_feet`: the converted lengths in feet
-- Check the dimensions of your data frame using `dim()`
-- Display the first few rows using `head()`
 
 ```{r}
-# My code will be here
+#| include: false
+library(EVR628tools)
+library(tidyverse)
+data("data_MPA")
 
+ggplot(data_MPA, aes(x = time, y = biomass, color = protected == 1)) + 
+  geom_point() +
+  geom_smooth()
+
+ggplot(data_MPA, aes(x = after, y = biomass, color = protected == 1)) +
+  stat_summary(geom = "pointrange", fun.data = "mean_se",
+               position = position_dodge(width = 0.25))
+
+## Manually calculate DiD ------------------------------------------------------
+mean_protected_before <- mean(data_MPA$biomass[data_MPA$protected == 1 & data_MPA$after == 0])
+mean_protected_after <- mean(data_MPA$biomass[data_MPA$protected == 1 & data_MPA$after == 1])
+mean_control_before <- mean(data_MPA$biomass[data_MPA$protected == 0 & data_MPA$after == 0])
+mean_control_after <- mean(data_MPA$biomass[data_MPA$protected == 0 & data_MPA$after == 1])
+
+change_protected <- mean_protected_after - mean_protected_before
+change_control <- mean_control_after - mean_control_before
+
+net_change <- change_protected - change_control
+
+net_change
+
+lm(biomass ~ after + protected + after * protected,
+      data = data_MPA) |> 
+  summary()
 ```
 
 ## Part B: Indexing and Modifying Data Frames
