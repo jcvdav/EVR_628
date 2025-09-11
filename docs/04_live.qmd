@@ -50,8 +50,14 @@ In your R Script, create objects of different classes and check their types:
 4. Check the class of each object using `class()`
 
 ```{r}
-# My code will be here
+my_name <- "JC" # character object called `my_name` with your name
+my_age <- 32 # numeric object called `my_age` with your age
+is_student <- FALSE # logical object called `is_student` with TRUE or FALSE
 
+# Check the class of each object using `class()`
+class(my_name)
+class(my_age)
+class(is_student)
 ```
 
 ## Part C: Object Coercion
@@ -67,8 +73,20 @@ Let's see what happens when you try converting objects. In the R script, write a
     c. Get it's class
 
 ```{r}
-# My code will be here
+# Note that I am overwriting the object. If I had only done `as.character(my_age)`,
+# then the coerced output would have been printed to the console.
+my_age <- as.character(my_age) # Convert your age to `character`
+# Check that iw worked
+class(my_age)
+as.numeric(TRUE) # Convert `TRUE` to numeric using `as.numeric()`
+as.numeric("hello") # Try to convert `"hello"` to `numeric` - what happens?
 
+# Build a pipeline
+my_age <- 32 # Start with my_age as numeric again
+# ANd now build the pipeline
+my_age |> 
+  as.character() |> 
+  class()
 ```
 
 # Exercise 2: Vectors and Operations
