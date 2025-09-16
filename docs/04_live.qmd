@@ -103,8 +103,24 @@ my_age |>
 8. Find the maximum length using `max()`
 
 ```{r}
-# My code will be here
+# Q2
+length_m <- c(6, 4.1, 2.8, 5.5, 3.9, 5.8) 
+# Q3
+shark_species <- c("Great White Shark", "Lemon Shark", "Bull Shark", 
+                   "Hammerhead Shark", "Mako Shark", "Great White Shark")
+# Q5
+length(length_m)
 
+# Q6
+shark_species |> 
+  unique() |> 
+  length()
+
+# Q7
+mean(x = length_m)
+
+# Q8
+max(length_m)
 ```
 
 ::: {.callout-important}
@@ -118,11 +134,26 @@ my_age |>
 1. Extract the first 3 shark species using indexing with `[]` and save them to an object called `first_3`
 2. Extract shark species where maximum length is greater than 4 meters
 3. Assuming the values in `length_m` and `sharks_species` are ordered so that they match each other, find the shark species that is the largest
-4. Calculate the mean length for all great whites sharks
+4. Calculate the mean length for all great white sharks
 
 ```{r}
-# My code will be here
+# Q1
+first_3 <- shark_species[1:3] # Extract values 1 through 3 and assign them
+first_3 # See the values I assigned
 
+# Q2
+shark_species[length_m > 4] #Extract shark species where maximum length is greater than 4 meters
+
+# Q3
+shark_species[length_m == max(length_m)]
+
+# Q4 (Option 1, no pipes)
+# Read as : "Calculate the mean of lengths where shark species matches Great White Shark
+mean(length_m[shark_species == "Great White Shark"])
+
+# Q4 (Option 2, with pipe)
+length_m[shark_species == "Great White Shark"] |> # Read as: Extract lengths where name matches great white shark AND THEN ...
+  mean() # Calculate the mean
 ```
 
 ---
@@ -141,9 +172,13 @@ Likely pause here
 remotes::install_github("jcvdav/EVR628tools")
 ```
 
-2. Inspect the new `?data_MPA`
+3. Load the `EVR628tools` package
 
-3. Create four objects containing:
+3. Inspect the new `?data_MPA`
+
+4. Let's visualize things
+
+5. Create four objects containing:
     a. Mean biomass inside the MPA before it was protected
     b. Mean biomass inside the MPA after it was protected
     c. Mean biomass outside the MPA before the MPA was created
@@ -151,11 +186,11 @@ remotes::install_github("jcvdav/EVR628tools")
 
 Hint: Use a combination of subsetting (`[]`), relational (`==`), and logical operators (`&`)
 
-4. Then, calculate:
+6. Then, calculate:
     a. Change after vs before for the protected site
     b. Change after vs before for the unprotected site
 
-5. Finally, calculate the difference between these two sites
+7. Finally, calculate the difference between these two sites
 
 This is called the *naive* difference-in-differences estimate. See @villasenor2018user and @lynham2024evidence for details.
 
