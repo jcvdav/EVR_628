@@ -326,33 +326,7 @@ The `dplyr` package, like `ggplot2` relies on data being in this format:
 
 `filter`, `arrange`, and `distinct`
 
-## Recall Binary Operators
-
-:::: {.columns}
-
-::: {.column width='50%'}
-**Comparison operators**:
-
-- `>`: Greater than
-- `>=`: Greater than or equal
-- `<`: Less than
-- `<=`: Less than or equal
-- `==`: Equal to
-- `!=`: Not equal to
-:::
-
-::: {.column width='50%'}
-**Logical operators**:
-
-- `&`: AND
-- `|`: OR
-- `!`: NOT
-- `%in%`: Match any of
-:::
-
-::::
-
-## And the `data_MPA` data
+## Recall the `data_MPA` data
 
 ```{r}
 #| code-fold: false
@@ -373,8 +347,8 @@ data_MPA
 ```{r}
 #| code-fold: false
 # Shorthand syntax
-  # data to be filtered  Condition to be met
-filter(data_MPA,         protected ==1)
+#     (data,  Condition)
+filter(data_MPA, protected ==1)
 ```
 
 . . .
@@ -389,10 +363,6 @@ filter(.data = data_MPA, protected ==1)
 data_MPA |> 
   filter(protected ==1)
 ```
-
-. . .
-
-Is this better than using `[ ]`?
 
 ## 1) Filtering Rows with `filter()`
 

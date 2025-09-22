@@ -565,31 +565,8 @@ Juan Carlos Villaseñor-Derbez (JC)
 <h1>Row operations</h1>
 <p><code>filter</code>, <code>arrange</code>, and <code>distinct</code></p>
 </section>
-<section id="recall-binary-operators" class="slide level2">
-<h2>Recall Binary Operators</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Comparison operators</strong>:</p>
-<ul>
-<li class="fragment"><code>&gt;</code>: Greater than</li>
-<li class="fragment"><code>&gt;=</code>: Greater than or equal</li>
-<li class="fragment"><code>&lt;</code>: Less than</li>
-<li class="fragment"><code>&lt;=</code>: Less than or equal</li>
-<li class="fragment"><code>==</code>: Equal to</li>
-<li class="fragment"><code>!=</code>: Not equal to</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p><strong>Logical operators</strong>:</p>
-<ul>
-<li class="fragment"><code>&amp;</code>: AND</li>
-<li class="fragment"><code>|</code>: OR</li>
-<li class="fragment"><code>!</code>: NOT</li>
-<li class="fragment"><code>%in%</code>: Match any of</li>
-</ul>
-</div></div>
-</section>
-<section id="and-the-data_mpa-data" class="slide level2">
-<h2>And the <code>data_MPA</code> data</h2>
+<section id="recall-the-data_mpa-data" class="slide level2">
+<h2>Recall the <code>data_MPA</code> data</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>data_MPA</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -619,8 +596,8 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="co"># Shorthand syntax</span></span>
-<span id="cb9-2"><a href=""></a>  <span class="co"># data to be filtered  Condition to be met</span></span>
-<span id="cb9-3"><a href=""></a><span class="fu">filter</span>(data_MPA,         protected <span class="sc">==</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-2"><a href=""></a><span class="co">#     (data,  Condition)</span></span>
+<span id="cb9-3"><a href=""></a><span class="fu">filter</span>(data_MPA, protected <span class="sc">==</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 50 × 5
     time id    protected after biomass
@@ -647,9 +624,6 @@ Juan Carlos Villaseñor-Derbez (JC)
 <span id="cb11-4"><a href=""></a>data_MPA <span class="sc">|&gt;</span> </span>
 <span id="cb11-5"><a href=""></a>  <span class="fu">filter</span>(protected <span class="sc">==</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<div class="fragment">
-<p>Is this better than using <code>[ ]</code>?</p>
 </div>
 </section>
 <section id="filtering-rows-with-filter-1" class="slide level2">
