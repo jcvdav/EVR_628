@@ -109,7 +109,7 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
 
 ## Week 6 (Sep 22-26)
 **Data management and transformation** | [slides](slides/06_data_management.html)
-- Relative vs. absolute paths and the [`{here}` package](https://here.r-lib.org/)
+- Relative vs. absolute paths
 - Reading and writing tabular data (`*csv` and `*.rds`)
 - Modifying rows (filter, arrange, distinct) with `{dplyr}`
 - Modifying columns (select, rename) with `{dplyr}`
