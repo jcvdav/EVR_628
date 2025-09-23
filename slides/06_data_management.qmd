@@ -32,8 +32,8 @@ theme_set(
 - File paths and working directories
 - Reading and writing data
 - Data transformation with `{dplyr}`
-  - Row operations: **`filter()`**, `arrange()`, `distinct()`
-  - Column operations: **`select()`**, `rename()`
+  - Row operations: **`filter()`**
+  - Column operations: **`select()`**, `rename()`, and **`mutate()`**
   - Table operations: **`group_by()`** and **`summarize()`**
 
 # File Paths and Working Directories
