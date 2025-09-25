@@ -20,7 +20,7 @@ Let's make some assumptions that will help us answer this question:
 2. The market price of tuna since 2000 has remained relatively stable, at around US\$2/Kg (See @Sibert2012-hu)
 3. We will focus on tuna production in the Eastern Pacific Ocean as reported by the IATTC
 
-## ~~Part A) Obtaining data from the wild~~ (done on Tuesday)
+## Part A) Obtaining data from the wild
 
 How to find the data:
 
@@ -39,7 +39,7 @@ How to find the data:
 
 0. **Put your post-it up**
 1. Start a new script called `tuna_analysis` and save it to your `scripts/03_analysis` folder
-2. Add a comment header and outline, and load the `tidyverse` and `EVR628tools` packages at the top of your script
+2. Add a comment header and outline, and load the `tidyverse` package at the top of your script
 3. Use the `read_csv()` function to load the new data and assign it to an object called `tuna_data`
 4. What are the existing column names?^[Hint: use the `colnames()` function]
 5. **Remove your post-it when you are done**
@@ -47,21 +47,24 @@ How to find the data:
 
 ```{r}
 #| echo: false
-#| include: false
-
-library(tidyverse)
-library(EVR628tools)
-library(janitor)
-
-tuna_data <- read_csv("data/raw/CatchByFlagGear/CatchByFlagGear1918-2023.csv") |> 
-  clean_names()
-
-colnames(tuna_data)
-
+suppressPackageStartupMessages({
+  library(tidyverse)
+  library(janitor)
+})
 ```
 
+
+
 ```{r}
-# My code will be here
+# Load packages
+library(tidyverse)
+library(janitor)
+
+# Load the data
+tuna_data <- read_csv("data/raw/CatchByFlagGear/CatchByFlagGear1918-2023.csv")
+
+# Check colnames after cleaning names
+colnames(tuna_data)
 ```
 
 ## Part C) Renaming columns with `clean_names()` and `rename()`
@@ -74,22 +77,28 @@ colnames(tuna_data)
 5. Extend the pipeline above so that we can use the `rename()` function. Rename the columns so that we only retain the English portion of the name. Let's also rename `t` as `catch`
 6. **Remove your post-it when you are done**
 
-Congratulations, you now have a tidy data set with which we can work! The next steps are to keep the data we care about, calculate revenues, and then calculate summaries. Let's do that.
 
 ```{r}
-#| echo: false
-#| include: false
+# Load packages
+library(tidyverse)
+library(janitor)
 
+# Load data
 tuna_data <- read_csv("data/raw/CatchByFlagGear/CatchByFlagGear1918-2023.csv") |> 
-  clean_names() |> 
+  # Clean column names
+  clean_names() |>
+  # Rename some columns
   rename(year = ano_year,
          flag = bandera_flag,
          gear = arte_gear,
          species = especies_species,
          catch = t)
 
+# Check column names
 colnames(tuna_data)
 ```
+
+Congratulations, you now have a tidy data set with which we can work! The next steps are to keep the data we care about, calculate revenues, and then calculate summaries. Let's do that.
 
 ## Part D) Filtering rows with `filter()`
 
@@ -106,13 +115,13 @@ colnames(tuna_data)
 7. **Remove your post-it when you are done**
 
 ```{r}
-#| echo: false
-#| include: false
-
+# Check unique values for the species column (using a pipe)
 tuna_data$species |> unique()
 
-tuna_data$gear |> unique()
+# Check unique values for the gear colum, without a pipe
+unique(tuna_data$gear)
 
+# Create a new data set called ps_tuna_data after filtering
 ps_tuna_data <- tuna_data |> 
   filter(species == "BET",
          gear == "PS",
@@ -128,19 +137,12 @@ ps_tuna_data <- tuna_data |>
 
 
 ```{r}
-#| echo: false
-#| include: false
-
+# Create a new data set called ps_tuna_data after filtering
 ps_tuna_data <- tuna_data |> 
-  filter(species == "BET",
-         gear == "PS",
-         year >= 2000) |> 
-  mutate(revenue = catch * 1000 * 2)
-```
-
-
-```{r}
-# My code will be here
+  filter(species == "BET", # Retain BET values only
+         gear == "PS",     # Retain PS values only
+         year >= 2000) |>  # Retain data from 2000 onwards
+  mutate(revenue = catch * 1000 * 2 / 1e6) # Calculate revenue
 ```
 
 ## Part F) Calculating group summaries with `group_by()` and `summarize()`
@@ -150,22 +152,24 @@ ps_tuna_data <- tuna_data |>
 2. **Remove your post-it when you are done**
 
 ```{r}
-#| echo: false
-#| include: false
-
 ps_tuna_data <- tuna_data |> 
-  filter(species == "BET",
-         gear == "PS",
-         year >= 2000) |> 
-  mutate(revenue = catch * 1000 * 2 / 1e6) |> 
-  group_by(year) |> 
+  filter(species == "BET", # Retain BET values only
+         gear == "PS",     # Retain PS values only
+         year >= 2000) |>  # Retain data from 2000 onwards
+  mutate(revenue = catch * 1000 * 2 / 1e6) |>  # Calculate revenue 
+  group_by(year) |>        # Specify that I am grouping by year
+  # Tell summarize that I want to collapse the catch column by summing all its values
   summarize(catch = sum(catch),
-            revenue = sum(revenue))
+            revenue = sum(revenue)) # Same, but for revenues
 ```
 
-```{r}
-# My code will be here
-```
+
+:::{.callout-important}
+## Important
+
+During class we only calculated total revenue. The above code calculates total revenue AND total catch.
+
+:::
 
 ## Part G) Visualize the data and answer the question
 
@@ -182,34 +186,120 @@ The question is ambiguous because one could answer "They have made X M USD since
 4. **Remove your post-it when you are done.**
 
 ```{r}
-#| echo: false
-#| include: false
-
-ggplot(ps_tuna_data, aes(x = year, y = revenue)) +
-  geom_line() +
-  geom_point() +
-  labs(x = "Year",
-  y = "Revenue (M USD)",
-  title = "Annual revenue from fishing bigeye tuna by purse seine vessels",
-  caption = "Data come from the IATTC") +
-  theme_minimal()
-
+# Get total revenue
 sum(ps_tuna_data$revenue)
 
+# Get mean annual revenue
 mean(ps_tuna_data$revenue)
 
+# Build  plot
+ggplot(data = ps_tuna_data,                    # Specify my data
+       mapping = aes(x = year, y = revenue)) + # And my aesthetics
+  geom_line(linetype = "dashed") +             # Add a dashed line
+  geom_point() +                               # With points on top
+  labs(x = "Year",                             # Add some labels
+       y = "Revenue (M USD)",
+       title = "Annual revenue from fishing bigeye tuna by purse seine vessels",
+       caption = "Data come from the IATTC") +
+  # Modify the theme
+  theme_minimal(base_size = 14,               # Font size 14
+                base_family = "Times")        # Font family Times
 ```
 
-```{r}
-# My code will be here
-```
 
 # Extra exercises for you to practice
 
 1. Make a figure showing total catch by species during 2023
+
+```{r}
+#| code-fold: true
+
+# Build a new data.frame that has catch by species (in thousand tons)
+catch_2023 <- tuna_data |> 
+  filter(year == 2023) |> 
+  group_by(species) |> 
+  summarize(total_catch = sum(catch) / 1e3)
+
+# Now build the figure
+ggplot(data = catch_2023,
+       aes(x = fct_reorder(species, total_catch, .desc = T), # I am using this fct_reorder to make sure the species names appear in descending order based on total catch.
+           y = total_catch)) +
+  geom_col() +
+  labs(x = "Species code",
+       y = "Total catch ('000 tons)") +
+  coord_flip() +
+  theme_bw()
+```
+
 2. Which country caught the most tuna during 2020?
+
+```{r}
+#| code-fold: true
+# There is more than one way to do this one
+# Option 1
+
+# Build a data that has total catch by country in 2020
+country_catch <- tuna_data |> 
+  filter(year == 2020) |>  # Retain only data from 2020
+  group_by(flag) |>  # Get total catch by flag (i.e. sum catch across all species)
+  summarize(total_catch = sum(catch))
+
+# And then we can use brackets, dollar signs, and boolean operators to extract the flag
+country_catch$flag[country_catch$total_catch == max(country_catch$total_catch)]
+
+# Option2: The way I haven't shown you
+tuna_data |> 
+  filter(year == 2020) |> 
+  group_by(flag) |> 
+  summarize(total_catch = sum(catch)) |>  # Up until here, the pipeline is the same
+  arrange(desc(total_catch)) |> # Then I use the arrange function to sort the data in descending order of total catch
+  head(1) |> # I then retain only the first row, which now _should_ contain the data I want
+  pull(flag) # This is a "tidy" version of using a dollar sign to extract a column
+```
+
 3. For each species, identify the year in which catch was at it's maximum
+
+```{r}
+#| code-fold: true
+# Option 1: With what you already know
+tuna_data |> 
+  group_by(year, species) |> 
+  summarize(total_catch = sum(catch)) |> # We firrst calculate total catch by species and year (i.e. remove gear and flag info) 
+  group_by(species) |> # Then we group by species
+  filter(total_catch == max(total_catch)) |> # And use the filter function. Since the data are grouped, the filter will act on each group
+  select(species, year_of_max_catch = year) |>  # And we keep the columns we care about
+  arrange(species)
+
+
+# Option 2: Using slice_max
+tuna_data |> 
+  group_by(year, species) |> 
+  summarize(total_catch = sum(catch)) |> 
+  group_by(species) |> 
+  slice_max(total_catch) |> 
+  select(species, year_of_max_catch = year) |> 
+  arrange(species)
+```
+
 4. How many species have been caught by Mexican-flagged vessels since 2000?
+
+```{r}
+#| code-fold: true
+# Option 1: A pipeline that ends in a vector, with unique and length
+# Start from tuna_data
+tuna_data |> 
+  filter(flag == "MEX") |>  # Retain observations associated with Mexico
+  pull(species) |> # Pull the species column away from the data.frame, at this point we have a vector
+  unique() |> # Get a unique list of species
+  length() # Count the number of unique species
+
+# Alternatively, retain the data.frame structure
+tuna_data |> 
+  filter(flag == "MEX") |>   # Retain observations associated with Mexico
+  group_by(flag) |> 
+  summarize(n_species = n_distinct(species)) # The n_distinct() function is a tidy version of length + unique
+```
+
 
 
 
