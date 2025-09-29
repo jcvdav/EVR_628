@@ -24,6 +24,7 @@ By the end of the course, students will be comfortable working in R.
 - [`{ggplot2}`](https://rstudio.github.io/cheatsheets/html/data-visualization.html)
 - [Git and GitHub](https://rstudio.github.io/cheatsheets/git-github.pdf)
 - [`{dplyr}`](https://rstudio.github.io/cheatsheets/data-transformation.pdf)
+-[`{tidyr}`](https://rstudio.github.io/cheatsheets/tidyr.pdf)
 - [Some available in Spanish](https://rstudio.github.io/cheatsheets/translations.html#spanish)
 
 **My code snippets**
@@ -122,7 +123,7 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
 - [Link](https://jcvdav.github.io/EVR_628/docs/06_live.html) to document from live coding session
 
 ## Week 7 Sept 29-Oct 3
-**Data tidying and wrangling** | slides
+**Data tidying and wrangling** | [slides](slides/07_data_wrangling.qmd)
 - Lengthening data with `tidyr`
 - Widening data with `tidyr`
 - Combining multiple sources of data (`*_joins`)
@@ -131,6 +132,9 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
 - Assigned readings:
   - R4DS [CH5: Data tidying](https://r4ds.hadley.nz/data-tidy.html)
   - R4DS [CH19: Joins (sections 19.1 - 19.4 only)](https://r4ds.hadley.nz/joins.html)
+- Other readings:
+  - Wickham, Hadley. 2014. “Tidy Data.” The Journal of Statistical Software 59. [http://www.jstatsoft.org/v59/i10/](http://www.jstatsoft.org/v59/i10/)
+- [Link](https://jcvdav.github.io/EVR_628/docs/07_live.html) to document from live coding session
 
 ---
 

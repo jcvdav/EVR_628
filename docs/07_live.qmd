@@ -1,0 +1,234 @@
+---
+title: "Data tidying and Merging"
+lightbox: true
+format:
+  html:
+    toc: true
+  pdf:
+    documentclass: article
+---
+
+Last week you were asked:
+
+> How much money have tuna purse seiners made since 2000 when fishing for bigeye tuna (_Thunnus obesus_) in the Eastern Pacific Ocean?
+
+We made some simplifying assumptions and got some values (a total of 3,070 M USD since 2000, or about 127 per year). You are now tasked with coming up with more refined estimates. For example, we will account for the fact that the price of fish varies every year.
+
+How we will approach this:
+
+- Find data that shows prices per year and species
+- Read them, clean them, tidy them up
+- Combine our catch data from last week with this new price data
+- Re-calculate our total revenues since 2000
+
+
+# Exersice 1: Tidying price data
+
+## Part A: Downloading the data
+
+**Post it up**
+
+1. In a web browser, go to [ffa.int](www.ffa.int). This is the website for the Pacific Islands Forum Fisheries Agency
+2. Hover over "Publication and Statistics" on the top menu
+3. Select "Statistics"
+4. You will be taken to a site with five items. Download the zip folder called `Economic and Development Indicators and Statistics: Tuna Fishery of the Western and Central Pacific Ocean 2024`
+5. As before, place the downloaded zip file in your `EVR628/data/raw` folder and proceed to extract it
+6. Open the excel file called `Compendium of Economic and Development Statistics 2024` and study the `Contents` tab
+7. Can you identify the price data that we need?
+  - Which sheet
+  - What range?
+
+**Post it down**
+
+
+## Part B: Reading excel data
+
+**Post it up**
+
+1. Open your RStudio project for EVR628
+2. In your console, install the `readxl` package: `install.packages("readxl")`
+3. Start a **new** script called `tuna_analysis_prices.R`^[I would typically suggest to overwrite whatever we had last week in `tuna_analysis.R` because GitHub would keep a version, but I understand you might want to keep the script as is]
+4. Add the usual code commenting outline
+5. We will need two packages: `readxl`, `janitor`, and `tidyverse`, load them at the top of your script using `library()`
+6. Look at the documentation for `read_excel()`
+7. Use `read_excel()` to create a new object called `tuna_prices` and read the price data we need. Immediately pipe it into `clean_names`
+
+**Post it down**
+
+```{r}
+#| echo: false
+suppressPackageStartupMessages({
+  library(readxl)
+  library(janitor)
+  library(tidyverse)
+})
+```
+
+
+```{r}
+library(readxl)
+library(janitor)
+library(tidyverse)
+
+tuna_prices <- read_excel(path = "data/raw/Economic-and-Development-Indicators-and-Statistics-Tuna-Fishery-of-the-Western-and-Central-Pacific-Ocean-2024-32765/Compendium of Economic and Development Statistics 2024.xlsx",
+                          sheet = "B. Prices",
+                          range = "A35:E63",
+                          na = "na") |> 
+  clean_names()
+```
+
+
+## Part C: Inspecting price data
+
+**Post it up**
+
+- What are our column names?
+- How many columns do we have?
+- Any missing values?
+- Do we need to make the data wider or longer?
+- Using comments, write out what the target data should be (expand my code chunk see what I wrote)
+
+**Post it down**
+
+```{r}
+#| code-fold: true
+# The final data set should have two columns: year and price. Since we have four prices (two markets, two presentations), I will use the average price per year. The tidy data set should therefore have four columns: year, market, presentation, and price.
+```
+
+
+
+## Part D: Tidy your price data
+
+**Post it up**
+
+1. Look at the documentation for your `pivot_*` function. What does it say about cases where `names_to` is of length > 1?
+2. What about the `names_sep` argument?
+3. Use the appropriate `pivot_*` function to reshape your data and save them to a new object called `tidy_tuna_prices`^[Hint: Your `names_to` argument should be a character vector of with two items. `names_ _sep` should be inspired by our clever use of `snake_case`.]
+4. Your resulting data.frame should have 104 rows and 4 columns and look like this:^[Hint: If you have 112 rows, remember you can use `values_drop_na = T`]
+
+```{r}
+#| echo: false
+tidy_tuna_prices <- tuna_prices |> 
+  pivot_longer(cols = 2:5,
+               names_to = c("market", "presentation"),
+               names_sep = "_",
+               values_to = "price",
+               values_drop_na = T)
+
+tidy_tuna_prices
+```
+
+**Post it down**
+
+:::{.callout-important}
+## Values in `presentation`
+Note that the values in the `presentation` column are not ideal. They end in `a`, `b`, `c`, and `d` due to footnotes included in Excel. For now this doesn't matter because we will quickly remove them. We'll cover some text wrangling in Week 9.
+:::
+
+
+## Part E: Calculate mean annual price
+
+**Post it up**
+
+1. Modify the pipeline that creates `tidy_tuna_prices` to get the mean price per year^[Hint: You will use `group_by()` and `summarize()`, as well as `|>`
+
+```{r}
+#| echo: false
+tidy_tuna_prices <- tuna_prices |> 
+  pivot_longer(cols = 2:5,
+               names_to = c("market", "presentation"),
+               names_sep = "_",
+               values_to = "price",
+               values_drop_na = T) |> 
+  group_by(year) |> 
+  summarize(price = mean(price))
+
+tidy_tuna_prices
+```
+
+**Post it down**
+
+## Part F: Read the tuna catch data
+
+**Post it up**
+
+1. Read in the tuna catch data from last week
+2. Filter it to retain bigeye tuna caught by the purse seine fleet since 2000
+3. Calculate total catch by year
+
+**Post it down**
+
+>Note: You can copy and paste your code from last week of from below, but make sure your code is organized. Your final data should have 24 rows and 2 columns, as below. 
+
+```{r}
+#| message: false
+# Load the data
+tuna_data <- read_csv("data/raw/CatchByFlagGear/CatchByFlagGear1918-2023.csv") |> 
+  # Clean column names
+  clean_names() |>
+  # Rename some columns
+  rename(year = ano_year,
+         flag = bandera_flag,
+         gear = arte_gear,
+         species = especies_species,
+         catch = t)
+
+ps_tuna_data <- tuna_data |> 
+  filter(species == "BET", # Retain BET values only
+         gear == "PS",     # Retain PS values only
+         year >= 2000) |>  # Retain data from 2000
+  group_by(year) |>        # Specify that I am grouping by year
+  # Tell summarize that I want to collapse the catch column by summing all its values
+  summarize(catch = sum(catch))
+
+ps_tuna_data
+```
+
+## Part G: Combine your catch and price data
+
+1. Think about what type of join you want
+2. What will be on the left and what will be on the right?
+3. What is the key?
+
+**Post it up**
+
+4. Perform the join and save the output to an object called `tuna_revenues`
+5. Create a new column that contains the revenue in M USD. Be careful with the units.
+
+
+**Post it down**
+
+```{r}
+#| echo: false
+tuna_revenues <- ps_tuna_data |> 
+  left_join(tidy_tuna_prices, by = join_by(year)) |> 
+  mutate(revenue = price * catch / 1e6)
+
+tuna_revenues
+```
+
+```{r}
+sum(tuna_revenues$revenue)
+
+mean(tuna_revenues$revenue)
+
+# Build  plot
+ggplot(data = tuna_revenues,                   # Specify my data
+       mapping = aes(x = year, y = revenue)) + # And my aesthetics
+  geom_line(linetype = "dashed") +             # Add a dashed line
+  geom_point() +                               # With points on top
+  labs(x = "Year",                             # Add some labels
+       y = "Revenue (M USD)",
+       title = "Annual revenue from fishing bigeye tuna by purse seine vessels",
+       caption = "Data come from the IATTC") +
+  # Modify the theme
+  theme_minimal(base_size = 14,               # Font size 14
+                base_family = "Times")        # Font family Times
+```
+
+How do this plot and numbers compare to what we found [last week](https://jcvdav.github.io/EVR_628/docs/06_live.html#part-g-visualize-the-data-and-answer-the-question)?
+
+
+
+
+

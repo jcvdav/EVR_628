@@ -1,0 +1,664 @@
+---
+subtitle: "Data Tidying and Merging"
+---
+
+```{r}
+#| include: false
+suppressPackageStartupMessages({
+  library(tidyverse)
+  library(EVR628tools)
+  library(knitr)
+})
+
+theme_set(
+  theme_bw(base_size = 20)
+)
+```
+
+# Learning Objectives
+
+:::{.callout-note}
+## By the end of this week, you should be able to:
+- Understand the principles of tidy data
+- Transform data between wide and long formats using `pivot_longer()` and `pivot_wider()`
+- Merge datasets using different types of joins
+- Apply data tidying techniques to real-world messy datasets
+:::
+
+## Tidy Data
+
+![Image Credit: @Wickham2023-aa](img/tidy-1.png)
+
+See @tidy-data for a full description of tidy data principles an the `reshape2` package (old)
+
+## Messy Data?
+
+> "Tidy datasets are all alike, but every messy dataset is messy in its own way."  
+> — Hadley Wickham
+
+Two main reasons for lack of tidy data:
+
+- Format was designed for data entry or human readability, not data analysis
+- No foresight
+
+## The `{tidyr}` Package
+
+:::: {.columns}
+
+::: {.column width='40%'}
+![](img/tidyr_logo.png)
+
+**`{tidyr}`**: A package for tidying data in R
+:::
+
+::: {.column width='60%'}
+**Core functions**:
+
+- **Change the shape of your data with** `pivot_longer()` and `pivot_wider`
+- Dealing with missing values with `complete()`, `drop_na()`, `replace_na()`, and `fill()`
+:::
+
+::::
+
+# Changing shape of data
+
+`pivot_longer()` and `pivot_wider`
+
+## Lengthening data
+
+**Type of problem**: Column names are values, not variables
+
+. . .
+
+```{r}
+library(EVR628tools)
+data("data_kelp")
+data_kelp
+
+```
+
+. . .
+
+**Specifically:** Total lengths are in column names instead of a `total_length` variable. There is no column for `abundance`.
+
+## Target
+
+How should these data look like?
+
+How many columns do we want?
+
+What columns names do we want?
+
+. . .
+
+We want the data to be "longer", with 6 columns:
+
+1. `location`
+2. `site`
+3. `transect`
+4. `genus_species`
+5. `total_length`
+6. `abundance`
+
+
+## The Messy Data Again
+
+```{r}
+#| echo: false
+head(data_kelp, 5)
+```
+
+We want to:
+
+1. Identify **columns** starting with `TL_`
+2. Send column **names to** a new column called `total_length`
+3. Send the abundance **values to** to  a new column called `abundance`
+
+. . .
+
+What do you expect the new dimensions of the data to be?
+
+
+## Solution: `pivot_longer()`
+
+```{r}
+#| code-fold: false
+#| eval: false
+#| code-line-numbers: "1-2|3|4|5|6|"
+# Make it tidy
+data_kelp |> # data_kelp goes into...
+  pivot_longer(
+    cols = starts_with("TL_"), #specify columns to pivot
+    names_to = "total_length", # Where should column names be placed?
+    values_to = "abundance")   # Where should values be placed?
+```
+
+. . .
+
+```{r}
+#| echo: false
+data_kelp |>
+  pivot_longer(
+    cols = starts_with("TL_"),
+    names_to = "TL",
+    values_to = "N",
+  )
+```
+
+. . .
+
+Are all my data there?
+
+. . .
+
+What's up with all those `NA`s?
+
+. . .
+
+What type of data is in `total_length` and `abundance`?
+
+
+## Dealing with NAs
+
+```{r}
+#| code-fold: false
+#| code-line-numbers: "7"
+# Make it tidy
+data_kelp |> # data_kelp goes into...
+  pivot_longer(
+    cols = starts_with("TL_"), #specify columns to pivot
+    names_to = "total_length", # Where should column names be placed?
+    values_to = "abundance",   # Where should values be placed?
+    values_drop_na = TRUE)     # Specify that NA values should be removed)
+```
+
+## Removing the prefix
+
+```{r}
+#| code-fold: false
+#| code-line-numbers: "8"
+# Make it tidy
+data_kelp |> # data_kelp goes into...
+  pivot_longer(
+    cols = starts_with("TL_"), #specify columns to pivot
+    names_to = "total_length", # Where should column names be placed?
+    values_to = "abundance",   # Where should values be placed?
+    values_drop_na = TRUE,     # Specify that NA values should be removed)
+    names_prefix = "TL_")      # Remove "TL_" from the total length
+```
+
+## Making `total_length` numeric
+
+```{r}
+#| code-fold: false
+#| code-line-numbers: "9|"
+# Make it tidy
+tidy_kelp <- data_kelp |> # data_kelp goes into...
+  pivot_longer(
+    cols = starts_with("TL_"), #specify columns to pivot
+    names_to = "total_length", # Where should column names be placed?
+    values_to = "abundance",   # Where should values be placed?
+    values_drop_na = TRUE,     # Specify that NA values should be removed)
+    names_prefix = "TL_") |>   # Remove "TL_" from the total length
+  mutate(total_length = as.numeric(total_length) -2.5) # Use mutate to rewrite column
+  
+tidy_kelp
+```
+
+## Other arguments to `pivot_longer()`
+
+```{r}
+?pivot_longer()
+```
+
+
+## Widening data
+
+**Type of problem:** Variables as stored as values, instead of column names
+
+. . .
+
+```{r}
+#| echo: false
+# Example of long data
+fish_info <- expand_grid(sciname = c("Pterois volitans",
+                                     "Alloclinus holderi",
+                                     "Caulolatilus princeps",
+                                     "Chromis punctipinnis",
+                                     "Embiotoca jacksoni"),
+                         parameter = c("trophic_level", "a", "b")) |> 
+  mutate(value = c(4.4, -2.259, 3.325,
+                   3.6, 0.0053, 3.08,
+                   3.6, 0.00708, 3.07,
+                   2.7, 0.01259, 3.03,
+                   3.3, 0.02951, 2.99))
+```
+
+```{r}
+#| code-fold: false
+fish_info
+```
+
+. . .
+
+**Specifically:** The names for variables `trophic_level`, and allometric parameters `a` and `b` are stored as values in column `parameter`. We have a single variable called `value` that has... well, the values.
+
+## Parenthesis on allometric parameters
+
+:::: {.columns}
+
+::: {.column width='50%'}
+```{r}
+#| echo: false
+ggplot(data = data_lionfish,
+  aes(x = log10(total_length_mm / 10), y = log10(total_weight_gr))) +
+  geom_smooth(method = "lm") +
+  geom_point(size = 2) +
+  labs(x = expression(log[10]~"(total length [cm])"),
+       y = expression(log[10]~"(total weight [gr])"))
+
+data_lionfish <- data_lionfish |> mutate(total_length_cm = total_length_mm / 10)
+```
+:::
+
+::: {.column width='50%'}
+```{r}
+library(fixest)
+setFixest_dict(c("(Intercept)" = "a",
+               "log10(total_length_cm)" = "b",
+                "log10(total_weight_gr)" = "Weight"))
+feols(log10(total_weight_gr) ~ log10(total_length_cm),
+              data = data_lionfish) |> 
+  etable()
+```
+:::
+
+::::
+
+- `a` is my intercept, and indicates the theoretical weight of a fish of length 0 (doesn't mean much)
+- `b` is my slope, and indicates how much log-weight a fish gains for every log-length increase in length
+- If I know `a` and `b`, and I have `total_length`, I can calculate `total_weight`
+
+
+## Target
+
+How should these data look like?
+
+How many columns do we want?
+
+What columns names do we want?
+
+. . .
+
+We want the data to be "wider", with 4 columns:
+
+1. `sciname`
+2. `trophic_level`
+3. `a`
+4. `b`
+
+## The Second Messy Data Again
+
+```{r}
+#| echo: false
+fish_info
+```
+
+We want to:
+
+- Construct new **names from** the data available in `parameter`
+- Use the **values from** the column `value` to populate the new columns
+
+
+
+## Solution: `pivot_wider()`
+
+```{r}
+#| echo: true
+#| code-fold: false
+#| code-line-numbers: "1-2|3|4|5|"
+# Make it tidy
+tidy_fish_info <- fish_info |> # Fish info goes into...
+  pivot_wider(
+    id_cols = sciname,       # The column(s) that specifies my observation
+    names_from = parameter,  # My new names will come from...
+    values_from = value)     # And my values from...
+tidy_fish_info
+```
+. . .
+
+That's it, pretty straightforward this time
+
+## Pivoting arguments
+
+:::: {.columns}
+
+::: {.column width='50%'}
+`pivot_longer()`
+
+- `cols`: Which columns violate the tidy data principle?
+- `names_to`: Where should R put the current names of `cols`?
+- `values_to`: Where should R place the data contained by the offending columns?
+:::
+
+::: {.column width='50%'}
+`pivot_wider()`
+
+- `id_cols`: Which columns identify my observations?
+- `names_from`: Where are the names for my new columns coming from?
+- `values_from`: Where are the values for my new variables coming from?
+:::
+
+::::
+
+# Combining sources of data
+
+`left_*`, `right_*`, `inner_*`, and `full_join()`
+
+## Data Merging: Joins
+
+**Why merge data?**
+
+- You rarely have all the data you need in a single place
+- Enrich datasets with additional variables
+
+. . .
+
+**For example:** You want to calculate biomass for each of your transects
+
+- `data_kelp` has size and abundance, but no information on allometric growth
+- `fish_data` has allometric growth parameters, but no information on size and abundance
+
+
+## Types of joins
+
+
+![Image Credit: @Wickham2023-aa](img/venn_joins.png)
+
+- Each circle represents data.frames `x` and `y` (or `left` and `right`)
+- The gray area represents the data retained after the operation
+
+## Keys
+
+- How does R know what "data overlap" is?
+- It doesn't... We need to specify the **keys**
+
+. . .
+
+Remember the data we have
+
+:::: {.columns}
+
+::: {.column width='50%'}
+```{r}
+#| echo: false
+tidy_kelp |> 
+  select(genus_species, total_length, abundance)
+```
+:::
+
+::: {.column width='50%'}
+
+```{r}
+#| echo: false
+tidy_fish_info
+```
+
+:::
+
+::::
+
+. . .
+
+**Keys** are pieces of information to help guide R on how to match the data
+
+. . .
+
+What are the **keys** here?
+
+
+## Target
+
+How should these data look like?
+
+What columns names do we want?
+
+. . .
+
+To have columns for `a` and `b` on my `tidy_kelp` data, with at least the following columns:
+
+1. `location`
+2. `site`
+3. `transect`
+4. `genus_species`
+5. `total_length`
+6. `abundance`
+7. `a`
+8. `b`
+
+. . .
+
+so that we can calculate `total_weight`
+
+## A `left_join()`
+
+![Image Credit: @Wickham2023-aa](img/join_setup.png)
+
+- `x` argument will be `tidy_kelp` (on the left)
+- `y` argument will be `tidy_fish_info` (on the right)
+- `by` argument is where we specify the **key** (`genus_species` on the right matches `sciname` on the left)
+
+## Combining data with `left_join()`
+
+```{r}
+#| code-fold: false
+#| code-line-numbers: "1|2|3|"
+left_join(x = tidy_kelp,                                # X is tidy kelp
+          y = tidy_fish_info |> select(-trophic_level), # Y is tidy_fish_info, after removing trophic level
+          by = join_by(genus_species == sciname))       # And we tell R how to match them
+```
+
+- Why do I have `NA`s?
+- Should I be worried?
+
+## Combining data with `right_join()`
+
+```{r}
+#| code-fold: false
+#| code-line-numbers: "1|2|3|"
+right_join(x = tidy_kelp,                                # X is tidy kelp
+           y = tidy_fish_info |> select(-trophic_level), # Y is tidy_fish_info, after removing trophic level
+           by = join_by(genus_species == sciname))       # And we tell R how to match them
+```
+
+- What's different here?
+
+## Combining data with `right_join()`
+
+Let's look at the bottom of the table:
+
+```{r}
+#| code-fold: false
+#| code-line-numbers: "1|2|3|"
+right_join(x = tidy_kelp,                                # X is tidy kelp
+           y = tidy_fish_info |> select(-trophic_level), # Y is tidy_fish_info, after removing trophic level
+           by = join_by(genus_species == sciname)) |>    # And we tell R how to match them
+  tail(10)
+```
+
+- There is no data on the "left" side for lionfish, so there are no matches
+
+## Combining data with `inner_join()`
+
+```{r}
+#| code-fold: false
+#| code-line-numbers: "1|2|3|"
+inner_join(x = tidy_kelp,                                # X is tidy kelp
+           y = tidy_fish_info |> select(-trophic_level), # Y is tidy_fish_info, after removing trophic level
+           by = join_by(genus_species == sciname))       # And we tell R how to match them
+```
+
+## Combining data with `full_join()`
+
+```{r}
+#| code-fold: false
+#| code-line-numbers: "1|2|3|"
+full_join(x = tidy_kelp,                                # X is tidy kelp
+          y = tidy_fish_info |> select(-trophic_level), # Y is tidy_fish_info, after removing trophic level
+          by = join_by(genus_species == sciname))       # And we tell R how to match them
+```
+
+# Potential pitfalls
+
+duplicate keys, keys not fully specified
+
+## Example: keys not fully specified
+
+```{r}
+#| echo: false
+tidy_fish_info2 <- expand_grid(tidy_fish_info,
+                               north_south = c("North", "South")) |> 
+                      mutate(a = ifelse(north_south == "North", a * 1.1, a),
+                             b = ifelse(north_south == "North", b * 1.1, b))
+                             
+tidy_fish_info2
+```
+
+## Failing to specify keys results in duplicates
+
+```{r}
+#| code-fold: false
+#| eval: false
+#| code-line-numbers: "1|2|3|"
+#| warning: true
+tidy_kelp |> # Tidy kelp goes into... (Yes, you can pipe)
+  left_join(tidy_fish_info2 |> select(-trophic_level),
+            by = join_by(genus_species == sciname)) # I failed to link site to north_south
+```
+
+. . .
+
+```{r}
+#| echo: false
+#| warning: true
+tidy_kelp |> # Tidy kelp goes into... (Yes, you can pipe)
+  left_join(tidy_fish_info2 |> select(-trophic_level),
+            by = join_by(genus_species == sciname)) # I failed to link site to north_south
+```
+
+## Full pipeline to get biomass
+
+:::: {.columns}
+
+::: {.column width='65%'}
+```{r}
+#| code-fold: false
+# Tidy the transect data
+tidy_kelp <- data_kelp |> # data_kelp goes into...
+  pivot_longer(
+    cols = starts_with("TL_"), #specify columns to pivot
+    names_to = "total_length", # Where should column names be placed?
+    values_to = "abundance",   # Where should values be placed?
+    values_drop_na = TRUE,     # Specify that NA values should be removed)
+    names_prefix = "TL_") |>   # Remove "TL_" from the total length
+  mutate(total_length = as.numeric(total_length) -2.5) # Use mutate to rewrite column
+
+# Tidy the allometric data data
+tidy_fish_info <- fish_info |> # Fish info goes into...
+  pivot_wider(
+    id_cols = sciname,       # The column(s) that specifies my observation
+    names_from = parameter,  # My new names will come from...
+    values_from = value) |>  # And my values from...
+  select(-trophic_level)
+
+# And now combine them
+biomass <-tidy_kelp |> 
+  left_join(tidy_fish_info,
+            by = join_by(genus_species == sciname)) |>
+ # And use last week's knowledge to calculate the rest
+  mutate(biomass = (a * total_length ^ b) * abundance / 1000 ) |> 
+  group_by(location, site, transect) |> 
+  summarize(biomass = sum(biomass, na.rm = T) / 60)
+```
+:::
+
+::: {.column width='35%'}
+
+```{r}
+#| echo: false
+biomass
+```
+
+:::
+
+::::
+
+
+
+
+
+
+## Best Practices
+
+**Data Tidying:**
+
+- Start with the end in mind - what do you want your data to look like?
+- Use `pivot_longer()` when column names are values
+- Use `pivot_wider()` when observations are scattered across rows
+- Check for data consistency after pivoting
+
+. . .
+
+**Joining Data:**
+
+- Always specify the `by` argument explicitly
+- Check for duplicate keys before joining
+- Use `left_join()` as default unless you have a specific reason
+- Validate results after joining
+
+## Common Pitfalls
+
+**Tidying:**
+
+- Assuming data are uniquely identified
+- Not handling missing values appropriately
+- Not selecting all columns that need to be pivoted
+
+. . .
+
+**Merging:**
+
+- Assuming column names match between datasets
+- Not checking for duplicate keys
+- Using wrong join type for your analysis needs
+
+## Summary
+
+**Data Tidying:**
+
+- `pivot_longer()`: Make wide data long
+- `pivot_wider()`: Make long data wide
+- Follow the three rules of tidy data
+
+. . .
+
+**Data Merging:**
+
+- `left_join()`: Keep all left rows (most common)
+- `right_join()`: Keep all right rows
+- `inner_join()`: Keep only matches
+- `full_join()`: Keep everything
+
+. . .
+
+**Next Steps:**
+
+- Practice with your own messy datasets
+- Combine tidying and merging in analysis pipelines
+- Use `dplyr` verbs with tidy data for powerful analysis
+
+## References
+
+- [R for Data Science: Data Tidying](https://r4ds.hadley.nz/data-tidy.html)
+- [R for Data Science: Joins](https://r4ds.hadley.nz/joins.html)
+- [tidyr package documentation](https://tidyr.tidyverse.org/)
