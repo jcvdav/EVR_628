@@ -123,7 +123,7 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
 - [Link](https://jcvdav.github.io/EVR_628/docs/06_live.html) to document from live coding session
 
 ## Week 7 Sept 29-Oct 3
-**Data tidying and wrangling** | [slides](slides/07_data_wrangling.qmd)
+**Data tidying and wrangling** | [slides](slides/07_data_wrangling.html)
 - Lengthening data with `tidyr`
 - Widening data with `tidyr`
 - Combining multiple sources of data (`*_joins`)
