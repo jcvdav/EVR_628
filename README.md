@@ -152,7 +152,7 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
 
 **Relevant links for the week:**
 - Assigned readings:
-  - R4DS [CH7: Layers](https://r4ds.hadley.nz/layers.html)
+  - R4DS [CH9: Layers](https://r4ds.hadley.nz/layers.html)
   - R4DS [CH11: Communication](https://r4ds.hadley.nz/communication.html)
 
 ## Week 9 (Oct 13-17)
