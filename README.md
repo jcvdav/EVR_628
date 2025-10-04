@@ -136,12 +136,6 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
   - Wickham, Hadley. 2014. “Tidy Data.” The Journal of Statistical Software 59. [http://www.jstatsoft.org/v59/i10/](http://www.jstatsoft.org/v59/i10/)
 - [Link](https://jcvdav.github.io/EVR_628/docs/07_live.html) to document from live coding session
 
----
-
-**Second assignment:** _Data wrangling_
-
----
-
 ## Week 8 (Oct 6-10)
 **Scaling up your code and visualizations** | slides
 - Refresh on layers: aesthetics and geometries
@@ -150,12 +144,18 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
 - Summarizing data on the fly (`stat_summary`, `geom_smooth`)
 - Plot extensions (`{cowplot}`, `{ggrepel}`)
 
+---
+
+**Second assignment:** _Data wrangling_ due Oct 19
+
+---
+
 **Relevant links for the week:**
 - Assigned readings:
   - R4DS [CH9: Layers](https://r4ds.hadley.nz/layers.html)
   - R4DS [CH11: Communication](https://r4ds.hadley.nz/communication.html)
 
-## Week 9 (Oct 13-17)
+## *Week 9 (Oct 13-17)
 **Dealing with text, dates, and factors** | slides
 - Managing dates and times with `lubridate`
 - Regular expressions with `stringr`
