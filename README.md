@@ -146,14 +146,14 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
 **Scaling up your code and visualizations** | slides
 - Refresh on layers: aesthetics and geometries
 - Themes with ggplot2
-- Statistical transformations
-- Position adjustments
-- Coordinate systems
-- Colorblindness, IPCC’s visual style guide, and the [`viridis`](https://github.com/sjmgarnier/viridis/) package
+- Position adjustments (`jitter` and `dodge`)
 - Summarizing data on the fly (`stat_summary`, `geom_smooth`)
-- Plot extensions (`{cowplot}`, `{GGally}`, `{ggrepel}`)
-- Animated plots (`{ggplotly}`)
-- Creating documents and presentations with Quarto
+- Plot extensions (`{cowplot}`, `{ggrepel}`)
+
+**Relevant links for the week:**
+- Assigned readings:
+  - R4DS [CH7: Layers](https://r4ds.hadley.nz/layers.html)
+  - R4DS [CH11: Communication](https://r4ds.hadley.nz/communication.html)
 
 ## Week 9 (Oct 13-17)
 **Dealing with text, dates, and factors** | slides
