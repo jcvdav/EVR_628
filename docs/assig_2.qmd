@@ -85,7 +85,7 @@ Go to [NOAA's Physical Sciences Laboratory](https://psl.noaa.gov/data/climateind
 
 ## Dive watch data
 
-Your dive watch should allow you to export your data^[The data may not exported as `.csv` but I can help work around that], although you might need a special cable / sofware.
+Your dive watch should allow you to export your data^[The data may not exported as `.csv` but I can help work around that], although you might need a special cable / software.
 
 - Calculate how much time you've spent underwater per week, month, or year
 - If you have air pressure info associated (or you keep a dive log with it), calculate your Surface Air Consumption Rate
