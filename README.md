@@ -149,7 +149,7 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
 
 ---
 
-[**Second assignment:**](docs/assig_2.html) _Data wrangling_ due Oct 19
+**Second assignment:** [_Data wrangling_](docs/assig_2.html) due Oct 19
 
 ---
 
