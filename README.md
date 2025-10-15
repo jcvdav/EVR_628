@@ -160,22 +160,22 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
 - Regular expressions with `stringr`
 - Ordering factors with `forcats`
 
+## Week 10 (Oct 20-24)
+**Working with spatial data in R** | slides
+- Vector data and `sf`
+- Exploratory visualizations with `plot` and `mapview`
+
 ---
 
 **Third assignment:** _Data visualization_
 
 ---
 
-## Week 10 (Oct 20-24)
-**Working with spatial data in R** | slides
-- Vector data and `sf`
-- Exploratory visualizations with `plot` and `mapview`
-
 ## Week 11 (Oct 27-31)
 **Visualizing spatial data** | slides
 - Raster data and `terra`
 - Attribute operations
-- Building maps with `ggplot2` and `tmap`
+- Building maps with `ggplot2` and `tidyterra`
 
 ---
 
