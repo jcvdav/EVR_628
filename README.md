@@ -155,15 +155,25 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
 
 
 ## *Week 9 (Oct 13-17)
-**Dealing with text, dates, and factors** | slides
-- Managing dates and times with `lubridate`
-- Regular expressions with `stringr`
-- Ordering factors with `forcats`
+**Scaling up your code and visualizations 2** | [slides](slides/08_scale_up_viz.html)
+- Facetting
+- Summarizing data on the fly (`stat_summary`, `geom_smooth`)
+- Plot extensions (`{ggridges}` and `{cowplot}`)
+- quarto markdown
+
 
 ## Week 10 (Oct 20-24)
-**Working with spatial data in R** | slides
-- Vector data and `sf`
-- Exploratory visualizations with `plot` and `mapview`
+**Dealing with text, dates, and factors** | slides
+- Regular expressions with `stringr`
+- Ordering factors with `forcats`
+- Managing dates and times with `lubridate`
+
+**Relevant links for the week:**
+- Assigned readings:
+  - R4DS [CH14: Strings](https://r4ds.hadley.nz/strings.html)
+  - R4DS [CH15: Regular expressions](https://r4ds.hadley.nz/regexps.html)
+  - R4DS [CH16: Factors](https://r4ds.hadley.nz/factors.html)
+  - R4DS [CH17: Dates and times](https://r4ds.hadley.nz/datetimes.html)
 
 ---
 
@@ -172,6 +182,12 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
 ---
 
 ## Week 11 (Oct 27-31)
+**Working with spatial data in R** | slides
+- Vector data and `sf`
+- Exploratory visualizations with `plot` and `mapview`
+
+
+## Week 12 (Nov 3-7)
 **Visualizing spatial data** | slides
 - Raster data and `terra`
 - Attribute operations
@@ -183,20 +199,12 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
 
 ---
 
-## Week 12 (Nov 3-7)
-**Extensions** | slides
-- Connecting to external databases with DBI
-- Animating with the `gganimate` package
-- Interactive maps with leaflet
-- Retrieving environmental datasets from the Internet (`gfwr`, `rerddap`)
-
 ## Week 13, (Nov 10-14):
 **Programming** | slides
 - User-defined functions
 - Iteration with loops
-- Functional programming with the purrr package
 - Background jobs
-- Standardizing the environment with .Rprofile
+- Standardizing the environment with `.Rprofile`
 
 ## Week 14, (Nov 17-21)
 **Shiny Apps Framework** | slides
@@ -204,27 +212,21 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
 - UI / UX
 - Front-end _vs_ back-end
 
+**Extensions** | slides
+- Connecting to external databases with DBI
+- Animating with the `gganimate` package
+- Interactive maps with leaflet
+- Retrieving environmental datasets from the Internet (`gfwr`, `rerddap`)
+
 ## *Week 15, (Nov 24-28)
 **Thanksgiving recess**
 
+- No class
+
 ## Week 16: (Dec 1-5)
-[**FINAL EXAMS Dec 4 - Dec 10**](https://registrar.miami.edu/_assets/pdf/academic-calendar-fall-2025.pdf)
+[**Final Exams week Dec 4 - Dec 10**](https://registrar.miami.edu/_assets/pdf/academic-calendar-fall-2025.pdf)
 
----
-
-Final presentations (egg timers)
-
----
-
-## What will you learn?
-
-You will learn how to access, work with, and visualize many different types of environmental data. For example:
-
-- Access hurricane tracks and [build animated visualizations](./hurricane_milton_track.gif)
-- Track fishing vessels form space [and build maps of fishing activity](gom_fishing_effort_2024_total.png)
-- Develop [interactive web-based apps]( https://682wxr-juan0carlos-villasenor0derbez.shinyapps.io/gom_fishing/) to allow others explore your data
-- Create [slides with interactive content](https://jcvdav.github.io/EVR_662/slides/02_data_models_vector#/example-rosenstiel) for effective communication
-- And much more!
+- No class, final projects due online
 
 ## Reading resources
 - Books and manuals:
