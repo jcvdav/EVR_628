@@ -163,7 +163,7 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
 
 
 ## Week 10 (Oct 20-24)
-**Dealing with text, dates, and factors** | [slides](slides/10_factors_date_text.html)
+**Dealing with text, dates, and factors** | [slides](slides/10_factors_dates_text.html)
 - Ordering factors with `forcats`
 - Managing dates and times with `lubridate`
 - Regular expressions with `stringr`
