@@ -163,10 +163,10 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
 
 
 ## Week 10 (Oct 20-24)
-**Dealing with text, dates, and factors** | slides
-- Regular expressions with `stringr`
+**Dealing with text, dates, and factors** | [slides](slides/10_factors_date_text.html)
 - Ordering factors with `forcats`
 - Managing dates and times with `lubridate`
+- Regular expressions with `stringr`
 
 **Relevant links for the week:**
 - Assigned readings:
@@ -177,7 +177,7 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
 
 ---
 
-**Third assignment:** _Data visualization_
+**Third assignment:** [_Data visualization_](docs/assig_3.html) due Nov 1
 
 ---
 
