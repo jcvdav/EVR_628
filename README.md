@@ -34,9 +34,7 @@ By the end of the course, students will be comfortable working in R.
 
 # Course schedule
 
-Students must complete any assigned readings and software tests before class. Note that content, and timing of the content, is subject to change. Any changes will be clearly communicated via Canvas. (* Week contains holiday)
-
-The latest official academic calendar is [here](https://registrar.miami.edu/_assets/pdf/academic-calendar-fall-2025.pdf).
+Students must complete any assigned readings and software tests before class. Note that content, and timing of the content, is subject to change. Any changes will be clearly communicated via Canvas. The latest official academic calendar is [here](https://registrar.miami.edu/_assets/pdf/academic-calendar-fall-2025.pdf)  (* Week contains holiday).
 
 ## Week 1 (Aug 18-22)
 **Introduction to Data Science and RStudio IDE** | [slides](slides/01_intro.html)
@@ -179,10 +177,11 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
   - R4DS [CH15: Regular expressions](https://r4ds.hadley.nz/regexps.html)
   - R4DS [CH16: Factors](https://r4ds.hadley.nz/factors.html)
   - R4DS [CH17: Dates and times](https://r4ds.hadley.nz/datetimes.html)
+- [Link](https://jcvdav.github.io/EVR_628/docs/10_live.html) to document from live coding session
 
 ---
 
-**Third assignment:** [_Data visualization_](docs/assig_3.html) due Nov 1
+**Third assignment:** [_Data visualization_](docs/assig_3.html) due Nov 2
 
 ---
 
@@ -191,12 +190,21 @@ The latest official academic calendar is [here](https://registrar.miami.edu/_ass
 - Vector data and `sf`
 - Exploratory visualizations with `plot` and `mapview`
 
+**Relevant links for the week:**
+- Assigned readings:
+  - Geocomputation with R [CH1 - Introduction](https://r.geocompx.org/intro)
+  - Geocomputation with R [CH2 - Geographic data in R (stop at 2.2)](https://r.geocompx.org/spatial-class)
+
 
 ## Week 12 (Nov 3-7)
 **Visualizing spatial data** | slides
 - Raster data and `terra`
 - Attribute operations
 - Building maps with `ggplot2` and `tidyterra`
+
+**Relevant links for the week:**
+- Assigned readings:
+  - Geocomputation with R [CH2 - Geographic data in R (2.3-2.5)](https://r.geocompx.org/spatial-class)
 
 ---
 

@@ -685,7 +685,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <li class="fragment">Here and there you might hear about <code>POSIXct</code> and <code>POSIXlt</code>
 <ul>
 <li class="fragment"><code>POSIX</code> stands for “Portable Operating System Interface”, a Unix standard</li>
-<li class="fragment">The <code>ct</code> stands for “calendar time” (seconds ellapsed since Jan 1, 1970)</li>
+<li class="fragment">The <code>ct</code> stands for “calendar time” (seconds elapsed since Jan 1, 1970)</li>
 <li class="fragment"><code>lt</code> stands for “local time” (stores the human readable components)</li>
 </ul></li>
 </ul>
@@ -757,8 +757,8 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <p>If your csv file looks like this:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb36-1"><a href=""></a>class_date, time_of_day, combined, event</span>
-<span id="cb36-2"><a href=""></a>2025-10-21, 09:00, 2025-10-21 09:00, class_starts</span>
-<span id="cb36-3"><a href=""></a>2025-10-21, 10:15, 2025-10-21 10:15, class_ends</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb36-2"><a href=""></a>2025-10-21, 09:00, 2025-10-21 09:00:00, class_starts</span>
+<span id="cb36-3"><a href=""></a>2025-10-21, 10:15, 2025-10-21 10:15:00, class_ends</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p>Then you can simply read it in:</p>
@@ -768,10 +768,10 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 4
-  class_date time_of_day combined            event       
-  &lt;date&gt;     &lt;time&gt;      &lt;dttm&gt;              &lt;chr&gt;       
-1 2025-10-21 09:00       2025-10-21 00:09:00 class_starts
-2 2025-10-21 10:15       2025-10-21 01:00:15 class_ends  </code></pre>
+  class_date time_of_day combined             event       
+  &lt;date&gt;     &lt;time&gt;      &lt;chr&gt;                &lt;chr&gt;       
+1 2025-10-21 09:00       2025-10-21  09:00:00 class_starts
+2 2025-10-21 10:15       2025-10-21  10:15:00 class_ends  </code></pre>
 </div>
 </div>
 <ul>
@@ -1161,7 +1161,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <span id="cb83-2"><a href=""></a>school_age <span class="ot">&lt;-</span> <span class="fu">today</span>() <span class="sc">-</span> school_foundation</span>
 <span id="cb83-3"><a href=""></a>school_age</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time difference of 30212 days</code></pre>
+<pre><code>Time difference of 30214 days</code></pre>
 </div>
 </div>
 </div>
@@ -1246,9 +1246,9 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb95-1"><a href=""></a>trip_id, passengers, notes</span>
 <span id="cb95-2"><a href=""></a>1, 25, Dolphins; whales</span>
-<span id="cb95-3"><a href=""></a>2, 32, Whales; Sea lions</span>
+<span id="cb95-3"><a href=""></a>2, 32, Whale; Sea lions</span>
 <span id="cb95-4"><a href=""></a>3, 30, Sea lions; sea turtles</span>
-<span id="cb95-5"><a href=""></a>4, 30, Sea lion; dolphin</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb95-5"><a href=""></a>4, 30, Sea lion; sea turtles</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
@@ -1262,7 +1262,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
   trip_id passengers notes                 
     &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;                 
 1       1         25 Dolphins; whales      
-2       2         32 Whales; Sea lions     
+2       2         32 Whale; Sea lions      
 3       3         30 Sea lions; sea turtles
 4       4         30 Sea lion; sea turtles </code></pre>
 </div>
@@ -1292,7 +1292,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
     &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;      
 1       1         25 Dolphins   
 2       1         25 whales     
-3       2         32 Whales     
+3       2         32 Whale      
 4       2         32 Sea lions  
 5       3         30 Sea lions  
 6       3         30 sea turtles
@@ -1308,8 +1308,9 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <section id="modify-strings" class="slide level2">
 <h2>Modify Strings</h2>
 <p>The <code>stringr</code> package provides functions to modify, detect, and extract parts of strings</p>
+<p>Let’s convert all letters to lowercase</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb100" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href=""></a>sightings_tidy <span class="ot">&lt;-</span> sightings <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb100" data-code-line-numbers="|4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href=""></a>sightings_tidy <span class="ot">&lt;-</span> sightings <span class="sc">|&gt;</span> </span>
 <span id="cb100-2"><a href=""></a>  <span class="fu">separate_longer_delim</span>(<span class="at">cols =</span> notes, <span class="at">delim =</span> <span class="st">"; "</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb100-3"><a href=""></a>  <span class="fu">rename</span>(<span class="at">species =</span> notes) <span class="sc">|&gt;</span> </span>
 <span id="cb100-4"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">species =</span> <span class="fu">str_to_lower</span>(<span class="at">string =</span> species))</span>
@@ -1320,7 +1321,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
     &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;      
 1       1         25 dolphins   
 2       1         25 whales     
-3       2         32 whales     
+3       2         32 whale      
 4       2         32 sea lions  
 5       3         30 sea lions  
 6       3         30 sea turtles
@@ -1329,18 +1330,21 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 </div>
 </div>
 <div class="fragment">
-<p>Anything weird?</p>
+<p>There is also <code>str_to_upper()</code>, <code>str_to_title()</code>, and <code>str_to_sentence()</code></p>
+</div>
+<div class="fragment">
+<p>Anything weird with these data?</p>
 </div>
 </section>
 <section id="regular-expressions" class="slide level2">
 <h2>Regular Expressions</h2>
 <p>Can I just remove the “<code>s</code>” to make everything singular?</p>
 <div class="fragment">
-<p>The <code>str_remove</code> function might help</p>
+<p>The <code>str_remove()</code> function might help</p>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb102" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href=""></a>sightings_tidy <span class="ot">&lt;-</span> sightings <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb102" data-code-line-numbers="|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href=""></a>sightings_tidy <span class="ot">&lt;-</span> sightings <span class="sc">|&gt;</span> </span>
 <span id="cb102-2"><a href=""></a>  <span class="fu">separate_longer_delim</span>(<span class="at">cols =</span> notes, <span class="at">delim =</span> <span class="st">"; "</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb102-3"><a href=""></a>  <span class="fu">rename</span>(<span class="at">species =</span> notes) <span class="sc">|&gt;</span> </span>
 <span id="cb102-4"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">species =</span> <span class="fu">str_to_lower</span>(<span class="at">string =</span> species),</span>
@@ -1368,14 +1372,14 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <section id="regular-expressions-1" class="slide level2">
 <h2>Regular Expressions</h2>
 <ul>
-<li class="fragment"><code>str_remove()</code> will remove the first instance of the matched pattern</li>
+<li class="fragment"><code>str_remove()</code> will remove the <strong>first</strong> instance of the matched pattern</li>
 <li class="fragment">I need to remove the “<code>s</code>” <strong>at the end of a word</strong> to make everything singular</li>
 <li class="fragment">To specify this complex pattern I need to use <code>reg</code>ular <code>ex</code>pressions</li>
 <li class="fragment"><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html"><code>?regex</code></a></li>
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb104" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href=""></a>sightings_tidy <span class="ot">&lt;-</span> sightings <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb104" data-code-line-numbers="|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href=""></a>sightings_tidy <span class="ot">&lt;-</span> sightings <span class="sc">|&gt;</span> </span>
 <span id="cb104-2"><a href=""></a>  <span class="fu">separate_longer_delim</span>(<span class="at">cols =</span> notes, <span class="at">delim =</span> <span class="st">"; "</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb104-3"><a href=""></a>  <span class="fu">rename</span>(<span class="at">species =</span> notes) <span class="sc">|&gt;</span> </span>
 <span id="cb104-4"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">species =</span> <span class="fu">str_to_lower</span>(<span class="at">string =</span> species),</span>

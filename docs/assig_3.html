@@ -21,20 +21,58 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="assig_2_files/libs/clipboard/clipboard.min.js"></script>
-<script src="assig_2_files/libs/quarto-html/quarto.js" type="module"></script>
-<script src="assig_2_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="assig_2_files/libs/quarto-html/popper.min.js"></script>
-<script src="assig_2_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="assig_2_files/libs/quarto-html/anchor.min.js"></script>
-<link href="assig_2_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="assig_2_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="assig_2_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="assig_2_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="assig_2_files/libs/bootstrap/bootstrap-81267100e462c21b3d6c0d5bf76a3417.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="assig_3_files/libs/clipboard/clipboard.min.js"></script>
+<script src="assig_3_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="assig_3_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="assig_3_files/libs/quarto-html/popper.min.js"></script>
+<script src="assig_3_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="assig_3_files/libs/quarto-html/anchor.min.js"></script>
+<link href="assig_3_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="assig_3_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="assig_3_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="assig_3_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="assig_3_files/libs/bootstrap/bootstrap-81267100e462c21b3d6c0d5bf76a3417.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="assig_3_files/libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="assig_3_files/libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="assig_3_files/libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 
 
 </head>
@@ -50,19 +88,18 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#the-big-picture" id="toc-the-big-picture" class="nav-link active" data-scroll-target="#the-big-picture">The big picture</a></li>
   <li><a href="#this-assignment" id="toc-this-assignment" class="nav-link" data-scroll-target="#this-assignment">This assignment</a>
   <ul class="collapse">
-  <li><a href="#grading-rubric" id="toc-grading-rubric" class="nav-link" data-scroll-target="#grading-rubric">Grading Rubric</a></li>
   <li><a href="#turning-in-your-assignment" id="toc-turning-in-your-assignment" class="nav-link" data-scroll-target="#turning-in-your-assignment">Turning in your assignment</a></li>
   </ul></li>
-  <li><a href="#project-ideas-with-different-data-sets" id="toc-project-ideas-with-different-data-sets" class="nav-link" data-scroll-target="#project-ideas-with-different-data-sets">Project ideas with different data sets</a></li>
+  <li><a href="#example-of-a-figure-that-would-get-100" id="toc-example-of-a-figure-that-would-get-100" class="nav-link" data-scroll-target="#example-of-a-figure-that-would-get-100">Example of a figure that would get 100%</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="assig_2.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="assig_3.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title"><a href="https://jcvdav.github.io/EVR_628/">EVR 628</a>- Intro to Environmental Data Science</h1>
-<p class="subtitle lead">Assignment 2: Data wrangling</p>
+<p class="subtitle lead">Assignment 3: Visualizing your data</p>
 </div>
 
 
@@ -87,121 +124,108 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="the-big-picture" class="level1">
 <h1>The big picture</h1>
-<p>Remember that the final goal is to have a GitHub repository where you can showcase your work. Assignment 1 was to create the repository, which should be mostly empty. Assignment two is to develop one R script to clean some data. Your choice of data will lock you in a path: The third assignment will be to visualize the data you have cleaned up here. Your final project will leverage the data and visualizations you’ll produce to wrap it all together.</p>
+<p>Remember that the final goal is to have a GitHub repository where you can showcase your work. Assignment 1 was to create the repository. Assignment two required you to develop one R script to clean some data in that same repository. <strong>For this third assignment, you will visualize the data you cleaned last week.</strong> Your fourth assignment will require you to work with spatial data. Your final project will leverage the data and visualizations you’ll produce to wrap it all together.</p>
 </section>
 <section id="this-assignment" class="level1">
 <h1>This assignment</h1>
-<p><strong>Task:</strong> Develop one data wrangling script that reads raw data (<em>e.g.</em> in <code>.xlsx</code> or <code>.csv</code>), performs data cleaning, transformation, or wrangling, and exports a processed version of the data (<code>.rds</code>) to be used in later assignments.</p>
-<p>This assignment will require quite a bit of work on three fronts:</p>
-<ol type="1">
-<li>Coming up with an idea for a final project</li>
-<li>Thinking about how you will get the raw data into a format that gets you closer to your final project, and</li>
-<li>Using lecture and live coding session materials –and function documentation– to help you build your pipeline.</li>
-</ol>
-<p>I have included a list of potential data sources and ideas for final projects. Feel free to come up with your own ideas, I recommend choosing something you may be genuinely interested in.</p>
-<section id="grading-rubric" class="level2">
-<h2 class="anchored" data-anchor-id="grading-rubric">Grading Rubric</h2>
-<ul>
-<li>25%: <code>README.md</code> file:
-<ul>
-<li>10% Explains the main objective of your project. 2-3 sentences is enough.</li>
-<li>5% Lists the contents of the project repository.</li>
-<li>10% Lists the column names of the clean data, and includes information on data type and a description of the column.</li>
-</ul></li>
-<li>50%: Your repository contains and R script called <code>data_processing.R</code>, saved to your <code>scripts/01_processing</code> folder that:
-<ul>
-<li>10%: Contains code documentation using comments <code>#</code></li>
-<li>5%: Clearly indicates packages loaded at the top of the script</li>
-<li>5%: Uses <strong>relative</strong> paths to read / write data files</li>
-<li><strong>20%: Uses <code>dplyr</code> <a href="https://dplyr.tidyverse.org/reference/index.html">verbs</a> and / or <code>tidyr</code> <a href="https://tidyr.tidyverse.org/reference/index.html">functions</a> to achieve the data cleaning task.</strong> Note that simply renaming columns or changing their order is not enough. If your raw data happen to be in the perfect format, consider starting your analysis instead. If you decide to do this, your script should be named <code>analysis.R</code> and saved in the corresponding folder.</li>
-<li>10%: The exported data conform to <code>tidy</code> data standards<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</li>
-</ul></li>
-<li>25%: I can clone your repo and reproduce your data without having to modify your code</li>
+<p><strong>Task:</strong> Develop one data visualization script that reads the clean data you exported last week, visualizes them, and exports 1-2 figures in <code>.png</code> format.</p>
+<p>Your visualization should meet the following criteria (50% of your grade):</p>
+<ul class="task-list">
+<li><label><input type="checkbox">(10%) You must use at lest two different <code>geoms</code> to show <em>different</em> visualizations<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</label></li>
+<li><label><input type="checkbox">(10%) You must modify labels as appropriate, and make sure to include units when relevant. Use the <code>caption</code> argument to attribute the source of your data.</label></li>
+<li><label><input type="checkbox">(10%) All text appears in <code>Sentence case</code>, as relevant.</label></li>
+<li><label><input type="checkbox">(10%) You must use any theme other than the default theme.</label></li>
+<li><label><input type="checkbox">(10%) At least one of your figures should have panels, produced either with <code>facet_*()</code> or by combining multiple plots with <code>cowplot::plot_grid()</code> or the <code>patchwork</code> package.</label></li>
 </ul>
-<p>Some examples of repositories that would get a 100%:</p>
-<ul>
-<li><a href="https://github.com/jcvdav/portfolio">Analyzing mid-term survey data</a></li>
-<li><a href="https://github.com/mex-fisheries/mex_ports">Building a geospatial dataset of Mexican ports</a>, by McGill undergraduate student Emma Zgonena</li>
+<p>Additionally, your script should have the following (50% of your grade):</p>
+<ul class="task-list">
+<li><label><input type="checkbox">(10%) Be called <code>data_visualization.R</code> and be saved inside the <code>scripts/03_content/</code> folder</label></li>
+<li><label><input type="checkbox">(10%) Contain code documentation using comments <code>#</code></label></li>
+<li><label><input type="checkbox">(10%) Clearly indicate all packages and data loaded at the top of the script<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></label></li>
+<li><label><input type="checkbox">(10%) Uses <strong>relative</strong> paths to read data and write figures. Figure(s) are exported to the <code>results/img</code> folder.</label></li>
+<li><label><input type="checkbox">(10%) I can reproduce your figure without needing to modify any code.</label></li>
 </ul>
-</section>
 <section id="turning-in-your-assignment" class="level2">
 <h2 class="anchored" data-anchor-id="turning-in-your-assignment">Turning in your assignment</h2>
 <ul>
 <li>Please share the link to your github repo via Canvas</li>
-<li>The deadline for this assignment is October 19, 2025 by 11:59</li>
+<li>The deadline for this assignment is Nov 2 by 23:59</li>
 </ul>
 </section>
 </section>
-<section id="project-ideas-with-different-data-sets" class="level1">
-<h1>Project ideas with different data sets</h1>
-<p>Below are examples of data sources and final project ideas. For the purpose of this assignment you are not expected to provide an answer. You will simply prepare the data necessary to eventually provide the answer.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Tuna Data</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Oceanic Indices</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">STRAVA data</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">Dive watch data</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false" href="">Data from papers</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-6" role="tab" aria-controls="tabset-1-6" aria-selected="false" href="">Other sources of data</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-7-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-7" role="tab" aria-controls="tabset-1-7" aria-selected="false" href="">Synthetic data</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-8-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-8" role="tab" aria-controls="tabset-1-8" aria-selected="false" href="">None of these are working for you?</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>Access tuna data from the <a href="https://www.wcpfc.int/data-catalogue">WCPFC</a> or <a href="https://www.iattc.org/en-US/Data/Public-domain">IATTC</a> and then:</p>
-<ul>
-<li>Build a time series of catch-per-unit-effort for a species of your liking</li>
-<li>Find the year in which total tuna catch peaked</li>
-<li>Find the month where tuna catch is, on average, maximum</li>
-<li>For every year, find the coordinates where tuna catch was the highest. Do we see any changes in it’s location?</li>
-</ul>
+<section id="example-of-a-figure-that-would-get-100" class="level1">
+<h1>Example of a figure that would get 100%</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## SET UP ######################################################################</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(EVR628tools)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"data_geartypes"</span>) <span class="co"># In your case you will load them from your data/processed folder</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="do">## PROCESSING ##################################################################</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># My data are already clean, but I need to make some final touches for visualization</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>data_vis <span class="ot">&lt;-</span> data_geartypes <span class="sc">|&gt;</span> </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">geartype =</span> <span class="fu">str_replace_all</span>(geartype, <span class="st">"_"</span>, <span class="st">" "</span>), <span class="co"># swap the underscores for spaces</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">geartype =</span> <span class="fu">str_to_sentence</span>(geartype), <span class="co"># Make them into sentence case</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">geartype =</span> <span class="fu">fct_lump_n</span>(geartype, <span class="dv">5</span>), <span class="co"># Lump them (5 categories + others)</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">geartype =</span> <span class="fu">fct_reorder</span>(geartype, effort_hours, <span class="at">.fun =</span> mean))  <span class="co"># Order them based on mean effort</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="do">## VISUALIZE ###################################################################</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Build a figure</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> data_vis,</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>             <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> effort_hours, <span class="at">y =</span> geartype)) <span class="sc">+</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">"pointrange"</span>,</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>               <span class="at">fun.data =</span> mean_se,</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>               <span class="at">pch =</span> <span class="dv">21</span>,</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">"black"</span>,</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mean fishing effort by gear"</span>,</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Catergory 'Other' contains 7 gears combined"</span>,</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Fishing effort (hours) [Mean ± SE]"</span>,</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Gear"</span>,</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Data come from the `gfwr` package"</span>) <span class="sc">+</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="dv">1</span>))</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Build my second figure</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> data_vis <span class="sc">|&gt;</span> </span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(geartype) <span class="sc">|&gt;</span> </span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n_vessels =</span> <span class="fu">n_distinct</span>(vessel_id)) <span class="sc">|&gt;</span> </span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> n_vessels, <span class="at">y =</span> <span class="fu">fct_reorder</span>(geartype, n_vessels))) <span class="sc">+</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"cadetblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Fleet capacity by gear"</span>,</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Catergory 'Other' contains 7 gears combined"</span>,</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Fleet capacity (# of vessels)"</span>,</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Gear"</span>,</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Data come from the `gfwr` package"</span>) <span class="sc">+</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>my_plot <span class="ot">&lt;-</span> <span class="fu">plot_grid</span>(p1, p2,</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>                     <span class="at">ncol =</span> <span class="dv">1</span>,</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"A)"</span>, <span class="st">"B)"</span>))</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="do">## EXPORT ######################################################################</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">plot =</span> my_plot,</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>       <span class="at">filename =</span> <span class="st">"results/img/effort_and_capacity.png"</span>, <span class="co"># Export my file as png</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">8</span>,</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>Go to <a href="https://psl.noaa.gov/data/climateindices/list/">NOAA’s Physical Sciences Laboratory</a> and find an interesting data set</p>
-<ul>
-<li>Use <a href="https://psl.noaa.gov/data/correlation/nina3.anom.data">monthly NINO3</a> to produce a figure of NINO / NINA years</li>
-<li>Compare indices among them</li>
-<li>Relate indices here to tuna catch data above</li>
-</ul>
-</div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<p><a href="https://support.strava.com/hc/en-us/articles/216918437-Exporting-your-Data-and-Bulk-Export">Export your data from strava</a><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, and then:</p>
-<ul>
-<li>Find your longest activity</li>
-<li>Find your total traveled distance since you started logging activities</li>
-<li>Find the average length of your runs</li>
-<li>Analyze your trends in heart rate vs speed</li>
-<li>Analyze the pace of runs performed with the Rosenstiel Running Club</li>
-</ul>
-</div>
-<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
-<p>Your dive watch should allow you to export your data<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, although you might need a special cable / software.</p>
-<ul>
-<li>Calculate how much time you’ve spent underwater per week, month, or year</li>
-<li>If you have air pressure info associated (or you keep a dive log with it), calculate your Surface Air Consumption Rate</li>
-<li>What’s your longest dive?</li>
-<li>What’s your deepest dive?</li>
-<li>What is the average depth of all your dives?</li>
-<li>What is the maximum number of dives you have done in a single day? a week?</li>
-</ul>
-</div>
-<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
-<p>The following papers have data available. You could download their data and recreate or augment their figures.</p>
-<ul>
-<li>Burguess et al, 2018. <a href="https://www.science.org/doi/10.1126/science.aao4248">Protecting marine mammals, turtles, and birds by rebuilding global fisheries</a> | <a href="https://github.com/grantmcdermott/bycatch">GitHub repo</a></li>
-<li>Kuczenski et al.&nbsp;2021<a href="https://onlinelibrary.wiley.com/doi/full/10.1111/faf.12596">Plastic gear loss estimates from remote observation of industrial fishing activity</a> | <a href="https://github.com/bkuczenski/scoping-gear-losses">GitHub repo</a></li>
-<li>Clark et al., 2023 <a href="https://www.nature.com/articles/s41467-023-38900-z">Global assessment of marine plastic exposure risk for oceanic birds</a> | <a href="https://github.com/BirdLifeInternational/petrels-plastics">GitHub repo</a></li>
-<li><a href="https://www.nature.com/articles/s41597-023-02824-6">A database of mapped global fishing activity 1950–2017</a></li>
-<li>O’Connor et al., 2024 <a href="https://www.nature.com/articles/s44183-025-00113-w">Effects of anthropogenic noise on marine mammal abundances informed by mixed methods</a></li>
-<li>Jouffray et al., 2025. <a href="https://www.nature.com/articles/s41893-025-01631-8">Identifying and closing gaps in corporate reporting of ocean impacts</a></li>
-<li>Oyanedel et al., 2025. <a href="https://www.nature.com/articles/s44183-025-00134-5">Improving detectability of illegal fishing activities across supply chains</a> | <a href="https://github.com/rodgpt/Detectability-of-illegal-activities">GitHub repo</a></li>
-</ul>
-</div>
-<div id="tabset-1-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-6-tab">
-<ul>
-<li>The National Center for Environmental Information <a href="https://www.ncei.noaa.gov/">NCEI</a> contains loads of interesting data sets.</li>
-<li>Animal tracking data from <a href="https://datarepository.movebank.org/home">MoveBank</a></li>
-<li>Vessel tracking data from <a href="https://globalfishingwatch.org/data-download/">Global Fishing Watch</a></li>
-</ul>
-</div>
-<div id="tabset-1-7" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-7-tab">
-<ul>
-<li>Maybe you are in the midst of collecting data for your project. You don’t yet have the raw data, but you have a sense of what they will look like (number of columns, number of observations…). I can help you simulate the data and you can build a script that helps you get your data into an analysis-ready format.</li>
-</ul>
-</div>
-<div id="tabset-1-8" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-8-tab">
-<p>Come to office hours and we can discuss ideas.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="assig_3_files/figure-html/unnamed-chunk-2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="assig_3_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
 </div>
 </div>
 </div>
@@ -211,9 +235,8 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>If you are using this assignment as part of your own research and you have a legitimate reason not to use a <code>tidy</code> data format, that is ok. Just make sure you include a justification in your code documentation and <code>README.md</code> file<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Data will not exported as <code>.csv</code> but I can help work around that<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>The data may not exported as <code>.csv</code> but I can help work around that<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p><em>e.g.</em> Don’t produce the same plot simply switching <code>geom_line()</code> to <code>geom_point()</code><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>I recommend you use <a href="https://gist.github.com/jcvdav/1093d757bf1773751e951d009de4d857">my snippets</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main>
 <!-- /main column -->
@@ -617,6 +640,38 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

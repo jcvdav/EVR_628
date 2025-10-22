@@ -10,7 +10,7 @@ format:
 
 # The big picture
 
-Remember that the final goal is to have a GitHub repository where you can showcase your work. Assignment 1 was to create the repository, which should be mostly empty. Assignment two is to start developed one R script to clean some data. Your choice of data will lock you in a path: The third assignment will be to visualize the data you have cleaned up here. Your final project will leverage the data and visualizations you'll produce to wrap it all together.
+Remember that the final goal is to have a GitHub repository where you can showcase your work. Assignment 1 was to create the repository, which should be mostly empty. Assignment two is to develop one R script to clean some data. Your choice of data will lock you in a path: The third assignment will be to visualize the data you have cleaned up here. Your final project will leverage the data and visualizations you'll produce to wrap it all together.
 
 # This assignment
 

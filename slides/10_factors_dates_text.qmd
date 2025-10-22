@@ -353,7 +353,7 @@ In R, there are three types of date/time data that point at an instant in time:
 :::{.callout-note}
 - Here and there you might hear about `POSIXct` and `POSIXlt`
   - `POSIX` stands for "Portable Operating System Interface", a Unix standard
-  - The `ct` stands for "calendar time" (seconds ellapsed since Jan 1, 1970)
+  - The `ct` stands for "calendar time" (seconds elapsed since Jan 1, 1970)
   - `lt` stands for "local time" (stores the human readable components)
 :::
 
@@ -427,8 +427,8 @@ If your csv file looks like this:
 
 ```{txt}
 class_date, time_of_day, combined, event
-2025-10-21, 09:00, 2025-10-21 09:00, class_starts
-2025-10-21, 10:15, 2025-10-21 10:15, class_ends
+2025-10-21, 09:00, 2025-10-21 09:00:00, class_starts
+2025-10-21, 10:15, 2025-10-21 10:15:00, class_ends
 ```
 
 . . .
@@ -445,8 +445,8 @@ read_csv("data/raw/my_file.csv")
 
 a_csv_file <- "
   class_date, time_of_day, combined,  event
-  2025-10-21, 09:00,      2025-10-21  09:00,      class_starts
-  2025-10-21, 10:15,      2025-10-21  10:15,      class_ends
+  2025-10-21, 09:00,      2025-10-21  09:00:00,      class_starts
+  2025-10-21, 10:15,      2025-10-21  10:15:00,      class_ends
 "
 
 read_csv(a_csv_file)
@@ -822,9 +822,9 @@ Working with Characters
 #| code-fold: true
 trip_id, passengers, notes
 1, 25, Dolphins; whales
-2, 32, Whales; Sea lions
+2, 32, Whale; Sea lions
 3, 30, Sea lions; sea turtles
-4, 30, Sea lion; dolphin
+4, 30, Sea lion; sea turtles
 ```
 
 . . .
@@ -840,7 +840,7 @@ sightings <- read_csv("data/raw/sightings.csv")
 sightings <- read_csv(
 "trip_id, passengers, notes
 1, 25, Dolphins; whales
-2, 32, Whales; Sea lions
+2, 32, Whale; Sea lions
 3, 30, Sea lions; sea turtles
 4, 30, Sea lion; sea turtles"
 )
@@ -877,18 +877,23 @@ Anything weird?
 
 The `stringr` package provides functions to modify, detect, and extract parts of strings
 
+Let's convert all letters to lowercase
+
 ```{r}
-#| code-line-numbers: "4"
+#| code-line-numbers: "|4"
 sightings_tidy <- sightings |> 
   separate_longer_delim(cols = notes, delim = "; ") |> 
   rename(species = notes) |> 
   mutate(species = str_to_lower(string = species))
 sightings_tidy
 ```
+. . .
+
+There is also `str_to_upper()`, `str_to_title()`, and `str_to_sentence()`
 
 . . .
 
-Anything weird?
+Anything weird with these data?
 
 ## Regular Expressions
 
@@ -896,12 +901,12 @@ Can I just remove the "`s`" to make everything singular?
 
 . . .
 
-The `str_remove` function might help
+The `str_remove()` function might help
 
 . . .
 
 ```{r}
-#| code-line-numbers: "5"
+#| code-line-numbers: "|5"
 sightings_tidy <- sightings |> 
   separate_longer_delim(cols = notes, delim = "; ") |> 
   rename(species = notes) |> 
@@ -916,7 +921,7 @@ Oh no!
 
 ## Regular Expressions
 
-- `str_remove()` will remove the first instance of the matched pattern
+- `str_remove()` will remove the **first** instance of the matched pattern
 - I need to remove the "`s`" **at the end of a word** to make everything singular
 - To specify this complex pattern I need to use `reg`ular `ex`pressions
 - [`?regex`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html)
@@ -924,7 +929,7 @@ Oh no!
 . . .
 
 ```{r}
-#| code-line-numbers: "5"
+#| code-line-numbers: "|5"
 sightings_tidy <- sightings |> 
   separate_longer_delim(cols = notes, delim = "; ") |> 
   rename(species = notes) |> 
