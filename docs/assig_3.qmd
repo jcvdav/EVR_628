@@ -37,6 +37,20 @@ Additionally, your script should have the following (50%  of your grade):
 - Please share the link to your github repo via Canvas
 - The deadline for this assignment is Nov 2 by 23:59
 
+## Resources
+
+**Class material**
+
+- [Intro to ggplot slides](https://jcvdav.github.io/EVR_628/slides/02_data_vis.html#/title-slide)
+- [More on ggplot slides](https://jcvdav.github.io/EVR_628/slides/08_scale_up_viz.html#/title-slide)
+- [ggplot live coding session](https://jcvdav.github.io/EVR_628/docs/02_live.html)
+
+
+**R4DS**
+
+- [Visualization](https://r4ds.hadley.nz/data-visualize.html) (Look at [section 1.6](https://r4ds.hadley.nz/data-visualize.html#sec-ggsave) for saving your plot)
+- [Layers](https://r4ds.hadley.nz/layers.html)
+
 # Example of a figure that would get 100%
 
 ```{r}
