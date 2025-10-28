@@ -359,13 +359,31 @@ All are incredibly powerful and open source, but not exactly user-friendly
 ## Ways of interacting with these libraries
 
 ![](img/cli_and_gui.png)
+. . .
+
+From R, our main point of access will be the `sf` package
 
 ## The `sf` package
 
-- From R, our main point of access will be the `sf` package
-- When we load `sf`, it automatically links to these low level libraries
+:::: {.columns}
 
-. . .
+::: {.column width='40%'}
+![](img/sf_logo.png)
+`{sf}`: a package that provides simple features access for R
+
+:::
+
+::: {.column width='60%'}
+`{sf}` provides:
+
+- A consistent command-line interface to communicate with the libraries
+- Tidyverse-like access to attributes data (`dplyr` and `tidyr`)
+- Visualization of attribute and spatial data (`geom_sf()`)
+- Spatial and geometry operations
+
+::: {.fragment}
+
+When we load `sf`, it automatically links to these low level libraries
 
 ```{.r}
 library(sf)
@@ -375,11 +393,11 @@ library(sf)
 Linking to GEOS 3.13.0, GDAL 3.10.0, PROJ 9.5.1; sf_use_s2() is TRUE
 ```
 
-. . .
+:::
 
-- `sf` provides:
-    - A consistent command-line interface to communicate with the libraries
-    - R classes and objects to handle `vector` data using the _Simple Features_ standard
+:::
+
+::::
 
 # Introduction to Simple Features
 

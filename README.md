@@ -28,6 +28,7 @@ By the end of the course, students will be comfortable working in R.
   - [`{lubridate}`](https://rstudio.github.io/cheatsheets/lubridate.pdf)
   - [`{stringr}`](https://rstudio.github.io/cheatsheets/html/strings.html)
   - [`{quarto}`](https://rstudio.github.io/cheatsheets/quarto.pdf)
+  - [`{sf}`](https://github.com/rstudio/cheatsheets/blob/main/sf.pdf)
   - [Some available in Spanish](https://rstudio.github.io/cheatsheets/translations.html#spanish)
 - **My code snippets**
   - [Code documentation](https://gist.github.com/jcvdav/1093d757bf1773751e951d009de4d857)
