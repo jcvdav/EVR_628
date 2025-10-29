@@ -195,7 +195,9 @@ Students must complete any assigned readings and software tests before class. No
 - Assigned readings:
   - Geocomputation with R [CH1 - Introduction](https://r.geocompx.org/intro)
   - Geocomputation with R [CH2 - Geographic data in R (stop at 2.2)](https://r.geocompx.org/spatial-class)
-- [Link]() to document for live coding session
+- Additional reading:
+  - [Towards Data Science: Why you need to use Geopackage files instead of shapefile or GeoJSON](https://towardsdatascience.com/why-you-need-to-use-geopackage-files-instead-of-shapefile-or-geojson-7cb24fe56416/)
+- [Link](docs/11_live.html) to document for live coding session
 
 
 ## Week 12 (Nov 3-7)

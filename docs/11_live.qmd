@@ -1,0 +1,263 @@
+---
+title: "Working with spatial data in R: Vector"
+lightbox: true
+format:
+  html:
+    toc: true
+  # pdf:
+  #   documentclass: article
+prefer-html: true
+echo: true
+include: true
+code-fold: true
+---
+
+# Exercise 0 - Set up
+
+1. Open your `EVR628` R project
+2. Install / update the packages as needed using the code below:
+
+```{r}
+#| code-fold: false
+#| eval: false
+install.packages("sf")            # You should have this from Tuesday
+install.packages("rnaturalearth") # You should have this from Tuesday
+install.packages("mapview")       # You should have this from Tuesday
+remotes::install_github("jcvdav/EVR628tools")
+```
+
+3. Start a new R script called `vector_data.R` and save it under `scripts/02_analysis.R`
+4. Add a code header
+5. Load the `tidyverse`, `janitor`, `sf`, `rnaturalearth`, `mapview`, and `EVR628tools`
+
+# Exercise 1 - Inspecting spatial data
+
+## Part 1: FL counties
+
+**Post-it up**
+
+1. Go to the [FDOT website](https://gis-fdot.opendata.arcgis.com/datasets/florida-county-boundaries-with-fdot-districts/explore) and download the county **Geopackage** file^[[Geopackage are superior to shapefiles or GeoJSON files](https://towardsdatascience.com/why-you-need-to-use-geopackage-files-instead-of-shapefile-or-geojson-7cb24fe56416/)]. Make sure you save them to your `data/raw` folder.
+2. Look at the documentation for `?read_sf`
+3. Read the FL counties geopackage and assign it to an object called `FL_counties <-`
+4. Immediately after that, pipe into `clean_names()` and then again into `st_set_geometry("geometry")`. FDOT data are weird, I will explain why we are doing this.
+
+**Post-it down**
+
+```{r}
+#| message: false
+# Load packages
+library(tidyverse)
+library(janitor)
+library(sf)
+library(rnaturalearth)
+library(mapview)
+library(EVR628tools)
+
+# Load FL counties
+FL_counties <- read_sf("data/raw/Florida_County_Boundaries_with_FDOT_Districts_-801746881308969010.gpkg") |> 
+  clean_names() |> 
+  st_set_geometry("geometry")
+```
+
+
+## Part 2: Inspect FL counties
+
+**Post-it up**
+
+1. How many columns do we have? How many rows?
+2. What are the column names?
+3. Use R's base `plot()` to visualize them. CAREFUL, make sure you specify `max.plot = 1`.
+4. Now use `mapview` to visualize your data.
+
+**Post-it down**
+
+```{r}
+# Inspect attributes
+dim(FL_counties)
+colnames(FL_counties)
+
+# Base plot
+plot(FL_counties, max.plot = 1)
+
+# Mapview
+mapview(FL_counties)
+```
+
+
+## Part 3: Prep the data
+
+**Post-it up**
+
+1. The FL County vector file has more columns than we need. Modify your pipeline to retain only county name and first_fips (rename them as `county_name` and `county_fips`).
+2. Load the new `data_hurricanes` data that I've included in the latest version of the `EVR628tools` package
+3. Quickly inspect them with the usual methods
+
+**Post-it down**
+
+```{r}
+FL_counties <- read_sf("data/raw/Florida_County_Boundaries_with_FDOT_Districts_-801746881308969010.gpkg") |> 
+  clean_names() |> 
+  st_set_geometry("geometry") |> 
+  select(county_name = name,
+         county_fips = first_fips)
+
+data("data_hurricanes")
+
+dim(data_hurricanes)
+
+# Ignore the if statement, this is just a workaround for myself
+mapview(data_hurricanes)
+```
+
+
+# Exercise 2 - Spatial operations
+
+## Part 1: Spatial join (`st_join`)
+
+**Task:** Count the number of storms to which each county has been exposed between 2022 and 2024
+
+**We'll do this one together**
+
+1. Look at the documentation for the `?st_join()` function
+2. Let's create a new object called `county_hur <-` that will contain the outcome of the join operation
+3. Now lets count the number of storms per county
+4. Let's make a map, where the fill of each county is given by the number of storms
+
+```{r}
+county_hur <- st_join(FL_counties, data_hurricanes) |> 
+  group_by(county_name, county_fips) |> 
+  summarize(n_storms = n_distinct(name,
+                                  na.rm = T))
+
+ggplot() +
+  geom_sf(data = county_hur,
+          mapping = aes(fill = n_storms)) +
+  theme_minimal()
+```
+
+
+## Part 2: Spatial filter (`st_filter`)
+
+**Task:** Which hurricanes affected FL counties?
+
+**Post-it up**
+
+1. Read the documentation for the `?st_filter()` function
+2. If our goal is to filter hurricanes based on their location, what is `x` and what is `y`?
+3. Use the `st_filter()` function to find the hurricanes that went over FL counties, save the output to `FL_hurricanes`
+4. Make a quick map using ggplot
+5. Look at the documentation for `st_crop()`
+6. Extend your pipeline for `FL_hurricanes` to use `st_crop()`
+
+**Post-it down**
+
+```{r}
+FL_hurricanes <- st_filter(data_hurricanes, FL_counties) |> 
+  st_crop(FL_counties)
+
+ggplot() +
+  geom_sf(data = FL_hurricanes,
+          mapping = aes(color = name)) +
+  theme_minimal()
+```
+
+## Part 3: Final map
+
+Replicate the map below
+
+```{r}
+ggplot() +
+  geom_sf(data = county_hur,
+          mapping = aes(fill = n_storms),
+          color = "black") + 
+  geom_sf(data = FL_hurricanes,
+          mapping = aes(color = name)) +
+  scale_fill_viridis_c() +
+  scale_color_manual(values = palette_UM(n = 7)) +
+  theme_bw() +
+  labs(title = "Storm exposure by county",
+       subtitle = "Named storms between 2022 and 2024",
+       x = "Lon",
+       y = "Lat",
+       color = "Storm name",
+       fill = "# Storms")
+```
+
+
+# Exercise 3 - Building your own `sf` object
+
+**Post-it up**
+
+1. Load the `data_milton` dataset from the `EVR628tools` package into your environment and familiarize yourself with it (again)
+2. Look at the documentation for `?st_as_sf()`
+3. Convert our `data_milton` data.frame into an `sf` object called `milton_sf`
+4. Plot them using base `plot()`
+
+**Post-it down**
+
+```{r}
+data("data_milton")
+
+head(data_milton, 10)
+
+# Convert to sf object
+milton_sf <- st_as_sf(data_milton,
+                      coords = c("lon", "lat"),
+                      crs = "EPSG:4326")
+
+# Plot them
+plot(milton_sf, max.plot = 1)
+```
+
+
+# Additional exercises
+
+## 1) Converting points to linestrings
+
+Take the `milton_sf` data and convert the points into a track (so, from `POINT` to `LINESTRING`)
+
+```{r}
+
+nrow(milton_sf) # One row per point
+
+milton_sf_track <- milton_sf |> 
+  # I need to specify the groups, even though there's only one
+  group_by(name) |>              
+  summarize(do_union = FALSE,
+            .groups = "drop")
+
+nrow(milton_sf_track) # One row per group, but still as points in a MULTIPOINT geometry
+st_geometry_type(milton_sf_track)
+
+ggplot(milton_sf_track) +
+  geom_sf()
+
+# After the summarize, all points are individually combined as a MULTIPOINT object,
+# so we need to convert them to a LINESTRING. The full pipeline looks like this:
+milton_sf_track <- milton_sf |> 
+  group_by(name) |>
+  summarize(do_union = FALSE,
+            .groups = "drop") |> 
+  st_cast("LINESTRING")           
+
+nrow(milton_sf_track) # One row per group, but now as a LINESTRING
+st_geometry_type(milton_sf_track)
+
+ggplot(milton_sf_track) +
+  geom_sf()
+```
+
+## 2) Reproject the data to a different CRS
+
+Take the new `milton_sf_track` and project it to UTM zone 16N. [epsg.io](https://epsg.io/26917-1714) tells us the EPSG code is `EPSG:26917-1714`. After reprojecting, look at the difference in shape relative to the figure above.
+
+```{r}
+milton_sf_track_UTM <- st_transform(milton_sf_track, crs = "EPSG:26917-1714")
+
+ggplot(milton_sf_track_UTM) + 
+         geom_sf()
+```
+
+
+
+
