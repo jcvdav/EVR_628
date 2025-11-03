@@ -19,7 +19,7 @@ theme_set(
 )
 ```
 
-## Last wek
+## Last Week
 
 - Spatial data can be represented in a `vector` model, or a `raster` model
 - We focused on `vector` data, which is represented by points, lines, polygons (and combination of these)
@@ -31,7 +31,7 @@ theme_set(
     - geometry: The spatial portion of the data
     - attributes: The characteristics associated to each point, line, or polygon
 
-## Learning objectives
+## Learning Objectives
 
 :::{.callout-note}
 ## By the end of this week, you should be able to
@@ -174,7 +174,7 @@ TIFF or "GeoTiff" is simply an image made of pixels
 ::::
 
 
-## Raster is Faster. . . but why?
+## Raster Is Faster. . . But Why?
 
 - There is a fundamental relationship between resolution, extent, and origin:
 
@@ -196,7 +196,7 @@ $$
 
 - In contrast to vector data, the cell of one raster layer can only hold a single value
 
-## Raster is Faster. . . but why?
+## Raster Is Faster. . . But Why?
 
 ![Source: @Wickham2023-aa](img/raster-intro-plot-1.png){width=75%}
 
@@ -206,7 +206,7 @@ $$
 
 # Raster Data in R
 
-## The `terra` package
+## The `terra` Package
 
 :::: {.columns}
 
@@ -229,7 +229,7 @@ The `{terra}` package:
 ::::
 
 
-## The `terra` package: Example
+## The `terra` Package: Example
 
 :::: {.columns}
 
@@ -280,7 +280,7 @@ names(depth) # Gets the names for each layer
 
 ::::
 
-## Visualizing rasters in R
+## Visualizing Rasters in R
 
 The fastest way is to use the base `plot()` function
 
@@ -293,7 +293,7 @@ plot(depth) # Single line of code gets me a decent map
 ```
 
 
-## Visualizing rasters in R
+## Visualizing Rasters in R
 
 As with vector data, I can layer different pieces of my plot
 
@@ -310,7 +310,7 @@ plot(FL_counties, add = T) # Add FL counties on top
 - Q: How are missing values represented?
 - A: As transparent (white) pixels
 
-## Manipulating raster objects
+## Manipulating Raster Objects
 
 **Task:** Produce a map of water depth around FL
 
@@ -329,7 +329,7 @@ plot(FL_depth)
 plot(FL_counties, add = T)
 ```
 
-## Manipulating raster objects:
+## Manipulating Raster Objects
 
 **Task:** Build the same map, but only show shallow (depth > -100 m) waters
 
@@ -344,12 +344,12 @@ plot(FL_counties, add = T)
 plot(FL_depth <= -100)
 ```
 
-## Manipulating raster objects:
+## Manipulating Raster Objects
 
 **Task:** Build the same map, but only show shallow (depth > -100 m) waters
 
 - In a data.frame (or sf) object, you can remove rows (observations) based on values
-- But a raster is not a tidy table. It's a matrix, so removing rows woudln't be wise
+- But a raster is not a tidy table. It's a matrix, so removing rows wouldn't be wise
 - Instead of filtering data, we turn them into `NA`
 
 . . .
@@ -399,7 +399,7 @@ This code is not very readable
 
 # Tidy rasters in R: `{tidyterra}`
 
-## Tidy rasters in R: `{tidyterra}`
+## Tidy Rasters in R: `{tidyterra}`
 
 :::: {.columns}
 
@@ -414,14 +414,14 @@ This code is not very readable
 The `{tidyterra}` package:
 
 - Developed by Diego Hernangómez (@Hernangómez2023)
-- Extends, but doesn not replace, the `terra` package
+- Extends, but doesn't replace, the `terra` package
 - Provides functions to manipulate and visualize the attribute portion of the raster
 - Brings ggplot capabilities (`geom_spatraster()`)
 
 :::
 ::::
 
-## Visualizing rasters in R: `{tidyterra}`
+## Visualizing Rasters in R: `{tidyterra}`
 
 
 ```{r}
@@ -438,7 +438,7 @@ ggplot() +         # Begin a ggplot
 - A: As gray pixels
 
 
-## Manipulating rasters with `tidyterra`
+## Manipulating Rasters with `tidyterra`
 
 :::: {.columns}
 
@@ -469,15 +469,15 @@ Remember:
 
 # Rasters with more than one attribute (layer)
 
-## Combining rasters in `terra`
+## Combining Rasters in `terra`
 
-![](img/single_multi_raster.png){width=50%}
+![Source: Wasser et al., 2024](img/single_multi_raster.png){width=50%}
 
 . . .
 
 All layers **must** have the same extent and resolution
 
-## Combining rasters in `terra`
+## Combining Rasters in `terra`
 
 ```{r}
 #| code-fold: false
@@ -494,7 +494,7 @@ turtles <- c(log, green, leather, hawk)
 turtles
 ```
 
-## Multi-layer rasters
+## Multi-Layer Rasters
 
 Calling `plot()` on a multi-layer raster shows us one sub-plot per layer
 
@@ -503,7 +503,7 @@ Calling `plot()` on a multi-layer raster shows us one sub-plot per layer
 plot(turtles)
 ```
 
-## Multi-layer rasters
+## Multi-Layer Rasters
 
 **Task**: Calculate the _mean_ habitat suitability around FL waters
 
@@ -550,7 +550,7 @@ plot(turtle_habitat)
 
 ::::
 
-## Multi-layer rasters
+## Multi-Layer Rasters
 
 **Task**: Calculate the _mean_ habitat suitability around FL waters
 
@@ -570,21 +570,58 @@ turtle_habitat <- turtles |> # Start from turtles
 
 ```{r}
 #| echo: false
+#| fig-width: 4
+#| fig-height: 3.5
 ggplot() +
   geom_spatraster(data = turtle_habitat) +
   geom_sf(data = FL_counties) +
   labs(fill = "probability")
 ```
 
-## Wrap up
+## Wrap Up
 
-## Before next class:
+:::: {.columns}
+
+::: {.column width='50%'}
+- **Raster Data Model**: Continuous grid representation with pixels/cells of uniform size
+  - Ideal for continuous data (elevation, temperature, population density)
+  - More storage-efficient than vector data
+  - Each cell holds a single value per layer
+
+- **The `terra` Package**: 
+  - Modern replacement for `{raster}` package
+  - Use `rast()` to read raster files (`.tif`, `.tiff`, `.asc`, `.nc`)
+  - Functions like `ext()`, `res()`, `dim()`, `ncell()`, `names()` access metadata
+:::
+
+::: {.column width='50%'}
+- **The `tidyterra` Package**:
+  - Extends `terra` with tidyverse-friendly functions
+  - Use `terra` for spatial operations (e.g., `crop()`)
+  - Use `tidyterra` for attribute operations (e.g., `filter()`, `mutate()`)
+
+- **Multi-Layer Rasters**:
+  - Combine multiple rasters with `c()`
+  - All layers must have same extent and resolution
+  - Use `mean()`, `sum()`, etc. to aggregate across layers
+
+:::
+
+::::
+
+
+## Before Next Class:
+
+- Update RStudio
+- Install `terra` and `tidyterra` 
 
 ```{r}
 #| echo: true
 #| eval: false
-#| code-fold: true
+#| code-fold: false
 install.packages("terra")
 install.packages("tidyterra")
 ```
+
+## References
 

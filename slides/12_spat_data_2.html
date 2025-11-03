@@ -225,8 +225,8 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div>
 
 </section>
-<section id="last-wek" class="slide level2">
-<h2>Last wek</h2>
+<section id="last-week" class="slide level2">
+<h2>Last Week</h2>
 <ul>
 <li class="fragment">Spatial data can be represented in a <code>vector</code> model, or a <code>raster</code> model</li>
 <li class="fragment">We focused on <code>vector</code> data, which is represented by points, lines, polygons (and combination of these)</li>
@@ -242,7 +242,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 </ul>
 </section>
 <section id="learning-objectives" class="slide level2">
-<h2>Learning objectives</h2>
+<h2>Learning Objectives</h2>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -394,14 +394,14 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img/raster-intro-plot-1.png" style="width:75.0%"></p>
-<figcaption>Source: <span class="citation" data-cites="Wickham2023-aa">Wickham, Cetinkaya-Rundel, and Grolemund (<a href="#/before-next-class" role="doc-biblioref" onclick="">2023</a>)</span></figcaption>
+<figcaption>Source: <span class="citation" data-cites="Wickham2023-aa">Wickham, Cetinkaya-Rundel, and Grolemund (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span></figcaption>
 </figure>
 </div>
 </div>
 </div></div>
 </section>
 <section id="raster-is-faster.-.-.-but-why" class="slide level2">
-<h2>Raster is Faster. . . but why?</h2>
+<h2>Raster Is Faster. . . But Why?</h2>
 <ul>
 <li class="fragment">There is a fundamental relationship between resolution, extent, and origin:</li>
 </ul>
@@ -428,11 +428,11 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div>
 </section>
 <section id="raster-is-faster.-.-.-but-why-1" class="slide level2">
-<h2>Raster is Faster. . . but why?</h2>
+<h2>Raster Is Faster. . . But Why?</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img/raster-intro-plot-1.png" style="width:75.0%"></p>
-<figcaption>Source: <span class="citation" data-cites="Wickham2023-aa">Wickham, Cetinkaya-Rundel, and Grolemund (<a href="#/before-next-class" role="doc-biblioref" onclick="">2023</a>)</span></figcaption>
+<figcaption>Source: <span class="citation" data-cites="Wickham2023-aa">Wickham, Cetinkaya-Rundel, and Grolemund (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span></figcaption>
 </figure>
 </div>
 <ul>
@@ -446,7 +446,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 
 </section>
 <section id="the-terra-package" class="slide level2">
-<h2>The <code>terra</code> package</h2>
+<h2>The <code>terra</code> Package</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
 <p><img data-src="img/terra_logo.png"></p>
@@ -462,7 +462,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div></div>
 </section>
 <section id="the-terra-package-example" class="slide level2">
-<h2>The <code>terra</code> package: Example</h2>
+<h2>The <code>terra</code> Package: Example</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
 <p>I can read a raster file into using the function <code>rast()</code></p>
@@ -521,7 +521,7 @@ max value   :      0.985951 </code></pre>
 </div></div>
 </section>
 <section id="visualizing-rasters-in-r" class="slide level2">
-<h2>Visualizing rasters in R</h2>
+<h2>Visualizing Rasters in R</h2>
 <p>The fastest way is to use the base <code>plot()</code> function</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">plot</span>(depth) <span class="co"># Single line of code gets me a decent map</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -535,7 +535,7 @@ max value   :      0.985951 </code></pre>
 </div>
 </section>
 <section id="visualizing-rasters-in-r-1" class="slide level2">
-<h2>Visualizing rasters in R</h2>
+<h2>Visualizing Rasters in R</h2>
 <p>As with vector data, I can layer different pieces of my plot</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15" data-code-line-numbers="1-2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">plot</span>(depth) <span class="co"># Build plot</span></span>
@@ -554,7 +554,7 @@ max value   :      0.985951 </code></pre>
 </ul>
 </section>
 <section id="manipulating-raster-objects" class="slide level2">
-<h2>Manipulating raster objects</h2>
+<h2>Manipulating Raster Objects</h2>
 <p><strong>Task:</strong> Produce a map of water depth around FL</p>
 <ul>
 <li class="fragment"><strong>Q:</strong> In human language, what do I have to do?</li>
@@ -576,7 +576,7 @@ max value   :      0.985951 </code></pre>
 </div>
 <aside><ol class="aside-footnotes"><li id="fn2"><p>Note that in <code>terra::crop()</code> does the same as <code>sf::st_crop()</code>, but for rasters</p></li></ol></aside></section>
 <section id="manipulating-raster-objects-1" class="slide level2">
-<h2>Manipulating raster objects:</h2>
+<h2>Manipulating Raster Objects</h2>
 <p><strong>Task:</strong> Build the same map, but only show shallow (depth &gt; -100 m) waters</p>
 <ul>
 <li class="fragment">Rasters are just matrices, so we can use our trusty <code>binary</code> operators</li>
@@ -595,11 +595,11 @@ max value   :      0.985951 </code></pre>
 </div>
 </section>
 <section id="manipulating-raster-objects-2" class="slide level2">
-<h2>Manipulating raster objects:</h2>
+<h2>Manipulating Raster Objects</h2>
 <p><strong>Task:</strong> Build the same map, but only show shallow (depth &gt; -100 m) waters</p>
 <ul>
 <li class="fragment">In a data.frame (or sf) object, you can remove rows (observations) based on values</li>
-<li class="fragment">But a raster is not a tidy table. It’s a matrix, so removing rows woudln’t be wise</li>
+<li class="fragment">But a raster is not a tidy table. It’s a matrix, so removing rows wouldn’t be wise</li>
 <li class="fragment">Instead of filtering data, we turn them into <code>NA</code></li>
 </ul>
 <div class="fragment">
@@ -638,7 +638,7 @@ max value   :      0.985951 </code></pre>
 
 </section>
 <section id="tidy-rasters-in-r-tidyterra-1" class="slide level2">
-<h2>Tidy rasters in R: <code>{tidyterra}</code></h2>
+<h2>Tidy Rasters in R: <code>{tidyterra}</code></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
 <p><img data-src="img/tidyterra_logo.png" style="width:50.0%"></p>
@@ -646,15 +646,15 @@ max value   :      0.985951 </code></pre>
 </div><div class="column" style="width:60%;">
 <p>The <code>{tidyterra}</code> package:</p>
 <ul>
-<li class="fragment">Developed by Diego Hernangómez (<span class="citation" data-cites="Hernangómez2023">Hernangómez (<a href="#/before-next-class" role="doc-biblioref" onclick="">2023</a>)</span>)</li>
-<li class="fragment">Extends, but doesn not replace, the <code>terra</code> package</li>
+<li class="fragment">Developed by Diego Hernangómez (<span class="citation" data-cites="Hernangómez2023">Hernangómez (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span>)</li>
+<li class="fragment">Extends, but doesn’t replace, the <code>terra</code> package</li>
 <li class="fragment">Provides functions to manipulate and visualize the attribute portion of the raster</li>
 <li class="fragment">Brings ggplot capabilities (<code>geom_spatraster()</code>)</li>
 </ul>
 </div></div>
 </section>
 <section id="visualizing-rasters-in-r-tidyterra" class="slide level2">
-<h2>Visualizing rasters in R: <code>{tidyterra}</code></h2>
+<h2>Visualizing Rasters in R: <code>{tidyterra}</code></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19" data-code-line-numbers="1|2|3|4|5|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="fu">library</span>(tidyterra) <span class="co"># Load terra</span></span>
 <span id="cb19-2"><a href=""></a><span class="fu">ggplot</span>() <span class="sc">+</span>         <span class="co"># Begin a ggplot</span></span>
@@ -675,7 +675,7 @@ max value   :      0.985951 </code></pre>
 </ul>
 </section>
 <section id="manipulating-rasters-with-tidyterra" class="slide level2">
-<h2>Manipulating rasters with <code>tidyterra</code></h2>
+<h2>Manipulating Rasters with <code>tidyterra</code></h2>
 <div class="columns">
 <div class="column" style="width:45%;">
 <div class="cell">
@@ -708,14 +708,19 @@ max value   :      0.985951 </code></pre>
 
 </section>
 <section id="combining-rasters-in-terra" class="slide level2">
-<h2>Combining rasters in <code>terra</code></h2>
+<h2>Combining Rasters in <code>terra</code></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
 <p><img data-src="img/single_multi_raster.png" style="width:50.0%"></p>
+<figcaption>Source: Wasser et al., 2024</figcaption>
+</figure>
+</div>
 <div class="fragment">
 <p>All layers <strong>must</strong> have the same extent and resolution</p>
 </div>
 </section>
 <section id="combining-rasters-in-terra-1" class="slide level2">
-<h2>Combining rasters in <code>terra</code></h2>
+<h2>Combining Rasters in <code>terra</code></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21" data-code-line-numbers="1-5|6-7|8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="co"># Let's read habitat suitability models for four sea turtle species</span></span>
 <span id="cb21-2"><a href=""></a>log <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">"data/raw/AquaMaps/Caretta_caretta.tiff"</span>)</span>
@@ -742,7 +747,7 @@ max values  :            1.00,           1.00,            1.00,            1.00 
 </div>
 </section>
 <section id="multi-layer-rasters" class="slide level2">
-<h2>Multi-layer rasters</h2>
+<h2>Multi-Layer Rasters</h2>
 <p>Calling <code>plot()</code> on a multi-layer raster shows us one sub-plot per layer</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a><span class="fu">plot</span>(turtles)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -756,7 +761,7 @@ max values  :            1.00,           1.00,            1.00,            1.00 
 </div>
 </section>
 <section id="multi-layer-rasters-1" class="slide level2">
-<h2>Multi-layer rasters</h2>
+<h2>Multi-Layer Rasters</h2>
 <p><strong>Task</strong>: Calculate the <em>mean</em> habitat suitability around FL waters</p>
 <div class="columns">
 <div class="column" style="width:65%;">
@@ -800,7 +805,7 @@ max values  :            1.00,           1.00,            1.00,            1.00 
 </div></div>
 </section>
 <section id="multi-layer-rasters-2" class="slide level2">
-<h2>Multi-layer rasters</h2>
+<h2>Multi-Layer Rasters</h2>
 <p><strong>Task</strong>: Calculate the <em>mean</em> habitat suitability around FL waters</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb26" data-code-line-numbers="1|2-6|7-8|9|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a>turtle_habitat <span class="ot">&lt;-</span> turtles <span class="sc">|&gt;</span> <span class="co"># Start from turtles</span></span>
@@ -817,24 +822,60 @@ max values  :            1.00,           1.00,            1.00,            1.00 
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="12_spat_data_2_files/figure-revealjs/unnamed-chunk-24-1.png" width="960"></p>
+<p><img data-src="12_spat_data_2_files/figure-revealjs/unnamed-chunk-24-1.png" width="384"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
 <section id="wrap-up" class="slide level2">
-<h2>Wrap up</h2>
+<h2>Wrap Up</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li class="fragment"><strong>Raster Data Model</strong>: Continuous grid representation with pixels/cells of uniform size
+<ul>
+<li class="fragment">Ideal for continuous data (elevation, temperature, population density)</li>
+<li class="fragment">More storage-efficient than vector data</li>
+<li class="fragment">Each cell holds a single value per layer</li>
+</ul></li>
+<li class="fragment"><strong>The <code>terra</code> Package</strong>:
+<ul>
+<li class="fragment">Modern replacement for <code>{raster}</code> package</li>
+<li class="fragment">Use <code>rast()</code> to read raster files (<code>.tif</code>, <code>.tiff</code>, <code>.asc</code>, <code>.nc</code>)</li>
+<li class="fragment">Functions like <code>ext()</code>, <code>res()</code>, <code>dim()</code>, <code>ncell()</code>, <code>names()</code> access metadata</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li class="fragment"><strong>The <code>tidyterra</code> Package</strong>:
+<ul>
+<li class="fragment">Extends <code>terra</code> with tidyverse-friendly functions</li>
+<li class="fragment">Use <code>terra</code> for spatial operations (e.g., <code>crop()</code>)</li>
+<li class="fragment">Use <code>tidyterra</code> for attribute operations (e.g., <code>filter()</code>, <code>mutate()</code>)</li>
+</ul></li>
+<li class="fragment"><strong>Multi-Layer Rasters</strong>:
+<ul>
+<li class="fragment">Combine multiple rasters with <code>c()</code></li>
+<li class="fragment">All layers must have same extent and resolution</li>
+<li class="fragment">Use <code>mean()</code>, <code>sum()</code>, etc. to aggregate across layers</li>
+</ul></li>
+</ul>
+</div></div>
 </section>
-<section id="before-next-class" class="slide level2 smaller scrollable">
-<h2>Before next class:</h2>
+<section id="before-next-class" class="slide level2">
+<h2>Before Next Class:</h2>
+<ul>
+<li class="fragment">Update RStudio</li>
+<li class="fragment">Install <code>terra</code> and <code>tidyterra</code></li>
+</ul>
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"terra"</span>)</span>
 <span id="cb27-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"tidyterra"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-Hernangómez2023" class="csl-entry" role="listitem">
