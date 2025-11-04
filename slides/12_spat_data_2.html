@@ -225,6 +225,20 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div>
 
 </section>
+<section>
+<section id="announcements" class="title-slide slide level1 center">
+<h1>Announcements</h1>
+
+</section>
+<section id="upcoming-evr-seminar" class="slide level2">
+<h2>Upcoming EVR Seminar</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/seminar_announcement.png" style="width:50.0%"></p>
+<figcaption>Travis Coan, Professor of Computational Social Science, University of Exeter</figcaption>
+</figure>
+</div>
+</section>
 <section id="last-week" class="slide level2">
 <h2>Last Week</h2>
 <ul>
@@ -253,14 +267,14 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div>
 <div class="callout-content">
 <ul>
-<li class="fragment">Identify whether a map was built with <code>raster</code> or <code>vector</code> data</li>
+<li class="fragment">Identify whether a map was built with <code>raster</code> or <code>vector</code> data (or both)</li>
 <li class="fragment">Load and work with <code>raster</code> objects with <code>{sf}</code></li>
 <li class="fragment">Visualize and manipulate <code>raster</code> data with <code>tidyterra</code></li>
 </ul>
 </div>
 </div>
 </div>
-</section>
+</section></section>
 <section>
 <section id="raster-data-model" class="title-slide slide level1 center">
 <h1>Raster Data Model</h1>
@@ -378,7 +392,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <ul>
 <li class="fragment">Two main components:
 <ul>
-<li class="fragment">Header: Contains metadata with CRS, extent, and origin)</li>
+<li class="fragment">Header: metadata with CRS, extent, and origin</li>
 <li class="fragment">Matrix: the data we want to represent</li>
 </ul></li>
 </ul>
@@ -410,7 +424,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 \mathrm{resolution_x} = \frac{x_{max} - x_{min}}{n_{col}}
 \]</span></p>
 <ul>
-<li class="fragment">Raster data are typically “lighter” (and faster to work with) because we don’t need to store the coordinates for every cell</li>
+<li class="fragment">Raster data are typically “lighter” (and faster to work with) because we don’t need to store the coordinates for all corners of each cell</li>
 </ul>
 </div>
 <div class="fragment">
@@ -436,7 +450,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 </figure>
 </div>
 <ul>
-<li class="fragment">I just need to know the coordinates for the <strong>center</strong> of cell #1</li>
+<li class="fragment">I just need to store the coordinates for the <strong>center</strong> of cell #1</li>
 <li class="fragment">Coordinates for cell number 2 are <span class="math inline">\((X_1, Y_1 + resolution)\)</span></li>
 </ul>
 </section></section>
@@ -456,7 +470,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <ul>
 <li class="fragment"><a href="https://cran.r-project.org/web/packages/raster/index.html">Replaces</a> the older <code>{raster}</code> package</li>
 <li class="fragment">Provides functions to create, read, transform, manipulate, and export raster data</li>
-<li class="fragment">Has it’s own approach to vector data (not friendly with the tidyverse)</li>
+<li class="fragment">Has its own approach to vector data (not friendly with the tidyverse)</li>
 <li class="fragment">Still plays well with <code>sf</code></li>
 </ul>
 </div></div>
@@ -465,13 +479,15 @@ Juan Carlos Villaseñor-Derbez (JC)
 <h2>The <code>terra</code> Package: Example</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p>I can read a raster file into using the function <code>rast()</code></p>
+<ul>
+<li class="fragment">I can read a raster file into using the function <code>rast()</code></li>
+</ul>
+<div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2" data-code-line-numbers="1|2-3|4-%"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">library</span>(terra) <span class="co"># Load terra</span></span>
+<div class="sourceCode cell-code" id="cb2" data-code-line-numbers="1|2-3|4|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">library</span>(terra) <span class="co"># Load terra</span></span>
 <span id="cb2-2"><a href=""></a><span class="co"># Load in my raster</span></span>
 <span id="cb2-3"><a href=""></a>depth <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">"data/raw/depth_raster.tif"</span>)</span>
-<span id="cb2-4"><a href=""></a><span class="fu">class</span>(depth) <span class="co"># Check what class of Object I have</span></span>
-<span id="cb2-5"><a href=""></a>depth <span class="co"># Printing a raster reveals the header, not the data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-4"><a href=""></a>depth <span class="co"># Printing a raster reveals the header, not the data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -484,6 +500,7 @@ source      : depth_raster.tif
 name        :       depth_m 
 min value   : -10273.276367 
 max value   :      0.985951 </code></pre>
+</div>
 </div>
 </div>
 <ul>
@@ -606,7 +623,7 @@ max value   :      0.985951 </code></pre>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18" data-code-line-numbers="1-2|3-4|5-7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="co"># Crop FL</span></span>
+<div class="sourceCode cell-code" id="cb18" data-code-line-numbers="1-2|3-4|5-7|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="co"># Crop FL</span></span>
 <span id="cb18-2"><a href=""></a>FL_depth <span class="ot">&lt;-</span> <span class="fu">crop</span>(depth, FL_counties)</span>
 <span id="cb18-3"><a href=""></a><span class="co"># Find pixels deeper than 100 and replace them with NA</span></span>
 <span id="cb18-4"><a href=""></a>FL_depth[FL_depth <span class="sc">&lt;=</span> <span class="sc">-</span><span class="dv">100</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
@@ -614,6 +631,9 @@ max value   :      0.985951 </code></pre>
 <span id="cb18-6"><a href=""></a><span class="fu">plot</span>(FL_depth)</span>
 <span id="cb18-7"><a href=""></a><span class="fu">plot</span>(FL_counties, <span class="at">add =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<ul>
+<li class="fragment">This code is not very readable</li>
+</ul>
 </div><div class="column" style="width:50%;">
 <div class=".{fragment}">
 <div class="cell">
@@ -627,9 +647,6 @@ max value   :      0.985951 </code></pre>
 </div>
 </div>
 </div></div>
-</div>
-<div class="fragment">
-<p>This code is not very readable</p>
 </div>
 </section></section>
 <section>
@@ -664,7 +681,7 @@ max value   :      0.985951 </code></pre>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="12_spat_data_2_files/figure-revealjs/unnamed-chunk-16-1.png" width="960"></p>
+<p><img data-src="12_spat_data_2_files/figure-revealjs/unnamed-chunk-16-1.png" width="576"></p>
 </figure>
 </div>
 </div>
@@ -822,7 +839,7 @@ max values  :            1.00,           1.00,            1.00,            1.00 
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="12_spat_data_2_files/figure-revealjs/unnamed-chunk-24-1.png" width="384"></p>
+<p><img data-src="12_spat_data_2_files/figure-revealjs/unnamed-chunk-24-1.png" width="576"></p>
 </figure>
 </div>
 </div>
@@ -843,7 +860,6 @@ max values  :            1.00,           1.00,            1.00,            1.00 
 <ul>
 <li class="fragment">Modern replacement for <code>{raster}</code> package</li>
 <li class="fragment">Use <code>rast()</code> to read raster files (<code>.tif</code>, <code>.tiff</code>, <code>.asc</code>, <code>.nc</code>)</li>
-<li class="fragment">Functions like <code>ext()</code>, <code>res()</code>, <code>dim()</code>, <code>ncell()</code>, <code>names()</code> access metadata</li>
 </ul></li>
 </ul>
 </div><div class="column" style="width:50%;">
@@ -867,11 +883,12 @@ max values  :            1.00,           1.00,            1.00,            1.00 
 <h2>Before Next Class:</h2>
 <ul>
 <li class="fragment">Update RStudio</li>
-<li class="fragment">Install <code>terra</code> and <code>tidyterra</code></li>
+<li class="fragment">Install <code>terra</code>, <code>tidyterra</code>, and <code>ggspatial</code></li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"terra"</span>)</span>
-<span id="cb27-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"tidyterra"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"tidyterra"</span>)</span>
+<span id="cb27-3"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"ggspatial"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="references" class="slide level2 smaller scrollable">

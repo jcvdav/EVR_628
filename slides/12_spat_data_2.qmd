@@ -19,6 +19,12 @@ theme_set(
 )
 ```
 
+# Announcements
+
+## Upcoming EVR Seminar
+
+![Travis Coan, Professor of Computational Social Science, University of Exeter](img/seminar_announcement.png){width=50%}
+
 ## Last Week
 
 - Spatial data can be represented in a `vector` model, or a `raster` model
@@ -35,7 +41,7 @@ theme_set(
 
 :::{.callout-note}
 ## By the end of this week, you should be able to
-- Identify whether a map was built with `raster` or `vector` data
+- Identify whether a map was built with `raster` or `vector` data (or both)
 - Load and work with `raster` objects with `{sf}`
 - Visualize and manipulate `raster` data with `tidyterra`
 :::
@@ -154,7 +160,7 @@ TIFF or "GeoTiff" is simply an image made of pixels
 ## Components of a Raster Object
 
 - Two main components:
-    - Header: Contains metadata with CRS, extent, and origin)
+    - Header: metadata with CRS, extent, and origin
     - Matrix: the data we want to represent
 
 :::: {.columns}
@@ -184,7 +190,7 @@ $$
 \mathrm{resolution_x} = \frac{x_{max} - x_{min}}{n_{col}}
 $$
 
-- Raster data are typically "lighter" (and faster to work with) because we don't need to store the coordinates for every cell
+- Raster data are typically "lighter" (and faster to work with) because we don't need to store the coordinates for all corners of each cell
 
 . . .
 
@@ -200,7 +206,7 @@ $$
 
 ![Source: @Wickham2023-aa](img/raster-intro-plot-1.png){width=75%}
 
-- I just need to know the coordinates for the **center** of cell #1
+- I just need to store the coordinates for the **center** of cell #1
 - Coordinates for cell number 2 are $(X_1, Y_1 + resolution)$
 
 
@@ -222,7 +228,7 @@ The `{terra}` package:
 
 - [Replaces](https://cran.r-project.org/web/packages/raster/index.html) the older `{raster}` package
 - Provides functions to create, read, transform, manipulate, and export raster data
-- Has it's own approach to vector data (not friendly with the tidyverse)
+- Has its own approach to vector data (not friendly with the tidyverse)
 - Still plays well with `sf`
 
 :::
@@ -235,16 +241,17 @@ The `{terra}` package:
 
 ::: {.column width='60%'}
 
-I can read a raster file into using the function `rast()`
+- I can read a raster file into using the function `rast()`
+
+:::{.fragment}
 
 ```{r}
 #| code-fold: false
 #| eval: false
-#| code-line-numbers: "1|2-3|4-%"
+#| code-line-numbers: "1|2-3|4|"
 library(terra) # Load terra
 # Load in my raster
 depth <- rast("data/raw/depth_raster.tif")
-class(depth) # Check what class of Object I have
 depth # Printing a raster reveals the header, not the data
 ```
 
@@ -253,6 +260,8 @@ depth # Printing a raster reveals the header, not the data
 depth <- rast(here("data/raw/depth_raster.tif"))
 depth
 ```
+
+:::
 
 - *Q:* What is the resolution of this raster?
 - *A:* 0.05°
@@ -361,7 +370,7 @@ plot(FL_depth <= -100)
 ```{r}
 #| code-fold: false
 #| eval: false
-#| code-line-numbers: "1-2|3-4|5-7"
+#| code-line-numbers: "1-2|3-4|5-7|"
 # Crop FL
 FL_depth <- crop(depth, FL_counties)
 # Find pixels deeper than 100 and replace them with NA
@@ -370,6 +379,9 @@ FL_depth[FL_depth <= -100] <- NA
 plot(FL_depth)
 plot(FL_counties, add = T)
 ```
+
+- This code is not very readable
+
 :::
 
 ::: {.column width='50%'}
@@ -393,9 +405,6 @@ plot(FL_counties, add = T)
 
 ::::
 
-. . .
-
-This code is not very readable
 
 # Tidy rasters in R: `{tidyterra}`
 
@@ -427,6 +436,8 @@ The `{tidyterra}` package:
 ```{r}
 #| code-fold: false
 #| code-line-numbers: "1|2|3|4|5|"
+#| fig-width: 6
+#| fig-height: 5
 library(tidyterra) # Load terra
 ggplot() +         # Begin a ggplot
   geom_spatraster(data = depth, # specify object to plot
@@ -570,8 +581,8 @@ turtle_habitat <- turtles |> # Start from turtles
 
 ```{r}
 #| echo: false
-#| fig-width: 4
-#| fig-height: 3.5
+#| fig-width: 6
+#| fig-height: 5
 ggplot() +
   geom_spatraster(data = turtle_habitat) +
   geom_sf(data = FL_counties) +
@@ -591,7 +602,6 @@ ggplot() +
 - **The `terra` Package**: 
   - Modern replacement for `{raster}` package
   - Use `rast()` to read raster files (`.tif`, `.tiff`, `.asc`, `.nc`)
-  - Functions like `ext()`, `res()`, `dim()`, `ncell()`, `names()` access metadata
 :::
 
 ::: {.column width='50%'}
@@ -613,7 +623,7 @@ ggplot() +
 ## Before Next Class:
 
 - Update RStudio
-- Install `terra` and `tidyterra` 
+- Install `terra`, `tidyterra`, and `ggspatial`
 
 ```{r}
 #| echo: true
@@ -621,6 +631,7 @@ ggplot() +
 #| code-fold: false
 install.packages("terra")
 install.packages("tidyterra")
+install.packages("ggspatial")
 ```
 
 ## References
