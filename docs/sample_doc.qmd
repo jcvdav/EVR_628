@@ -1,0 +1,89 @@
+---
+title: "A presentation about FL hurricanes"
+subtitle: "A brief analysis"
+author: "Juan Carlos Villaseñor-Derbez (JC)"
+institute: "Rosenstiel School of Marine, Atmospheric, and Earth Science and Institute for Data Science and Computing"
+format:
+  html:
+    echo: true
+    code-fold: true
+---
+
+# Intro + Objectives
+
+- Hurricanes affect the FL peninsula almost every year 
+- Our goal is to identify the county that has been hit the most frequently (2022-2024)
+
+# Methods
+
+- Combine hurricane track data (vector) and county data (vector)
+- Count number intersections per county
+- Find the most hit county
+
+```{r}
+# Load packages
+library(tidyverse)
+library(EVR628tools)
+library(here)
+library(sf)
+library(mapview)
+# Load data
+data("data_hurricanes")
+FL_counties <- read_sf(here("data/raw/Florida_County_Boundaries_with_FDOT_Districts_-801746881308969010.gpkg")) |> 
+  janitor::clean_names() |> 
+  st_set_geometry("geometry") |> 
+  select(county_name = name,
+         county_fips = first_fips)
+# Find n storms per county
+county_hur <- st_join(FL_counties, data_hurricanes) |> 
+  group_by(county_name, county_fips) |> 
+  summarize(n_storms = n_distinct(name,
+                                  na.rm = T),
+            .groups = "drop")
+```
+
+# Results
+
+- The county with the most hurricanes is **`r county_hur$county_name[which(county_hur$n_storms == max(county_hur$n_storms))]`** county
+- Between 2022 and 2024, it was hit `r max(county_hur$n_storms)` times
+
+# Results
+
+```{r}
+FL_hurricanes <- st_filter(data_hurricanes, FL_counties) |> 
+  st_crop(FL_counties)
+
+most_hit_county <- county_hur |> 
+  filter(n_storms == max(n_storms))
+
+mapview(county_hur,
+        zcol = "n_storms",
+        layer.name = "# Storms") + 
+  mapview(most_hit_county,
+          col.regions = "transparent",
+          color = "red",
+          lwd = 4,
+          layer.name = "Taylor county") +
+  mapview(FL_hurricanes,
+          zcol = "name",
+          layer.name = "Storm name",
+          color = palette_UM(7))
+```
+
+# Final remarks
+
+- Using Quarto markdown allows you to include R-generated code in cool slides
+
+- How I would probably go about building these slides
+
+```{mermaid}
+flowchart LR
+  A(data_hurricanes) --> C{processing/hurricanes_per_county.R}
+  B(FL counties) --> C
+  C --> D(county_hur.gpkg)
+  C --> E(FL_hurricanes.gpkg)
+  D --> F[slides.qmd
+  Build leaflet in code chunk]
+  E --> F
+```
+

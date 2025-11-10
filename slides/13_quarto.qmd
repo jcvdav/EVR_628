@@ -1,0 +1,301 @@
+---
+subtitle: "Quarto markdown"
+---
+
+# Quarto markdown
+
+## Quarto markdown
+
+- Allows you to build documents
+  - slides
+  - html files
+  - pdfs
+  - word documents
+  - books...
+
+- Particularly useful if your document heavily depends on R-generated content
+
+. . .
+
+![Source: quarto.org](img/rstudio-qmd-how-it-works.png)
+
+## Quarto markdown
+
+- Some people use them throughout their analysis
+  - Pros:
+    - You can write tons and tons of explanations as to why you are doing something
+    - You can include equations
+  - Cons:
+    - You have to run the entire document, from top to bottom, every time you want to update it
+    - Sometimes more is not better
+
+## Quarto markdown
+
+- We'll build a presentation
+- Then a document (html and pdf)
+- Finally, a website
+
+# Parts of a Quarto file
+
+What to produce + content (markdown and/or R)
+
+## YAML header
+
+- At the top of your file, you will see something like this:
+
+```
+---
+title: "This is my title"
+subtitle: "And I can add a subtitle"
+author: "Jon Doe"
+institute: "University of whatever"
+format: html
+---
+```
+
+- This section is called the `YAML` header.
+- It uses key-value pairs (_e.g._ `key: value` is `name: "JC"`)
+- Key-value pairs dictate type of document and "options" (style, themes, output)
+- Different types of documents allow for different YAML fields
+  - [Revealjs slides](https://quarto.org/docs/reference/formats/presentations/revealjs.html)
+  - [HTML](https://quarto.org/docs/reference/formats/html.html)
+  - [PDF](https://quarto.org/docs/reference/formats/pdf.html)
+
+## Content: Headings
+
++------------------+-----------------------------------+
+| Markdown Syntax  | Output                            |
++==================+===================================+
+| ``` markdown     | # Heading 1 {.heading-output}     |
+| # Heading 1      |                                   |
+| ```              |                                   |
++------------------+-----------------------------------+
+| ``` markdown     | ## Heading 2 {.heading-output}    |
+| ## Heading 2     |                                   |
+| ```              |                                   |
++------------------+-----------------------------------+
+| ``` markdown     | ### Heading 3 {.heading-output}   |
+| ### Heading 3    |                                   |
+| ```              |                                   |
++------------------+-----------------------------------+
+| ``` markdown     | #### Heading 4 {.heading-output}  |
+| #### Heading 4   |                                   |
+| ```              |                                   |
++------------------+-----------------------------------+
+| ``` markdown     | ##### Heading 5 {.heading-output} |
+| ##### Heading 5  |                                   |
+| ```              |                                   |
++------------------+-----------------------------------+
+| ``` markdown     | ###### Heading 6 {.heading-output}|
+| ###### Heading 6 |                                   |
+| ```              |                                   |
++------------------+-----------------------------------+
+
+
+
+## Content: Text
+
+Formatting text is easy:
+
+- We use asterisks "`*`" to mark text as
+  - `*italics*, **bold**, ***bold italics***` become
+  - *italics*, **bold**, ***bold italics***
+- Use "`^`" and "`~`" to make superscripts and subscripts
+  - `20^th^ century / CO~2~` become
+  - 20^th^ century / CO~2~
+
+## Content: Links and images
+
+- You can include URL links:
+  - Use `<https://jcvdav.github.io/EVR_628/>` to produce
+  - <https://jcvdav.github.io/EVR_628/>
+
+- You can link text:
+  - I can write `Click [here](https://jcvdav.github.io/EVR_628/)` and get
+  - Click [here](https://jcvdav.github.io/EVR_628/)
+
+- You can link to an image:
+  - `![Caption (optional)](img/RStudio.png)`
+
+. . .
+
+![Caption (optional)](img/RStudio.png){width=10%}
+
+## Content: Lists
+
++-----------------------------------+---------------------------------+
+| Markdown Syntax                   | Output                          |
++===================================+=================================+
+| ``` markdown                      |                                 |
+| * unordered list                  | * unordered list                |
+|   + sub-item 1                    |   + sub-item 1                  |
+|   + sub-item 2                    |   + sub-item 2                  |
+|     - sub-sub-item 1              |     - sub-sub-item 1            |
+| ```                               |                                 |
++-----------------------------------+---------------------------------+
+| ``` markdown                      |                                 |
+| 1. ordered list                   |  1. ordered list                |
+| 2. item 2                         |  2. item 2                      |
+|    i) sub-item 1                  |     i) sub-item 1               |
+|       A.  sub-sub-item 1          |        A.  sub-sub-item 1       |
+| ```                               |                                 |
++-----------------------------------+---------------------------------+
+
+## Content: Tables
+
+You can build tables by hand
+
+. . .
+
+:::: {.columns}
+
+::: {.column width='50%'}
+``` markdown
+| Right | Left | Default | Center |
+|------:|:-----|---------|:------:|
+|   12  |  12  |    12   |    12  |
+|  123  |  123 |   123   |   123  |
+|    1  |    1 |     1   |     1  |
+```
+:::
+
+::: {.column width='50%'}
+| Right | Left | Default | Center |
+|------:|:-----|---------|:------:|
+|   12  |  12  |    12   |    12  |
+|  123  |  123 |   123   |   123  |
+|    1  |    1 |     1   |     1  |
+:::
+
+::::
+
+- The location of the `:` defines alignment of the cell contents
+- Although I prefer building them with code
+
+## Content: Equations are easy to include
+
+You use single dollar signs to have "inline" math:
+
+- `Pythagoras's theorem is $a^2 + b^2 = c^2$`
+- Pythagoras's theorem is $a^2 + b^2 = c^2$
+
+. . .
+
+Or double dollar signs to have "display" math:
+
+`$$x = -b \pm \frac{\sqrt{(b^2 - 4ac)}}{2a}$$`
+
+renders as
+
+$$x = -b \pm \frac{\sqrt{(b^2 - 4ac)}}{2a}$$
+
+## Content: Others
+
+Full documentation [here](https://quarto.org/docs/authoring/markdown-basics.html) shows how to include:
+
+- videos
+- diagrams
+- callout blocks
+- Dividiers...
+
+## Content: Content produced by code
+
+You can embed R code that produces content in your Quarto file using code chunks:
+
+:::: {.columns}
+
+::: {.column width='50%'}
+```` markdown
+```r
+# Load packages
+library(EVR628tools)
+library(tidyverse)
+library(knitr)
+# Load data
+data("data_milton")
+# What am I doing here?
+max_wind <- data_milton |> 
+  mutate(date = date(iso_time)) |> 
+  group_by(date) |> 
+  summarize(max_wind = max(wind_speed))
+# Build a table
+kable(x = max_wind,
+      col.names = c("Date", "Max. wind speed (kts)"),
+      align = "ll")
+```
+````
+:::
+
+::: {.column width='50%'}
+
+```{r}
+#| echo: false
+library(EVR628tools)
+library(tidyverse)
+library(knitr)
+
+data("data_milton")
+
+max_wind <- data_milton |> 
+  mutate(date = date(iso_time)) |> 
+  group_by(date) |> 
+  summarize(max_wind = max(wind_speed))
+
+kable(x = max_wind,
+      col.names = c("Date", "Max. wind speed (kts)"),
+      align = "ll")
+```
+
+:::
+
+::::
+
+## Content: Content produced by code
+
+It also works for figures:
+
+````markdown
+```r
+ggplot(data = max_wind,
+       aes(x = date, y = max_wind)) + 
+  geom_line() +
+  geom_point(size = 3) +
+  theme_bw() +
+  labs(x = "Date",
+       y = "Max. wind speed (kts)")
+```
+````
+
+```{r}
+#| echo: false
+#| fig-height: 3
+#| fig-width: 5
+#| fig-align: center
+ggplot(data = max_wind,
+       aes(x = date, y = max_wind)) + 
+  geom_line() +
+  geom_point(size = 3) +
+  theme_bw() +
+  labs(x = "Date",
+       y = "Max. wind speed (kts)")
+```
+
+
+# Let's build some slides
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

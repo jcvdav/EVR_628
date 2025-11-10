@@ -218,23 +218,34 @@ Students must complete any assigned readings and software tests before class. No
 ---
 
 ## Week 13, (Nov 10-14):
-**Programming** | slides
-- User-defined functions
-- Iteration with loops
-- Background jobs
-- Standardizing the environment with `.Rprofile`
+**Quarto markdown** | [slides](slides/13_quarto.qmd)
+- Intro to quarto markdown
+- Slides
+- Documents (html and pdf)
+- Build your website
+
+- [Link](slides/sample_slides.html) to sample slide deck we'll build
+- [Link](docs/sample_doc.html) to sample doc we'll build
 
 ## Week 14, (Nov 17-21)
-**Shiny Apps Framework** | slides
-- Reactive programming
-- UI / UX
-- Front-end _vs_ back-end
+**Programming** | slides
+- Background jobs
+- User-defined functions
+- Iteration with loops
 
 **Extensions** | slides
+- Standardizing the environment with `.Rprofile`
+- Shiny Apps Framework
 - Connecting to external databases with DBI
 - Animating with the `gganimate` package
 - Interactive maps with leaflet
 - Retrieving environmental datasets from the Internet (`gfwr`, `rerddap`)
+
+---
+
+**FINAL PROJECT:** _From cleaning to communicating_
+
+---
 
 ## *Week 15, (Nov 24-28)
 **Thanksgiving recess**
