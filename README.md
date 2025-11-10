@@ -218,7 +218,7 @@ Students must complete any assigned readings and software tests before class. No
 ---
 
 ## Week 13, (Nov 10-14):
-**Quarto markdown** | [slides](slides/13_quarto.qmd)
+**Quarto markdown** | [slides](slides/13_quarto.html)
 - Intro to quarto markdown
 - Slides
 - Documents (html and pdf)
