@@ -593,6 +593,63 @@ format: html
 <h1>Let’s build some slides</h1>
 
 </section>
+
+<section>
+<section id="lets-build-a-sebsite" class="title-slide slide level1 center">
+<h1>Let’s build a sebsite</h1>
+
+</section>
+<section id="building-a-website-with-quarto" class="slide level2">
+<h2>1) Building a website with Quarto</h2>
+<ol type="1">
+<li class="fragment">Project -&gt; New project -&gt; New Directory -&gt; Quarto Website</li>
+<li class="fragment">Give it a name. Perhaps call it <code>my_site</code> or <code>website</code> or something like that.</li>
+<li class="fragment">Check “Create a git repository” and uncheck “Visual editor”</li>
+<li class="fragment">Click create</li>
+<li class="fragment">All the project files will be available</li>
+<li class="fragment">Modify the <code>_quarto.yml</code> file so that the first three lines look like this:</li>
+</ol>
+<div class="fragment">
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource yml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb13-1"><a href=""></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb13-2"><a href=""></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
+<span id="cb13-3"><a href=""></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span><span class="co"> # You will need to add this line</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="7" type="1">
+<li class="fragment">Go to your build pane, and click “Render Website”</li>
+</ol>
+</div>
+<div class="fragment">
+<p>More info <a href="https://quarto.org/docs/websites/">here</a></p>
+</div>
+</section>
+<section id="sending-your-website-to-github" class="slide level2">
+<h2>2) Sending your website to GitHub</h2>
+<ol type="1">
+<li class="fragment">Go to GitHub.com</li>
+<li class="fragment">Start a new repo. I suggest you call it the same as your RStudio project (e.g.&nbsp;<code>my_site</code> or <code>website</code> or something like that)</li>
+<li class="fragment">DON’T add a README or a description. We’ll build an empty repo.</li>
+<li class="fragment">After you create it, you should see a screen with some git code:</li>
+</ol>
+<div class="fragment">
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href=""></a><span class="fu">git</span> remote add origin https://github.com/jcvdav/my_site.git</span>
+<span id="cb14-2"><a href=""></a><span class="fu">git</span> branch <span class="at">-M</span> main</span>
+<span id="cb14-3"><a href=""></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="5" type="1">
+<li class="fragment">Use the code above to push your rendered site (in your RStudio project) to the internet (on your GitHub repository at github.com)</li>
+</ol>
+</div>
+</section>
+<section id="publishing-your-sebsite" class="slide level2">
+<h2>3) Publishing your sebsite</h2>
+<ol type="1">
+<li class="fragment">Go to settings -&gt; Pages</li>
+<li class="fragment">Under branch, select <code>main</code>. And under folder select <code>/docs</code></li>
+<li class="fragment">You are good to go! Your site will be hosted at <code>username.github.io/repo_name</code></li>
+</ol>
+<div class="fragment">
+<p>More info <a href="https://quarto.org/docs/publishing/github-pages.html">here</a>.</p>
+
+</div>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="https://ucomm.miami.edu/_assets/images/tools-and-resources/signatures/png/um-horizontal-rgb.png" class="slide-logo"></p>

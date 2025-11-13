@@ -283,6 +283,57 @@ ggplot(data = max_wind,
 
 # Let's build some slides
 
+# Let's build a sebsite
+
+## 1) Building a website with Quarto
+
+1. Project -> New project -> New Directory -> Quarto Website
+2. Give it a name. Perhaps call it `my_site` or `website` or something like that.
+3. Check "Create a git repository" and uncheck "Visual editor"
+4. Click create
+5. All the project files will be available
+6. Modify the `_quarto.yml` file so that the first three lines look like this:
+
+. . .
+
+```yml
+project:
+  type: website
+  output-dir: docs # You will need to add this line
+```
+
+7. Go to your build pane, and click "Render Website"
+
+. . .
+
+More info [here](https://quarto.org/docs/websites/)
+
+## 2) Sending your website to GitHub
+
+1. Go to GitHub.com
+2. Start a new repo. I suggest you call it the same as your RStudio project (e.g. `my_site` or `website` or something like that)
+3. DON'T add a README or a description. We'll build an empty repo.
+4. After you create it, you should see a screen with some git code:
+
+. . .
+
+``` bash
+git remote add origin https://github.com/jcvdav/my_site.git
+git branch -M main
+git push -u origin main
+```
+
+5. Use the code above to push your rendered site (in your RStudio project) to the internet (on your GitHub repository at github.com)
+
+## 3) Publishing your sebsite
+
+1. Go to settings -> Pages
+2. Under branch, select `main`. And under folder select `/docs`
+3. You are good to go! Your site will be hosted at `username.github.io/repo_name`
+
+. . .
+
+More info [here](https://quarto.org/docs/publishing/github-pages.html).
 
 
 
