@@ -1,5 +1,5 @@
 ---
-subtitle: "Scaling up your data visualizations (Part 1)"
+title: "Scaling up your data visualizations (Part 1)"
 ---
 
 ```{r}

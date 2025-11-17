@@ -1,5 +1,5 @@
 ---
-subtitle: "Factors, Dates, and Strings of Text"
+title: "Factors, Dates, and Strings of Text"
 echo: true
 code-fold: false
 ---

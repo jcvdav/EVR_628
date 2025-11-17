@@ -1,5 +1,5 @@
 ---
-subtitle: "Coding principles"
+title: "Coding principles"
 ---
 
 ```{r}

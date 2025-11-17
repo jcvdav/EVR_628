@@ -1,5 +1,5 @@
 ---
-subtitle: "Week 1: Introduction to Data Science and RStudio IDE"
+title: "Week 1: Introduction to Data Science and RStudio IDE"
 ---
 
 # Rules of the Game

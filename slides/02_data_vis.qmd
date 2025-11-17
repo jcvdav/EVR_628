@@ -1,5 +1,5 @@
 ---
-subtitle: "Week 2: Data visualization"
+title: "Week 2: Data visualization"
 ---
 
 ```{r}

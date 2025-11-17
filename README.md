@@ -234,7 +234,7 @@ Students must complete any assigned readings and software tests before class. No
 - [Link](docs/sample_doc.html) to sample doc we'll build
 
 ## Week 14, (Nov 17-21)
-**Programming** | slides
+**Programming** | [slides](slides/13_programming)
 - Background jobs
 - User-defined functions
 - Iteration with loops
@@ -243,6 +243,7 @@ Students must complete any assigned readings and software tests before class. No
 - Assigned readings
   - R4DS [CH25: Functions](https://r4ds.hadley.nz/functions.html)
   - R4DS [CH27: `for` loops](https://r4ds.hadley.nz/base-R.html#for-loops) (Section 27.5 only)
+- [Link](docs/14_live.html) to document for live coding session
 
 **Extensions** | slides
 - Standardizing the environment with `.Rprofile`

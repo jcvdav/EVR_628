@@ -1,0 +1,477 @@
+---
+title: "Functions and for loops"
+---
+
+## Motivation
+
+- You have learned how to use different packages within the `tidyverse`, and two crucial packages for spatial data (`sf` and `terra`)
+- These should help you work on ~80% of your use cases
+- What about the other 20%?
+- Other packages may help
+- `do_science()` doesn't exist
+- You need to be able to build your own code, from the ground up
+
+## Two crucial things to learn
+
+1. How to wrap multiple lines of code into a single function call
+2. How to repeat the same calculation (perhaps with small tweaks) many times
+
+. . .
+
+> The goal: To do this with as few keystrokes as possible, and in a reproducible way
+
+# Functions
+
+## Functions
+
+## When Might We Want to Build One?
+
+. . .
+
+> Whenever you’ve copied and pasted a block of code more than twice (i.e. you now have three copies of the same code).
+>
+> -- @Wickham2023-aa
+
+. . .
+
+
+
+
+When the function you want doesn't exist
+
+## The General Approach
+
+1. Analyze the code you are repeating. This will be your `function body`
+2. Identify what parts are **constant** and what parts _vary_. The ones that vary will be `arguments`
+
+. . .
+
+This will allow you to have the basic architecture for your function
+
+## An Example {.scrollable}
+
+:::: {.columns}
+
+::: {.column width='50%'}
+
+
+```{r}
+#| echo: false
+# Load packages
+library(tidyverse)
+library(EVR628tools)
+# Load data
+data("data_lionfish")
+```
+
+
+```{r}
+#| fig-height: 2
+#| fig-width: 3.5
+ggplot(data = data_lionfish,
+       mapping = aes(x = total_length_mm,
+                     y = total_weight_gr)) +
+  geom_point() +
+  labs(x = "Total length (mm)",
+       y = "Total weight (gr)") +
+  theme(axis.line = element_line(color = "black",
+                                 linewidth = 0.5),
+        axis.ticks = element_line(color = "black", 
+                                  linewidth = 0.5),
+        panel.grid.major = element_line(color = "black",
+                                        linewidth = 0.5),
+        panel.grid.minor = element_line(color = "black",
+                                        linewidth = 0.5),
+        panel.background = element_rect(fill = "lightblue"),
+        axis.text = element_text(color = "black"),
+        text = element_text(color = "black",
+                            face = "bold",
+                            size = 12))
+
+ggplot(data = data_lionfish,
+       mapping = aes(x = total_length_mm)) +
+  geom_histogram() +
+  labs(x = "Total Length (mm)",
+       y = "N") +
+  theme(axis.line = element_line(color = "black",
+                                 linewidth = 0.5),
+        axis.ticks = element_line(color = "black", 
+                                  linewidth = 0.5),
+        panel.grid.major = element_line(color = "black",
+                                        linewidth = 0.5),
+        panel.grid.minor = element_line(color = "black",
+                                        linewidth = 0.5),
+        panel.background = element_rect(fill = "lightblue"),
+        axis.text = element_text(color = "black"),
+        text = element_text(color = "black",
+                            face = "bold",
+                            size = 14))
+```
+
+
+:::
+
+::: {.column width='50%'}
+
+```{r}
+#| fig-height: 2
+#| fig-width: 3.5
+ggplot(data = data_lionfish,
+       mapping = aes(x = depth_m,
+                     y = total_length_mm)) +
+  geom_smooth(method = "lm") +
+  labs(x = "Depth (m)",
+       y = "Total Length (mm)") +
+  theme(axis.line = element_line(color = "black",
+                                 linewidth = 0.5),
+        axis.ticks = element_line(color = "black", 
+                                  linewidth = 0.5),
+        panel.grid.major = element_line(color = "black",
+                                        linewidth = 0.5),
+        panel.grid.minor = element_line(color = "black",
+                                        linewidth = 0.5),
+        panel.background = element_rect(fill = "lightblue"),
+        axis.text = element_text(color = "black"),
+        text = element_text(color = "black",
+                            face = "bold",
+                            size = 10))
+
+ggplot(data = data_lionfish,
+       mapping = aes(x = depth_m,
+                     y = total_weight_gr)) +
+  geom_bin_2d() +
+  labs(x = "Depth (mm)",
+       y = "Total weight (gr)") +
+  theme(axis.line = element_line(color = "black",
+                                 linewidth = 0.5),
+        axis.ticks = element_line(color = "black", 
+                                  linewidth = 0.5),
+        panel.grid.major = element_line(color = "black",
+                                        linewidth = 0.5),
+        panel.grid.minor = element_line(color = "black",
+                                        linewidth = 0.5),
+        panel.background = element_rect(fill = "lightblue"),
+        axis.text = element_text(color = "black"),
+        text = element_text(color = "black",
+                            face = "bold",
+                            size = 14))
+```
+
+:::
+
+::::
+
+
+## An Example
+
+- You spent 10 hours building these and other 10 "beautiful" figures
+
+- And now you are asked to modify the theme to use thinner lines and a light gray background
+
+- **Q:** How many changes do you have to make to your code?
+
+- **A:** 2 changes for each plot, with 12 plots = chaos
+
+- But what if you had a function that describes your own theme?
+
+- Then you would only need to make changes in 1 location
+
+## Parts of a Function 
+
+A function has three components:
+
+::: {.nonincremental}
+
+1. A name
+2. Arguments
+3. Body
+
+:::
+
+```{r}
+#| code-fold: false
+#| code-line-numbers: "1|2|"
+name <- function(arguments){ # What changes
+  body # What your function does
+}
+```
+
+## Let's build our own theme
+
+Look at the code again
+
+:::: {.columns}
+
+::: {.column width='50%'}
+```{r}
+#| eval: false
+#| code-fold: false
+ggplot(data = data_lionfish,
+       mapping = aes(x = total_length_mm,
+                     y = total_weight_gr)) +
+  geom_point() +
+  labs(x = "Total length (mm)",
+       y = "Total weight (gr)") +
+  theme(axis.line = element_line(color = "black",
+                                 linewidth = 0.5),
+        axis.ticks = element_line(color = "black", 
+                                  linewidth = 0.5),
+        panel.grid.major = element_line(color = "black",
+                                        linewidth = 0.5),
+        panel.grid.minor = element_line(color = "black",
+                                        linewidth = 0.5),
+        panel.background = element_rect(fill = "lightblue"),
+        axis.text = element_text(color = "black"),
+        text = element_text(color = "black",
+                            face = "bold",
+                            size = 12))
+```
+
+:::
+
+::: {.column width='50%'}
+```{r}
+#| eval: false
+#| code-fold: false
+ggplot(data = data_lionfish,
+       mapping = aes(x = depth_m,
+                     y = total_length_mm)) +
+  geom_smooth(method = "lm") +
+  labs(x = "Depth (m)",
+       y = "Total Length (mm)") +
+  theme(axis.line = element_line(color = "black",
+                                 linewidth = 0.5),
+        axis.ticks = element_line(color = "black", 
+                                  linewidth = 0.5),
+        panel.grid.major = element_line(color = "black",
+                                        linewidth = 0.5),
+        panel.grid.minor = element_line(color = "black",
+                                        linewidth = 0.5),
+        panel.background = element_rect(fill = "lightblue"),
+        axis.text = element_text(color = "black"),
+        text = element_text(color = "black",
+                            face = "bold",
+                            size = 10)) # Font size changes to accomodate text
+```
+
+:::
+
+::::
+
+- Step 1: What are we repeating?
+- Step 2: Within that code, what is constant and what changes?
+
+## Test
+
+## Build a function {.scrollable}
+
+```{r}
+#| code-fold: false
+# Function name
+my_theme <- function(text_size = 12) { # Function arguments
+  # Function body
+  theme(axis.line = element_line(color = "black",
+                                   linewidth = 0.1),
+          axis.ticks = element_line(color = "black", 
+                                    linewidth = 0.1),
+          panel.grid.major = element_line(color = "black",
+                                          linewidth = 0.1),
+          panel.grid.minor = element_line(color = "black",
+                                          linewidth = 0.1),
+          panel.background = element_rect(fill = "gray99"),
+          axis.text = element_text(color = "black"),
+          text = element_text(color = "black",
+                              face = "bold",
+                              size = text_size)) # Note how my argument isbeing used down here
+}
+
+```
+
+
+## We Can Now Use Our Function
+
+:::: {.columns}
+
+::: {.column width='50%'}
+```{r}
+#| fig-height: 2
+#| fig-width: 3.5
+#| code-fold: false
+#| code-line-numbers: "|7"
+ggplot(data = data_lionfish,
+       mapping = aes(x = total_length_mm,
+                     y = total_weight_gr)) +
+  geom_point() +
+  labs(x = "Total length (mm)",
+       y = "Total weight (gr)") +
+  my_theme(text_size = 10)
+```
+
+:::
+
+::: {.column width='50%'}
+```{r}
+#| fig-height: 2
+#| fig-width: 3.5
+#| code-fold: false
+#| code-line-numbers: "|7"
+ggplot(data = data_lionfish,
+       mapping = aes(x = depth_m,
+                     y = total_length_mm)) +
+  geom_smooth(method = "lm") +
+  labs(x = "Depth (m)",
+       y = "Total Length (mm)") +
+  my_theme(text_size = 8)
+```
+
+:::
+
+::::
+
+## Another example
+
+- Functions are incredibly useful for computer simulations
+- Imagine you want to simulate the growth of a population
+- The simplest mathematical model of density-dependent growth is:
+
+. . .
+
+$$N_{t+1} = N_t + \left(rN_t\left(1 - \frac{N_t}{K}\right)\right)$$
+
+. . .
+
+> Read this as: The population size $N$ at time $t+1$ is the population size today ($N_t$) plus whatever growth I get. This growth depends on the intrinsic population growth rate $r$ and the density-dependent term, which balances the population size today with the carrying capacity $K$
+
+## How NOT to simulate population growth
+
+:::: {.columns}
+
+::: {.column width='50%'}
+
+```{r}
+#| code-fold: false
+n_0 <- 10
+n_1 <- n_0 + (1.05 * n_0 * (1 - (n_0 / 100)))
+n_2 <- n_1 + (1.05 * n_1 * (1 - (n_1 / 100)))
+n_3 <- n_2 + (1.05 * n_2 * (1 - (n_2 / 100)))
+n_4 <- n_3 + (1.05 * n_3 * (1 - (n_3 / 100)))
+n_5 <- n_4 + (1.05 * n_4 * (1 - (n_4 / 100)))
+n_6 <- n_5 + (1.05 * n_5 * (1 - (n_5 / 100)))
+n_7 <- n_6 + (1.05 * n_6 * (1 - (n_6 / 100)))
+n_8 <- n_7 + (1.05 * n_7 * (1 - (n_7 / 100)))
+n_9 <- n_8 + (1.05 * n_8 * (1 - (n_8 / 100)))
+n_10 <- n_9 + (1.05 * n_9 * (1 - (n_9 / 100)))
+```
+
+:::
+
+::: {.column width='50%'}
+
+```{r}
+#| echo: false
+tibble(t = 0:10,
+       N = c(n_0, n_1, n_2, n_3, n_4, n_5, n_6, n_7, n_8, n_9, n_10)) |> 
+  ggplot(aes(x = t,
+             y = N)) + 
+  geom_line() +
+  geom_point() +
+  my_theme(text_size = 15)
+```
+
+
+:::
+
+::::
+
+- Step 1: What are we repeating?
+- Step 2: Within that code, what is constant and what changes?
+
+## Build a Function for Population Growth
+
+```{r}
+#| code-fold: false
+# Function name
+pop_grow <- function(N, r = 1.05, K = 100) { # Function arguments
+  N_next <- N + (r * N * (1 - (N / K))) # Function body
+  return(N_next) # This is a formality, but highly recommended
+}
+```
+
+. . .
+
+This allows me to do:
+
+```{r}
+#| code-fold: false
+n_0 <- 10
+n_1 <- pop_grow(N = n_0)
+n_2 <- pop_grow(N = n_1)
+n_3 <- pop_grow(N = n_2)
+n_4 <- pop_grow(N = n_3)
+n_5 <- pop_grow(N = n_4)
+n_6 <- pop_grow(N = n_5)
+n_7 <- pop_grow(N = n_6)
+n_8 <- pop_grow(N = n_7)
+# and so forth...
+```
+
+- This is still not good enough
+- What If I have to simulate my population for 50 years?
+- Do I type 50 lines of code?
+
+
+
+<!-- ## Ideas for functions -->
+
+<!-- 1. Load WCPFC or IATTC data and fix coordinates -->
+<!-- 2. Fix EU RNPA? -->
+
+<!-- - Themes in your ggplots -->
+<!-- - Your own color palette -->
+<!-- -  -->
+
+# For loops
+
+## For loops
+
+- Allow us to automatically repeat operations without having to write the same code multiple times
+
+. . .
+
+The basic structure is this:
+
+```{r}
+#| eval: false
+#| code-fold: false
+for (index in list_of_possible_values_for_index) {
+  Do something with my index
+}
+```
+
+## For loops
+
+```{r}
+#| code-fold: false
+N <- 10 # Start with a population of 10
+for (i in 2:50) { # For every value of i, where i can be 0, 1, 2, 3, 4... 50
+  N <- pop_grow(N = N) # Overwrite my population
+  print(N) # Print the pop size to the console
+}
+```
+
+## For loops, leveraging the index
+
+```{r}
+#| code-fold: false
+N <- numeric(50)
+N[1] <- 10 # Start with a population of 10
+for (i in 1:49) { # For every value of i, where i can be 0, 1, 2, 3, 4... 50
+  N[i+1] <- pop_grow(N = N[i]) # Overwrite my population
+}
+print(N) # Print the pop size to the console
+```
+
+
+
+# References
+

@@ -1,5 +1,5 @@
 ---
-subtitle: "Data Management and Transformation"
+title: "Data Management and Transformation"
 ---
 
 ```{r}

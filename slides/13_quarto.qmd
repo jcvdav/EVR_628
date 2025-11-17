@@ -1,5 +1,5 @@
 ---
-subtitle: "Quarto markdown"
+title: "Quarto markdown"
 ---
 
 # Quarto markdown

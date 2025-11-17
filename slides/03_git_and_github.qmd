@@ -1,5 +1,5 @@
 ---
-subtitle: "Keeping track of your code with Git and GitHub"
+title: "Keeping track of your code with Git and GitHub"
 ---
 
 ## Learning Objectives

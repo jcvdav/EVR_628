@@ -1,5 +1,5 @@
 ---
-subtitle: "Data Tidying and Merging"
+title: "Data Tidying and Merging"
 ---
 
 ```{r}

@@ -1,5 +1,5 @@
 ---
-subtitle: "Working with spatial data in R"
+title: "Working with spatial data in R"
 echo: true
 code-fold: true
 ---
