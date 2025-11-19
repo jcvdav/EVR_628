@@ -1,0 +1,217 @@
+---
+title: "Final points"
+---
+
+# Student evaluations
+
+Go to [ce.miami.edu](https://ce.miami.edu) and complete your student evaluations
+
+# What You Have Learned
+
+## Intro to _Environmental_ Data Science
+
+![Modified from @Wickham2023-aa](https://r4ds.hadley.nz/diagrams/data-science/base.png){.nostretch fig-align="center" width="95%"}
+
+## Your Data Science Toolkit
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+::: {.fragment}
+
+**Core Foundations**
+
+- R & RStudio: Projects, packages, and the R environment
+- Version Control: Git & GitHub for reproducible workflows
+- Coding Principles: Objects, classes, pipes (`|>`), and data structures
+
+:::
+
+::: {.fragment}
+
+**Data Management**
+
+- File organization and project structure
+- Reading/writing: CSV, Excel, RDS files
+- Relative vs absolute paths
+
+:::
+
+:::
+
+::: {.column width="50%"}
+
+::: {.fragment}
+
+**Data Transformation**
+
+- `{dplyr}`: `filter()`, `select()`, `mutate()`, `group_by()`, `summarize()`
+- `{tidyr}`: `pivot_longer()`, `pivot_wider()`, joins
+- Data cleaning and wrangling pipelines
+
+:::
+
+::: {.fragment}
+
+**Visualization**
+
+- `{ggplot2}`: Grammar of graphics, geoms, aesthetics
+- Advanced: Facets, layering, themes, color schemes
+- Visualization principles and best practices
+
+:::
+
+:::
+
+::::
+
+## Specialized Tools for Environmental Data
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+::: {.fragment}
+
+**Spatial Data Analysis**
+
+- `{sf}`: Vector data (points, lines, polygons)
+- `{terra}`: Raster data
+- Spatial operations and mapping
+
+:::
+
+::: {.fragment}
+
+**Specialized Data Types**
+
+- `{forcats}`: Working with factors and categorical data
+- `{lubridate}`: Dates and times
+- `{stringr}`: Text manipulation and regular expressions
+
+:::
+
+:::
+
+::: {.column width="50%"}
+
+::: {.fragment}
+
+**Reproducible Research**
+
+- `{Quarto}`: Documents, slides, websites
+- Integrating code, text, and outputs
+- Professional presentation of results
+
+:::
+
+::: {.fragment}
+
+**Programming Fundamentals**
+
+- Writing custom functions
+- Iteration with `for` loops
+- Building reusable code
+
+:::
+
+:::
+
+::::
+
+## How to Continue Using These Skills
+
+These tools are not just for this course—they're industry standards you'll use throughout your career:
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+::: {.fragment}
+
+**In Research & Academia**
+
+- Reproducible analyses for publications
+- Data management for long-term projects
+- Collaborative research with version control
+
+:::
+
+::: {.fragment}
+
+**In Industry & Government**
+
+- Data analysis and reporting
+- Environmental monitoring and assessment
+- Policy support and decision-making
+
+:::
+
+:::
+
+::: {.column width="50%"}
+
+::: {.fragment}
+
+**Building Your Career**
+
+- Showcase projects on GitHub
+- Create impactful documents with Quarto
+- Demonstrate data science skills to employers
+
+:::
+
+:::
+
+::::
+
+
+## Continue learning
+
+::: {.fragment}
+
+**Practice**
+
+Mastery comes through practice. Keep using these tools in your research, internships, and personal projects!
+
+:::
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+::: {.fragment}
+
+**Community**
+
+- [IDSC](https://idsc.miami.edu/)
+- [EcoDataScience](https://github.com/rfordatascience/tidytuesday) at UCSB... you should start your own
+- [TidyTuesday](https://github.com/rfordatascience/tidytuesday)
+- [`posit::conf(2026)`^[formerly `rstudio::conf(yyyy)`]](https://posit.co/conference/)
+
+:::
+
+:::
+
+::: {.column width="50%"}
+
+::: {.fragment}
+
+**Other resources**
+
+- [Advanced R](https://adv-r.hadley.nz/), by Hadley
+- [TowardsDataScience](https://towardsdatascience.com/)
+
+:::
+
+:::
+
+::::
+
+# References
+
+
+
+
+

@@ -245,7 +245,7 @@ Students must complete any assigned readings and software tests before class. No
   - R4DS [CH27: `for` loops](https://r4ds.hadley.nz/base-R.html#for-loops) (Section 27.5 only)
 - [Link](docs/14_live.html) to document for live coding session
 
-**Extensions** | slides
+**Extensions** | [slides](15_wrap_up.html)
 - Standardizing the environment with `.Rprofile`
 - Shiny Apps Framework
 - Connecting to external databases with DBI

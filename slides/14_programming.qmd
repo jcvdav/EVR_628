@@ -261,8 +261,6 @@ ggplot(data = data_lionfish,
 - Step 1: What are we repeating?
 - Step 2: Within that code, what is constant and what changes?
 
-## Test
-
 ## Build a function {.scrollable}
 
 ```{r}
@@ -470,7 +468,6 @@ for (i in 1:49) { # For every value of i, where i can be 0, 1, 2, 3, 4... 50
 }
 print(N) # Print the pop size to the console
 ```
-
 
 
 # References
