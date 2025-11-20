@@ -18,7 +18,7 @@ Remember that the final goal is to have a GitHub repository where you can showca
 
 You should produce a quarto markdown document that meets the following:
 
-- [ ] (10%) Is called `final_report.qmd` or `final_presentation.qmd` and is saved to your `docs/` folder^[You might need to create this folder] ^[Remember that you will have to use the `here()` function from the `here` package.]. Presentations must use the revealjs output. Documents may be html or pdf.
+- [ ] (10%) Is called `final_report.qmd` or `final_presentation.qmd` and is saved to your root directoryr. Presentations must use the revealjs output. Documents may be html or pdf.
 - [ ] (10%) The `YAML` header includes:
     - [ ] A clear and concise title
     - [ ] A subtitle

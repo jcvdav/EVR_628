@@ -96,18 +96,18 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Task:</strong> Use quarto markdown to produce a document (presentation or report) highlighting your results. Then, make sure your GitHub repository is organized, clean, and ready to be shared.</p>
 <p>You should produce a quarto markdown document that meets the following:</p>
 <ul class="task-list">
-<li><label><input type="checkbox">(10%) Is called <code>final_report.qmd</code> or <code>final_presentation.qmd</code> and is saved to your <code>docs/</code> folder<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Presentations must use the revealjs output. Documents may be html or pdf.</label></li>
+<li><label><input type="checkbox">(10%) Is called <code>final_report.qmd</code> or <code>final_presentation.qmd</code> and is saved to your root directoryr. Presentations must use the revealjs output. Documents may be html or pdf.</label></li>
 <li><label><input type="checkbox">(10%) The <code>YAML</code> header includes:</label>
 <ul class="task-list">
 <li><label><input type="checkbox">A clear and concise title</label></li>
 <li><label><input type="checkbox">A subtitle</label></li>
 <li><label><input type="checkbox">Your full name</label></li>
 </ul></li>
-<li><label><input type="checkbox">(50%) Have the following section headers / slides: Introduction<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, Objective(s)<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>, Data sources<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>, Data processing<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>, Main findings<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>, and References<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>. Each section should have a brief description. One paragraph may be enough, but feel free to write as much as you need to.</label></li>
-<li><label><input type="checkbox">(10%) You include at least two figures<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a>:</label>
+<li><label><input type="checkbox">(50%) Have the following section headers / slides: Introduction<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, Objective(s)<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, Data sources<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, Data processing<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>, Main findings<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>, and References<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>. Each section should have a brief description. One paragraph may be enough, but feel free to write as much as you need to.</label></li>
+<li><label><input type="checkbox">(10%) You include at least two figures<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>:</label>
 <ul class="task-list">
 <li><label><input type="checkbox">One of those <strong>must</strong> be the map from Assignment 4. The other one may be one from Assignment 3, or a figure that you generate directly in the document.</label></li>
-<li><label><input type="checkbox">All figures should include a figure caption.<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a></label></li>
+<li><label><input type="checkbox">All figures should include a figure caption.<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a></label></li>
 </ul></li>
 <li><label><input type="checkbox">(5%) You must use <a href="https://quarto.org/docs/computations/inline-code.html">inline code</a> at least once to present information from your data.</label></li>
 <li><label><input type="checkbox">(5%) No code or code-related warnings or messages appear in your final product.</label></li>
@@ -120,16 +120,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>You might need to create this folder<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Remember that you will have to use the <code>here()</code> function from the <code>here</code> package.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>Your introduction should give your reader background information.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>Your objective should state the question you seek to answer. You wrote something related to it in your README during Assignment 1.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5"><p>Where do your data come from? How many data sets do you have? What are the types of variables included in your data?<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn6"><p>How did you go from raw data to meeting your objectives? What filters or data modifications did your perform?<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn7"><p>The answer to your questions<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn8"><p>If you cite work, I suggest that you leverage quarto’s <a href="https://quarto.org/docs/authoring/citations.html">automatic referencing</a><a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn9"><p>Read more about figure sizing <a href="https://quarto.org/docs/authoring/figures.html#figure-sizing">here</a>.<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn10"><p>If you are producing a PDF, you may want to read about <a href="https://quarto.org/docs/authoring/figures.html#figure-position">figure position</a> in quarto markdown’s documentation.<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Your introduction should give your reader background information.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Your objective should state the question you seek to answer. You wrote something related to it in your README during Assignment 1.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Where do your data come from? How many data sets do you have? What are the types of variables included in your data?<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>How did you go from raw data to meeting your objectives? What filters or data modifications did your perform?<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>The answer to your questions<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>If you cite work, I suggest that you leverage quarto’s <a href="https://quarto.org/docs/authoring/citations.html">automatic referencing</a><a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Read more about figure sizing <a href="https://quarto.org/docs/authoring/figures.html#figure-sizing">here</a>.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>If you are producing a PDF, you may want to read about <a href="https://quarto.org/docs/authoring/figures.html#figure-position">figure position</a> in quarto markdown’s documentation.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main>
 <!-- /main column -->
