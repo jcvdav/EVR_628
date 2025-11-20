@@ -6,6 +6,8 @@ title: "Final points"
 
 Go to [ce.miami.edu](https://ce.miami.edu) and complete your student evaluations
 
+# Final project
+
 # What You Have Learned
 
 ## Intro to _Environmental_ Data Science
