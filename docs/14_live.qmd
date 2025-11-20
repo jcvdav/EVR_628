@@ -167,7 +167,7 @@ site_histogram(data = data_lionfish,
 
 
 
-# Part 2: `foor` loops
+# Part 2: `for` loops
 
 We'll do this one together.
 
