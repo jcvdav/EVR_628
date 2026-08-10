@@ -1,8 +1,8 @@
 source "https://rubygems.org"
 
-# This installs the exact, modern environment used by GitHub Pages
 gem "github-pages", group: :jekyll_plugins
+gem "jekyll-remote-theme"
 
-# Required helper gems for modern Ruby environments
-gem "webrick"
-gem "rexml"
+group :jekyll_plugins do
+  gem "jekyll-remote-theme"
+end 
