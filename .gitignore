@@ -36,3 +36,6 @@ _site/
 Gemfile.lock
 
 /.quarto/
+.posit/assistant
+
+**/*.quarto_ipynb

@@ -20,11 +20,11 @@ Yes, you'll need to install two pieces of software because each does different t
 
 > **But I already have R and RStudio in my computer. Should I still do it?**
 
-Yes. I'm glad to hear you already have them. Please make sure you install the latest version of both. The class will flow better if everyone in the classroom has the same versions of R and RStudio.
+Yes. I'm glad to hear you already have them. Please make sure you install the **latest** version of both. The class will flow better if everyone in the classroom has the same versions of R and RStudio.
 
 # 2. Installation instructions
 
-There are two tabs below. One with instructions to install R and one for R Studio. You can always click on an image to make it show in full screen mode.
+There are **two tabs** below. One with instructions to install R and one for R Studio. Follow the instructions for R and then scroll back up and follow the instructions for R Studio.
 
 :::: {.panel-tabset}
 
@@ -33,9 +33,8 @@ There are two tabs below. One with instructions to install R and one for R Studi
 The first step is to install R on your laptop. It doesn't matter if you are running Windows, MacOS, or some Linux distro^[If you are using Linux, I assume you know what you are doing and you'll be able to install R using whatever package manager you prefer.], but you will need to have admin privileges. If you own your laptop, then you _should_ have admin privileges.
 
 ### MacOS and Windows users:
-1. Click on [this link](https://posit.co/download/rstudio-desktop/)
-2. Under the label "1: Install R" you will see a blue button that says "DOWNLOAD AND INSTALL R". Click on it.
-3. You'll be taken to a [new page](https://cran.rstudio.com/). At the top of the page you will see a box with three links. Click the version link that matches your machine.
+1. Click on [this link](https://archive.linux.duke.edu/cran/)
+2. You'll be taken to "The Comprehensive R Archive Network" or CRAN. At the top of the page you will see a box with three links. Click the version that matches your machine.
 
 ![](img/1_install_r.png)
 
@@ -43,11 +42,11 @@ The first step is to install R on your laptop. It doesn't matter if you are runn
 
 #### On MacOS
 
-4. Determine which processor (chip) your laptop has by using the spotlight search function (`Cmd` + `Space bar`) and type "About this mac". The screenshot below shows my desktop has the Apple M2 Ultra chip (Apple silicon), while my laptop has an Intel processor (Inter Core i9).
+4. Determine which processor (chip) your laptop has by using the spotlight search function (`Cmd` + `Space bar`) and type "About this mac". The screenshot below shows my desktop has the Apple M2 Ultra chip (Apple silicon), while my laptop has an Intel processor (Intel Core i9).
 
 ![](img/2_about_this_mac.png){width=30%}![](img/2b_about_this_mac.png){width=28%}
 
-5. Click on the version of R that matches your processor. On my desktop I clicked on `R-4.5.1-arm64.pkg`.
+5. Click on the version of R that matches your processor. On my desktop I clicked on `R-4.6.1-arm64.pkg`.
 
 
 #### On Windows
@@ -56,7 +55,7 @@ The first step is to install R on your laptop. It doesn't matter if you are runn
 
 ![](img/3_windows.png)
 
-5. You will be taken to a new page. Click on the download link at the top, which says "Download R-44.5.1 for Windows". A file called `R-4.5.1-win.exe` will download.
+5. You will be taken to a new page. Click on the download link at the top, which says "Download R-4.6.1 for Window". A file called `R-4.6.1-win.exe` will download.
 
 ::::
 
@@ -111,18 +110,18 @@ Do not attempt to install RStudio if you have not installed R!
 # 3. Testing installations
 
 ::: {.callout-important}
-Do not attempt to test installations until you have installed R **AND** RStudio! Go back up and make sure you've gone through **both** sets of instructions under sections `2.1` and `2.2`.
+Do not attempt to test installations until you have installed R **AND** RStudio! Scroll back up and make sure you've gone through **both** sets of instructions under tabs for `2.1` and `2.2`.
 :::
 
 
 1. Open RStudio.
 
 ::: {.callout-note}
-I said "Open RStudio" not "Open R". The RStudio logo looks like this: ![](img/6_RStudio_logo.png){width=5%}, while the R logo looks like this: ![](img/7_R_logo.png){width=5%}. Use the first one.
+The RStudio logo looks like this: ![](img/6_RStudio_logo.png){width=5%}, while the R logo looks like this: ![](img/7_R_logo.png){width=5%}. Use the first one.
 :::
 
 
-2. You should see something like what's shown on the screenshopt below. Yours might look a bit different, but you **should see three or four main windows**.
+2. You should see something like what's shown on the screenshot below. Yours might look a bit different, but you **should see three or four main windows**.
 
 ![](img/8_RStudio.png)
 
@@ -130,6 +129,6 @@ I said "Open RStudio" not "Open R". The RStudio logo looks like this: ![](img/6_
 
 ![](img/9_R.png){width="50%"}
 
-4. If you have not been able to install or confirm installation, come meet me _before_ class.
+4. If you have not been able to install or confirm installation, come meet me _before_ our Tuesday August 25 class.
 
 

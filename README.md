@@ -37,9 +37,9 @@ By the end of the course, students will be comfortable working in R.
 
 # Course schedule
 
-Students must complete any assigned readings and software tests before class. Note that content, and timing of the content, is subject to change. Any changes will be clearly communicated via Canvas. The latest official academic calendar is [here](https://registrar.miami.edu/_assets/pdf/academic-calendar-fall-2025.pdf)  (* Week contains holiday).
+Students must complete any assigned readings and software tests before class. Note that content, and timing of the content, is subject to change. Any changes will be clearly communicated via Canvas. The latest official academic calendar is [here](https://registrar.miami.edu/_assets/pdf/academic-calendar-fall-2026.pdf)  (* Week contains holiday).
 
-## Week 1 (Aug 18-22)
+## Week 1 (Week of Aug 17)
 **Introduction to Data Science and RStudio IDE** | [slides](slides/01_intro.html)
 - Software installation and testing
 - Overview of R Studio IDE
@@ -50,8 +50,24 @@ Students must complete any assigned readings and software tests before class. No
 **Relevant links for the week**
 - [Instructions to install R and RStudio](docs/01_installing_R_RStudio.html)
 
-## Week 2 (Aug 25-29)
-**Data visualization** | [slides](slides/02_data_vis.html)
+## Week 2 (Week of Aug 24)
+**Keeping track of your code with Git and GitHub** | [slides](slides/02_git_and_github.html)
+- Reproducible research
+- Introduction to file structure
+- Version control with [Git](https://git-scm.com/downloads) and [GitHub](https://github.com/)
+- Building your first repository (hello world!)
+
+**Relevant links for the week**
+- [Instructions to install git and create GitHub account](docs/02_installing_git.html)
+- Assigned readings:
+  - Pereira-Braga et al 2023 ["Not just for programmers: How GitHub can accelerate collaborative and reproducible research in ecology and evolution"](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.14108) _Methods in Ecology and Evolution_
+  - Stewart Lowndes et al 2017 ["Our path to better science in less time using open data science tools"](https://doi.org/10.1038/s41559-017-0160) _Nature Ecology and Evolution_
+- Other links: 
+  - [Happy Git with R](https://happygitwithr.com/)
+- [Link](https://jcvdav.github.io/EVR_628/docs/02_live.html) to document from live coding session
+
+## Week 3 (Week of Aug 31)
+**Data visualization** | [slides](slides/03_data_vis.html)
 - Types of visualization
 - Visualization principles
 - The grammar of graphics and the [`{ggplot2}` package](https://github.com/tidyverse/ggplot2)
@@ -65,20 +81,6 @@ Students must complete any assigned readings and software tests before class. No
   - IPCC [Visual Style Guide](https://www.ipcc.ch/site/assets/uploads/2022/09/IPCC_AR6_WGI_VisualStyleGuide_2022.pdf) by the IPCC
   - The [R Graph Gallery](https://r-graph-gallery.com/)
   - [Data-to-viz](https://www.data-to-viz.com/)
-- [Link](https://jcvdav.github.io/EVR_628/docs/02_live.html) to document from live coding session
-
-## *Week3 (Sep 1-5)
-**Keeping track of your code with Git and GitHub** | [slides](slides/03_git_and_github.html)
-- Reproducible research
-- Introduction to file structure
-- Version control with [Git](https://git-scm.com/downloads) and [GitHub](https://github.com/)
-- Building your first repository (hello world!)
-
-**Relevant links for the week**
-- [Instructions to install git and create GitHub account](docs/03_installing_git.html)
-- Other links: 
-  - Pereira-Braga et al ["Not just for programmers: How GitHub can accelerate collaborative and reproducible research in ecology and evolution"](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.14108) Methods in Ecology and Evolution
-  - [Happy Git with R](https://happygitwithr.com/)
 - [Link](https://jcvdav.github.io/EVR_628/docs/03_live.html) to document from live coding session
 
 ---
@@ -87,7 +89,10 @@ Students must complete any assigned readings and software tests before class. No
 
 ---
 
-## Week 4 (Sep 8-12)
+## *Week 4 (Week of Sep 07)
+
+_Labor day on Monday Sept 7_
+
 **Good coding principles** | [slides](slides/04_coding_principles.html)
 - Code style and documentation
 - Classes, objects, variables, values
@@ -101,7 +106,7 @@ Students must complete any assigned readings and software tests before class. No
 - [Link](https://jcvdav.github.io/EVR_628/docs/04_live.html) to document from live coding session
 
 
-## Week 5 (Sep 15-19)
+## Week 5 (Week of Sep 14)
 **data.frames** | [slides](slides/04_coding_principles.html)
 - Indexing and subsetting data.frames
 - Useful functions in `{base}` and `{stats}`
@@ -111,7 +116,7 @@ Students must complete any assigned readings and software tests before class. No
 - [Link](https://jcvdav.github.io/EVR_628/docs/04_live.html) to document from live coding session
 
 
-## Week 6 (Sep 22-26)
+## Week 6 (Week of Sep 21)
 **Data management and transformation** | [slides](slides/06_data_management.html)
 - Relative vs. absolute paths
 - Reading and writing tabular data (`*csv` and `*.rds`)
@@ -125,7 +130,7 @@ Students must complete any assigned readings and software tests before class. No
   - R4DS [CH3: Data transformation](https://r4ds.hadley.nz/data-transform.html)
 - [Link](https://jcvdav.github.io/EVR_628/docs/06_live.html) to document from live coding session
 
-## Week 7 Sept 29-Oct 3
+## Week 7 (Week of Sep 28)
 **Data tidying and wrangling** | [slides](slides/07_data_wrangling.html)
 - Lengthening data with `tidyr`
 - Widening data with `tidyr`
@@ -139,7 +144,7 @@ Students must complete any assigned readings and software tests before class. No
   - Wickham, Hadley. 2014. “Tidy Data.” The Journal of Statistical Software 59. [http://www.jstatsoft.org/v59/i10/](http://www.jstatsoft.org/v59/i10/)
 - [Link](https://jcvdav.github.io/EVR_628/docs/07_live.html) to document from live coding session
 
-## Week 8 (Oct 6-10)
+## Week 8 (Week of Oct 05)
 **Scaling up your code and visualizations** | [slides](slides/08_scale_up_viz.html)
 - Refresh on layers: aesthetics and geometries
 - Themes with ggplot2
@@ -160,7 +165,10 @@ Students must complete any assigned readings and software tests before class. No
 ---
 
 
-## *Week 9 (Oct 13-17)
+## *Week 9 (Week of Oct 12)
+
+_Fall Recess is Oct 10-13_
+
 **Scaling up your code and visualizations 2** | [slides](slides/08_scale_up_viz.html)
 - Facetting
 - Summarizing data on the fly (`stat_summary`, `geom_smooth`)
@@ -168,7 +176,7 @@ Students must complete any assigned readings and software tests before class. No
 - quarto markdown
 
 
-## Week 10 (Oct 20-24)
+## Week 10 (Week of Oct 19)
 **Dealing with text, dates, and factors** | [slides](slides/10_factors_dates_text.html)
 - Ordering factors with `forcats`
 - Managing dates and times with `lubridate`
@@ -188,7 +196,7 @@ Students must complete any assigned readings and software tests before class. No
 
 ---
 
-## Week 11 (Oct 27-31)
+## Week 11 (Week of Oct 26)
 **Working with spatial data in R** | [slides](slides/11_spat_data_1.html)
 - Vector data and `sf`
 - Exploratory visualizations with `plot` and `mapview`
@@ -202,7 +210,7 @@ Students must complete any assigned readings and software tests before class. No
 - [Link](docs/11_live.html) to document for live coding session
 
 
-## Week 12 (Nov 3-7)
+## Week 12 (Week of Nov 02)
 **Visualizing spatial data** | [slides](slides/12_spat_data_2.html)
 - Raster data and `terra`
 - Attribute operations
@@ -219,7 +227,7 @@ Students must complete any assigned readings and software tests before class. No
 
 ---
 
-## Week 13, (Nov 10-14):
+## Week 13 (Week of Nov 09)
 **Quarto markdown** | [slides](slides/13_quarto.html)
 - Intro to quarto markdown
 - Slides
@@ -233,7 +241,7 @@ Students must complete any assigned readings and software tests before class. No
 - [Link](slides/sample_slides.html) to sample slide deck we'll build
 - [Link](docs/sample_doc.html) to sample doc we'll build
 
-## Week 14, (Nov 17-21)
+## Week 14 (Week of Nov 16)
 **Programming** | [slides](slides/14_programming)
 - Background jobs
 - User-defined functions
@@ -259,15 +267,18 @@ Students must complete any assigned readings and software tests before class. No
 
 ---
 
-## *Week 15, (Nov 24-28)
-**Thanksgiving recess**
+## *Week 15 (Week of Nov 23)
+_Thanksgiving recess is Nov 24-29_
 
 - No class
 
-## Week 16: (Dec 1-5)
-[**Final Exams week Dec 4 - Dec 10**](https://registrar.miami.edu/_assets/pdf/academic-calendar-fall-2025.pdf)
+## Week 16 (Week of Nov 30)
 
-- No lecture. No student presentations. Meet to review final projects.
+[**Final Exams week Dec 3 - Dec 9**](https://registrar.miami.edu/_assets/pdf/academic-calendar-fall-2026.pdf)
+
+## Week 17 (Week of Nov 30)
+
+Classes end after lecture on Tuesday Dec 1
 
 ## Reading resources
 - Books and manuals:

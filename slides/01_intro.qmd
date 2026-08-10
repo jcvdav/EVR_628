@@ -11,7 +11,7 @@ Course website at: [jcvdav.github.io/EVR_628](https://jcvdav.github.io/EVR_628/)
 ![](img/qrcode_jcvdav.github.io.png){.nostretch fig-align="center" width="400"}
 
 ## Grading
-- Assistance and participation: 50% - come _prepared_ to participate
+- Assistance and participation: 50%--come _prepared_ to participate
 - Assignments: 40% (n = 4; 10% each, graded as completed / not completed)
 - Final presentation / Data Science portfolio: 10%
 
@@ -29,11 +29,17 @@ Course website at: [jcvdav.github.io/EVR_628](https://jcvdav.github.io/EVR_628/)
 #### Hands-on sessions (Thursdays)
 - No slides, mostly live coding (you follow along)
 - Emphasis on _how_ of an approach
-- Expect the first sessions to be rocky as you get up to speed and we standardize our computers
+
 
 :::
 
 ::::
+
+. . .
+
+::: {.callout-warning}
+Expect the first sessions to be rocky as you get up to speed and we standardize our computers
+:::
 
 . . .
 
@@ -44,14 +50,14 @@ Make sure to complete assigned readings or software installation _before_ class.
 ## Interactions with Me
 
 - Office hours: Thursdays 10:15-12:00
-- Via email, please include `EVR628` in your subject heading
+- When emailing, please include `EVR628` in your subject heading
 
 ## Adaptive Approach
 
-- About three weeks in I will poll you (anonymously)
-- Then again 5 weeks in (anonymously)
-- Speed things up? Slow things down?
-- Are materials relevant to you?
+- About five weeks in I will poll you (anonymously)
+  - Speed things up? Slow things down?
+  - Are materials relevant to you?
+- Welcome feedback anytime throughout the course
 
 ## Quick Notes on Using These Slides
 
@@ -89,8 +95,9 @@ You will learn how to access, work with, and visualize many different types of e
 ::: {.column width='50%'}
 - **Access** public data repositories and build **animated visualizations**
 - Track fishing vessels form space and build maps of fishing activity
-- Develop [interactive web-based apps]( https://682wxr-juan0carlos-villasenor0derbez.shinyapps.io/gom_fishing/) to allow others explore your data
-- Create [slides with interactive content](https://jcvdav.github.io/EVR_662/slides/02_data_models_vector#/example-rosenstiel) for effective communication
+- Create [slides with interactive content](https://jcvdav.github.io/EVR_628/slides/11_spat_data_1.html#/example-rosenstiel) for effective communication
+- If time llows:
+  - Develop [interactive web-based apps]( https://682wxr-juan0carlos-villasenor0derbez.shinyapps.io/gom_fishing/) to allow others explore your data
 :::
 
 ::: {.column width='50%'}
@@ -98,6 +105,10 @@ You will learn how to access, work with, and visualize many different types of e
 :::
 
 ::::
+
+. . .
+
+You **will** be able to use R code to build **reproducible** pipelines
 
 
 ## How will we approach data science?
@@ -110,7 +121,7 @@ You will learn how to access, work with, and visualize many different types of e
 
 ![Modified from @Wickham2023-aa](https://r4ds.hadley.nz/diagrams/data-science/base.png){.nostretch fig-align="center" width="95%"}
 
-- Maybe also add "collect" before "import"
+- I would add "Collect" before "Import"
 
 :::
 
@@ -134,35 +145,26 @@ You will learn how to access, work with, and visualize many different types of e
 
 :::: {.columns}
 
-::: {.column width='33%'}
+::: {.column width='50%'}
 
-**EVR 509/609**
+**RSM 612**
+![](img/RSM612.png){.nostretch fig-align="center" width="600"}
 
-![](img/env_health.png){.nostretch fig-align="center" width="400"}
 :::
 
-::: {.column width='33%'}
+::: {.column width='50%'}
 
-**EVR 624**
-
-![](img/data_analysis.png){.nostretch fig-align="center" width="400"}
-:::
-
-::: {.column width='33%'}
-
-**RSM612 **
-![](img/RSM612.png){.nostretch fig-align="center" width="400"}
+**MBE 716**
+![](img/bayesian_stats.png){.nostretch fig-align="center" width="600"}
 
 :::
 
 ::::
 
 
-
-
-
-
 # About You
+
+(We'll only do this one if I am able to join live)
 
 - Preferred name
 - Year and program
@@ -210,9 +212,6 @@ tibble(skill = c("Coding", "Stats", "Domain"),
   theme_void() +
   theme(legend.position = "none")
 ```
-. . .
-
-This course only covers one bubble: Talking to your computer
 
 
 
@@ -242,6 +241,7 @@ BUT!
 - You _are_ allowed to use LLMs to **troubleshoot** your code
 - I discourage you from asking your LLM to make the assignments for you
 - At the end of this course you should be literate enough in R to do _some_ vibe coding
+- If you get really good, even _agentic_ coding
 :::
 
 ::: {.column width='50%'}
@@ -258,7 +258,7 @@ BUT!
 
 ## Motivation to learn scripting languages
 
-- Reproducibility:Data and code are increasingly required by publishers
+- Reproducibility: Data and code are increasingly required by publishers
   - [Economics](https://www.aeaweb.org/journals/data/data-code-policy)
   - [Natural sciences](https://www.nature.com/nature-portfolio/editorial-policies/reporting-standards)
 - Efficiency and flexibility
@@ -274,14 +274,14 @@ BUT!
 - [**RStudio**](https://posit.co/products/open-source/rstudio/) will be our _Integrated Development Environment_ (IDE)
 - [**Git**](https://git-scm.com/) will help us keep track of our code
 - [**GitHub**](https://github.com/) will allow us to share our code with the world
-- [**EVR628tools**](https://jcvdav.github.io/EVR628tools/) contains data and a few functions to support the course
+- [`{EVR628tools}`](https://jcvdav.github.io/EVR628tools/) contains data and a few functions to support the course
 
 . . .
 
 ::: {.callout-important collapse="true"}
 # You should have already done this
 ::: {.nonincremental}
-- Download and install the latest version of R (currently v 4.5.x) for [MacOS](https://cran.r-project.org/bin/macosx/) or [Windows](https://cran.r-project.org/bin/windows/base/)
+- Download and install the latest version of R (currently v 4.6.x) for [MacOS](https://cran.r-project.org/bin/macosx/) or [Windows](https://cran.r-project.org/bin/windows/base/)
 - Download and install the latest version of [RStudio Desktop](https://posit.co/download/rstudio-desktop/)
 - Full set of instructions available [here](https://jcvdav.github.io/EVR_628/docs/01_installing_R_RStudio.html).
 :::
@@ -348,15 +348,11 @@ BUT!
 
 # Getting to Know R Studio
 
-## Announcements:
-
-- This week only: Office Hours shifted to 10:15-12:00 **FRIDAY**
-- [Software Carpentry](https://idsc.miami.edu/software-carpentry-workshops/) date TBD, but keep an eye
-
 ## Dynamics
 
 - Post it on your screen means "I'm working on it"
 - Post it down means "I'm ready to listen"
+- The TA will moderate the video
 
 ## Hands-on Tasks:
 
@@ -372,7 +368,11 @@ BUT!
 - [ ] Console: `getwd()`
 - [ ] Console: `?getwd()`
 - [ ] Search for help
-- [ ] Sort code in console
+- [ ] Short code in console:
+```{r}
+#| eval: false
+2 + 2
+```
 :::
 :::
 
@@ -385,23 +385,22 @@ plot(mpg ~ disp, data = mtcars, col = "blue", pch = 21)
 ```
 
 - [ ] Getting the history back (pane, up key, autocomplete)
-- [ ] Start a project called "EVR628"
-- [ ] First script
-- [ ] Running line from a script
-- [ ] Run entire script
+- [ ] Install `tidyverse`
+- [ ] Fail to install `EVR628tools`, then succeed (`remotes`)
+- [ ] Load packages to make sure they work
 :::
 :::
 
 ::: {.column width="33%"}
 ::: {.nonincremental}
-- [ ] Install `tidyverse`
-- [ ] Fail to install `EVR628tools`, then succeed (`remotes`)
-- [ ] Load packages
-- [ ] Directory structure
 - [ ] Start a new project called "temp_project"
-- [ ] Close and reopen project
-- [ ] Switch between projects
-- [ ] Close R Studio and open project
+- [ ] Close R Studio and open project:
+  - [ ] From file
+  - [ ] From drop down
+- [ ] First script
+- [ ] Running line from a script
+- [ ] Run entire script
+
 :::
 :::
 

@@ -41,9 +41,9 @@ Additionally, your script should have the following (50%  of your grade):
 
 **Class material**
 
-- [Intro to ggplot slides](https://jcvdav.github.io/EVR_628/slides/02_data_vis.html#/title-slide)
+- [Intro to ggplot slides](https://jcvdav.github.io/EVR_628/slides/03_data_vis.html#/title-slide)
 - [More on ggplot slides](https://jcvdav.github.io/EVR_628/slides/08_scale_up_viz.html#/title-slide)
-- [ggplot live coding session](https://jcvdav.github.io/EVR_628/docs/02_live.html)
+- [ggplot live coding session](https://jcvdav.github.io/EVR_628/docs/03_live.html)
 
 
 **R4DS**

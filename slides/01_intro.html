@@ -6,8 +6,8 @@
 <script src="01_intro_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="01_intro_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="01_intro_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="01_intro_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+<link href="01_intro_files/libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="Juan Carlos Villaseñor-Derbez (JC)">
   <title>Week 1: Introduction to Data Science and RStudio IDE</title>
@@ -115,7 +115,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="01_intro_files/libs/revealjs/dist/theme/quarto-2c1b5f745a11cfad616ebade4a4a7d24.css">
+  <link rel="stylesheet" href="01_intro_files/libs/revealjs/dist/theme/quarto-0fde88a82f0356838740f155f1088782.css">
   <link href="01_intro_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="01_intro_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="01_intro_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -222,7 +222,7 @@
 Juan Carlos Villaseñor-Derbez (JC) 
 </div>
         <p class="quarto-title-affiliation">
-            Rosenstiel School of Marine, Atmospheric, and Earth Science and Institute for Data Science and Computing
+            Rosenstiel School of Marine, Atmospheric &amp; Earth Science and Institute for Data Science &amp; Computing
           </p>
     </div>
 </div>
@@ -245,7 +245,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <section id="grading" class="slide level2">
 <h2>Grading</h2>
 <ul>
-<li class="fragment">Assistance and participation: 50% - come <em>prepared</em> to participate</li>
+<li class="fragment">Assistance and participation: 50%–come <em>prepared</em> to participate</li>
 <li class="fragment">Assignments: 40% (n = 4; 10% each, graded as completed / not completed)</li>
 <li class="fragment">Final presentation / Data Science portfolio: 10%</li>
 </ul>
@@ -264,9 +264,23 @@ Juan Carlos Villaseñor-Derbez (JC)
 <ul>
 <li class="fragment">No slides, mostly live coding (you follow along)</li>
 <li class="fragment">Emphasis on <em>how</em> of an approach</li>
-<li class="fragment">Expect the first sessions to be rocky as you get up to speed and we standardize our computers</li>
 </ul>
 </div></div>
+<div class="fragment">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<p>Expect the first sessions to be rocky as you get up to speed and we standardize our computers</p>
+</div>
+</div>
+</div>
+</div>
 <div class="fragment">
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
@@ -287,16 +301,18 @@ Juan Carlos Villaseñor-Derbez (JC)
 <h2>Interactions with Me</h2>
 <ul>
 <li class="fragment">Office hours: Thursdays 10:15-12:00</li>
-<li class="fragment">Via email, please include <code>EVR628</code> in your subject heading</li>
+<li class="fragment">When emailing, please include <code>EVR628</code> in your subject heading</li>
 </ul>
 </section>
 <section id="adaptive-approach" class="slide level2">
 <h2>Adaptive Approach</h2>
 <ul>
-<li class="fragment">About three weeks in I will poll you (anonymously)</li>
-<li class="fragment">Then again 5 weeks in (anonymously)</li>
+<li class="fragment">About five weeks in I will poll you (anonymously)
+<ul>
 <li class="fragment">Speed things up? Slow things down?</li>
 <li class="fragment">Are materials relevant to you?</li>
+</ul></li>
+<li class="fragment">Welcome feedback anytime throughout the course</li>
 </ul>
 </section>
 <section id="quick-notes-on-using-these-slides" class="slide level2">
@@ -318,7 +334,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">plot</span>(mpg <span class="sc">~</span> disp, <span class="at">data =</span> mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">plot</span>(mpg <span class="sc">~</span> disp, <span class="at">data =</span> mtcars)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -338,12 +354,18 @@ Juan Carlos Villaseñor-Derbez (JC)
 <ul>
 <li class="fragment"><strong>Access</strong> public data repositories and build <strong>animated visualizations</strong></li>
 <li class="fragment">Track fishing vessels form space and build maps of fishing activity</li>
+<li class="fragment">Create <a href="https://jcvdav.github.io/EVR_628/slides/11_spat_data_1.html#/example-rosenstiel">slides with interactive content</a> for effective communication</li>
+<li class="fragment">If time llows:
+<ul>
 <li class="fragment">Develop <a href="https://682wxr-juan0carlos-villasenor0derbez.shinyapps.io/gom_fishing/">interactive web-based apps</a> to allow others explore your data</li>
-<li class="fragment">Create <a href="https://jcvdav.github.io/EVR_662/slides/02_data_models_vector#/example-rosenstiel">slides with interactive content</a> for effective communication</li>
+</ul></li>
 </ul>
 </div><div class="column" style="width:50%;">
 <p><img data-src="img/hurricane_milton_track.gif" class="nostrech" style="width:100.0%"></p>
 </div></div>
+<div class="fragment">
+<p>You <strong>will</strong> be able to use R code to build <strong>reproducible</strong> pipelines</p>
+</div>
 </section>
 <section id="how-will-we-approach-data-science" class="slide level2">
 <h2>How will we approach data science?</h2>
@@ -357,7 +379,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 </figure>
 </div>
 <ul>
-<li class="fragment">Maybe also add “collect” before “import”</li>
+<li class="fragment">I would add “Collect” before “Import”</li>
 </ul>
 </div><div class="column" style="width:50%;">
 <p><strong>How we’ll learn things</strong></p>
@@ -375,26 +397,15 @@ Juan Carlos Villaseñor-Derbez (JC)
 <section id="side-note-1-other-courses" class="slide level2">
 <h2>Side note #1: Other courses</h2>
 <div class="columns">
-<div class="column" style="width:33%;">
-<p><strong>EVR 509/609</strong></p>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/env_health.png" class="nostretch quarto-figure quarto-figure-center" width="400"></p>
-</figure>
-</div>
-</div><div class="column" style="width:33%;">
-<p><strong>EVR 624</strong></p>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/data_analysis.png" class="nostretch quarto-figure quarto-figure-center" width="400"></p>
-</figure>
-</div>
-</div><div class="column" style="width:33%;">
-<p><strong>RSM612 </strong> <img data-src="img/RSM612.png" class="nostretch quarto-figure quarto-figure-center" width="400"></p>
+<div class="column" style="width:50%;">
+<p><strong>RSM 612</strong> <img data-src="img/RSM612.png" class="nostretch quarto-figure quarto-figure-center" width="600"></p>
+</div><div class="column" style="width:50%;">
+<p><strong>MBE 716</strong> <img data-src="img/bayesian_stats.png" class="nostretch quarto-figure quarto-figure-center" width="600"></p>
 </div></div>
 </section></section>
 <section id="about-you" class="title-slide slide level1 center">
 <h1>About You</h1>
+<p>(We’ll only do this one if I am able to join live)</p>
 <ul>
 <li class="fragment">Preferred name</li>
 <li class="fragment">Year and program</li>
@@ -434,7 +445,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="cell" data-layout-align="center" data-folding="true">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb2-2"><a href=""></a><span class="fu">library</span>(ggrepel)</span>
 <span id="cb2-3"><a href=""></a></span>
 <span id="cb2-4"><a href=""></a><span class="fu">tibble</span>(<span class="at">skill =</span> <span class="fu">c</span>(<span class="st">"Coding"</span>, <span class="st">"Stats"</span>, <span class="st">"Domain"</span>),</span>
@@ -452,7 +463,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <span id="cb2-16"><a href=""></a>  <span class="fu">lims</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>),</span>
 <span id="cb2-17"><a href=""></a>       <span class="at">y =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>)) <span class="sc">+</span></span>
 <span id="cb2-18"><a href=""></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
-<span id="cb2-19"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-19"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -462,9 +473,6 @@ Juan Carlos Villaseñor-Derbez (JC)
 </figure>
 </div>
 </div>
-</div>
-<div class="fragment">
-<p>This course only covers one bubble: Talking to your computer</p>
 </div>
 </section>
 <section id="side-note-2-a-word-of-caution" class="slide level2">
@@ -497,6 +505,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <li class="fragment">You <em>are</em> allowed to use LLMs to <strong>troubleshoot</strong> your code</li>
 <li class="fragment">I discourage you from asking your LLM to make the assignments for you</li>
 <li class="fragment">At the end of this course you should be literate enough in R to do <em>some</em> vibe coding</li>
+<li class="fragment">If you get really good, even <em>agentic</em> coding</li>
 </ul>
 </div><div class="column" style="width:50%;">
 <ul>
@@ -515,7 +524,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <section id="motivation-to-learn-scripting-languages" class="slide level2">
 <h2>Motivation to learn scripting languages</h2>
 <ul>
-<li class="fragment">Reproducibility:Data and code are increasingly required by publishers
+<li class="fragment">Reproducibility: Data and code are increasingly required by publishers
 <ul>
 <li class="fragment"><a href="https://www.aeaweb.org/journals/data/data-code-policy">Economics</a></li>
 <li class="fragment"><a href="https://www.nature.com/nature-portfolio/editorial-policies/reporting-standards">Natural sciences</a></li>
@@ -537,7 +546,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <li class="fragment"><a href="https://posit.co/products/open-source/rstudio/"><strong>RStudio</strong></a> will be our <em>Integrated Development Environment</em> (IDE)</li>
 <li class="fragment"><a href="https://git-scm.com/"><strong>Git</strong></a> will help us keep track of our code</li>
 <li class="fragment"><a href="https://github.com/"><strong>GitHub</strong></a> will allow us to share our code with the world</li>
-<li class="fragment"><a href="https://jcvdav.github.io/EVR628tools/"><strong>EVR628tools</strong></a> contains data and a few functions to support the course</li>
+<li class="fragment"><a href="https://jcvdav.github.io/EVR628tools/"><code>{EVR628tools}</code></a> contains data and a few functions to support the course</li>
 </ul>
 <div class="fragment">
 <div class="callout callout-important callout-titled callout-style-default">
@@ -550,7 +559,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div>
 <div class="callout-content">
 <ul>
-<li>Download and install the latest version of R (currently v 4.5.x) for <a href="https://cran.r-project.org/bin/macosx/">MacOS</a> or <a href="https://cran.r-project.org/bin/windows/base/">Windows</a></li>
+<li>Download and install the latest version of R (currently v 4.6.x) for <a href="https://cran.r-project.org/bin/macosx/">MacOS</a> or <a href="https://cran.r-project.org/bin/windows/base/">Windows</a></li>
 <li>Download and install the latest version of <a href="https://posit.co/download/rstudio-desktop/">RStudio Desktop</a></li>
 <li>Full set of instructions available <a href="https://jcvdav.github.io/EVR_628/docs/01_installing_R_RStudio.html">here</a>.</li>
 </ul>
@@ -638,18 +647,12 @@ Juan Carlos Villaseñor-Derbez (JC)
 <h1>Getting to Know R Studio</h1>
 
 </section>
-<section id="announcements" class="slide level2">
-<h2>Announcements:</h2>
-<ul>
-<li class="fragment">This week only: Office Hours shifted to 10:15-12:00 <strong>FRIDAY</strong></li>
-<li class="fragment"><a href="https://idsc.miami.edu/software-carpentry-workshops/">Software Carpentry</a> date TBD, but keep an eye</li>
-</ul>
-</section>
 <section id="dynamics" class="slide level2">
 <h2>Dynamics</h2>
 <ul>
 <li class="fragment">Post it on your screen means “I’m working on it”</li>
 <li class="fragment">Post it down means “I’m ready to listen”</li>
+<li class="fragment">The TA will moderate the video</li>
 </ul>
 </section>
 <section id="hands-on-tasks" class="slide level2">
@@ -665,8 +668,14 @@ Juan Carlos Villaseñor-Derbez (JC)
 <li><label><input type="checkbox">Console: <code>getwd()</code></label></li>
 <li><label><input type="checkbox">Console: <code>?getwd()</code></label></li>
 <li><label><input type="checkbox">Search for help</label></li>
-<li><label><input type="checkbox">Sort code in console</label></li>
+<li><label><input type="checkbox">Short code in console:</label></li>
 </ul>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
 </div><div class="column" style="width:33%;">
 <ul class="task-list">
 <li><label><input type="checkbox">Longer code in the console:</label></li>
@@ -674,26 +683,26 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">plot</span>(mpg <span class="sc">~</span> disp, <span class="at">data =</span> mtcars, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">pch =</span> <span class="dv">21</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">plot</span>(mpg <span class="sc">~</span> disp, <span class="at">data =</span> mtcars, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">pch =</span> <span class="dv">21</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <ul class="task-list">
 <li><label><input type="checkbox">Getting the history back (pane, up key, autocomplete)</label></li>
-<li><label><input type="checkbox">Start a project called “EVR628”</label></li>
-<li><label><input type="checkbox">First script</label></li>
-<li><label><input type="checkbox">Running line from a script</label></li>
-<li><label><input type="checkbox">Run entire script</label></li>
+<li><label><input type="checkbox">Install <code>tidyverse</code></label></li>
+<li><label><input type="checkbox">Fail to install <code>EVR628tools</code>, then succeed (<code>remotes</code>)</label></li>
+<li><label><input type="checkbox">Load packages to make sure they work</label></li>
 </ul>
 </div><div class="column" style="width:33%;">
 <ul class="task-list">
-<li><label><input type="checkbox">Install <code>tidyverse</code></label></li>
-<li><label><input type="checkbox">Fail to install <code>EVR628tools</code>, then succeed (<code>remotes</code>)</label></li>
-<li><label><input type="checkbox">Load packages</label></li>
-<li><label><input type="checkbox">Directory structure</label></li>
 <li><label><input type="checkbox">Start a new project called “temp_project”</label></li>
-<li><label><input type="checkbox">Close and reopen project</label></li>
-<li><label><input type="checkbox">Switch between projects</label></li>
-<li><label><input type="checkbox">Close R Studio and open project</label></li>
+<li><label><input type="checkbox">Close R Studio and open project:</label>
+<ul class="task-list">
+<li><label><input type="checkbox">From file</label></li>
+<li><label><input type="checkbox">From drop down</label></li>
+</ul></li>
+<li><label><input type="checkbox">First script</label></li>
+<li><label><input type="checkbox">Running line from a script</label></li>
+<li><label><input type="checkbox">Run entire script</label></li>
 </ul>
 </div></div>
 </section></section>
@@ -901,7 +910,7 @@ Wickham, Hadley, Mine Cetinkaya-Rundel, and Garrett Grolemund. 2023. <em><span>R
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -1013,13 +1022,14 @@ Wickham, Hadley, Mine Cetinkaya-Rundel, and Garrett Grolemund. 2023. <em><span>R
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy
