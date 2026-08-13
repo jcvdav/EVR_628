@@ -82,8 +82,9 @@ The above instructions also work because you can install precompiled binay distr
 Do not attempt to install RStudio if you have not installed R!
 :::
 
-1. Click on [this link](https://posit.co/download/rstudio-desktop/)
-2. Under the label "2: Install RStudio" you will se a blue button that says "DOWNLOAD RSTUDIO DESKTOP FOR ...". Click on it.
+1. Click on [this link](https://docs.posit.co/ide/user/#rstudio-ide-oss-downloads)
+2. You will see a table like the one below. Select the option that matches your machine.
+![](img/rstudio_install.png){width=50%}
 3. A file will download.
 4. (Optional) You might be prompted to save it in a desired location. Place it in your Downloads or Desktop folder, it doesn't really matter.
 5. Navigate to the folder where it was downloaded and double-click on it. If you were not prompted to select a location, the file is likely under your Downloads folder.
