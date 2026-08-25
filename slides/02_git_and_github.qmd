@@ -314,8 +314,8 @@ Push / Pull
 :::{.callout-tip}
 # Example
 
-- The folder on my computer called `mex_ports` is the local repo
-- What you saw [online](https://github.com/mex-fisheries/mex_ports) was the remote repo
+- The folder on my computer called `tuna_data` is the local repo
+- What you saw [online](https://github.com/human-ocean/tuna_data) was the remote repo
 - 1 folder = 1 RStudio project = 1 repo
 :::
 
@@ -504,14 +504,13 @@ Instructions available [here](https://jcvdav.github.io/EVR_628/docs/02_installin
 :::: {.columns}
 
 ::: {.column width='60%'}
-**Due Sunday, September 14, 2025 11:59 PM via Canvas**:
+**Due Sunday, September 6, 2026 11:59 PM via Canvas**:
 
 1. Create a GitHub repository for your portfolio (I suggest you call it `portfolio`)
   a. The repository should be public, or shared with my github username: [`jcvdav`](https://github.com/jcvdav)
 2. Add information to your `README.md` file
-3. Update your `.gitignore` file
-4. Make at least 2 meaningful commits
-5. Share your repository link via Canvas
+3. Make at least 2 meaningful commits
+4. Share your repository link via Canvas
 
 :::
 
@@ -520,10 +519,10 @@ Instructions available [here](https://jcvdav.github.io/EVR_628/docs/02_installin
 
 Repository:
 
-- exists
-- has a `README.md` file with content (name, about you, about the project)
-- has a `.gitignore` file
-- has at least two commits, in addition to the default one
+- 50%: exists
+- 30%: has a `README.md` file with content (name, about you, about the project)
+- 10%: has a `.gitignore` file
+- 10%: has at least two commits, in addition to the default one
 
 :::
 

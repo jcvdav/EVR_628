@@ -39,3 +39,4 @@ Gemfile.lock
 .posit/assistant
 
 **/*.quarto_ipynb
+.positai

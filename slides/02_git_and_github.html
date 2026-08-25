@@ -6,8 +6,8 @@
 <script src="02_git_and_github_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="02_git_and_github_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="02_git_and_github_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="02_git_and_github_files/libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.27">
+<link href="02_git_and_github_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="Juan Carlos Villaseñor-Derbez (JC)">
   <title>Keeping track of your code with Git and GitHub</title>
@@ -17,6 +17,9 @@
   <link rel="stylesheet" href="02_git_and_github_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="02_git_and_github_files/libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -98,7 +101,6 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
-      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -115,7 +117,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="02_git_and_github_files/libs/revealjs/dist/theme/quarto-0fde88a82f0356838740f155f1088782.css">
+  <link rel="stylesheet" href="02_git_and_github_files/libs/revealjs/dist/theme/quarto-0427d8d92a431aa6a6430e53ec02a470.css">
   <link href="02_git_and_github_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="02_git_and_github_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="02_git_and_github_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -338,7 +340,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <ul>
 <li class="fragment">70% of researchers have tried and failed to reproduce another scientist’s experiments <span class="citation" data-cites="Baker2016-aa">(<a href="#/references" role="doc-biblioref" onclick="">Baker 2016</a>)</span></li>
 <li class="fragment">50% of researchers have failed to reproduce their own experiments <span class="citation" data-cites="Baker2016-aa">(<a href="#/references" role="doc-biblioref" onclick="">Baker 2016</a>)</span></li>
-<li class="fragment">$28 billion wasted annually on irreproducible pre-clinical research <span class="citation" data-cites="Freedman2015-aa">(<a href="#/references" role="doc-biblioref" onclick="">Freedman, Cockburn, and Simcoe 2016</a>)</span></li>
+<li class="fragment">$28 billion wasted annually on irreproducible pre-clinical research <span class="citation" data-cites="Freedman2015-aa">(<a href="#/references" role="doc-biblioref" onclick="">Freedman et al. 2016</a>)</span></li>
 <li class="fragment">Environmental science is not immune to these issues</li>
 </ul>
 </section>
@@ -582,8 +584,8 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div>
 <div class="callout-content">
 <ul>
-<li class="fragment">The folder on my computer called <code>mex_ports</code> is the local repo</li>
-<li class="fragment">What you saw <a href="https://github.com/mex-fisheries/mex_ports">online</a> was the remote repo</li>
+<li class="fragment">The folder on my computer called <code>tuna_data</code> is the local repo</li>
+<li class="fragment">What you saw <a href="https://github.com/human-ocean/tuna_data">online</a> was the remote repo</li>
 <li class="fragment">1 folder = 1 RStudio project = 1 repo</li>
 </ul>
 </div>
@@ -792,7 +794,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <h2>Assignment: Build Your Portfolio</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p><strong>Due Sunday, September 14, 2025 11:59 PM via Canvas</strong>:</p>
+<p><strong>Due Sunday, September 6, 2026 11:59 PM via Canvas</strong>:</p>
 <ol type="1">
 <li class="fragment">Create a GitHub repository for your portfolio (I suggest you call it <code>portfolio</code>)</li>
 </ol>
@@ -801,7 +803,6 @@ Juan Carlos Villaseñor-Derbez (JC)
 </ol>
 <ol start="2" type="1">
 <li class="fragment">Add information to your <code>README.md</code> file</li>
-<li class="fragment">Update your <code>.gitignore</code> file</li>
 <li class="fragment">Make at least 2 meaningful commits</li>
 <li class="fragment">Share your repository link via Canvas</li>
 </ol>
@@ -809,10 +810,10 @@ Juan Carlos Villaseñor-Derbez (JC)
 <p><strong>Grading criteria</strong>:</p>
 <p>Repository:</p>
 <ul>
-<li class="fragment">exists</li>
-<li class="fragment">has a <code>README.md</code> file with content (name, about you, about the project)</li>
-<li class="fragment">has a <code>.gitignore</code> file</li>
-<li class="fragment">has at least two commits, in addition to the default one</li>
+<li class="fragment">50%: exists</li>
+<li class="fragment">30%: has a <code>README.md</code> file with content (name, about you, about the project)</li>
+<li class="fragment">10%: has a <code>.gitignore</code> file</li>
+<li class="fragment">10%: has at least two commits, in addition to the default one</li>
 </ul>
 </div></div>
 <div class="fragment">
@@ -874,18 +875,18 @@ Juan Carlos Villaseñor-Derbez (JC)
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-Baker2016-aa" class="csl-entry" role="listitem">
 Baker, Monya. 2016. <span>“1,500 Scientists Lift the Lid on Reproducibility.”</span> <em>Nature</em> 533 (May): 452–54. <a href="https://doi.org/10.1038/533452a">https://doi.org/10.1038/533452a</a>.
 </div>
 <div id="ref-Braga2023-da" class="csl-entry" role="listitem">
-Braga, Pedro Henrique Pereira, Katherine Hébert, Emma J Hudgins, Eric R Scott, Brandon P M Edwards, Luna L Sánchez Reyes, Matthew J Grainger, et al. 2023. <span>“Not Just for Programmers: How <span>GitHub</span> Can Accelerate Collaborative and Reproducible Research in Ecology and Evolution.”</span> <em>Methods Ecol. Evol.</em> 14 (June): 1364–80.
+Braga, Pedro Henrique Pereira, Katherine Hébert, Emma J Hudgins, et al. 2023. <span>“Not Just for Programmers: How <span>GitHub</span> Can Accelerate Collaborative and Reproducible Research in Ecology and Evolution.”</span> <em>Methods Ecol. Evol.</em> 14 (June): 1364–80.
 </div>
 <div id="ref-Freedman2015-aa" class="csl-entry" role="listitem">
 Freedman, Leonard P, Iain M Cockburn, and Timothy S Simcoe. 2016. <span>“The Economics of Reproducibility in Preclinical Research.”</span> <em>PLOS Biology</em> 13 (June): e1002165. <a href="https://doi.org/10.1371/journal.pbio.1002165">https://doi.org/10.1371/journal.pbio.1002165</a>.
 </div>
 <div id="ref-lowndes2017our" class="csl-entry" role="listitem">
-Lowndes, Julia S Stewart, Benjamin D Best, Courtney Scarborough, Jamie C Afflerbach, Melanie R Frazier, Casey C O’hara, Ning Jiang, and Benjamin S Halpern. 2017. <span>“Our Path to Better Science in Less Time Using Open Data Science Tools.”</span> <em>Nature Ecology &amp; Evolution</em> 1 (6): 0160.
+Lowndes, Julia S Stewart, Benjamin D Best, Courtney Scarborough, et al. 2017. <span>“Our Path to Better Science in Less Time Using Open Data Science Tools.”</span> <em>Nature Ecology &amp; Evolution</em> 1 (6): 0160.
 </div>
 </div>
 </section></section>
