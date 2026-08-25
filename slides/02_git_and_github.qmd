@@ -7,6 +7,10 @@ title: "Keeping track of your code with Git and GitHub"
 - @lowndes2017our
 - @Braga2023-da
 
+- Think of the last figure, table, or number you produced for a class or job. If I asked you to regenerate it today with one column of the raw data changed, could you? What exactly would break?
+- Why isn't DropBox or GoogleDrive enough?
+- Who is reproducibility for?
+
 ## Learning Objectives
 
 :::{.callout-note}
