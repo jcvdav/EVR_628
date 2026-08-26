@@ -241,26 +241,5 @@ p
 
 - Now switch who is A and who is B and repeat
 
-\clearpage
-
-## 2) Branching and pull requesting
-
-:::{.callout-important}
-Partner **A** works on Partner **B's** project, and _vice versa_
-:::
-
-0. **Make sure you are in your partner's site**
-1. In your Git pane, click on "New Branch"
-2. Create a new branch, I suggest you call it `dev_your_name`
-3. Make a change to the figure's code, then stage and commit
-4. Export the figure, then stage -> commit -> push
-5. Go to the project's repo on GitHub.com
-6. Make sure your new branch and changes are there
-7. Go to the Pull Requests tab
-8. Start a new pull request (from `dev_your_name` into `main`)
-9. Explain what the pull request does and submit it
-10. Your partner will now get an email
-11. Partner can incorporate pull request as needed
-
 
 

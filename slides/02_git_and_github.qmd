@@ -511,7 +511,7 @@ Instructions available [here](https://jcvdav.github.io/EVR_628/docs/02_installin
 **Due Sunday, September 6, 2026 11:59 PM via Canvas**:
 
 1. Create a GitHub repository for your portfolio (I suggest you call it `portfolio`)
-  a. The repository should be public, or shared with my github username: [`jcvdav`](https://github.com/jcvdav)
+  a. The repository should be public, or shared with us: [`jcvdav`](https://github.com/jcvdav) [`jreigrut`](https://github.com/jreigrut)
 2. Add information to your `README.md` file
 3. Make at least 2 meaningful commits
 4. Share your repository link via Canvas
