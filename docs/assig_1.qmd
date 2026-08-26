@@ -1,5 +1,5 @@
 ---
-title: "Assignment 1: Set Up Your Repo"
+title: "Assignment 1: Setting up your portfolio in GitHub"
 lightbox: true
 format:
   html:
@@ -14,7 +14,7 @@ Remember that the final goal is to have a GitHub repository where you can showca
 
 # This assignment
 
-**Task:** Set Up Your Repo
+**Task:** Create a new repository to contain your portfolio
 
 Specifically:
 

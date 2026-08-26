@@ -503,34 +503,9 @@ Instructions available [here](https://jcvdav.github.io/EVR_628/docs/02_installin
 
 # Assignment
 
-## Assignment: Build Your Portfolio
+## Assignment: Set Up Your Repo
 
-:::: {.columns}
-
-::: {.column width='60%'}
-**Due Sunday, September 6, 2026 11:59 PM via Canvas**:
-
-1. Create a GitHub repository for your portfolio (I suggest you call it `portfolio`)
-  a. The repository should be public, or shared with us: [`jcvdav`](https://github.com/jcvdav) [`jreigrut`](https://github.com/jreigrut)
-2. Add information to your `README.md` file
-3. Make at least 2 meaningful commits
-4. Share your repository link via Canvas
-
-:::
-
-::: {.column width='40%'}
-**Grading criteria**:
-
-Repository:
-
-- 50%: exists
-- 30%: has a `README.md` file with content (name, about you, about the project)
-- 10%: has a `.gitignore` file
-- 10%: has at least two commits, in addition to the default one
-
-:::
-
-::::
+[Link to assignment](docs/assig_1.html)
 
 . . .
 

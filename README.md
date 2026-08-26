@@ -66,6 +66,12 @@ Students must complete any assigned readings and software tests before class. No
   - [Happy Git with R](https://happygitwithr.com/)
 - [Link](https://jcvdav.github.io/EVR_628/docs/02_live.html) to document from live coding session
 
+---
+
+**First assignment:** [_Setting up your portfolio in GitHub_](docs/assig_1.html), due Sept 6, 2026
+
+---
+
 ## Week 3 (Week of Aug 31)
 **Data visualization** | [slides](slides/03_data_vis.html)
 - Types of visualization
@@ -82,12 +88,6 @@ Students must complete any assigned readings and software tests before class. No
   - The [R Graph Gallery](https://r-graph-gallery.com/)
   - [Data-to-viz](https://www.data-to-viz.com/)
 - [Link](https://jcvdav.github.io/EVR_628/docs/03_live.html) to document from live coding session
-
----
-
-**First assignment:** _Setting up your portfolio in GitHub_
-
----
 
 ## *Week 4 (Week of Sep 07)
 
@@ -160,7 +160,7 @@ _Labor day on Monday Sept 7_
 
 ---
 
-**Second assignment:** [_Data wrangling_](docs/assig_2.html) due Oct 19
+**Second assignment:** [_Data wrangling_](docs/assig_2.html) due TBD
 
 ---
 
@@ -192,7 +192,7 @@ _Fall Recess is Oct 10-13_
 
 ---
 
-**Third assignment:** [_Data visualization_](docs/assig_3.html) due Nov 2
+**Third assignment:** [_Data visualization_](docs/assig_3.html) due TBD
 
 ---
 
@@ -223,7 +223,7 @@ _Fall Recess is Oct 10-13_
 
 ---
 
-**Fourth assignment:** [_Visualizing spatial data_](docs/assig_4.html)
+**Fourth assignment:** [_Visualizing spatial data_](docs/assig_4.html), due TBD
 
 ---
 
@@ -263,7 +263,7 @@ _Fall Recess is Oct 10-13_
 
 ---
 
-**FINAL PROJECT:** [_Communicating your work_](docs/final_project.html)
+**FINAL PROJECT:** [_Communicating your work_](docs/final_project.html), due TBD
 
 ---
 
