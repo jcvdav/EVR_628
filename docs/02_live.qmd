@@ -33,12 +33,14 @@ which git
 git config -l
 ```
 
+You should see your `user.name` and `user.email` listed, typically at the bottom.
+
 ## Step 1: Create a GitHub Repository
 
 1. Go to [github.com](https://github.com) and sign in
 2. Click the "`+`" icon in the top right
 3. Select "_New repository_"
-4. Choose a simple name: `hellow_world`
+4. Choose a simple name: `EVR_628`
 5. Add a description: "_Learning how to use GitHub_"
 6. Make it **Public**
 7. Check "_Add a README file_"
@@ -49,11 +51,11 @@ git config -l
 
 **In RStudio**:
 
-1. Top-right corner → New Project
+1. Top-right corner, then "New Project"
 2. Choose "Version Control"
 3. Select "Git"
 4. Paste your repository URL
-5. Choose where to save it locally (Not on iDrive, not on DropBox, not on GoogleDrive...)
+5. Choose where to save it locally
 6. Click "Create Project"
 7. Verify that you now have a `README.md` and `.gitignore` files
 
@@ -88,35 +90,28 @@ EVR628tools::create_dirs()
 ```
 
 
-## Step 4: Create / Modify the global and project .gitignore Files
+:::{.callout-tip}
+## The _namespace_
+When you only want to use a function from a package, we can avoid loading the library with `library(package_name)` and instead directly access the function via it's namespace. Here, we say `package_name::function_name()`.
+:::
+
+
+## Step 4: Create / Modify the Global and Project .gitignore Files
 
 1. We will use the `usethis::git_vaccinate()`
 2. Look at the documentation using `?usethis::git_vaccinate()`
 3. Call `usethis::git_vaccinate()`
-4. Create a `.gitignore` file to exclude unnecessary files:
 
-```bash
-# R specific
-.Rhistory
-.RData
-.Ruserdata
-*.Rproj.user/
 
-# System files
-.DS_Store
-Thumbs.db
-```
-
-**Note**: You can always add specific files with `git add -f filename`, edit the `.gitignore` file or use the git pane
-
+:::{.callout-tip}
+You can always add specific files or folders by editing the `.gitignore` file or using the git pane
+:::
 
 \clearpage
 ## Step 5: Add Your First "content"
 
-- Create a simple R script in `scripts/content/`
-- Choose one of the data sets in `EVR628tools`
-- Spend some time reading the documentation
-- Visualize it
+- Create a simple R script in `scripts/content/my_first_plot.R`
+- Copy the code below and paste it in the script
 
 ```{r}
 #| results: false
@@ -132,8 +127,7 @@ data(data_lionfish)
 # Create a simple plot
 p <- ggplot(data_lionfish,
             aes(x = total_length_mm, y = total_weight_gr)) +
-  geom_point() +
-  facet_wrap(~site)
+  geom_point()
 
 p
 
@@ -147,7 +141,11 @@ ggsave(plot = p, filename = "results/figures/first_plot.png")
 Create a comprehensive README.md
 
 ```markdown
-# My first repo
+# My repo for EVR 628
+
+## Author
+
+[Your Name and email? GitHub username?]
 
 ## Description
 
@@ -158,20 +156,17 @@ Analysis of environmental data for EVR 628 course.
 - `scripts/`: R scripts for analysis
 - `results/`: Output figures and tables
 
-## Author
-
-[Your Name and email?]
 ```
 
 ## Step 7: Stage-Commit-Push
 
-1. Stage, commit your R script
+1. Stage and then commit your R script
 2. Push
-3. Stage, commit your README
-4. Stage, commit your plot
+3. Stage and then commit your README
+4. Stage and then commit your plot
 5. Push
 
-# Now lets colaborate
+# Now Let's Collaborate
 
 ## 1) Simple collaboration
 
@@ -183,11 +178,11 @@ Analysis of environmental data for EVR 628 course.
 ::: {.column width='50%'}
 ### Parter A
 
-1. Go to settings -> collaborators -> Add collaborator
+1. In your repo's page on GitHub, go to settings -> collaborators -> Add collaborator
 2. Add partner B's username and send an invitation
 3. Wait until B tells you they are done.
 
-... wait ...
+... wait until partner B tells you...
 
 4. Pull
 :::
@@ -196,12 +191,12 @@ Analysis of environmental data for EVR 628 course.
 ### Parter B
 
 1. Give partner A your username
-2. Check your email
+2. Check your email and accept the invite
 3. Go to the repository
 4. Repeat the cloning process:
   - You will have a new project
-  - Use a different location (I suggest desktop)
-5. Make one change to partner A's figure, and update the exported image
+  - Use a different location (I suggest desktop so you can delete it once you are done)
+5. Make one change to partner A's figure, and update the exported image (e.g. `xlab(Total Length (mm))` or `color = "blue"`...)
 6. Stage the files, then commit, and push
 7. Tell partner A you are done
 :::
@@ -221,19 +216,9 @@ data(data_lionfish)
 
 # Create a simple plot
 p <- ggplot(data_lionfish,
-            aes(x = total_length_mm, y = total_weight_gr,
-                ### B adds color by depth
-                color = depth_m)) +
-  geom_point() +
-  facet_wrap(~site) +
-  ### B modifies default colors
-  scale_color_gradientn(colors = palette_IPCC(var = "prec", type = "seq")) +
-  ### B adds labels
-  labs(x = "Total length (mm)",
-       y = "Total weight (mm)",
-       color = "Depth (m)") +
-  ### B adds theme
-  theme_bw()
+            aes(x = total_length_mm, y = total_weight_gr)) +
+  geom_point(color = "blue") +  # <--- This is one change
+  xlab("Total Length (cm)")     # <--- This is another change
 
 p
 ```

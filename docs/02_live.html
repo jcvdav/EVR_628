@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,9 +10,6 @@
 
 <title>Git and GitHub</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -65,14 +62,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="02_live_files/libs/clipboard/clipboard.min.js"></script>
 <script src="02_live_files/libs/quarto-html/quarto.js" type="module"></script>
 <script src="02_live_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="02_live_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="02_live_files/libs/quarto-html/popper.min.js"></script>
 <script src="02_live_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="02_live_files/libs/quarto-html/anchor.min.js"></script>
 <link href="02_live_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="02_live_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="02_live_files/libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="02_live_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="02_live_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="02_live_files/libs/bootstrap/bootstrap-138a6193a3bd40baf1e627da441a4734.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="02_live_files/libs/bootstrap/bootstrap-d6a003b94517c951b2d65075d42fb01b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="02_live_files/libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="02_live_files/libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="02_live_files/libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -94,12 +92,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#step-1-create-a-github-repository" id="toc-step-1-create-a-github-repository" class="nav-link" data-scroll-target="#step-1-create-a-github-repository">Step 1: Create a GitHub Repository</a></li>
   <li><a href="#step-2-clone-to-your-computer" id="toc-step-2-clone-to-your-computer" class="nav-link" data-scroll-target="#step-2-clone-to-your-computer">Step 2: Clone to Your Computer</a></li>
   <li><a href="#step-3-set-up-your-project-structure" id="toc-step-3-set-up-your-project-structure" class="nav-link" data-scroll-target="#step-3-set-up-your-project-structure">Step 3: Set Up Your Project Structure</a></li>
-  <li><a href="#step-4-create-modify-the-global-and-project-.gitignore-files" id="toc-step-4-create-modify-the-global-and-project-.gitignore-files" class="nav-link" data-scroll-target="#step-4-create-modify-the-global-and-project-.gitignore-files">Step 4: Create / Modify the global and project .gitignore Files</a></li>
+  <li><a href="#step-4-create-modify-the-global-and-project-.gitignore-files" id="toc-step-4-create-modify-the-global-and-project-.gitignore-files" class="nav-link" data-scroll-target="#step-4-create-modify-the-global-and-project-.gitignore-files">Step 4: Create / Modify the Global and Project .gitignore Files</a></li>
   <li><a href="#step-5-add-your-first-content" id="toc-step-5-add-your-first-content" class="nav-link" data-scroll-target="#step-5-add-your-first-content">Step 5: Add Your First “content”</a></li>
   <li><a href="#step-6-update-your-readme" id="toc-step-6-update-your-readme" class="nav-link" data-scroll-target="#step-6-update-your-readme">Step 6: Update Your README</a></li>
   <li><a href="#step-7-stage-commit-push" id="toc-step-7-stage-commit-push" class="nav-link" data-scroll-target="#step-7-stage-commit-push">Step 7: Stage-Commit-Push</a></li>
   </ul></li>
-  <li><a href="#now-lets-colaborate" id="toc-now-lets-colaborate" class="nav-link" data-scroll-target="#now-lets-colaborate">Now lets colaborate</a>
+  <li><a href="#now-lets-collaborate" id="toc-now-lets-collaborate" class="nav-link" data-scroll-target="#now-lets-collaborate">Now Let’s Collaborate</a>
   <ul class="collapse">
   <li><a href="#simple-collaboration" id="toc-simple-collaboration" class="nav-link" data-scroll-target="#simple-collaboration">1) Simple collaboration</a></li>
   </ul></li>
@@ -171,29 +169,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stdout">
 <pre><code>credential.helper=osxkeychain
 init.defaultbranch=main
-user.email=jc_villasenor@miami.edu
-user.name=Juan Carlos Villaseñor-Derbez
+user.email=juancarlos.villader@gmail.com
+user.name=jcvdav
 core.excludesfile=~/.gitignore
 filter.lfs.clean=git-lfs clean -- %f
 filter.lfs.smudge=git-lfs smudge -- %f
 filter.lfs.process=git-lfs filter-process
 filter.lfs.required=true
-pull.rebase=false
+http.postbuffer=157286400
 core.repositoryformatversion=0
 core.filemode=true
 core.bare=false
 core.logallrefupdates=true
 core.ignorecase=true
 core.precomposeunicode=true
-remote.origin.url=https://www.github.com/jcvdav/EVR_628
+remote.origin.url=https://github.com/jcvdav/EVR_628.git
 remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
 branch.main.remote=origin
 branch.main.merge=refs/heads/main
 branch.main.vscode-merge-base=origin/main
-branch.main.vscode-merge-base=origin/main
-pull.rebase=false</code></pre>
+pull.rebase=true
+branch.dev.remote=origin
+branch.dev.merge=refs/heads/dev
+branch.test.remote=origin
+branch.test.merge=refs/heads/test</code></pre>
 </div>
 </div>
+<p>You should see your <code>user.name</code> and <code>user.email</code> listed, typically at the bottom.</p>
 </section>
 <section id="step-1-create-a-github-repository" class="level2">
 <h2 class="anchored" data-anchor-id="step-1-create-a-github-repository">Step 1: Create a GitHub Repository</h2>
@@ -201,7 +203,7 @@ pull.rebase=false</code></pre>
 <li>Go to <a href="https://github.com">github.com</a> and sign in</li>
 <li>Click the “<code>+</code>” icon in the top right</li>
 <li>Select “<em>New repository</em>”</li>
-<li>Choose a simple name: <code>hellow_world</code></li>
+<li>Choose a simple name: <code>EVR_628</code></li>
 <li>Add a description: “<em>Learning how to use GitHub</em>”</li>
 <li>Make it <strong>Public</strong></li>
 <li>Check “<em>Add a README file</em>”</li>
@@ -213,11 +215,11 @@ pull.rebase=false</code></pre>
 <h2 class="anchored" data-anchor-id="step-2-clone-to-your-computer">Step 2: Clone to Your Computer</h2>
 <p><strong>In RStudio</strong>:</p>
 <ol type="1">
-<li>Top-right corner → New Project</li>
+<li>Top-right corner, then “New Project”</li>
 <li>Choose “Version Control”</li>
 <li>Select “Git”</li>
 <li>Paste your repository URL</li>
-<li>Choose where to save it locally (Not on iDrive, not on DropBox, not on GoogleDrive…)</li>
+<li>Choose where to save it locally</li>
 <li>Click “Create Project”</li>
 <li>Verify that you now have a <code>README.md</code> and <code>.gitignore</code> files</li>
 </ol>
@@ -243,41 +245,54 @@ pull.rebase=false</code></pre>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>EVR628tools<span class="sc">::</span><span class="fu">create_dirs</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>The <em>namespace</em>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When you only want to use a function from a package, we can avoid loading the library with <code>library(package_name)</code> and instead directly access the function via it’s namespace. Here, we say <code>package_name::function_name()</code>.</p>
+</div>
+</div>
 </section>
 <section id="step-4-create-modify-the-global-and-project-.gitignore-files" class="level2">
-<h2 class="anchored" data-anchor-id="step-4-create-modify-the-global-and-project-.gitignore-files">Step 4: Create / Modify the global and project .gitignore Files</h2>
+<h2 class="anchored" data-anchor-id="step-4-create-modify-the-global-and-project-.gitignore-files">Step 4: Create / Modify the Global and Project .gitignore Files</h2>
 <ol type="1">
 <li>We will use the <code>usethis::git_vaccinate()</code></li>
 <li>Look at the documentation using <code>?usethis::git_vaccinate()</code></li>
 <li>Call <code>usethis::git_vaccinate()</code></li>
-<li>Create a <code>.gitignore</code> file to exclude unnecessary files:</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R specific</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">.Rhistory</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">.RData</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ex">.Ruserdata</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ex">*.Rproj.user/</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># System files</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="ex">.DS_Store</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="ex">Thumbs.db</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Note</strong>: You can always add specific files with <code>git add -f filename</code>, edit the <code>.gitignore</code> file or use the git pane</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can always add specific files or folders by editing the <code>.gitignore</code> file or using the git pane</p>
+</div>
+</div>
 </section>
 <section id="step-5-add-your-first-content" class="level2">
 <h2 class="anchored" data-anchor-id="step-5-add-your-first-content">Step 5: Add Your First “content”</h2>
 <ul>
-<li>Create a simple R script in <code>scripts/content/</code></li>
-<li>Choose one of the data sets in <code>EVR628tools</code></li>
-<li>Spend some time reading the documentation</li>
-<li>Visualize it</li>
+<li>Create a simple R script in <code>scripts/content/my_first_plot.R</code></li>
+<li>Copy the code below and paste it in the script</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(EVR628tools)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(EVR628tools)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>✔ ✔ ✔ You sucessfully loaded the EVR628tools package ✔ ✔ ✔</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.2.1     ✔ readr     2.2.0
@@ -290,16 +305,15 @@ pull.rebase=false</code></pre>
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lod data</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(data_lionfish)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a simple plot</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data_lionfish,</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">x =</span> total_length_mm, <span class="at">y =</span> total_weight_gr)) <span class="sc">+</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>site)</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>p</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lod data</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(data_lionfish)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a simple plot</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data_lionfish,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">x =</span> total_length_mm, <span class="at">y =</span> total_weight_gr)) <span class="sc">+</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>p</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -307,9 +321,9 @@ pull.rebase=false</code></pre>
 </figure>
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save plot</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The above shouldn't work, why?</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">plot =</span> p, <span class="at">filename =</span> <span class="st">"results/figures/first_plot.png"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save plot</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The above shouldn't work, why?</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">plot =</span> p, <span class="at">filename =</span> <span class="st">"results/figures/first_plot.png"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error in `ggsave()`:
 ! Cannot find directory 'results/figures'.
@@ -320,34 +334,34 @@ pull.rebase=false</code></pre>
 <section id="step-6-update-your-readme" class="level2">
 <h2 class="anchored" data-anchor-id="step-6-update-your-readme">Step 6: Update Your README</h2>
 <p>Create a comprehensive README.md</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># My first repo</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Description</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>Analysis of environmental data for EVR 628 course.</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## Project Structure</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`scripts/`</span>: R scripts for analysis</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`results/`</span>: Output figures and tables</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Author</span></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Your Name and email?</span><span class="co">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># My repo for EVR 628</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Author</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Your Name and email? GitHub username?</span><span class="co">]</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## Description</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>Analysis of environmental data for EVR 628 course.</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## Project Structure</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`scripts/`</span>: R scripts for analysis</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`results/`</span>: Output figures and tables</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="step-7-stage-commit-push" class="level2">
 <h2 class="anchored" data-anchor-id="step-7-stage-commit-push">Step 7: Stage-Commit-Push</h2>
 <ol type="1">
-<li>Stage, commit your R script</li>
+<li>Stage and then commit your R script</li>
 <li>Push</li>
-<li>Stage, commit your README</li>
-<li>Stage, commit your plot</li>
+<li>Stage and then commit your README</li>
+<li>Stage and then commit your plot</li>
 <li>Push</li>
 </ol>
 </section>
 </section>
-<section id="now-lets-colaborate" class="level1">
-<h1>Now lets colaborate</h1>
+<section id="now-lets-collaborate" class="level1">
+<h1>Now Let’s Collaborate</h1>
 <section id="simple-collaboration" class="level2">
 <h2 class="anchored" data-anchor-id="simple-collaboration">1) Simple collaboration</h2>
 <ul>
@@ -359,11 +373,11 @@ pull.rebase=false</code></pre>
 <section id="parter-a" class="level3">
 <h3 class="anchored" data-anchor-id="parter-a">Parter A</h3>
 <ol type="1">
-<li>Go to settings -&gt; collaborators -&gt; Add collaborator</li>
+<li>In your repo’s page on GitHub, go to settings -&gt; collaborators -&gt; Add collaborator</li>
 <li>Add partner B’s username and send an invitation</li>
 <li>Wait until B tells you they are done.</li>
 </ol>
-<p>… wait …</p>
+<p>… wait until partner B tells you…</p>
 <ol start="4" type="1">
 <li>Pull</li>
 </ol>
@@ -373,16 +387,16 @@ pull.rebase=false</code></pre>
 <h3 class="anchored" data-anchor-id="parter-b">Parter B</h3>
 <ol type="1">
 <li>Give partner A your username</li>
-<li>Check your email</li>
+<li>Check your email and accept the invite</li>
 <li>Go to the repository</li>
 <li>Repeat the cloning process:</li>
 </ol>
 <ul>
 <li>You will have a new project</li>
-<li>Use a different location (I suggest desktop)</li>
+<li>Use a different location (I suggest desktop so you can delete it once you are done)</li>
 </ul>
 <ol start="5" type="1">
-<li>Make one change to partner A’s figure, and update the exported image</li>
+<li>Make one change to partner A’s figure, and update the exported image (e.g.&nbsp;<code>xlab(Total Length (mm))</code> or <code>color = "blue"</code>…)</li>
 <li>Stage the files, then commit, and push</li>
 <li>Tell partner A you are done</li>
 </ol>
@@ -391,29 +405,19 @@ pull.rebase=false</code></pre>
 </div>
 <p>Changes to make by B:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># Example: environmental_data_analysis.R</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="fu">library</span>(EVR628tools)</span>
-<span id="cb16-3"><a href="#cb16-3"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb16-4"><a href="#cb16-4"></a></span>
-<span id="cb16-5"><a href="#cb16-5"></a><span class="fu">data</span>(data_lionfish)</span>
-<span id="cb16-6"><a href="#cb16-6"></a></span>
-<span id="cb16-7"><a href="#cb16-7"></a><span class="co"># Create a simple plot</span></span>
-<span id="cb16-8"><a href="#cb16-8"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data_lionfish,</span>
-<span id="cb16-9"><a href="#cb16-9"></a>            <span class="fu">aes</span>(<span class="at">x =</span> total_length_mm, <span class="at">y =</span> total_weight_gr,</span>
-<span id="cb16-10"><a href="#cb16-10"></a>                <span class="do">### B adds color by depth</span></span>
-<span id="cb16-11"><a href="#cb16-11"></a>                <span class="at">color =</span> depth_m)) <span class="sc">+</span></span>
-<span id="cb16-12"><a href="#cb16-12"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb16-13"><a href="#cb16-13"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>site) <span class="sc">+</span></span>
-<span id="cb16-14"><a href="#cb16-14"></a>  <span class="do">### B modifies default colors</span></span>
-<span id="cb16-15"><a href="#cb16-15"></a>  <span class="fu">scale_color_gradientn</span>(<span class="at">colors =</span> <span class="fu">palette_IPCC</span>(<span class="at">var =</span> <span class="st">"prec"</span>, <span class="at">type =</span> <span class="st">"seq"</span>)) <span class="sc">+</span></span>
-<span id="cb16-16"><a href="#cb16-16"></a>  <span class="do">### B adds labels</span></span>
-<span id="cb16-17"><a href="#cb16-17"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Total length (mm)"</span>,</span>
-<span id="cb16-18"><a href="#cb16-18"></a>       <span class="at">y =</span> <span class="st">"Total weight (mm)"</span>,</span>
-<span id="cb16-19"><a href="#cb16-19"></a>       <span class="at">color =</span> <span class="st">"Depth (m)"</span>) <span class="sc">+</span></span>
-<span id="cb16-20"><a href="#cb16-20"></a>  <span class="do">### B adds theme</span></span>
-<span id="cb16-21"><a href="#cb16-21"></a>  <span class="fu">theme_bw</span>()</span>
-<span id="cb16-22"><a href="#cb16-22"></a></span>
-<span id="cb16-23"><a href="#cb16-23"></a>p</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># Example: environmental_data_analysis.R</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="fu">library</span>(EVR628tools)</span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb15-4"><a href="#cb15-4"></a></span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="fu">data</span>(data_lionfish)</span>
+<span id="cb15-6"><a href="#cb15-6"></a></span>
+<span id="cb15-7"><a href="#cb15-7"></a><span class="co"># Create a simple plot</span></span>
+<span id="cb15-8"><a href="#cb15-8"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data_lionfish,</span>
+<span id="cb15-9"><a href="#cb15-9"></a>            <span class="fu">aes</span>(<span class="at">x =</span> total_length_mm, <span class="at">y =</span> total_weight_gr)) <span class="sc">+</span></span>
+<span id="cb15-10"><a href="#cb15-10"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span>  <span class="co"># &lt;--- This is one change</span></span>
+<span id="cb15-11"><a href="#cb15-11"></a>  <span class="fu">xlab</span>(<span class="st">"Total Length (cm)"</span>)     <span class="co"># &lt;--- This is another change</span></span>
+<span id="cb15-12"><a href="#cb15-12"></a></span>
+<span id="cb15-13"><a href="#cb15-13"></a>p</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
