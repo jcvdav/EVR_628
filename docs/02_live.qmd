@@ -116,12 +116,13 @@ You can always add specific files or folders by editing the `.gitignore` file or
 ```{r}
 #| results: false
 #| code-fold: false
+#| message: true
 #| error: true
 # Load packages
 library(EVR628tools)
 library(tidyverse)
 
-# Lod data
+# Load data
 data(data_lionfish)
 
 # Create a simple plot
@@ -176,7 +177,7 @@ Analysis of environmental data for EVR 628 course.
 :::: {.columns}
 
 ::: {.column width='50%'}
-### Parter A
+### Partner A
 
 1. In your repo's page on GitHub, go to settings -> collaborators -> Add collaborator
 2. Add partner B's username and send an invitation
@@ -188,7 +189,7 @@ Analysis of environmental data for EVR 628 course.
 :::
 
 ::: {.column width='50%'}
-### Parter B
+### Partner B
 
 1. Give partner A your username
 2. Check your email and accept the invite
