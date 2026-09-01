@@ -81,7 +81,7 @@ Students must complete any assigned readings and software tests before class. No
 **Relevant links for the week**
 - Assigned readings: 
   - For Tuesday:
-    - [Jambor, H. K. (2025). A checklist for designing and improving the visualization of scientific data. Nature Cell Biology, 27(6), 879-883.](https://doi.org/10.1038/s41556-025-01684-z) Nat Cell Biol 27, 879–883 (2025).
+    - [Jambor, H. K. (2025). A checklist for designing and improving the visualization of scientific data. Nature Cell Biology, 27(6), 879-883.](https://doi.org/10.1038/s41556-025-01684-z)
   - For Thursday:
     - R4DS [CH1: Data visualization](https://r4ds.hadley.nz/data-visualize.html)
     - [Jambor, H. K., & Lex, A. (2026). Click to plot: Points of view. Nature](https://www.nature.com/articles/s41592-026-03147-1)
