@@ -80,10 +80,13 @@ Students must complete any assigned readings and software tests before class. No
 
 **Relevant links for the week**
 - Assigned readings: 
-  - Jambor, H.K. ["A checklist for designing and improving the visualization of scientific data."](https://doi.org/10.1038/s41556-025-01684-z) Nat Cell Biol 27, 879–883 (2025).
-  - R4DS [CH1: Data visualization](https://r4ds.hadley.nz/data-visualize.html)
+  - For Tuesday:
+    - [Jambor, H. K. (2025). A checklist for designing and improving the visualization of scientific data. Nature Cell Biology, 27(6), 879-883.](https://doi.org/10.1038/s41556-025-01684-z) Nat Cell Biol 27, 879–883 (2025).
+  - For Thursday:
+    - R4DS [CH1: Data visualization](https://r4ds.hadley.nz/data-visualize.html)
+    - [Jambor, H. K., & Lex, A. (2026). Click to plot: Points of view. Nature](https://www.nature.com/articles/s41592-026-03147-1)
+    - Englander, G. [“Timeless principles for better figure design”](https://blogs.worldbank.org/en/impactevaluations/timeless-principles-for-better-figure-design). The World Bank
 - Other links: 
-  - Englander, G. [“Timeless principles for better figure design”](https://blogs.worldbank.org/en/impactevaluations/timeless-principles-for-better-figure-design). The World Bank
   - IPCC [Visual Style Guide](https://www.ipcc.ch/site/assets/uploads/2022/09/IPCC_AR6_WGI_VisualStyleGuide_2022.pdf) by the IPCC
   - The [R Graph Gallery](https://r-graph-gallery.com/)
   - [Data-to-viz](https://www.data-to-viz.com/)

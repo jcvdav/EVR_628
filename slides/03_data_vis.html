@@ -520,7 +520,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <h2>Many Types of Visualizations</h2>
 <p>There are many, many, MANY types of visualizations:</p>
 <ul>
-<li class="fragment">scatter plot, column chart (stacked columns, dodge columns), histogram, 2d-histogram, violin plots, boxplots, pie charts (eww), heatmaps, line graphs, area charts, stacked area, density, voronoi plots, alluvial diagrams…</li>
+<li class="fragment">scatter plot, column chart (stacked columns, dodge columns), histogram, 2d-histogram, violin plots, box-plots, pie charts (eww), heat maps, line graphs, area charts, stacked area, density, voronoi plots, alluvial diagrams…</li>
 </ul>
 <div class="fragment">
 <p>But what really matters:</p>
@@ -624,7 +624,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div>
 <p>Message: “Tzimin-Ha has the heaviest fish”</p>
 </div><div class="column" style="width:40%;">
-<h3 id="boxplot"><span style="color:green">Boxplot:</span></h3>
+<h3 id="box-plot"><span style="color:green">Box plot:</span></h3>
 <ul>
 <li class="fragment"><em>Distribution</em> of a continuous variable by groups</li>
 <li class="fragment">Line inside box shows median</li>
@@ -674,7 +674,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div>
 <p>Message: “Most fish are medium sized and come from Paamul”</p>
 </div><div class="column" style="width:40%;">
-<h3 id="heatmap"><span style="color:green">Heatmap:</span></h3>
+<h3 id="heat-map"><span style="color:green">Heat map:</span></h3>
 <ul>
 <li class="fragment">Shows counts across two variables at the same time</li>
 <li class="fragment">Uses <code>ggplot2::geom_bin_2d()</code></li>
@@ -721,7 +721,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div>
 <p>Message: “Look, slightly larger fish are waaaay heavier!”</p>
 </div><div class="column" style="width:40%;">
-<h3 id="scatterplot"><span style="color:blue">Scatterplot:</span></h3>
+<h3 id="scatter-plot"><span style="color:blue">Scatter plot:</span></h3>
 <ul>
 <li class="fragment">Relationship between two continuous numeric variables</li>
 <li class="fragment">Represented with points</li>
@@ -920,19 +920,19 @@ Juan Carlos Villaseñor-Derbez (JC)
 </section>
 <section id="jambor2025-pds-guide-to-visualization" class="slide level2">
 <h2><span class="citation" data-cites="Jambor2025-pd">Jambor (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span>’s Guide to Visualization</h2>
-<ul>
-<li class="fragment"><a href="#/simplify">Simplify</a>: Improving annotations, labels, and layouts helps you retain the audience’s attention</li>
-<li class="fragment"><a href="#/text">Text</a>: Appropriate font size, avoid non-horizontal text. <strong>Axis labels with units!!</strong></li>
-<li class="fragment"><a href="#/color-scheme">Color scheme:</a>
-<ul>
-<li class="fragment">Prioritize accessibility and <strong>consistency</strong></li>
-<li class="fragment">Don’t abuse color; Use only when you must draw attention</li>
+<ul class="task-list">
+<li class="fragment"><label><input type="checkbox"><a href="#/simplify">Simplify</a>: Improving annotations, labels, and layouts helps you retain the audience’s attention</label></li>
+<li class="fragment"><label><input type="checkbox"><a href="#/text">Text</a>: Appropriate font size, avoid non-horizontal text. <strong>Axis labels with units!!</strong></label></li>
+<li class="fragment"><label><input type="checkbox"><a href="#/color-scheme">Color scheme:</a></label>
+<ul class="task-list">
+<li class="fragment"><label><input type="checkbox">Prioritize accessibility and <strong>consistency</strong></label></li>
+<li class="fragment"><label><input type="checkbox">Don’t abuse color; Use only when you must draw attention</label></li>
 </ul></li>
-<li class="fragment">If you absolutely need color, consider <em>type</em> of data:
-<ul>
-<li class="fragment"><a href="#/categorical-data">categorical</a>: Use a discrete color palette (e.g.&nbsp;<code>EVR628tools::palette_UM()</code>)</li>
-<li class="fragment"><a href="#/ordinal-or-numeric">ordinal and numeric</a>: single hue with varying saturation or multihue <em>designed</em> for sequential (e.g.&nbsp;<code>viridis</code> colors)</li>
-<li class="fragment">If ordinal but <a href="#/diverging">diverging</a> data: two contrasting hues and neutral center is better than a single hue or multihues</li>
+<li class="fragment"><label><input type="checkbox">If you absolutely need color, consider <em>type</em> of data:</label>
+<ul class="task-list">
+<li class="fragment"><label><input type="checkbox"><a href="#/categorical-data">categorical</a>: Use a discrete color palette (e.g.&nbsp;<code>EVR628tools::palette_UM()</code>)</label></li>
+<li class="fragment"><label><input type="checkbox"><a href="#/ordinal-or-numeric">ordinal and numeric</a>: single hue with varying saturation or multi-hue <em>designed</em> for sequential (e.g.&nbsp;<code>viridis</code> colors)</label></li>
+<li class="fragment"><label><input type="checkbox">If ordinal but <a href="#/diverging">diverging</a> data: two contrasting hues and neutral center is better than a single hue or multi-hues</label></li>
 </ul></li>
 </ul>
 </section>
@@ -1302,7 +1302,8 @@ Juan Carlos Villaseñor-Derbez (JC)
 <span id="cb25-6"><a href=""></a>       <span class="at">color =</span> <span class="st">"Site"</span>,</span>
 <span id="cb25-7"><a href=""></a>       <span class="at">shape =</span> <span class="st">"Site"</span>,</span>
 <span id="cb25-8"><a href=""></a>       <span class="at">size =</span> <span class="st">"Size class"</span>) <span class="sc">+</span></span>
-<span id="cb25-9"><a href=""></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb25-9"><a href=""></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb25-10"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -1485,7 +1486,7 @@ $ temperature_C   &lt;dbl&gt; 28, 28, 28, 28, 28, 29, 29, 29, 29, 29, 28, 28, 28
 </div>
 </section>
 <section id="modify-geoms-as-needed" class="slide level2">
-<h2>4. Modify Geoms as Needed</h2>
+<h2>4. Modify <code>geom</code>s as Needed</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
 <span id="cb33-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> depth_m, <span class="at">y =</span> total_length_mm)) <span class="sc">+</span></span>

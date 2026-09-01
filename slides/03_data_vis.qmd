@@ -137,7 +137,7 @@ What would -2.5 in `sshs` mean?
 
 There are many, many, MANY types of visualizations:
 
-- scatter plot, column chart (stacked columns, dodge columns), histogram, 2d-histogram, violin plots, boxplots, pie charts (eww), heatmaps, line graphs, area charts, stacked area, density, voronoi plots, alluvial diagrams...
+- scatter plot, column chart (stacked columns, dodge columns), histogram, 2d-histogram, violin plots, box-plots, pie charts (eww), heat maps, line graphs, area charts, stacked area, density, voronoi plots, alluvial diagrams...
 
 . . . 
 
@@ -223,7 +223,7 @@ Message: "Tzimin-Ha has the heaviest fish"
 :::
 
 ::: {.column width="40%"}
-### [Boxplot:]{style="color:green"}
+### [Box plot:]{style="color:green"}
 - _Distribution_ of a continuous variable by groups
 - Line inside box shows median
 - Outlines of box show 25th and 75th percentiles
@@ -257,7 +257,7 @@ Message: "Most fish are medium sized and come from Paamul"
 :::
 
 ::: {.column width="40%"}
-### [Heatmap:]{style="color:green"}
+### [Heat map:]{style="color:green"}
 - Shows counts across two variables at the same time
 - Uses `ggplot2::geom_bin_2d()`
 
@@ -290,7 +290,7 @@ Message: "Look, slightly larger fish are waaaay heavier!"
 :::
 
 ::: {.column width="40%"}
-### [Scatterplot:]{style="color:blue"}
+### [Scatter plot:]{style="color:blue"}
 - Relationship between two continuous numeric variables
 - Represented with points
 - Uses `ggplot2::geom_point()`
@@ -472,15 +472,15 @@ You know what _type_ of graph you want, lets make it effective
 
 ## @Jambor2025-pd's Guide to Visualization
 
-- [Simplify](#simplify): Improving annotations, labels, and layouts helps you retain the audience's attention
-- [Text](#text): Appropriate font size, avoid non-horizontal text. **Axis labels with units!!**
-- [Color scheme:](#color-scheme)
-  - Prioritize accessibility and **consistency**
-  - Don't abuse color; Use only when you must draw attention
-- If you absolutely need color, consider _type_ of data:
-  - [categorical](#categorical-data): Use a discrete color palette (e.g. `EVR628tools::palette_UM()`)
-  - [ordinal and numeric](#ordinal-or-numeric): single hue with varying saturation or multihue _designed_ for sequential (e.g. `viridis` colors)
-  - If ordinal but [diverging](#diverging) data: two contrasting hues and neutral center is better than a single hue or multihues
+- [ ] [Simplify](#simplify): Improving annotations, labels, and layouts helps you retain the audience's attention
+- [ ] [Text](#text): Appropriate font size, avoid non-horizontal text. **Axis labels with units!!**
+- [ ] [Color scheme:](#color-scheme)
+  - [ ] Prioritize accessibility and **consistency**
+  - [ ] Don't abuse color; Use only when you must draw attention
+- [ ] If you absolutely need color, consider _type_ of data:
+  - [ ] [categorical](#categorical-data): Use a discrete color palette (e.g. `EVR628tools::palette_UM()`)
+  - [ ] [ordinal and numeric](#ordinal-or-numeric): single hue with varying saturation or multi-hue _designed_ for sequential (e.g. `viridis` colors)
+  - [ ] If ordinal but [diverging](#diverging) data: two contrasting hues and neutral center is better than a single hue or multi-hues
 
 ## Simplify
 
@@ -810,7 +810,8 @@ ggplot(data = data_lionfish,
        color = "Site",
        shape = "Site",
        size = "Size class") +
-  scale_shape_manual(values = c(1:10))
+  scale_shape_manual(values = c(1:10)) +
+  theme(legend.position = "bottom")
 ```
 :::
 
@@ -961,7 +962,7 @@ ggplot(data = data_lionfish,
   geom_point()
 ```
 
-## 4. Modify Geoms as Needed
+## 4. Modify `geom`s as Needed
 
 ```{r}
 #| code-fold: false
