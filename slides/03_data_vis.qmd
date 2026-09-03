@@ -853,13 +853,13 @@ Grammar:
 
 Grammar of graphics:
 
-- Proposed by Leland Wilkinson in 2005
+- Proposed by Leland Wilkinson in '05 @wilkinson2011grammar
 - Framework that enables description of components of _any_ graph
 - It is NOT a framework for _effective_ visualization
 
 . . .
 
-`ggplot2`:
+[`ggplot2`](https://github.com/tidyverse/ggplot2):
 
 - Developed by Hadley Wickham
 - Leverages the _layered grammar of graphics_ proposed in @layered-grammar

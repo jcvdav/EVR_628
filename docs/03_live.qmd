@@ -57,7 +57,7 @@ ggplot(data = data_lionfish,
 ```
 
 ## The `geom_point` function
-- Emphasiz on `+` for layering
+- Emphasis on `+` for layering
 - Run with simple points
 - Show documentation and scroll down to the **Aesthetics** section
 - Show how to change colors / sizes etc...
@@ -91,7 +91,6 @@ ggplot(data = data_lionfish,
 
 - Categorical variable with `geom_bar()`
   - basic with site
-  - with `fct_infreq` and site
 
 ```{r}
 # Basic bar plot with site
@@ -99,13 +98,8 @@ ggplot(data = data_lionfish, aes(x = site)) +
   geom_bar() +
   coord_flip() +
   labs(x = "Site", y = "Number of fish")
-
-# Bar plot with sites ordered by frequency
-ggplot(data = data_lionfish, aes(x = fct_infreq(site))) +
-  geom_bar() +
-  coord_flip() +
-  labs(x = "Site", y = "Number of fish")
 ```
+
 ## Distribution of a numeric variable
 
 - Numerical variable with `geom_histogram()`
