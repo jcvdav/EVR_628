@@ -235,7 +235,7 @@ _Fall Recess is Oct 10-13_
 - Intro to quarto markdown
 - Slides
 - Documents (html and pdf)
-- Build your website
+- Build your own website
 
 **Relevant links for the week:**
 - Assigned readings
@@ -246,29 +246,16 @@ _Fall Recess is Oct 10-13_
 
 ## Week 14 (Week of Nov 16)
 **Programming** | [slides](slides/14_programming)
-- Background jobs
-- User-defined functions
-- Iteration with loops
+-	User-defined functions
+-	Iteration with loops
+-	Functional programming with purrr
+-	Background jobs
 
 **Relevant links for the week:**
 - Assigned readings
   - R4DS [CH25: Functions](https://r4ds.hadley.nz/functions.html)
   - R4DS [CH27: `for` loops](https://r4ds.hadley.nz/base-R.html#for-loops) (Section 27.5 only)
 - [Link](docs/14_live.html) to document for live coding session
-
-**Extensions** | [slides](slides/15_wrap_up.html)
-- Standardizing the environment with `.Rprofile`
-- Shiny Apps Framework
-- Connecting to external databases with DBI
-- Animating with the `gganimate` package
-- Interactive maps with leaflet
-- Retrieving environmental datasets from the Internet (`gfwr`, `rerddap`)
-
----
-
-**FINAL PROJECT:** [_Communicating your work_](docs/final_project.html), due TBD
-
----
 
 ## *Week 15 (Week of Nov 23)
 _Thanksgiving recess is Nov 24-29_
@@ -277,11 +264,26 @@ _Thanksgiving recess is Nov 24-29_
 
 ## Week 16 (Week of Nov 30)
 
-[**Final Exams week Dec 3 - Dec 9**](https://registrar.miami.edu/_assets/pdf/academic-calendar-fall-2026.pdf)
+**Extensions** | [slides](slides/15_wrap_up.html)
 
-## Week 17 (Week of Nov 30)
+-	Reactive programming
+-	UI / UX
+-	Front-end vs back-end
 
 Classes end after lecture on Tuesday Dec 1
+
+## Week 17 (Week of Dec 7)
+
+[**Final Exams week Dec 3 - Dec 9**](https://registrar.miami.edu/_assets/pdf/academic-calendar-fall-2026.pdf)
+
+Final exam scheduled for Thursday December 8th
+
+---
+
+**FINAL PROJECT:** [_Communicating your work_](docs/final_project.html), due TBD
+
+---
+
 
 ## Reading resources
 - Books and manuals:
