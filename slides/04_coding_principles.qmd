@@ -321,12 +321,11 @@ as.numeric("a") # Character to numeric
 
 ## Object _classes_
 
-Classes in R map to the types of data we during Week 2:
+Classes in R map to the types of data we saw during Week 3:
 
 - _numerical_ data in R are of _class_ `numeric`
 - _cetegorical_ data in R are of _class_ `character`
 - _ordinal_ data in R are a special _class_ of `character` called `factor`
-  - Remember when we ordered the axis label in a ggplot using `fct_infreq()`?
 
 ## Creating "objects"
 
@@ -335,7 +334,7 @@ Classes in R map to the types of data we during Week 2:
 - You will use the _assignment operator_: `<-`
   - Mac shortcut: `Opt` + `-`
   - Windows shortcut: `Alt` + `-`
-- Read "`<-`" as: "gets a value of"
+- Read "`x <- y`" as: "x gets a value of y"
   
 . . .
 
@@ -374,6 +373,7 @@ my_num + 2 # Use your object in other operations
 
 my_number # This line should fail.. Why?
 ```
+What happened?
 
 :::
 ::::
@@ -843,7 +843,7 @@ my_data[ , 1]
 
 ## Extracting data.frame columns with `$`
 
-- Remember data.frames and tibbles are just collection of vectors
+- Remember data.frames and tibbles are just a collection of vectors
 - You can get the variable (column) out as a vector using `$`
 - This is why we like tidy data
 
@@ -1035,7 +1035,7 @@ how_many
 
 For example, calculate the mean $\bar{x} =  \frac{\sum_{i = 1}^Nx_i}{N} = \frac{x_1 + x_2 + x_3 ... x_N}{N}$
 
-"_Sum of all values from 1 to N, divided by the number of values_"
+"_**Sum** of all values, divided by the **number** of values_"
 
 . . .
 

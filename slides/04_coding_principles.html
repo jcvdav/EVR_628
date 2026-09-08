@@ -6,8 +6,8 @@
 <script src="04_coding_principles_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="04_coding_principles_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="04_coding_principles_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="04_coding_principles_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+<link href="04_coding_principles_files/libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="Juan Carlos Villaseñor-Derbez (JC)">
   <title>Coding principles</title>
@@ -95,7 +95,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="04_coding_principles_files/libs/revealjs/dist/theme/quarto-2c1b5f745a11cfad616ebade4a4a7d24.css">
+  <link rel="stylesheet" href="04_coding_principles_files/libs/revealjs/dist/theme/quarto-0fde88a82f0356838740f155f1088782.css">
   <link href="04_coding_principles_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="04_coding_principles_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="04_coding_principles_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -202,7 +202,7 @@
 Juan Carlos Villaseñor-Derbez (JC) 
 </div>
         <p class="quarto-title-affiliation">
-            Rosenstiel School of Marine, Atmospheric, and Earth Science and Institute for Data Science and Computing
+            Rosenstiel School of Marine, Atmospheric &amp; Earth Science and Institute for Data Science &amp; Computing
           </p>
     </div>
 </div>
@@ -268,14 +268,14 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="fragment">
 <p>Is this comment helpful?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># Shark analysis</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># Shark analysis</span></span>
 <span id="cb1-2"><a href=""></a>lengths <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="fl">4.1</span>, <span class="fl">2.8</span>, <span class="fl">5.5</span>, <span class="fl">3.9</span>, <span class="fl">5.8</span>)</span>
 <span id="cb1-3"><a href=""></a>sharks <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Great White Shark"</span>, <span class="st">"Lemon Shark"</span>, <span class="st">"Bull Shark"</span>, <span class="st">"Hammerhead Shark"</span>, <span class="st">"Mako Shark"</span>, <span class="st">"Great White Shark"</span>)</span>
 <span id="cb1-4"><a href=""></a>shark_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
 <span id="cb1-5"><a href=""></a>  lengths,</span>
 <span id="cb1-6"><a href=""></a>  sharks</span>
 <span id="cb1-7"><a href=""></a>)</span>
-<span id="cb1-8"><a href=""></a>shark_data<span class="sc">$</span>sharks[shark_data<span class="sc">$</span>length <span class="sc">==</span> <span class="fu">max</span>(shark_data<span class="sc">$</span>length)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-8"><a href=""></a>shark_data<span class="sc">$</span>sharks[shark_data<span class="sc">$</span>length <span class="sc">==</span> <span class="fu">max</span>(shark_data<span class="sc">$</span>length)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Great White Shark"</code></pre>
 </div>
@@ -286,7 +286,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <h2>Comments: Some guidelines</h2>
 <p>How about this?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3" data-code-line-numbers="1-7|9-13|15-16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co"># Build data</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" data-code-line-numbers="1-7|9-13|15-16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co"># Build data</span></span>
 <span id="cb3-2"><a href=""></a><span class="do">## Vector of shark lengths</span></span>
 <span id="cb3-3"><a href=""></a>lengths <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="fl">4.1</span>, <span class="fl">2.8</span>, <span class="fl">5.5</span>, <span class="fl">3.9</span>, <span class="fl">5.8</span>)</span>
 <span id="cb3-4"><a href=""></a><span class="do">## Vector of shark names</span></span>
@@ -301,7 +301,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <span id="cb3-13"><a href=""></a>)</span>
 <span id="cb3-14"><a href=""></a></span>
 <span id="cb3-15"><a href=""></a><span class="co"># Find the length for the largest great white</span></span>
-<span id="cb3-16"><a href=""></a>shark_data<span class="sc">$</span>lengths[shark_data<span class="sc">$</span>sharks <span class="sc">==</span> <span class="st">"Great White Shark"</span>] <span class="sc">|&gt;</span> <span class="fu">max</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-16"><a href=""></a>shark_data<span class="sc">$</span>lengths[shark_data<span class="sc">$</span>sharks <span class="sc">==</span> <span class="st">"Great White Shark"</span>] <span class="sc">|&gt;</span> <span class="fu">max</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 6</code></pre>
 </div>
@@ -316,7 +316,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="fragment">
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="do">################################################################################</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="do">################################################################################</span></span>
 <span id="cb5-2"><a href=""></a><span class="co"># Description goes here</span></span>
 <span id="cb5-3"><a href=""></a><span class="do">################################################################################</span></span>
 <span id="cb5-4"><a href=""></a></span>
@@ -339,7 +339,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <span id="cb5-21"><a href=""></a></span>
 <span id="cb5-22"><a href=""></a><span class="co"># EXPORT #######################################################################</span></span>
 <span id="cb5-23"><a href=""></a></span>
-<span id="cb5-24"><a href=""></a><span class="do">## The final step --------------------------------------------------------------</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-24"><a href=""></a><span class="do">## The final step --------------------------------------------------------------</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -358,7 +358,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>i_use_snake_case                   <span class="co"># This is my preference</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>i_use_snake_case                   <span class="co"># This is my preference</span></span>
 <span id="cb6-2"><a href=""></a></span>
 <span id="cb6-3"><a href=""></a>otherPeopleUseCamelCase            <span class="co"># This sometimes works</span></span>
 <span id="cb6-4"><a href=""></a></span>
@@ -366,7 +366,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <span id="cb6-6"><a href=""></a></span>
 <span id="cb6-7"><a href=""></a>And_aFew.People_RENOUNCEconvention <span class="co"># You need help</span></span>
 <span id="cb6-8"><a href=""></a></span>
-<span id="cb6-9"><a href=""></a>ALL_CAPS                           <span class="co"># Reserved for super important stuff</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-9"><a href=""></a>ALL_CAPS                           <span class="co"># Reserved for super important stuff</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li class="fragment"><a href="https://google.github.io/styleguide/">Google Code Style Guide</a></li>
@@ -383,14 +383,14 @@ Juan Carlos Villaseñor-Derbez (JC)
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="co"># Strive for</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="co"># Strive for</span></span>
 <span id="cb7-2"><a href=""></a>y <span class="ot">&lt;-</span> (m <span class="sc">*</span> x) <span class="sc">+</span> b</span>
 <span id="cb7-3"><a href=""></a></span>
 <span id="cb7-4"><a href=""></a><span class="co"># Avoid</span></span>
 <span id="cb7-5"><a href=""></a>y<span class="ot">&lt;-</span>(m<span class="sc">*</span>x)<span class="sc">+</span>b</span>
 <span id="cb7-6"><a href=""></a></span>
 <span id="cb7-7"><a href=""></a><span class="co"># Avoid</span></span>
-<span id="cb7-8"><a href=""></a> y <span class="ot">&lt;-</span> ( m <span class="sc">*</span> x ) <span class="sc">+</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-8"><a href=""></a> y <span class="ot">&lt;-</span> ( m <span class="sc">*</span> x ) <span class="sc">+</span> b</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li class="fragment">No spaces around parentheses for regular function calls</li>
@@ -399,11 +399,11 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="co"># Strive for</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="co"># Strive for</span></span>
 <span id="cb8-2"><a href=""></a><span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb8-3"><a href=""></a></span>
 <span id="cb8-4"><a href=""></a><span class="co"># Avoid</span></span>
-<span id="cb8-5"><a href=""></a><span class="fu">mean</span> (x ,<span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-5"><a href=""></a><span class="fu">mean</span> (x ,<span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -413,7 +413,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="column" style="width:50%;">
 <p>Not great</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">library</span>(EVR628tools)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">library</span>(EVR628tools)</span>
 <span id="cb9-2"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb9-3"><a href=""></a><span class="fu">data</span>(<span class="st">"data_lionfish"</span>)</span>
 <span id="cb9-4"><a href=""></a>my_data<span class="ot">&lt;-</span>data_lionfish[data_lionfish<span class="sc">$</span>site<span class="sc">==</span><span class="st">"Paamul"</span>,]</span>
@@ -424,12 +424,12 @@ Juan Carlos Villaseñor-Derbez (JC)
 <span id="cb9-9"><a href=""></a><span class="at">y=</span><span class="st">"Totallength(mm)"</span>,</span>
 <span id="cb9-10"><a href=""></a><span class="at">title=</span><span class="st">"Bodylengthanddepth"</span>,</span>
 <span id="cb9-11"><a href=""></a><span class="at">subtitle=</span><span class="st">"Largerfishtendtolivedeeper"</span>,</span>
-<span id="cb9-12"><a href=""></a><span class="at">caption=</span><span class="st">"SourceEVR628tools::data_lionfish"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-12"><a href=""></a><span class="at">caption=</span><span class="st">"SourceEVR628tools::data_lionfish"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p>Better</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="co"># Load packages</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="co"># Load packages</span></span>
 <span id="cb10-2"><a href=""></a><span class="fu">library</span>(EVR628tools)</span>
 <span id="cb10-3"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb10-4"><a href=""></a></span>
@@ -447,7 +447,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <span id="cb10-16"><a href=""></a>       <span class="at">y =</span> <span class="st">"Total length (mm)"</span>,</span>
 <span id="cb10-17"><a href=""></a>       <span class="at">title =</span> <span class="st">"Body length and depth"</span>,</span>
 <span id="cb10-18"><a href=""></a>       <span class="at">subtitle =</span> <span class="st">"Larger fish tend to live deeper"</span>,</span>
-<span id="cb10-19"><a href=""></a>       <span class="at">caption =</span> <span class="st">"Source EVR628tools::data_lionfish"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-19"><a href=""></a>       <span class="at">caption =</span> <span class="st">"Source EVR628tools::data_lionfish"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 <div class="fragment">
@@ -476,19 +476,19 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="column" style="width:50%;">
 <p>You can check classes with function <code>class()</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">class</span>(<span class="st">"a"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">class</span>(<span class="st">"a"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "character"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="fu">class</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="fu">class</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "numeric"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">class</span>(<span class="st">"2"</span>) <span class="co"># This is no longer a number</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">class</span>(<span class="st">"2"</span>) <span class="co"># This is no longer a number</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "character"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="fu">class</span>(<span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="fu">class</span>(<span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "logical"</code></pre>
 </div>
@@ -496,18 +496,18 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div><div class="column" style="width:50%;">
 <p>Coercing “up” is safe</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="fu">as.character</span>(<span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="fu">as.character</span>(<span class="dv">20</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "20"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="fu">as.numeric</span>(<span class="cn">TRUE</span>) <span class="co"># Logical to numeric</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="fu">as.numeric</span>(<span class="cn">TRUE</span>) <span class="co"># Logical to numeric</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1</code></pre>
 </div>
 </div>
 <p>Coercing “down”… not always</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a><span class="fu">as.numeric</span>(<span class="st">"a"</span>) <span class="co"># Character to numeric</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a><span class="fu">as.numeric</span>(<span class="st">"a"</span>) <span class="co"># Character to numeric</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NA</code></pre>
 </div>
@@ -517,14 +517,11 @@ Juan Carlos Villaseñor-Derbez (JC)
 </section>
 <section id="object-classes" class="slide level2">
 <h2>Object <em>classes</em></h2>
-<p>Classes in R map to the types of data we during Week 2:</p>
+<p>Classes in R map to the types of data we saw during Week 3:</p>
 <ul>
 <li class="fragment"><em>numerical</em> data in R are of <em>class</em> <code>numeric</code></li>
 <li class="fragment"><em>cetegorical</em> data in R are of <em>class</em> <code>character</code></li>
-<li class="fragment"><em>ordinal</em> data in R are a special <em>class</em> of <code>character</code> called <code>factor</code>
-<ul>
-<li class="fragment">Remember when we ordered the axis label in a ggplot using <code>fct_infreq()</code>?</li>
-</ul></li>
+<li class="fragment"><em>ordinal</em> data in R are a special <em>class</em> of <code>character</code> called <code>factor</code></li>
 </ul>
 </section>
 <section id="creating-objects" class="slide level2">
@@ -537,15 +534,15 @@ Juan Carlos Villaseñor-Derbez (JC)
 <li class="fragment">Mac shortcut: <code>Opt</code> + <code>-</code></li>
 <li class="fragment">Windows shortcut: <code>Alt</code> + <code>-</code></li>
 </ul></li>
-<li class="fragment">Read “<code>&lt;-</code>” as: “gets a value of”</li>
+<li class="fragment">Read “<code>x &lt;- y</code>” as: “x gets a value of y”</li>
 </ul>
 <div class="fragment">
 <p>Save something (pretty much anything) by creating an object</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25" data-code-line-numbers="1-2|3-6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a><span class="co"># A number</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25" data-code-line-numbers="1-2|3-6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a><span class="co"># A number</span></span>
 <span id="cb25-2"><a href=""></a>my_num <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="co"># Read as: my_num gets a value of 2</span></span>
 <span id="cb25-3"><a href=""></a><span class="co"># piece of text</span></span>
-<span id="cb25-4"><a href=""></a>my_name <span class="ot">&lt;-</span> <span class="st">"JC"</span> <span class="co"># Read as: my_name gets a value of JC</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-4"><a href=""></a>my_name <span class="ot">&lt;-</span> <span class="st">"JC"</span> <span class="co"># Read as: my_name gets a value of JC</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -558,28 +555,30 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div><div class="column" style="width:50%;">
 <p>And you can “call them” later</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a>my_num <span class="co"># Call your object in the console</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a>my_num <span class="co"># Call your object in the console</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a>my_num <span class="sc">+</span> <span class="dv">2</span> <span class="co"># Use your object in other operations</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a>my_num <span class="sc">+</span> <span class="dv">2</span> <span class="co"># Use your object in other operations</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a>my_number <span class="co"># This line should fail.. Why?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a>my_number <span class="co"># This line should fail.. Why?</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error: object 'my_number' not found</code></pre>
+<pre><code>Error:
+! object 'my_number' not found</code></pre>
 </div>
 </div>
+<p>What happened?</p>
 </div></div>
 <div class="fragment">
 <p>You can use <code>class()</code> to check what each thing is</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a><span class="fu">class</span>(my_num)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a><span class="fu">class</span>(my_num)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "numeric"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a><span class="fu">class</span>(my_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a><span class="fu">class</span>(my_name)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "character"</code></pre>
 </div>
@@ -596,27 +595,27 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span> <span class="co"># Addition</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span> <span class="co"># Addition</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href=""></a><span class="dv">10</span> <span class="sc">-</span> <span class="dv">1</span> <span class="co"># Subtraction</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href=""></a><span class="dv">10</span> <span class="sc">-</span> <span class="dv">1</span> <span class="co"># Subtraction</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 9</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href=""></a><span class="dv">10</span> <span class="sc">*</span> <span class="dv">3</span> <span class="co"># Multiplication</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href=""></a><span class="dv">10</span> <span class="sc">*</span> <span class="dv">3</span> <span class="co"># Multiplication</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 30</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href=""></a><span class="dv">10</span> <span class="sc">/</span> <span class="dv">3</span> <span class="co"># Division</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href=""></a><span class="dv">10</span> <span class="sc">/</span> <span class="dv">3</span> <span class="co"># Division</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3.333333</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href=""></a><span class="dv">2</span><span class="sc">^</span><span class="dv">4</span> <span class="co"># Exponentiation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href=""></a><span class="dv">2</span><span class="sc">^</span><span class="dv">4</span> <span class="co"># Exponentiation</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 16</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href=""></a><span class="dv">64</span> <span class="sc">^</span> (<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>) <span class="co"># Roots as powers...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href=""></a><span class="dv">64</span> <span class="sc">^</span> (<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>) <span class="co"># Roots as powers...</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 8</code></pre>
 </div>
@@ -639,28 +638,28 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href=""></a><span class="dv">2</span> <span class="sc">&lt;</span> <span class="dv">3</span>  <span class="co"># Less than?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href=""></a><span class="dv">2</span> <span class="sc">&lt;</span> <span class="dv">3</span>  <span class="co"># Less than?</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href=""></a><span class="dv">2</span> <span class="sc">&gt;</span> <span class="dv">3</span>  <span class="co"># Greater than?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href=""></a><span class="dv">2</span> <span class="sc">&gt;</span> <span class="dv">3</span>  <span class="co"># Greater than?</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href=""></a><span class="dv">2</span> <span class="sc">&lt;=</span> <span class="dv">3</span> <span class="co"># Les than or equal to?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href=""></a><span class="dv">2</span> <span class="sc">&lt;=</span> <span class="dv">3</span> <span class="co"># Les than or equal to?</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href=""></a><span class="dv">2</span> <span class="sc">&gt;=</span> <span class="dv">3</span> <span class="co"># Greater than or equal to?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href=""></a><span class="dv">2</span> <span class="sc">&gt;=</span> <span class="dv">3</span> <span class="co"># Greater than or equal to?</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href=""></a><span class="dv">2</span> <span class="sc">==</span> <span class="dv">3</span> <span class="co"># Equal to?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href=""></a><span class="dv">2</span> <span class="sc">==</span> <span class="dv">3</span> <span class="co"># Equal to?</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href=""></a><span class="co"># Also works with characters</span></span>
-<span id="cb58-2"><a href=""></a><span class="st">"hotdog"</span> <span class="sc">==</span> <span class="st">"sandwich"</span> <span class="co"># Equal?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href=""></a><span class="co"># Also works with characters</span></span>
+<span id="cb58-2"><a href=""></a><span class="st">"hotdog"</span> <span class="sc">==</span> <span class="st">"sandwich"</span> <span class="co"># Equal?</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
@@ -676,15 +675,15 @@ Juan Carlos Villaseñor-Derbez (JC)
 <section id="binary-operators-logical" class="slide level2">
 <h2>Binary Operators: Logical</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href=""></a>(<span class="dv">2</span> <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">&amp;</span> (<span class="st">"a"</span> <span class="sc">==</span> <span class="st">"b"</span>) <span class="co"># Are statements to the left AND right TRUE?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href=""></a>(<span class="dv">2</span> <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">&amp;</span> (<span class="st">"a"</span> <span class="sc">==</span> <span class="st">"b"</span>) <span class="co"># Are statements to the left AND right TRUE?</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href=""></a>(<span class="dv">2</span> <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">|</span> (<span class="st">"a"</span> <span class="sc">==</span> <span class="st">"b"</span>) <span class="co"># Are statements to the left OR right TRUE?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href=""></a>(<span class="dv">2</span> <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">|</span> (<span class="st">"a"</span> <span class="sc">==</span> <span class="st">"b"</span>) <span class="co"># Are statements to the left OR right TRUE?</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href=""></a><span class="sc">!</span>T <span class="co"># Negate the statement</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href=""></a><span class="sc">!</span>T <span class="co"># Negate the statement</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
@@ -709,8 +708,8 @@ Juan Carlos Villaseñor-Derbez (JC)
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href=""></a>colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"green"</span>, <span class="st">"orange"</span>, <span class="st">"black"</span>)</span>
-<span id="cb66-2"><a href=""></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">40</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href=""></a>colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"green"</span>, <span class="st">"orange"</span>, <span class="st">"black"</span>)</span>
+<span id="cb66-2"><a href=""></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">40</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li class="fragment">The objects called <code>colors</code> and <code>numbers</code> are <em>vectors</em> of class <code>character</code> and <code>numeric</code></li>
@@ -718,11 +717,11 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href=""></a><span class="fu">class</span>(colors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href=""></a><span class="fu">class</span>(colors)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "character"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href=""></a><span class="fu">class</span>(numbers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href=""></a><span class="fu">class</span>(numbers)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "numeric"</code></pre>
 </div>
@@ -734,7 +733,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href=""></a><span class="fu">length</span>(colors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href=""></a><span class="fu">length</span>(colors)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -747,16 +746,16 @@ Juan Carlos Villaseñor-Derbez (JC)
 <h2>Operating on Vectors</h2>
 <p>If the vector is numeric, arithmetic operations are applied to every element automatically</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href=""></a>numbers <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb73-2"><a href=""></a>numbers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href=""></a>numbers <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb73-2"><a href=""></a>numbers</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href=""></a>numbers <span class="sc">*</span> <span class="dv">2</span> <span class="co"># Multiplies each element x 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href=""></a>numbers <span class="sc">*</span> <span class="dv">2</span> <span class="co"># Multiplies each element x 2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  2  4  6  8 10 12 14 16 18 20</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href=""></a>numbers <span class="sc">+</span> <span class="dv">5</span> <span class="co"># Adds 5 to each element</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href=""></a>numbers <span class="sc">+</span> <span class="dv">5</span> <span class="co"># Adds 5 to each element</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  6  7  8  9 10 11 12 13 14 15</code></pre>
 </div>
@@ -766,10 +765,11 @@ Juan Carlos Villaseñor-Derbez (JC)
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href=""></a>colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"green"</span>, <span class="st">"orange"</span>, <span class="st">"black"</span>)</span>
-<span id="cb79-2"><a href=""></a>colors <span class="sc">*</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href=""></a>colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"green"</span>, <span class="st">"orange"</span>, <span class="st">"black"</span>)</span>
+<span id="cb79-2"><a href=""></a>colors <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error in colors * 2: non-numeric argument to binary operator</code></pre>
+<pre><code>Error in `colors * 2`:
+! non-numeric argument to binary operator</code></pre>
 </div>
 </div>
 <div class="callout callout-note callout-titled callout-style-default">
@@ -792,12 +792,12 @@ Juan Carlos Villaseñor-Derbez (JC)
 <p>Accessing elements within an object based on their position</p>
 <p>Read “<code>[]</code>” as “extract elements”</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href=""></a>colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"green"</span>, <span class="st">"orange"</span>, <span class="st">"black"</span>) <span class="co"># Create a character vector of colors</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href=""></a>colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"green"</span>, <span class="st">"orange"</span>, <span class="st">"black"</span>) <span class="co"># Create a character vector of colors</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
 <p>I can extract the first element with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href=""></a>colors[<span class="dv">1</span>] <span class="co"># Extract first element</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href=""></a>colors[<span class="dv">1</span>] <span class="co"># Extract first element</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "red"</code></pre>
 </div>
@@ -806,7 +806,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="fragment">
 <p>Extract the first and third elements</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href=""></a>colors[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)] <span class="co"># Extract elements 1 and 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href=""></a>colors[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)] <span class="co"># Extract elements 1 and 3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "red"   "green"</code></pre>
 </div>
@@ -815,11 +815,11 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="fragment">
 <p>Extract elements based on logical matching</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href=""></a>colors <span class="sc">==</span> <span class="st">"red"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href=""></a>colors <span class="sc">==</span> <span class="st">"red"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  TRUE FALSE FALSE FALSE FALSE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href=""></a>colors[<span class="sc">!</span>colors <span class="sc">==</span> <span class="st">"red"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href=""></a>colors[<span class="sc">!</span>colors <span class="sc">==</span> <span class="st">"red"</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "blue"   "green"  "orange" "black" </code></pre>
 </div>
@@ -829,8 +829,8 @@ Juan Carlos Villaseñor-Derbez (JC)
 <section id="indexing-with-and-modify-with--" class="slide level2">
 <h2>Indexing with <code>[]</code> and modify with <code>&lt;-</code></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href=""></a>colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"green"</span>, <span class="st">"orange"</span>, <span class="st">"black"</span>) <span class="co"># Create a character vector of colors</span></span>
-<span id="cb90-2"><a href=""></a>colors</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href=""></a>colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"green"</span>, <span class="st">"orange"</span>, <span class="st">"black"</span>) <span class="co"># Create a character vector of colors</span></span>
+<span id="cb90-2"><a href=""></a>colors</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "red"    "blue"   "green"  "orange" "black" </code></pre>
 </div>
@@ -838,9 +838,9 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="fragment">
 <p>Let’s modify red to white</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href=""></a>colors[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">"white"</span> <span class="co"># The first element of "colors" takes the value "white"</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href=""></a>colors[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">"white"</span> <span class="co"># The first element of "colors" takes the value "white"</span></span>
 <span id="cb92-2"><a href=""></a></span>
-<span id="cb92-3"><a href=""></a>colors</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb92-3"><a href=""></a>colors</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "white"  "blue"   "green"  "orange" "black" </code></pre>
 </div>
@@ -849,12 +849,12 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="fragment">
 <p>Number of elements indexed must match number of elements assigned</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href=""></a>colors[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"white"</span>, <span class="st">"yellow"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href=""></a>colors[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"white"</span>, <span class="st">"yellow"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in colors[1] &lt;- c("white", "yellow"): number of items to replace is not
 a multiple of replacement length</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href=""></a>colors</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href=""></a>colors</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "white"  "blue"   "green"  "orange" "black" </code></pre>
 </div>
@@ -881,32 +881,32 @@ a multiple of replacement length</code></pre>
 <div class="fragment">
 <p>Build data.frame from vectors</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb98" data-code-line-numbers="2|3|4-6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href=""></a><span class="co"># Build my vectors</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb98" data-code-line-numbers="2|3|4-6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href=""></a><span class="co"># Build my vectors</span></span>
 <span id="cb98-2"><a href=""></a>colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"green"</span>, <span class="st">"orange"</span>, <span class="st">"black"</span>) <span class="co"># For five colors</span></span>
 <span id="cb98-3"><a href=""></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">40</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">6</span>)                           <span class="co"># For five numbers</span></span>
 <span id="cb98-4"><a href=""></a><span class="co"># Column names are automatically assigned</span></span>
 <span id="cb98-5"><a href=""></a><span class="fu">data.frame</span>(colors,</span>
-<span id="cb98-6"><a href=""></a>           numbers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb98-6"><a href=""></a>           numbers)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="rpncividpx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#rpncividpx table {
+<div id="bmxdxexulr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bmxdxexulr table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#rpncividpx thead, #rpncividpx tbody, #rpncividpx tfoot, #rpncividpx tr, #rpncividpx td, #rpncividpx th {
+#bmxdxexulr thead, #bmxdxexulr tbody, #bmxdxexulr tfoot, #bmxdxexulr tr, #bmxdxexulr td, #bmxdxexulr th {
   border-style: none;
 }
 
-#rpncividpx p {
+#bmxdxexulr p {
   margin: 0;
   padding: 0;
 }
 
-#rpncividpx .gt_table {
+#bmxdxexulr .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -932,12 +932,12 @@ a multiple of replacement length</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#rpncividpx .gt_caption {
+#bmxdxexulr .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#rpncividpx .gt_title {
+#bmxdxexulr .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -949,7 +949,7 @@ a multiple of replacement length</code></pre>
   border-bottom-width: 0;
 }
 
-#rpncividpx .gt_subtitle {
+#bmxdxexulr .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -961,7 +961,7 @@ a multiple of replacement length</code></pre>
   border-top-width: 0;
 }
 
-#rpncividpx .gt_heading {
+#bmxdxexulr .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -973,13 +973,13 @@ a multiple of replacement length</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#rpncividpx .gt_bottom_border {
+#bmxdxexulr .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#rpncividpx .gt_col_headings {
+#bmxdxexulr .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -994,7 +994,7 @@ a multiple of replacement length</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#rpncividpx .gt_col_heading {
+#bmxdxexulr .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1014,7 +1014,7 @@ a multiple of replacement length</code></pre>
   overflow-x: hidden;
 }
 
-#rpncividpx .gt_column_spanner_outer {
+#bmxdxexulr .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1026,15 +1026,15 @@ a multiple of replacement length</code></pre>
   padding-right: 4px;
 }
 
-#rpncividpx .gt_column_spanner_outer:first-child {
+#bmxdxexulr .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#rpncividpx .gt_column_spanner_outer:last-child {
+#bmxdxexulr .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#rpncividpx .gt_column_spanner {
+#bmxdxexulr .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1046,11 +1046,11 @@ a multiple of replacement length</code></pre>
   width: 100%;
 }
 
-#rpncividpx .gt_spanner_row {
+#bmxdxexulr .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#rpncividpx .gt_group_heading {
+#bmxdxexulr .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1076,7 +1076,7 @@ a multiple of replacement length</code></pre>
   text-align: left;
 }
 
-#rpncividpx .gt_empty_group_heading {
+#bmxdxexulr .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1091,15 +1091,15 @@ a multiple of replacement length</code></pre>
   vertical-align: middle;
 }
 
-#rpncividpx .gt_from_md > :first-child {
+#bmxdxexulr .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#rpncividpx .gt_from_md > :last-child {
+#bmxdxexulr .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#rpncividpx .gt_row {
+#bmxdxexulr .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1118,7 +1118,7 @@ a multiple of replacement length</code></pre>
   overflow-x: hidden;
 }
 
-#rpncividpx .gt_stub {
+#bmxdxexulr .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1131,7 +1131,7 @@ a multiple of replacement length</code></pre>
   padding-right: 5px;
 }
 
-#rpncividpx .gt_stub_row_group {
+#bmxdxexulr .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1145,15 +1145,15 @@ a multiple of replacement length</code></pre>
   vertical-align: top;
 }
 
-#rpncividpx .gt_row_group_first td {
+#bmxdxexulr .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#rpncividpx .gt_row_group_first th {
+#bmxdxexulr .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#rpncividpx .gt_summary_row {
+#bmxdxexulr .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1163,16 +1163,16 @@ a multiple of replacement length</code></pre>
   padding-right: 5px;
 }
 
-#rpncividpx .gt_first_summary_row {
+#bmxdxexulr .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#rpncividpx .gt_first_summary_row.thick {
+#bmxdxexulr .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#rpncividpx .gt_last_summary_row {
+#bmxdxexulr .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1182,7 +1182,7 @@ a multiple of replacement length</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#rpncividpx .gt_grand_summary_row {
+#bmxdxexulr .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1192,7 +1192,7 @@ a multiple of replacement length</code></pre>
   padding-right: 5px;
 }
 
-#rpncividpx .gt_first_grand_summary_row {
+#bmxdxexulr .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1202,7 +1202,7 @@ a multiple of replacement length</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#rpncividpx .gt_last_grand_summary_row_top {
+#bmxdxexulr .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1212,11 +1212,11 @@ a multiple of replacement length</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#rpncividpx .gt_striped {
+#bmxdxexulr .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#rpncividpx .gt_table_body {
+#bmxdxexulr .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1225,7 +1225,7 @@ a multiple of replacement length</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#rpncividpx .gt_footnotes {
+#bmxdxexulr .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1239,7 +1239,7 @@ a multiple of replacement length</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#rpncividpx .gt_footnote {
+#bmxdxexulr .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1248,7 +1248,7 @@ a multiple of replacement length</code></pre>
   padding-right: 5px;
 }
 
-#rpncividpx .gt_sourcenotes {
+#bmxdxexulr .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1262,7 +1262,7 @@ a multiple of replacement length</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#rpncividpx .gt_sourcenote {
+#bmxdxexulr .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1270,77 +1270,77 @@ a multiple of replacement length</code></pre>
   padding-right: 5px;
 }
 
-#rpncividpx .gt_left {
+#bmxdxexulr .gt_left {
   text-align: left;
 }
 
-#rpncividpx .gt_center {
+#bmxdxexulr .gt_center {
   text-align: center;
 }
 
-#rpncividpx .gt_right {
+#bmxdxexulr .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#rpncividpx .gt_font_normal {
+#bmxdxexulr .gt_font_normal {
   font-weight: normal;
 }
 
-#rpncividpx .gt_font_bold {
+#bmxdxexulr .gt_font_bold {
   font-weight: bold;
 }
 
-#rpncividpx .gt_font_italic {
+#bmxdxexulr .gt_font_italic {
   font-style: italic;
 }
 
-#rpncividpx .gt_super {
+#bmxdxexulr .gt_super {
   font-size: 65%;
 }
 
-#rpncividpx .gt_footnote_marks {
+#bmxdxexulr .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#rpncividpx .gt_asterisk {
+#bmxdxexulr .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#rpncividpx .gt_indent_1 {
+#bmxdxexulr .gt_indent_1 {
   text-indent: 5px;
 }
 
-#rpncividpx .gt_indent_2 {
+#bmxdxexulr .gt_indent_2 {
   text-indent: 10px;
 }
 
-#rpncividpx .gt_indent_3 {
+#bmxdxexulr .gt_indent_3 {
   text-indent: 15px;
 }
 
-#rpncividpx .gt_indent_4 {
+#bmxdxexulr .gt_indent_4 {
   text-indent: 20px;
 }
 
-#rpncividpx .gt_indent_5 {
+#bmxdxexulr .gt_indent_5 {
   text-indent: 25px;
 }
 
-#rpncividpx .katex-display {
+#bmxdxexulr .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#rpncividpx div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#bmxdxexulr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_col_headings header">
 <th id="colors" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">colors</th>
@@ -1380,37 +1380,38 @@ a multiple of replacement length</code></pre>
 <h2>Combining Vectors of Different Classes</h2>
 <p>Using vectors of different lengths fails</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href=""></a><span class="fu">data.frame</span>(<span class="at">colors =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>),</span>
-<span id="cb99-2"><a href=""></a>           <span class="at">numbers =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href=""></a><span class="fu">data.frame</span>(<span class="at">colors =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>),</span>
+<span id="cb99-2"><a href=""></a>           <span class="at">numbers =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error in data.frame(colors = c("red", "green", "blue"), numbers = c(1, : arguments imply differing number of rows: 3, 2</code></pre>
+<pre><code>Error in `data.frame()`:
+! arguments imply differing number of rows: 3, 2</code></pre>
 </div>
 </div>
 <div class="fragment">
 <p>Unless they can be “recycled”</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href=""></a><span class="fu">data.frame</span>(<span class="at">colors =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>, <span class="st">"orange"</span>),</span>
-<span id="cb101-2"><a href=""></a>           <span class="at">numbers =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href=""></a><span class="fu">data.frame</span>(<span class="at">colors =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>, <span class="st">"orange"</span>),</span>
+<span id="cb101-2"><a href=""></a>           <span class="at">numbers =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="wglgnxqgam" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#wglgnxqgam table {
+<div id="lwdnovqdsg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#lwdnovqdsg table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#wglgnxqgam thead, #wglgnxqgam tbody, #wglgnxqgam tfoot, #wglgnxqgam tr, #wglgnxqgam td, #wglgnxqgam th {
+#lwdnovqdsg thead, #lwdnovqdsg tbody, #lwdnovqdsg tfoot, #lwdnovqdsg tr, #lwdnovqdsg td, #lwdnovqdsg th {
   border-style: none;
 }
 
-#wglgnxqgam p {
+#lwdnovqdsg p {
   margin: 0;
   padding: 0;
 }
 
-#wglgnxqgam .gt_table {
+#lwdnovqdsg .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1436,12 +1437,12 @@ a multiple of replacement length</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#wglgnxqgam .gt_caption {
+#lwdnovqdsg .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#wglgnxqgam .gt_title {
+#lwdnovqdsg .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1453,7 +1454,7 @@ a multiple of replacement length</code></pre>
   border-bottom-width: 0;
 }
 
-#wglgnxqgam .gt_subtitle {
+#lwdnovqdsg .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1465,7 +1466,7 @@ a multiple of replacement length</code></pre>
   border-top-width: 0;
 }
 
-#wglgnxqgam .gt_heading {
+#lwdnovqdsg .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1477,13 +1478,13 @@ a multiple of replacement length</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#wglgnxqgam .gt_bottom_border {
+#lwdnovqdsg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#wglgnxqgam .gt_col_headings {
+#lwdnovqdsg .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1498,7 +1499,7 @@ a multiple of replacement length</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#wglgnxqgam .gt_col_heading {
+#lwdnovqdsg .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1518,7 +1519,7 @@ a multiple of replacement length</code></pre>
   overflow-x: hidden;
 }
 
-#wglgnxqgam .gt_column_spanner_outer {
+#lwdnovqdsg .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1530,15 +1531,15 @@ a multiple of replacement length</code></pre>
   padding-right: 4px;
 }
 
-#wglgnxqgam .gt_column_spanner_outer:first-child {
+#lwdnovqdsg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#wglgnxqgam .gt_column_spanner_outer:last-child {
+#lwdnovqdsg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#wglgnxqgam .gt_column_spanner {
+#lwdnovqdsg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1550,11 +1551,11 @@ a multiple of replacement length</code></pre>
   width: 100%;
 }
 
-#wglgnxqgam .gt_spanner_row {
+#lwdnovqdsg .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#wglgnxqgam .gt_group_heading {
+#lwdnovqdsg .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1580,7 +1581,7 @@ a multiple of replacement length</code></pre>
   text-align: left;
 }
 
-#wglgnxqgam .gt_empty_group_heading {
+#lwdnovqdsg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1595,15 +1596,15 @@ a multiple of replacement length</code></pre>
   vertical-align: middle;
 }
 
-#wglgnxqgam .gt_from_md > :first-child {
+#lwdnovqdsg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#wglgnxqgam .gt_from_md > :last-child {
+#lwdnovqdsg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#wglgnxqgam .gt_row {
+#lwdnovqdsg .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1622,7 +1623,7 @@ a multiple of replacement length</code></pre>
   overflow-x: hidden;
 }
 
-#wglgnxqgam .gt_stub {
+#lwdnovqdsg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1635,7 +1636,7 @@ a multiple of replacement length</code></pre>
   padding-right: 5px;
 }
 
-#wglgnxqgam .gt_stub_row_group {
+#lwdnovqdsg .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1649,15 +1650,15 @@ a multiple of replacement length</code></pre>
   vertical-align: top;
 }
 
-#wglgnxqgam .gt_row_group_first td {
+#lwdnovqdsg .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#wglgnxqgam .gt_row_group_first th {
+#lwdnovqdsg .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#wglgnxqgam .gt_summary_row {
+#lwdnovqdsg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1667,16 +1668,16 @@ a multiple of replacement length</code></pre>
   padding-right: 5px;
 }
 
-#wglgnxqgam .gt_first_summary_row {
+#lwdnovqdsg .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#wglgnxqgam .gt_first_summary_row.thick {
+#lwdnovqdsg .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#wglgnxqgam .gt_last_summary_row {
+#lwdnovqdsg .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1686,7 +1687,7 @@ a multiple of replacement length</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#wglgnxqgam .gt_grand_summary_row {
+#lwdnovqdsg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1696,7 +1697,7 @@ a multiple of replacement length</code></pre>
   padding-right: 5px;
 }
 
-#wglgnxqgam .gt_first_grand_summary_row {
+#lwdnovqdsg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1706,7 +1707,7 @@ a multiple of replacement length</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#wglgnxqgam .gt_last_grand_summary_row_top {
+#lwdnovqdsg .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1716,11 +1717,11 @@ a multiple of replacement length</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#wglgnxqgam .gt_striped {
+#lwdnovqdsg .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#wglgnxqgam .gt_table_body {
+#lwdnovqdsg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1729,7 +1730,7 @@ a multiple of replacement length</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#wglgnxqgam .gt_footnotes {
+#lwdnovqdsg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1743,7 +1744,7 @@ a multiple of replacement length</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#wglgnxqgam .gt_footnote {
+#lwdnovqdsg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1752,7 +1753,7 @@ a multiple of replacement length</code></pre>
   padding-right: 5px;
 }
 
-#wglgnxqgam .gt_sourcenotes {
+#lwdnovqdsg .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1766,7 +1767,7 @@ a multiple of replacement length</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#wglgnxqgam .gt_sourcenote {
+#lwdnovqdsg .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1774,77 +1775,77 @@ a multiple of replacement length</code></pre>
   padding-right: 5px;
 }
 
-#wglgnxqgam .gt_left {
+#lwdnovqdsg .gt_left {
   text-align: left;
 }
 
-#wglgnxqgam .gt_center {
+#lwdnovqdsg .gt_center {
   text-align: center;
 }
 
-#wglgnxqgam .gt_right {
+#lwdnovqdsg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#wglgnxqgam .gt_font_normal {
+#lwdnovqdsg .gt_font_normal {
   font-weight: normal;
 }
 
-#wglgnxqgam .gt_font_bold {
+#lwdnovqdsg .gt_font_bold {
   font-weight: bold;
 }
 
-#wglgnxqgam .gt_font_italic {
+#lwdnovqdsg .gt_font_italic {
   font-style: italic;
 }
 
-#wglgnxqgam .gt_super {
+#lwdnovqdsg .gt_super {
   font-size: 65%;
 }
 
-#wglgnxqgam .gt_footnote_marks {
+#lwdnovqdsg .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#wglgnxqgam .gt_asterisk {
+#lwdnovqdsg .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#wglgnxqgam .gt_indent_1 {
+#lwdnovqdsg .gt_indent_1 {
   text-indent: 5px;
 }
 
-#wglgnxqgam .gt_indent_2 {
+#lwdnovqdsg .gt_indent_2 {
   text-indent: 10px;
 }
 
-#wglgnxqgam .gt_indent_3 {
+#lwdnovqdsg .gt_indent_3 {
   text-indent: 15px;
 }
 
-#wglgnxqgam .gt_indent_4 {
+#lwdnovqdsg .gt_indent_4 {
   text-indent: 20px;
 }
 
-#wglgnxqgam .gt_indent_5 {
+#lwdnovqdsg .gt_indent_5 {
   text-indent: 25px;
 }
 
-#wglgnxqgam .katex-display {
+#lwdnovqdsg .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#wglgnxqgam div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#lwdnovqdsg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
-<table class="gt_table caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top" data-quarto-bootstrap="false">
 <thead>
 <tr class="gt_col_headings header">
 <th id="colors" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">colors</th>
@@ -1883,30 +1884,30 @@ a multiple of replacement length</code></pre>
 <h2>Combining Vectors of Different Classes</h2>
 <p>Build a data.frame and save it to an object</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href=""></a>my_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">colors =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"green"</span>),</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href=""></a>my_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">colors =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"green"</span>),</span>
 <span id="cb102-2"><a href=""></a>                      <span class="at">numbers =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>),</span>
-<span id="cb102-3"><a href=""></a>                      <span class="at">letters =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb102-3"><a href=""></a>                      <span class="at">letters =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
 <p>Attributes of data.frames:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href=""></a><span class="fu">class</span>(my_data) <span class="co"># Check class</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href=""></a><span class="fu">class</span>(my_data) <span class="co"># Check class</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "data.frame"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href=""></a><span class="fu">dim</span>(my_data) <span class="co"># Check number of dimensions</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href=""></a><span class="fu">dim</span>(my_data) <span class="co"># Check number of dimensions</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2 3</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href=""></a><span class="fu">nrow</span>(my_data) <span class="co"># Check number of rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href=""></a><span class="fu">nrow</span>(my_data) <span class="co"># Check number of rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href=""></a><span class="fu">ncol</span>(my_data) <span class="co"># Check number of columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href=""></a><span class="fu">ncol</span>(my_data) <span class="co"># Check number of columns</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href=""></a><span class="fu">colnames</span>(my_data) <span class="co"># Check column names</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href=""></a><span class="fu">colnames</span>(my_data) <span class="co"># Check column names</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "colors"  "numbers" "letters"</code></pre>
 </div>
@@ -1957,9 +1958,9 @@ a multiple of replacement length</code></pre>
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb115-2"><a href=""></a><span class="fu">tibble</span>(colors,</span>
-<span id="cb115-3"><a href=""></a>       numbers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb115-3"><a href=""></a>       numbers)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 2
   colors numbers
@@ -1982,7 +1983,7 @@ a multiple of replacement length</code></pre>
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href=""></a>data_lionfish</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href=""></a>data_lionfish</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 109 × 9
    id       site    lat   lon total_length_mm total_weight_gr size_class depth_m
@@ -2008,7 +2009,7 @@ a multiple of replacement length</code></pre>
 <p>data.frames are two-dimensional, so we use two numbers: <code>[rows, cols]</code></p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href=""></a>my_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href=""></a>my_data</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  colors numbers letters
 1    red       1       A
@@ -2019,7 +2020,7 @@ a multiple of replacement length</code></pre>
 <div class="fragment">
 <p>Extract the value for the second observation anad third variable</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href=""></a>my_data[<span class="dv">1</span> , <span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb121"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href=""></a>my_data[<span class="dv">1</span> , <span class="dv">3</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="fragment">
@@ -2032,7 +2033,7 @@ a multiple of replacement length</code></pre>
 <div class="fragment">
 <p>Extract values for first observation across all variables, implicitly</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href=""></a>my_data[<span class="dv">1</span>, ] <span class="co"># row one, all columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href=""></a>my_data[<span class="dv">1</span>, ] <span class="co"># row one, all columns</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="fragment">
@@ -2046,7 +2047,7 @@ a multiple of replacement length</code></pre>
 <div class="fragment">
 <p>Extract values for first variable across all observations, implicitly</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href=""></a>my_data[ , <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb125"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href=""></a>my_data[ , <span class="dv">1</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="fragment">
@@ -2060,13 +2061,13 @@ a multiple of replacement length</code></pre>
 <section id="extracting-data.frame-columns-with" class="slide level2">
 <h2>Extracting data.frame columns with <code>$</code></h2>
 <ul>
-<li class="fragment">Remember data.frames and tibbles are just collection of vectors</li>
+<li class="fragment">Remember data.frames and tibbles are just a collection of vectors</li>
 <li class="fragment">You can get the variable (column) out as a vector using <code>$</code></li>
 <li class="fragment">This is why we like tidy data</li>
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href=""></a>ids <span class="ot">&lt;-</span> data_lionfish<span class="sc">$</span>id</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb127"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href=""></a>ids <span class="ot">&lt;-</span> data_lionfish<span class="sc">$</span>id</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li class="fragment">And then use <code>[]</code> on the resulting vector</li>
@@ -2075,7 +2076,7 @@ a multiple of replacement length</code></pre>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb128"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href=""></a>ids[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb128"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href=""></a>ids[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "001-Po-16/05/10" "002-Po-29/05/10" "003-Pd-29/05/10" "004-Cs-12/06/10"
  [5] "005-Cs-12/06/10" "006-Pl-21/06/10" "007-Pl-21/06/10" "008-Po-04/07/10"
@@ -2088,7 +2089,7 @@ a multiple of replacement length</code></pre>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href=""></a>data_lionfish<span class="sc">$</span>id[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb130"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href=""></a>data_lionfish<span class="sc">$</span>id[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "001-Po-16/05/10" "002-Po-29/05/10" "003-Pd-29/05/10" "004-Cs-12/06/10"
  [5] "005-Cs-12/06/10" "006-Pl-21/06/10" "007-Pl-21/06/10" "008-Po-04/07/10"
@@ -2101,7 +2102,7 @@ a multiple of replacement length</code></pre>
 <h2>Indexing with <code>[]</code> and modify with <code>&lt;-</code></h2>
 <p>Works in the same way as with vectors</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href=""></a>my_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb132"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href=""></a>my_data</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  colors numbers letters
 1    red       1       A
@@ -2110,13 +2111,13 @@ a multiple of replacement length</code></pre>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href=""></a>my_data[<span class="dv">1</span>, <span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="st">"turtle"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb134"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href=""></a>my_data[<span class="dv">1</span>, <span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="st">"turtle"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Which value will change?</p>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb135"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a href=""></a>my_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb135"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a href=""></a>my_data</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  colors numbers letters
 1    red       1  turtle
@@ -2159,9 +2160,9 @@ a multiple of replacement length</code></pre>
 <h2>Pipes</h2>
 <p>Imagine having the following numeric vector</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb137"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href=""></a><span class="co"># Area of square surveyed plots (in sq m)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb137"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href=""></a><span class="co"># Area of square surveyed plots (in sq m)</span></span>
 <span id="cb137-2"><a href=""></a>areas <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">8</span>, <span class="dv">3</span>,</span>
-<span id="cb137-3"><a href=""></a>           <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">3</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb137-3"><a href=""></a>           <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">3</span>, <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
 <p>And wanting to know how many square plots have a side greater than 2</p>
@@ -2172,12 +2173,12 @@ a multiple of replacement length</code></pre>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb138"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href=""></a><span class="co"># This creates too many objects</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb138"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href=""></a><span class="co"># This creates too many objects</span></span>
 <span id="cb138-2"><a href=""></a>sides <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(areas) <span class="co"># Calculate square root to get side length</span></span>
 <span id="cb138-3"><a href=""></a>sides_larger_than_2 <span class="ot">&lt;-</span> sides[sides <span class="sc">&gt;</span> <span class="dv">2</span>] <span class="co"># Extract sides &gt; 2</span></span>
 <span id="cb138-4"><a href=""></a>types <span class="ot">&lt;-</span> <span class="fu">unique</span>(sides_larger_than_2) <span class="co"># Get unique "types" of plot</span></span>
 <span id="cb138-5"><a href=""></a>how_many <span class="ot">&lt;-</span> <span class="fu">length</span>(types) <span class="co"># Count how many "types" of plot</span></span>
-<span id="cb138-6"><a href=""></a>how_many</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb138-6"><a href=""></a>how_many</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5</code></pre>
 </div>
@@ -2186,9 +2187,9 @@ a multiple of replacement length</code></pre>
 <div class="fragment">
 <p>2: Use nested functions</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb140"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb140-1"><a href=""></a><span class="co"># This is hard to read:</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb140"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb140-1"><a href=""></a><span class="co"># This is hard to read:</span></span>
 <span id="cb140-2"><a href=""></a>how_many <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">unique</span>(<span class="fu">sqrt</span>(areas)[<span class="fu">sqrt</span>(areas) <span class="sc">&gt;</span> <span class="dv">2</span>]))</span>
-<span id="cb140-3"><a href=""></a>how_many</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb140-3"><a href=""></a>how_many</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5</code></pre>
 </div>
@@ -2222,14 +2223,14 @@ a multiple of replacement length</code></pre>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb142"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href=""></a><span class="fu">library</span>(magrittr) <span class="co"># Load the magrittr package</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb142"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href=""></a><span class="fu">library</span>(magrittr) <span class="co"># Load the magrittr package</span></span>
 <span id="cb142-2"><a href=""></a><span class="co"># Build a pipeline</span></span>
 <span id="cb142-3"><a href=""></a>how_many <span class="ot">&lt;-</span> areas[<span class="fu">sqrt</span>(areas) <span class="sc">&gt;</span> <span class="dv">2</span>] <span class="sc">%&gt;%</span> <span class="co"># Extract values with a side &gt; 2</span></span>
 <span id="cb142-4"><a href=""></a>  <span class="fu">sqrt</span>() <span class="sc">%&gt;%</span>  <span class="co"># Take their sqrt (not needed)</span></span>
 <span id="cb142-5"><a href=""></a>  <span class="fu">unique</span>() <span class="sc">%&gt;%</span> <span class="co"># Get unique values</span></span>
 <span id="cb142-6"><a href=""></a>  <span class="fu">length</span>() <span class="co"># Get length of values</span></span>
 <span id="cb142-7"><a href=""></a></span>
-<span id="cb142-8"><a href=""></a>how_many</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb142-8"><a href=""></a>how_many</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5</code></pre>
 </div>
@@ -2242,13 +2243,13 @@ a multiple of replacement length</code></pre>
 <div class="fragment">
 <p>You no longer need to load a package to use a pipe</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb144"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb144-1"><a href=""></a><span class="co"># Build a pipeline</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb144"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb144-1"><a href=""></a><span class="co"># Build a pipeline</span></span>
 <span id="cb144-2"><a href=""></a>how_many <span class="ot">&lt;-</span> areas[<span class="fu">sqrt</span>(areas) <span class="sc">&gt;</span> <span class="dv">2</span>] <span class="sc">|&gt;</span>  <span class="co"># Extract values with a side &gt; 2</span></span>
 <span id="cb144-3"><a href=""></a>  <span class="fu">sqrt</span>() <span class="sc">|&gt;</span>   <span class="co"># Take their sqrt (not needed)</span></span>
 <span id="cb144-4"><a href=""></a>  <span class="fu">unique</span>() <span class="sc">|&gt;</span>  <span class="co"># Get unique values</span></span>
 <span id="cb144-5"><a href=""></a>  <span class="fu">length</span>() <span class="co"># Get length of values</span></span>
 <span id="cb144-6"><a href=""></a></span>
-<span id="cb144-7"><a href=""></a>how_many</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb144-7"><a href=""></a>how_many</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5</code></pre>
 </div>
@@ -2270,11 +2271,11 @@ a multiple of replacement length</code></pre>
 <section id="functions-2" class="slide level2">
 <h2>Functions</h2>
 <p>For example, calculate the mean <span class="math inline">\(\bar{x} =  \frac{\sum_{i = 1}^Nx_i}{N} = \frac{x_1 + x_2 + x_3 ... x_N}{N}\)</span></p>
-<p>“<em>Sum of all values from 1 to N, divided by the number of values</em>”</p>
+<p>“<em><strong>Sum</strong> of all values, divided by the <strong>number</strong> of values</em>”</p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb146"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb146-1"><a href=""></a><span class="co"># Example: calculate mean lionfish length "by hand"</span></span>
-<span id="cb146-2"><a href=""></a><span class="fu">sum</span>(data_lionfish<span class="sc">$</span>total_length_mm) <span class="sc">/</span> <span class="fu">length</span>(data_lionfish<span class="sc">$</span>total_length_mm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb146"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb146-1"><a href=""></a><span class="co"># Example: calculate mean lionfish length "by hand"</span></span>
+<span id="cb146-2"><a href=""></a><span class="fu">sum</span>(data_lionfish<span class="sc">$</span>total_length_mm) <span class="sc">/</span> <span class="fu">length</span>(data_lionfish<span class="sc">$</span>total_length_mm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 140.2202</code></pre>
 </div>
@@ -2283,8 +2284,8 @@ a multiple of replacement length</code></pre>
 <div class="fragment">
 <p>If you have to do this for multiple variables, you might want to use a <code>function</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb148"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb148-1"><a href=""></a><span class="co"># Example: calculate mean lionfish length using a built-in function</span></span>
-<span id="cb148-2"><a href=""></a><span class="fu">mean</span>(<span class="at">x =</span> data_lionfish<span class="sc">$</span>total_length_mm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb148"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb148-1"><a href=""></a><span class="co"># Example: calculate mean lionfish length using a built-in function</span></span>
+<span id="cb148-2"><a href=""></a><span class="fu">mean</span>(<span class="at">x =</span> data_lionfish<span class="sc">$</span>total_length_mm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 140.2202</code></pre>
 </div>
@@ -2293,12 +2294,12 @@ a multiple of replacement length</code></pre>
 <div class="fragment">
 <p>And if the function doesn’t exist, you can create one yourself (to be covered later)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb150"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb150-1"><a href=""></a>my_mean <span class="ot">&lt;-</span> <span class="cf">function</span>(var) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb150"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb150-1"><a href=""></a>my_mean <span class="ot">&lt;-</span> <span class="cf">function</span>(var) {</span>
 <span id="cb150-2"><a href=""></a>  mean <span class="ot">&lt;-</span> <span class="fu">sum</span>(var) <span class="sc">/</span> <span class="fu">length</span>(var)</span>
 <span id="cb150-3"><a href=""></a>  <span class="fu">return</span>(mean)</span>
 <span id="cb150-4"><a href=""></a>}</span>
 <span id="cb150-5"><a href=""></a><span class="co"># Example: calculate mean lionfish length using a user-defined function</span></span>
-<span id="cb150-6"><a href=""></a><span class="fu">my_mean</span>(<span class="at">var =</span> data_lionfish<span class="sc">$</span>total_length_mm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb150-6"><a href=""></a><span class="fu">my_mean</span>(<span class="at">var =</span> data_lionfish<span class="sc">$</span>total_length_mm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 140.2202</code></pre>
 </div>
@@ -2496,7 +2497,7 @@ a multiple of replacement length</code></pre>
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -2608,13 +2609,14 @@ a multiple of replacement length</code></pre>
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy
