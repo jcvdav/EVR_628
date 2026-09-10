@@ -45,18 +45,18 @@ library(tidyverse)
 In your R Script, create objects of different classes and check their types:
 
 1. A character object called `my_name` with your name
-2. A numeric object called `my_age` with your age (or any number, it doesn't have to be your age)
-3. A logical object called `is_student` with TRUE or FALSE
+2. A numeric object called `my_lucky_number` with your lucky number (or any number, it doesn't have to be your lucky number)
+3. A logical object called `is_student` with `TRUE` or `FALSE` (note the all caps)
 4. Check the class of each object using `class()`
 
 ```{r}
 my_name <- "JC" # character object called `my_name` with your name
-my_age <- 32 # numeric object called `my_age` with your age
+my_lucky_number <- 32 # numeric object called `my_lucky_number` with your lucky number
 is_student <- FALSE # logical object called `is_student` with TRUE or FALSE
 
 # Check the class of each object using `class()`
 class(my_name)
-class(my_age)
+class(my_lucky_number)
 class(is_student)
 ```
 
@@ -64,27 +64,31 @@ class(is_student)
 
 Let's see what happens when you try converting objects. In the R script, write and then execute code that will: 
 
-1. Convert your age to `character` using `as.character(my_age)`
+1. Convert your lucky number to `character` using `as.character(my_lucky_number)`
 2. Convert `TRUE` to numeric using `as.numeric()`
 3. Try to convert `"hello"` to `numeric` - what happens?
 4. Advanced: Use `|>` to build a code pipeline to:
-    a. Take your age
+    a. Take your lucky number
     b. Convert it to character
     c. Get it's class
 
 ```{r}
-# Note that I am overwriting the object. If I had only done `as.character(my_age)`,
-# then the coerced output would have been printed to the console.
-my_age <- as.character(my_age) # Convert your age to `character`
-# Check that iw worked
-class(my_age)
+#| code-fold: true
+# Note that I am overwriting the object. If I had only done
+# `as.character(my_lucky_number)`, then the coerced output would have been
+# printed to the console.
+my_lucky_number <- as.character(my_lucky_number) # Convert your lucky number to `character`
+
+# Check that it worked
+class(my_lucky_number)
 as.numeric(TRUE) # Convert `TRUE` to numeric using `as.numeric()`
 as.numeric("hello") # Try to convert `"hello"` to `numeric` - what happens?
 
 # Build a pipeline
-my_age <- 32 # Start with my_age as numeric again
-# ANd now build the pipeline
-my_age |> 
+my_lucky_number <- 32 # Start with my_lucky_number as numeric again
+
+# And now build the pipeline
+my_lucky_number |> 
   as.character() |> 
   class()
 ```
@@ -103,6 +107,7 @@ my_age |>
 8. Find the maximum length using `max()`
 
 ```{r}
+#| code-fold: true
 # Q2
 length_m <- c(6, 4.1, 2.8, 5.5, 3.9, 5.8) 
 # Q3
@@ -137,6 +142,7 @@ max(length_m)
 4. Calculate the mean length for all great white sharks
 
 ```{r}
+#| code-fold: true
 # Q1
 first_3 <- shark_species[1:3] # Extract values 1 through 3 and assign them
 first_3 # See the values I assigned
@@ -166,22 +172,16 @@ Likely pause here
 
 ## Part A: Estimate the effect of a Marine Protected Area on Biomass
 
-1. Install and load an updated version of `EVR628tools`:
+1. Start a new script called `MPA_analysis`, add a comment outline and then load the `EVR628tools` and `tidyverse` packages.
 
-``` r
-remotes::install_github("jcvdav/EVR628tools")
-```
-
-2. Start a new script called `MPA_analysis`, add a comment outline and then load the `EVR628tools` and `tidyverse` packages.
-
-3. Load and inspect the new `?data_MPA`
+2. Load and inspect the new `?data_MPA`
     a. What are the dimensions of the data?
     b. What are the column names?
     c. How many `unique()` sites are there?
     b. How many `unique()` years?
     e. Visualize the trends in biomass through time and across sites
 
-4. Create four objects containing:
+3. Create four objects containing:
     a. Mean biomass _inside_ the MPA **before** it was protected
     b. Mean biomass _inside_ the MPA **after** it was protected
     c. Mean biomass _outside_ the MPA **before** the MPA was created
@@ -189,11 +189,11 @@ remotes::install_github("jcvdav/EVR628tools")
 
 Hint: Use a combination of subsetting (`[ ]`), relational (`==`), and logical operators (`&`)
 
-5. Then, calculate:
+4. Then, calculate:
     a. Change after vs before for the protected site
     b. Change after vs before for the unprotected site
 
-6. Finally, calculate the difference between these two values. This is called the *naive* difference-in-differences estimate. You are calculating the differences across treatments and across time. See @villasenor2018user and @lynham2024evidence for details.
+5. Finally, calculate the difference between these two values. This is called the *naive* difference-in-differences estimate. You are calculating the differences across treatments and across time. See @villasenor2018user and @lynham2024evidence for details.
 
 
 ```{r}
