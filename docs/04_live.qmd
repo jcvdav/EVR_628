@@ -189,51 +189,124 @@ Likely pause here
 
 Hint: Use a combination of subsetting (`[ ]`), relational (`==`), and logical operators (`&`)
 
+
 4. Then, calculate:
     a. Change after vs before for the protected site
     b. Change after vs before for the unprotected site
 
 5. Finally, calculate the difference between these two values. This is called the *naive* difference-in-differences estimate. You are calculating the differences across treatments and across time. See @villasenor2018user and @lynham2024evidence for details.
 
+6. You now have four values, and you now where they come from. Assemble them into a new data.frame that
+allows you to build a figure where the x-axis is time, the y-axis is mean biomass, and colors are given by the protection status of the site.
+
+7. How would we go about adding standard deviations?
+
 
 ```{r}
-#| include: false
+#| code-fold: true
 library(EVR628tools)
 library(tidyverse)
 data("data_MPA")
 
+# 2e. Visualize
+ggplot(data_MPA, aes(x = time, y = biomass, color = id)) + 
+  geom_line() +
+  geom_point()
+```
+
+A better visualization:
+
+```{r}
+#| code-fold: true
 ggplot(data_MPA, aes(x = time, y = biomass, color = protected == 1)) + 
   geom_point() +
   geom_smooth()
+```
 
-ggplot(data_MPA, aes(x = after, y = biomass, color = protected == 1)) +
-  stat_summary(geom = "pointrange", fun.data = "mean_se",
-               position = position_dodge(width = 0.25))
-
+```{r}
+#| code-fold: true
 ## Manually calculate DiD ------------------------------------------------------
+# 3a.
 mean_protected_before <- mean(data_MPA$biomass[data_MPA$protected == 1 & data_MPA$after == 0])
-mean_protected_after <- mean(data_MPA$biomass[data_MPA$protected == 1 & data_MPA$after == 1])
-mean_control_before <- mean(data_MPA$biomass[data_MPA$protected == 0 & data_MPA$after == 0])
-mean_control_after <- mean(data_MPA$biomass[data_MPA$protected == 0 & data_MPA$after == 1])
 
+# 3b.
+mean_protected_after <- mean(data_MPA$biomass[data_MPA$protected == 1 & data_MPA$after == 1])
+
+# 3c.
+mean_control_before <- mean(data_MPA$biomass[data_MPA$protected == 0 & data_MPA$after == 0])
+
+# 3d.
+mean_control_after <- mean(data_MPA$biomass[data_MPA$protected == 0 & data_MPA$after == 1])
+```
+
+```{r}
+#| code-fold: true
 # Difference in time for each site
+# 4a.
 dif_protected <- mean_protected_after - mean_protected_before
+
+# 4b.
 dif_control <- mean_control_after - mean_control_before
 
 # Differences across sites
 dif_in_dif <- dif_protected - dif_control
 
 dif_in_dif
+```
 
+```{r}
+#| code-fold: true
+# 6. Assemble the four values into a data.frame. Each vector I pass becomes a column,
+# so I have to keep the order consistent across all three of them.
+summary_data <- data.frame(period = c("before", "after", "before", "after"),
+                           status = c("reserve", "reserve", "control", "control"),
+                           mean_biomass = c(mean_protected_before,
+                                            mean_protected_after,
+                                            mean_control_before,
+                                            mean_control_after))
+
+summary_data
+
+# Now plot it
+ggplot(summary_data, aes(x = period, y = mean_biomass, fill = status)) +
+  geom_col(position = "dodge", color = "black")
+```
+
+```{r}
+#| code-fold: true
+# 7. Exactly the same subsetting as before, but with sd() instead of mean()
+sd_protected_before <- sd(data_MPA$biomass[data_MPA$protected == 1 & data_MPA$after == 0])
+sd_protected_after <- sd(data_MPA$biomass[data_MPA$protected == 1 & data_MPA$after == 1])
+sd_control_before <- sd(data_MPA$biomass[data_MPA$protected == 0 & data_MPA$after == 0])
+sd_control_after <- sd(data_MPA$biomass[data_MPA$protected == 0 & data_MPA$after == 1])
+
+# Add them as a new column, in the same order as the means above
+summary_data$sd_biomass <- c(sd_protected_before,
+                             sd_protected_after,
+                             sd_control_before,
+                             sd_control_after)
+
+summary_data
+
+# And show them as error bars
+ggplot(summary_data, aes(x = period, y = mean_biomass, fill = status)) +
+  geom_col(position = "dodge", color = "black") +
+  geom_errorbar(aes(ymin = mean_biomass - sd_biomass,
+                    ymax = mean_biomass + sd_biomass),
+                width = 0.1,
+                position = position_dodge(width = 1))
+```
+
+Extra: We can also do this with a linear model
+
+```{r}
+#| code-fold: true
+# Can also do this as a linear model
 lm(biomass ~ after + protected + after * protected,
       data = data_MPA) |> 
   summary()
 ```
 
-```{r}
-# My code will be here
-
-```
 
 \clearpage
 

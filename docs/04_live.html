@@ -91,6 +91,9 @@ div.csl-indent {
 <script src="04_live_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="04_live_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="04_live_files/libs/bootstrap/bootstrap-d6a003b94517c951b2d65075d42fb01b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="04_live_files/libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="04_live_files/libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="04_live_files/libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 
 
 </head>
@@ -430,15 +433,199 @@ Important
 </ol>
 <p>Hint: Use a combination of subsetting (<code>[ ]</code>), relational (<code>==</code>), and logical operators (<code>&amp;</code>)</p>
 <ol start="4" type="1">
-<li>Then, calculate:
+<li><p>Then, calculate:</p>
 <ol type="a">
 <li>Change after vs before for the protected site</li>
 <li>Change after vs before for the unprotected site</li>
 </ol></li>
-<li>Finally, calculate the difference between these two values. This is called the <em>naive</em> difference-in-differences estimate. You are calculating the differences across treatments and across time. See <span class="citation" data-cites="villasenor2018user">Villasenor-Derbez et al. (<a href="#ref-villasenor2018user" role="doc-biblioref">2018</a>)</span> and <span class="citation" data-cites="lynham2024evidence">Lynham and Villaseñor-Derbez (<a href="#ref-lynham2024evidence" role="doc-biblioref">2024</a>)</span> for details.</li>
+<li><p>Finally, calculate the difference between these two values. This is called the <em>naive</em> difference-in-differences estimate. You are calculating the differences across treatments and across time. See <span class="citation" data-cites="villasenor2018user">Villasenor-Derbez et al. (<a href="#ref-villasenor2018user" role="doc-biblioref">2018</a>)</span> and <span class="citation" data-cites="lynham2024evidence">Lynham and Villaseñor-Derbez (<a href="#ref-lynham2024evidence" role="doc-biblioref">2024</a>)</span> for details.</p></li>
+<li><p>You now have four values, and you now where they come from. Assemble them into a new data.frame that allows you to build a figure where the x-axis is time, the y-axis is mean biomass, and colors are given by the protection status of the site.</p></li>
+<li><p>How would we go about adding standard deviations?</p></li>
 </ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># My code will be here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(EVR628tools)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"data_MPA"</span>)</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 2e. Visualize</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_MPA, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> biomass, <span class="at">color =</span> id)) <span class="sc">+</span> </span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="04_live_files/figure-html/unnamed-chunk-6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="04_live_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A better visualization:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_MPA, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> biomass, <span class="at">color =</span> protected <span class="sc">==</span> <span class="dv">1</span>)) <span class="sc">+</span> </span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="04_live_files/figure-html/unnamed-chunk-7-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="04_live_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Manually calculate DiD ------------------------------------------------------</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 3a.</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>mean_protected_before <span class="ot">&lt;-</span> <span class="fu">mean</span>(data_MPA<span class="sc">$</span>biomass[data_MPA<span class="sc">$</span>protected <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> data_MPA<span class="sc">$</span>after <span class="sc">==</span> <span class="dv">0</span>])</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 3b.</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>mean_protected_after <span class="ot">&lt;-</span> <span class="fu">mean</span>(data_MPA<span class="sc">$</span>biomass[data_MPA<span class="sc">$</span>protected <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> data_MPA<span class="sc">$</span>after <span class="sc">==</span> <span class="dv">1</span>])</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 3c.</span></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>mean_control_before <span class="ot">&lt;-</span> <span class="fu">mean</span>(data_MPA<span class="sc">$</span>biomass[data_MPA<span class="sc">$</span>protected <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> data_MPA<span class="sc">$</span>after <span class="sc">==</span> <span class="dv">0</span>])</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 3d.</span></span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>mean_control_after <span class="ot">&lt;-</span> <span class="fu">mean</span>(data_MPA<span class="sc">$</span>biomass[data_MPA<span class="sc">$</span>protected <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> data_MPA<span class="sc">$</span>after <span class="sc">==</span> <span class="dv">1</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Difference in time for each site</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 4a.</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>dif_protected <span class="ot">&lt;-</span> mean_protected_after <span class="sc">-</span> mean_protected_before</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 4b.</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>dif_control <span class="ot">&lt;-</span> mean_control_after <span class="sc">-</span> mean_control_before</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Differences across sites</span></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>dif_in_dif <span class="ot">&lt;-</span> dif_protected <span class="sc">-</span> dif_control</span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>dif_in_dif</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.207114</code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. Assemble the four values into a data.frame. Each vector I pass becomes a column,</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="co"># so I have to keep the order consistent across all three of them.</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>summary_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">period =</span> <span class="fu">c</span>(<span class="st">"before"</span>, <span class="st">"after"</span>, <span class="st">"before"</span>, <span class="st">"after"</span>),</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">status =</span> <span class="fu">c</span>(<span class="st">"reserve"</span>, <span class="st">"reserve"</span>, <span class="st">"control"</span>, <span class="st">"control"</span>),</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>                           <span class="at">mean_biomass =</span> <span class="fu">c</span>(mean_protected_before,</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>                                            mean_protected_after,</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>                                            mean_control_before,</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>                                            mean_control_after))</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>summary_data</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  period  status mean_biomass
+1 before reserve     10.06411
+2  after reserve     12.18455
+3 before control     10.13678
+4  after control     10.05011</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Now plot it</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summary_data, <span class="fu">aes</span>(<span class="at">x =</span> period, <span class="at">y =</span> mean_biomass, <span class="at">fill =</span> status)) <span class="sc">+</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">color =</span> <span class="st">"black"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="04_live_files/figure-html/unnamed-chunk-10-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="04_live_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 7. Exactly the same subsetting as before, but with sd() instead of mean()</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>sd_protected_before <span class="ot">&lt;-</span> <span class="fu">sd</span>(data_MPA<span class="sc">$</span>biomass[data_MPA<span class="sc">$</span>protected <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> data_MPA<span class="sc">$</span>after <span class="sc">==</span> <span class="dv">0</span>])</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>sd_protected_after <span class="ot">&lt;-</span> <span class="fu">sd</span>(data_MPA<span class="sc">$</span>biomass[data_MPA<span class="sc">$</span>protected <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> data_MPA<span class="sc">$</span>after <span class="sc">==</span> <span class="dv">1</span>])</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>sd_control_before <span class="ot">&lt;-</span> <span class="fu">sd</span>(data_MPA<span class="sc">$</span>biomass[data_MPA<span class="sc">$</span>protected <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> data_MPA<span class="sc">$</span>after <span class="sc">==</span> <span class="dv">0</span>])</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>sd_control_after <span class="ot">&lt;-</span> <span class="fu">sd</span>(data_MPA<span class="sc">$</span>biomass[data_MPA<span class="sc">$</span>protected <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> data_MPA<span class="sc">$</span>after <span class="sc">==</span> <span class="dv">1</span>])</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Add them as a new column, in the same order as the means above</span></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>summary_data<span class="sc">$</span>sd_biomass <span class="ot">&lt;-</span> <span class="fu">c</span>(sd_protected_before,</span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>                             sd_protected_after,</span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>                             sd_control_before,</span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>                             sd_control_after)</span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a>summary_data</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  period  status mean_biomass sd_biomass
+1 before reserve     10.06411  0.9945643
+2  after reserve     12.18455  0.9996722
+3 before control     10.13678  0.6475520
+4  after control     10.05011  0.9526837</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># And show them as error bars</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summary_data, <span class="fu">aes</span>(<span class="at">x =</span> period, <span class="at">y =</span> mean_biomass, <span class="at">fill =</span> status)) <span class="sc">+</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> mean_biomass <span class="sc">-</span> sd_biomass,</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ymax =</span> mean_biomass <span class="sc">+</span> sd_biomass),</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.1</span>,</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="04_live_files/figure-html/unnamed-chunk-11-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="04_live_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Extra: We can also do this with a linear model</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Can also do this as a linear model</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(biomass <span class="sc">~</span> after <span class="sc">+</span> protected <span class="sc">+</span> after <span class="sc">*</span> protected,</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> data_MPA) <span class="sc">|&gt;</span> </span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = biomass ~ after + protected + after * protected, 
+    data = data_MPA)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-2.27881 -0.61704  0.06369  0.52864  2.21707 
+
+Coefficients:
+                Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)     10.13678    0.18208  55.671  &lt; 2e-16 ***
+after           -0.08668    0.25750  -0.337    0.737    
+protected       -0.07267    0.25750  -0.282    0.778    
+after:protected  2.20711    0.36417   6.061 2.65e-08 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.9104 on 96 degrees of freedom
+Multiple R-squared:  0.5101,    Adjusted R-squared:  0.4948 
+F-statistic: 33.32 on 3 and 96 DF,  p-value: 7.549e-15</code></pre>
+</div>
 </div>
 </section>
 </section>
@@ -447,11 +634,11 @@ Important
 <section id="part-a-fix-code-style" class="level2">
 <h2 class="anchored" data-anchor-id="part-a-fix-code-style">Part A: Fix Code Style</h2>
 <p>Fix the style issues in this code:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>mydataframe<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">species=</span><span class="fu">c</span>(<span class="st">"Great White"</span>,<span class="st">"Tiger"</span>, <span class="st">"Bull"</span>),</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="at">length=</span><span class="fu">c</span>(<span class="fl">4.5</span>,<span class="fl">3.2</span>, <span class="cn">NA</span>))</span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(mydataframe<span class="sc">$</span>length,<span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>mydataframe<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">species=</span><span class="fu">c</span>(<span class="st">"Great White"</span>,<span class="st">"Tiger"</span>, <span class="st">"Bull"</span>),</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="at">length=</span><span class="fu">c</span>(<span class="fl">4.5</span>,<span class="fl">3.2</span>, <span class="cn">NA</span>))</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(mydataframe<span class="sc">$</span>length,<span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># My improved code will be here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># My improved code will be here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Note: What’s with than <code>na.rm = TRUE</code>?</p>
 </section>
@@ -874,6 +1061,38 @@ Villasenor-Derbez, Juan Carlos, Caio Faro, Melaina Wright, Jael Martinez, Sean F
   });
   </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
