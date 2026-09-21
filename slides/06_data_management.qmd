@@ -16,6 +16,12 @@ theme_set(
 )
 ```
 
+## Announcements
+
+- IDSC Fellowship: https://idsc.miami.edu/apply-now-2026-2027-idsc-fellows/
+- Viz UM: https://events.miami.edu/event/vizum-2026
+  
+
 ## Learning Objectives
 
 :::{.callout-note}
