@@ -18,8 +18,8 @@ theme_set(
 
 ## Announcements
 
-- IDSC Fellowship: https://idsc.miami.edu/apply-now-2026-2027-idsc-fellows/
-- Viz UM: https://events.miami.edu/event/vizum-2026
+- [IDSC Fellowship](https://idsc.miami.edu/apply-now-2026-2027-idsc-fellows/)
+- [Viz UM](https://events.miami.edu/event/vizum-2026)
   
 
 ## Learning Objectives
@@ -80,6 +80,8 @@ Think of a file path as an address.
 
 :::{.callout-important}
 **Best Practice**: Use RStudio projects instead of `setwd()`
+
+Read more [here](https://tidyverse.org/blog/2017/12/workflow-vs-script/)
 :::
 
 ## RStudio Projects and File Paths
@@ -98,7 +100,7 @@ If we are in my `EVR628` RProject:
 ```{r}
 #| code-fold: false
 #| eval: false
-#| code-line-numbers: "1-2|3"
+#| code-line-numbers: "1-2|1,3"
 # Both work in my computer, only one will work in yours:
 my_dive <- read.csv("/Users/jcvd/GitHub/EVR628/data/raw/dive_profile.csv") # Absolute
 my_dive <- read.csv("data/raw/dive_profile.csv") # Relative
@@ -126,7 +128,7 @@ Focus on reading plain-text rectangular files
 - `.xlsx` format
 - Common in business
 - Can have multiple sheets
-- Preserves formatting (irrelevant)
+- Formatting presets (feature, not bug)
 :::
 
 ::: {.column width='50%'}
@@ -197,9 +199,9 @@ data <- read_excel(path = "data/raw/lionfish.xlsx",
                    range = "A1:B20")
 ```
 
-- I don't recommend using Excel to store your raw data.
+- I don't recommend using Excel to store your raw data
 - Excel likes to modify strings that might look like dates:
-  - 25% of papers on human [Genes](https://www.science.org/content/article/one-five-genetics-papers-contains-errors-thanks-microsoft-excel) had gene names converted to dates by Excel
+  - [25% of papers on human Genes](https://www.science.org/content/article/one-five-genetics-papers-contains-errors-thanks-microsoft-excel) had gene names converted to dates by Excel
   - See @ziemann2016gene for details
 - There are a few alternatives:
   - Use a [CSV editor](https://www.moderncsv.com/)
@@ -244,7 +246,7 @@ And yes, we use `write_*` to write data
 # Write RDS
 write_rds(x = clean_tuna_data, file = "data/processed/tuna_clean.rds")
 
-# Write CSV with readr
+# Write CSV
 write_csv(x = clean_tuna_data, file = "data/processed/tuna_clean.csv")
 
 ```
@@ -256,7 +258,7 @@ write_csv(x = clean_tuna_data, file = "data/processed/tuna_clean.csv")
 - But the data are a bit messy!
 - Today is when we start to learn about data wrangling with two key packages:
   - `{dplyr}`(part of the tidyverse, no need to install it)
-  - `{janitor}`
+  - `{janitor}` - We will install it on Thursday
 
 # Data transformation with `{dplyr}`
 
@@ -296,9 +298,9 @@ The `dplyr` package, like `ggplot2` relies on data being in this format:
 
 - `filter()`: Pick observations by their values
 - `select()`: Pick variables by their names
-- `mutate()`: Create new variables with functions of existing variables
+- `mutate()`: Create new variables
 - `group_by()`: Change the scope of each function from operating on the entire dataset to operating on it group-by-group
-- `summarize()`: Collapse many values down to a single summary
+- `summarize()`: Collapse many values down to a single value (by group)
 :::
 
 ::::
@@ -315,11 +317,11 @@ The `dplyr` package, like `ggplot2` relies on data being in this format:
 
 . . .
 
-`dplyr` functions are also referred to as `dplyr` _verbs_, because they all imply an action
+- `dplyr` functions are also referred to as `dplyr` _verbs_, because they all imply an action
 
 . . .
 
-`dplyr` verbs are organized into four groups based on what they operate on: rows, columns, or groups
+- `dplyr` verbs are organized into groups based on what they operate on: rows, columns, or groups
 
 # Row operations
 
@@ -369,7 +371,7 @@ Multiple conditions require using logical operators
 
 . . .
 
-**Example:** All data from sites "a" and "b", after the MPA was established
+**Example:** All data from sites "a" or "b", after the MPA was established
 
 ```{r}
 #| code-fold: false

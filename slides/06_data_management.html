@@ -231,8 +231,8 @@ Juan Carlos Villaseñor-Derbez (JC)
 <section id="announcements" class="slide level2">
 <h2>Announcements</h2>
 <ul>
-<li class="fragment">IDSC Fellowship: https://idsc.miami.edu/apply-now-2026-2027-idsc-fellows/</li>
-<li class="fragment">Viz UM: https://events.miami.edu/event/vizum-2026</li>
+<li class="fragment"><a href="https://idsc.miami.edu/apply-now-2026-2027-idsc-fellows/">IDSC Fellowship</a></li>
+<li class="fragment"><a href="https://events.miami.edu/event/vizum-2026">Viz UM</a></li>
 </ul>
 </section>
 <section id="learning-objectives" class="slide level2">
@@ -334,6 +334,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div>
 <div class="callout-content">
 <p><strong>Best Practice</strong>: Use RStudio projects instead of <code>setwd()</code></p>
+<p>Read more <a href="https://tidyverse.org/blog/2017/12/workflow-vs-script/">here</a></p>
 </div>
 </div>
 </div>
@@ -351,7 +352,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="fragment">
 <p>If we are in my <code>EVR628</code> RProject:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" data-code-line-numbers="1-2|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># Both work in my computer, only one will work in yours:</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" data-code-line-numbers="1-2|1,3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># Both work in my computer, only one will work in yours:</span></span>
 <span id="cb1-2"><a href=""></a>my_dive <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"/Users/jcvd/GitHub/EVR628/data/raw/dive_profile.csv"</span>) <span class="co"># Absolute</span></span>
 <span id="cb1-3"><a href=""></a>my_dive <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/raw/dive_profile.csv"</span>) <span class="co"># Relative</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -380,7 +381,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <li class="fragment"><code>.xlsx</code> format</li>
 <li class="fragment">Common in business</li>
 <li class="fragment">Can have multiple sheets</li>
-<li class="fragment">Preserves formatting (irrelevant)</li>
+<li class="fragment">Formatting presets (feature, not bug)</li>
 </ul>
 </div><div class="column" style="width:50%;">
 <p><strong>RDS Files</strong></p>
@@ -436,10 +437,10 @@ Juan Carlos Villaseñor-Derbez (JC)
 <span id="cb4-10"><a href=""></a>                   <span class="at">range =</span> <span class="st">"A1:B20"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
-<li class="fragment">I don’t recommend using Excel to store your raw data.</li>
+<li class="fragment">I don’t recommend using Excel to store your raw data</li>
 <li class="fragment">Excel likes to modify strings that might look like dates:
 <ul>
-<li class="fragment">25% of papers on human <a href="https://www.science.org/content/article/one-five-genetics-papers-contains-errors-thanks-microsoft-excel">Genes</a> had gene names converted to dates by Excel</li>
+<li class="fragment"><a href="https://www.science.org/content/article/one-five-genetics-papers-contains-errors-thanks-microsoft-excel">25% of papers on human Genes</a> had gene names converted to dates by Excel</li>
 <li class="fragment">See <span class="citation" data-cites="ziemann2016gene">Ziemann, Eren, and El-Osta (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span> for details</li>
 </ul></li>
 <li class="fragment">There are a few alternatives:
@@ -477,7 +478,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="co"># Write RDS</span></span>
 <span id="cb6-2"><a href=""></a><span class="fu">write_rds</span>(<span class="at">x =</span> clean_tuna_data, <span class="at">file =</span> <span class="st">"data/processed/tuna_clean.rds"</span>)</span>
 <span id="cb6-3"><a href=""></a></span>
-<span id="cb6-4"><a href=""></a><span class="co"># Write CSV with readr</span></span>
+<span id="cb6-4"><a href=""></a><span class="co"># Write CSV</span></span>
 <span id="cb6-5"><a href=""></a><span class="fu">write_csv</span>(<span class="at">x =</span> clean_tuna_data, <span class="at">file =</span> <span class="st">"data/processed/tuna_clean.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
@@ -491,7 +492,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <li class="fragment">Today is when we start to learn about data wrangling with two key packages:
 <ul>
 <li class="fragment"><code>{dplyr}</code>(part of the tidyverse, no need to install it)</li>
-<li class="fragment"><code>{janitor}</code></li>
+<li class="fragment"><code>{janitor}</code> - We will install it on Thursday</li>
 </ul></li>
 </ul>
 </section></section>
@@ -539,9 +540,9 @@ Juan Carlos Villaseñor-Derbez (JC)
 <ul>
 <li class="fragment"><code>filter()</code>: Pick observations by their values</li>
 <li class="fragment"><code>select()</code>: Pick variables by their names</li>
-<li class="fragment"><code>mutate()</code>: Create new variables with functions of existing variables</li>
+<li class="fragment"><code>mutate()</code>: Create new variables</li>
 <li class="fragment"><code>group_by()</code>: Change the scope of each function from operating on the entire dataset to operating on it group-by-group</li>
-<li class="fragment"><code>summarize()</code>: Collapse many values down to a single summary</li>
+<li class="fragment"><code>summarize()</code>: Collapse many values down to a single value (by group)</li>
 </ul>
 </div></div>
 </section>
@@ -554,10 +555,14 @@ Juan Carlos Villaseñor-Derbez (JC)
 <li class="fragment"><p>This <code>class(input) == class(output)</code> condition means we can easily build pipelines</p></li>
 </ol>
 <div class="fragment">
-<p><code>dplyr</code> functions are also referred to as <code>dplyr</code> <em>verbs</em>, because they all imply an action</p>
+<ul>
+<li class="fragment"><code>dplyr</code> functions are also referred to as <code>dplyr</code> <em>verbs</em>, because they all imply an action</li>
+</ul>
 </div>
 <div class="fragment">
-<p><code>dplyr</code> verbs are organized into four groups based on what they operate on: rows, columns, or groups</p>
+<ul>
+<li class="fragment"><code>dplyr</code> verbs are organized into groups based on what they operate on: rows, columns, or groups</li>
+</ul>
 </div>
 </section></section>
 <section>
@@ -630,7 +635,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <h2>Filtering Rows with <code>filter()</code></h2>
 <p>Multiple conditions require using logical operators</p>
 <div class="fragment">
-<p><strong>Example:</strong> All data from sites “a” and “b”, after the MPA was established</p>
+<p><strong>Example:</strong> All data from sites “a” or “b”, after the MPA was established</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>data_MPA <span class="sc">|&gt;</span> </span>
 <span id="cb12-2"><a href=""></a>    <span class="fu">filter</span>((id <span class="sc">==</span> <span class="st">"a"</span> <span class="sc">|</span> id <span class="sc">==</span> <span class="st">"b"</span>), <span class="co"># Keep data where id is equal to a or b AND</span></span>
