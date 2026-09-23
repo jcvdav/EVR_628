@@ -10,15 +10,15 @@ format:
 
 # Exercise 1: Reading and transforming data
 
+You are the lead data analyst at an NGO that works to promote sustainable fisheries.
 Your boss asked you what sounds like a simple query:
 
 > How much money have tuna purse seiners made since 2000 when fishing for bigeye tuna (_Thunnus obesus_) in the Eastern Pacific Ocean?
 
 Let's make some assumptions that will help us answer this question:
 
-1. We will interpret "making money" as revenue, not profits
+1. We will interpret "making money" as revenue, not profits (profits are revenue minus costs)
 2. The market price of tuna since 2000 has remained relatively stable, at around US\$2/Kg (See @Sibert2012-hu)
-3. We will focus on tuna production in the Eastern Pacific Ocean as reported by the IATTC
 
 ## Part A) Obtaining data from the wild
 
@@ -30,10 +30,16 @@ How to find the data:
 4. You will be taken to a page titled "Public domain data for download"
 5. We will use "EPO total estimated catch by year, flag, gear, species"
 6. Click on `CatchByFlagGear.zip` to the right of the table to prompt a download
-7. Save the zip file to inside your EVR628 project at: `data/raw/`^[If your web browser didn't allow you to specify the download folder, your file is likely in the "Downloads" folder. Navigate there and copy it to the `data/raw/` folder.]
-8. Using your finder / explorer, navigate to `EVR628/data/raw/` and unzip the `CatchByFlagGear.zip` file^[Windows users: You might have to click a button called "Extract" in the top of your explorer window.]
-9. You will get a new folder called `CatchByFlagGear`
-10. Read the PDF file enclosed, which contains the documentation
+7. Save the zip file to **inside** your EVR628 project at: `data/raw/`^[If your web browser didn't allow you to specify the download folder, your file is likely in the "Downloads" folder. Navigate to the downloads folder and copy the ziped folder to the `data/raw/` folder.]
+8. Using your finder / explorer, navigate to `EVR628/data/raw/` and unzip the `CatchByFlagGear.zip` file
+
+:::{.callout-important}
+# Windows users
+You might have to click a button called "Extract" in the top of your explorer window.
+:::
+
+9. You will get a new, normal folder called `CatchByFlagGear` under `EVR628/data/raw/`
+10. Read the PDF file called `CarchByFlagGear`, which contains some documentation
 
 ## Part B) Reading data
 
@@ -56,12 +62,15 @@ suppressPackageStartupMessages({
 
 
 ```{r}
+#| code-fold: true
+#| message: false
+#| warning: false
 # Load packages
 library(tidyverse)
 library(janitor)
 
 # Load the data
-tuna_data <- read_csv("data/raw/CatchByFlagGear/CatchByFlagGear1918-2023.csv")
+tuna_data <- read_csv("data/raw/CatchByFlagGear/CatchByFlagGear1918-2024.csv")
 
 # Check colnames after cleaning names
 colnames(tuna_data)
@@ -70,8 +79,8 @@ colnames(tuna_data)
 ## Part C) Renaming columns with `clean_names()` and `rename()`
 
 0. **Put your post-it up**
-1. In your console, install the `janitor` package using `install.packages("janitor")`
-2. Load `janitor` at the top of your script, and then read the documentation for the `clean_names()` function
+1. In your _console_, install the `janitor` package using `install.packages("janitor")`
+2. Load `janitor` at the top of your script, run that line, and then read the documentation for the `clean_names()` function
 3. Modify your code for the `tuna_data` object so that you pipe into `clean_names()` after reading the data
 4. What are the new column names?
 5. Extend the pipeline above so that we can use the `rename()` function. Rename the columns so that we only retain the English portion of the name. Let's also rename `t` as `catch`
@@ -79,12 +88,15 @@ colnames(tuna_data)
 
 
 ```{r}
+#| code-fold: true
+#| message: false
+#| warning: false
 # Load packages
 library(tidyverse)
 library(janitor)
 
 # Load data
-tuna_data <- read_csv("data/raw/CatchByFlagGear/CatchByFlagGear1918-2023.csv") |> 
+tuna_data <- read_csv("data/raw/CatchByFlagGear/CatchByFlagGear1918-2024.csv") |> 
   # Clean column names
   clean_names() |>
   # Rename some columns
@@ -115,6 +127,9 @@ Congratulations, you now have a tidy data set with which we can work! The next s
 7. **Remove your post-it when you are done**
 
 ```{r}
+#| code-fold: true
+#| message: false
+#| warning: false
 # Check unique values for the species column (using a pipe)
 tuna_data$species |> unique()
 
@@ -137,6 +152,9 @@ ps_tuna_data <- tuna_data |>
 
 
 ```{r}
+#| code-fold: true
+#| message: false
+#| warning: false
 # Create a new data set called ps_tuna_data after filtering
 ps_tuna_data <- tuna_data |> 
   filter(species == "BET", # Retain BET values only
@@ -152,6 +170,9 @@ ps_tuna_data <- tuna_data |>
 2. **Remove your post-it when you are done**
 
 ```{r}
+#| code-fold: true
+#| message: false
+#| warning: false
 ps_tuna_data <- tuna_data |> 
   filter(species == "BET", # Retain BET values only
          gear == "PS",     # Retain PS values only
@@ -186,6 +207,9 @@ The question is ambiguous because one could answer "They have made X M USD since
 4. **Remove your post-it when you are done.**
 
 ```{r}
+#| code-fold: true
+#| message: false
+#| warning: false
 # Get total revenue
 sum(ps_tuna_data$revenue)
 
@@ -213,6 +237,8 @@ ggplot(data = ps_tuna_data,                    # Specify my data
 
 ```{r}
 #| code-fold: true
+#| message: false
+#| warning: false
 
 # Build a new data.frame that has catch by species (in thousand tons)
 catch_2023 <- tuna_data |> 
@@ -235,6 +261,8 @@ ggplot(data = catch_2023,
 
 ```{r}
 #| code-fold: true
+#| message: false
+#| warning: false
 # There is more than one way to do this one
 # Option 1
 
@@ -261,6 +289,8 @@ tuna_data |>
 
 ```{r}
 #| code-fold: true
+#| message: false
+#| warning: false
 # Option 1: With what you already know
 tuna_data |> 
   group_by(year, species) |> 
@@ -285,6 +315,8 @@ tuna_data |>
 
 ```{r}
 #| code-fold: true
+#| message: false
+#| warning: false
 # Option 1: A pipeline that ends in a vector, with unique and length
 # Start from tuna_data
 tuna_data |> 
