@@ -196,14 +196,14 @@ During class we only calculated total revenue. The above code calculates total r
 
 Remember, the question was:
 
-> How much money have tuna purse seiners made since 2000 when fishing for bigeye tuna (_Thunnus obesus_)?
+> What is the value of the bigeye (_Thunnus obesus_) fishery in the purse seine fleet operating in the Eastern Pacific Ocean?
 
 The question is ambiguous because one could answer "They have made X M USD since 2000" or "Every year since 2000, they have made Y M USD per year." So let's get both:
 
 0. **Put your post-it up**
-1. What is the total revenue?^[Hint: Use `$` and `sum()`]
-2. What is the average annual revenue?^[Hint: Use `$` and `mean()`]
-3. Build a time-series showing revenues by year. Make sure to correctly label the axis and include a title and caption describing the figure and the data source, respectively.
+1. What is the total value?^[Hint: Use `$` and `sum()`]
+2. What is the mean annual value?^[Hint: Use `$` and `mean()`]
+3. Build a time-series showing revenues by year. Make sure to correctly label the axis and include a title, subtitle, and caption describing the figure and the data source, respectively.
 4. **Remove your post-it when you are done.**
 
 ```{r}
@@ -223,8 +223,9 @@ ggplot(data = ps_tuna_data,                    # Specify my data
   geom_point() +                               # With points on top
   labs(x = "Year",                             # Add some labels
        y = "Revenue (M USD)",
-       title = "Annual revenue from fishing bigeye tuna by purse seine vessels",
-       caption = "Data come from the IATTC") +
+       title = "Value of the Bigeye tuna fishery in the Eastern Tropical Pacific",
+       subtitle = "The x-axis is year, y-axis is Revenue (mt). Points representa annual totals",
+       caption = "Data source: IATTC") +
   # Modify the theme
   theme_minimal(base_size = 14,               # Font size 14
                 base_family = "Times")        # Font family Times
