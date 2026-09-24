@@ -658,7 +658,8 @@ data_MPA |>
 ## Quick announcements
 
 - [Survey](https://forms.gle/z41tkmgeVww9X4TW8)
-
+- Assignment 2 live next week
+  - Start thinking about what you want to do
 
 ## Learning Objectives - Revisited
 
