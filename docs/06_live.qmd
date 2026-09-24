@@ -44,7 +44,7 @@ You might have to click a button called "Extract" in the top of your explorer wi
 ## Part B) Reading data
 
 0. **Put your post-it up**
-1. Start a new script called `tuna_analysis` and save it to your `scripts/03_analysis` folder
+1. Start a new script called `tuna_analysis` and save it to your `scripts/02_analysis` folder
 2. Add a comment header and outline, and load the `tidyverse` package at the top of your script
 3. Use the `read_csv()` function to load the new data and assign it to an object called `tuna_data`
 4. What are the existing column names?^[Hint: use the `colnames()` function]
