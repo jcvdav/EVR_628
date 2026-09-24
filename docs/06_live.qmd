@@ -13,11 +13,11 @@ format:
 You are the lead data analyst at an NGO that works to promote sustainable fisheries.
 Your boss asked you what sounds like a simple query:
 
-> How much money have tuna purse seiners made since 2000 when fishing for bigeye tuna (_Thunnus obesus_) in the Eastern Pacific Ocean?
+> What is the value of the bigeye (_Thunnus obesus_) fishery in the purse seine fleet operating in the Eastern Pacific Ocean?
 
 Let's make some assumptions that will help us answer this question:
 
-1. We will interpret "making money" as revenue, not profits (profits are revenue minus costs)
+1. We will interpret "value of the fishery" as revenue
 2. The market price of tuna since 2000 has remained relatively stable, at around US\$2/Kg (See @Sibert2012-hu)
 
 ## Part A) Obtaining data from the wild
@@ -233,7 +233,7 @@ ggplot(data = ps_tuna_data,                    # Specify my data
 
 # Extra exercises for you to practice
 
-1. Make a figure showing total catch by species during 2023
+**1. Make a figure showing total catch by species during 2023**
 
 ```{r}
 #| code-fold: true
@@ -257,7 +257,7 @@ ggplot(data = catch_2023,
   theme_bw()
 ```
 
-2. Which country caught the most tuna during 2020?
+**2. Which country caught the most tuna during 2020?**
 
 ```{r}
 #| code-fold: true
@@ -285,7 +285,7 @@ tuna_data |>
   pull(flag) # This is a "tidy" version of using a dollar sign to extract a column
 ```
 
-3. For each species, identify the year in which catch was at it's maximum
+**3. For each species, identify the year in which catch was at it's maximum**
 
 ```{r}
 #| code-fold: true
@@ -311,7 +311,7 @@ tuna_data |>
   arrange(species)
 ```
 
-4. How many species have been caught by Mexican-flagged vessels since 2000?
+**4. How many species have been caught by Mexican-flagged vessels since 2000?**
 
 ```{r}
 #| code-fold: true
