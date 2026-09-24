@@ -655,6 +655,10 @@ data_MPA |>
 - Build a data cleaning pipeline
 - Export clean data
 
+## Quick announcements
+
+- [Survey](https://forms.gle/z41tkmgeVww9X4TW8)
+
 
 ## Learning Objectives - Revisited
 

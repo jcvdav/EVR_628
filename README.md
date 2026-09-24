@@ -13,6 +13,8 @@ questions. In-class exercises and homework assignments will mimic the types of
 tasks and questions that students will encounter in the workforce. 
 By the end of the course, students will be comfortable working in R.
 
+[Link to Survey](https://forms.gle/z41tkmgeVww9X4TW8)
+
 **Resources**
 
 - [Syllabus](docs/syllabus.pdf)
