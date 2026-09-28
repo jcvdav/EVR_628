@@ -149,6 +149,12 @@ _Labor day on Monday Sept 7_
   - Wickham, Hadley. 2014. “Tidy Data.” The Journal of Statistical Software 59. [http://www.jstatsoft.org/v59/i10/](http://www.jstatsoft.org/v59/i10/)
 - [Link](https://jcvdav.github.io/EVR_628/docs/07_live.html) to document from live coding session
 
+---
+
+**Second assignment:** [_Data wrangling_](docs/assig_2.html) due TBD
+
+---
+
 ## Week 8 (Week of Oct 05)
 **Scaling up your code and visualizations** | [slides](slides/08_scale_up_viz.html)
 - Refresh on layers: aesthetics and geometries
@@ -162,12 +168,6 @@ _Labor day on Monday Sept 7_
 - Assigned readings:
   - R4DS [CH9: Layers](https://r4ds.hadley.nz/layers.html)
   - R4DS [CH11: Communication](https://r4ds.hadley.nz/communication.html)
-
----
-
-**Second assignment:** [_Data wrangling_](docs/assig_2.html) due TBD
-
----
 
 
 ## *Week 9 (Week of Oct 12)
