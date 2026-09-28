@@ -151,7 +151,7 @@ _Labor day on Monday Sept 7_
 
 ---
 
-**Second assignment:** [_Data wrangling_](docs/assig_2.html) due TBD
+**Second assignment:** [_Data wrangling_](docs/assig_2.html) due Oct 11 at 11:59 pm on Canvas
 
 ---
 
