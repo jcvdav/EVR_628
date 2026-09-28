@@ -10,33 +10,48 @@ format:
 
 # The big picture
 
-Remember that the final goal is to have a GitHub repository where you can showcase your work. Assignment 1 was to create the repository, which should be mostly empty. Assignment two is to develop one R script to clean some data. Your choice of data will lock you in a path: The third assignment will be to visualize the data you have cleaned up here. Your final project will leverage the data and visualizations you'll produce to wrap it all together.
+Remember that the final goal is to have a GitHub repository where you can showcase your work. Assignment 1 was to create the repository, which should be essentially empty. Assignment 2 is to **develop two R scripts to clean and explore a dataset of your choice**. Your choice of data will lock you in a path: The third assignment will be to formally visualize the data you have cleaned up here. Your final project will leverage the data and visualizations you'll produce to wrap it all together.
 
 # This assignment
 
-**Task:** Develop one data wrangling script that reads raw data (*e.g.* in `.xlsx` or `.csv`), performs data cleaning, transformation, or wrangling, and exports a processed version of the data (`.rds`) to be used in later assignments.
+**Tasks:** Develop two R scripts. One will be a data wrangling script that reads raw data (*e.g.* in `.xlsx` or `.csv`), performs data cleaning, transformation, or wrangling as needed, and exports a processed version of the data (`.rds`) to be used in later assignments. The second script read in the clean data and performs exploratory data visualizations, which will be exported as `*.png` files.
 
 This assignment will require quite a bit of work on three fronts:
 
 1. Coming up with an idea for a final project
-2. Thinking about how you will get the raw data into a format that gets you closer to your final project, and 
-3. Using lecture and live coding session materials --and function documentation-- to help you build your pipeline.
+2. Thinking about how you will get the raw data into a format that gets you closer to your final project, and
+3. Using lecture and live coding session materials--and function documentation--to help you build your cleaning and visualization pipeline.
 
-I have included a list of potential data sources and ideas for final projects. Feel free to come up with your own ideas, I recommend choosing something you may be genuinely interested in.
+I have included a list of potential data sources and ideas for final projects. Feel free to come up with your own ideas. I recommend choosing something you may be genuinely interested in, which will keep you motivated.
 
-## Grading Rubric
+## Grading Rubric (and checklist!)
 
-- 25%: `README.md` file:
-  - 10% Explains the main objective of your project. 2-3 sentences is enough.
-  - 5% Lists the contents of the project repository.
-  - 10% Lists the column names of the clean data, and includes information on data type and a description of the column.
-- 50%: Your repository contains and R script called `data_processing.R`, saved to your `scripts/01_processing` folder that:
-  - 10%: Contains code documentation using comments `#`
-  - 5%: Clearly indicates packages loaded at the top of the script
-  - 5%: Uses **relative** paths to read / write data files
-  - **20%: Uses `dplyr` [verbs](https://dplyr.tidyverse.org/reference/index.html) and / or `tidyr` [functions](https://tidyr.tidyverse.org/reference/index.html) to achieve the data cleaning task.** Note that simply renaming columns or changing their order is not enough. If your raw data happen to be in the perfect format, consider starting your analysis instead. If you decide to do this, your script should be named `analysis.R` and saved in the corresponding folder.
-  - 10%: The exported data conform to `tidy` data standards^[If you are using this assignment as part of your own research and you have a legitimate reason not to use a `tidy` data format, that is ok. Just make sure you include a justification in your code documentation and `README.md` file].
-- 25%: I can clone your repo and reproduce your data without having to modify your code
+- **10%**: `README.md` file, split as:
+  - [ ] 5% Explains the main objective of your project in 2-3 sentences.
+  - [ ] 5% Lists the contents of the project repository:
+  - [ ] 2.5%: The names and sources of raw data are clearly listed
+  - [ ] 2.5%: The names and location of R scripts, clean data, and figures are clearly listed
+- **40%**: Your repository contains an R script called `data_processing.R`, saved to your `scripts/01_processing` folder that:
+  - [ ] 5%: Clearly indicates packages loaded at the top of the script
+  - [ ] 5%: Uses **relative** paths to read AND write files
+  - [ ] 5%: Contains code documentation using comments via `#`
+  - [ ] **20%: Uses `dplyr` [verbs](https://dplyr.tidyverse.org/reference/index.html) and / or `tidyr` [functions](https://tidyr.tidyverse.org/reference/index.html) to achieve the data cleaning task.**
+  - [ ] 5%: The exported data conform to `tidy` data standards regarding rows, columns, and values.
+- **40%**: Your repository contains a script called `exploratory_data_visualization.R`, saved to your `scripts/03_content` folder that:
+  - [ ] 5%: Clearly indicates packages loaded at the top of the script
+  - [ ] 5%: Uses **relative** paths to read AND write files
+  - [ ] 5%: Contains code documentation using comments via `#`
+  - [ ] **20%: Uses `ggplot2` functions to explore your data in at least three plots.**
+  - [ ] 5%: The exported plots have:
+    - [ ] axis labels
+    - [ ] a title
+    - [ ] a caption indicating source of data
+- **10% **: Reproducibility. I can clone your repo and reproduce your clean data and figures without having to modify your code.
+
+:::{.callout-important}
+## Important points
+**Don't be lazy - **Simply renaming columns or changing their order is not enough. Come talk to me, I guarantee we can find something to do to them.
+:::
 
 Some examples of repositories that would get a 100%:
 
