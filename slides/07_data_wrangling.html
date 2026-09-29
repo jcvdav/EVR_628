@@ -6,8 +6,8 @@
 <script src="07_data_wrangling_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="07_data_wrangling_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="07_data_wrangling_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="07_data_wrangling_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+<link href="07_data_wrangling_files/libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="Juan Carlos Villaseñor-Derbez (JC)">
   <title>Data Tidying and Merging</title>
@@ -115,7 +115,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="07_data_wrangling_files/libs/revealjs/dist/theme/quarto-2c1b5f745a11cfad616ebade4a4a7d24.css">
+  <link rel="stylesheet" href="07_data_wrangling_files/libs/revealjs/dist/theme/quarto-0fde88a82f0356838740f155f1088782.css">
   <link href="07_data_wrangling_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="07_data_wrangling_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="07_data_wrangling_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -222,15 +222,14 @@
 Juan Carlos Villaseñor-Derbez (JC) 
 </div>
         <p class="quarto-title-affiliation">
-            Rosenstiel School of Marine, Atmospheric, and Earth Science and Institute for Data Science and Computing
+            Rosenstiel School of Marine, Atmospheric &amp; Earth Science and Institute for Data Science &amp; Computing
           </p>
     </div>
 </div>
 
 </section>
-<section>
-<section id="learning-objectives" class="title-slide slide level1 center">
-<h1>Learning Objectives</h1>
+<section id="learning-objectives" class="slide level2">
+<h2>Learning Objectives</h2>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -255,10 +254,10 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img/tidy-1.png"></p>
-<figcaption>Image Credit: <span class="citation" data-cites="Wickham2023-aa">Wickham, Cetinkaya-Rundel, and Grolemund (<a href="#/best-practices" role="doc-biblioref" onclick="">2023</a>)</span></figcaption>
+<figcaption>Image Credit: <span class="citation" data-cites="Wickham2023-aa">Wickham, Cetinkaya-Rundel, and Grolemund (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span></figcaption>
 </figure>
 </div>
-<p>See <span class="citation" data-cites="tidy-data">Wickham (<a href="#/best-practices" role="doc-biblioref" onclick="">2014</a>)</span> for a full description of tidy data principles an the <code>reshape2</code> package (old)</p>
+<p>See <span class="citation" data-cites="tidy-data">Wickham (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span> for a full description of tidy data principles an the <code>reshape2</code> package (old)</p>
 </section>
 <section id="messy-data" class="slide level2">
 <h2>Messy Data?</h2>
@@ -285,7 +284,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <li class="fragment">Dealing with missing values with <code>complete()</code>, <code>drop_na()</code>, <code>replace_na()</code>, and <code>fill()</code> (not today)</li>
 </ul>
 </div></div>
-</section></section>
+</section>
 <section>
 <section id="changing-shape-of-data" class="title-slide slide level1 center">
 <h1>Changing shape of data</h1>
@@ -298,9 +297,9 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(EVR628tools)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(EVR628tools)</span>
 <span id="cb1-2"><a href=""></a><span class="fu">data</span>(<span class="st">"data_kelp"</span>)</span>
-<span id="cb1-3"><a href=""></a>data_kelp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href=""></a>data_kelp</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 807 × 25
@@ -373,15 +372,18 @@ Juan Carlos Villaseñor-Derbez (JC)
 <p>What do you expect the new dimensions of the data to be?</p>
 </div>
 </section>
+<section id="by-hand-in-excel" class="slide level2">
+<h2>By hand, in excel</h2>
+</section>
 <section id="solution-pivot_longer" class="slide level2">
 <h2>Solution: <code>pivot_longer()</code></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4" data-code-line-numbers="1-2|3|4|5|6|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co"># Make it tidy</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" data-code-line-numbers="1-2|3|4|5|6|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co"># Make it tidy</span></span>
 <span id="cb4-2"><a href=""></a>data_kelp <span class="sc">|&gt;</span> <span class="co"># data_kelp goes into...</span></span>
 <span id="cb4-3"><a href=""></a>  <span class="fu">pivot_longer</span>(</span>
 <span id="cb4-4"><a href=""></a>    <span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"TL_"</span>), <span class="co">#specify columns to pivot</span></span>
 <span id="cb4-5"><a href=""></a>    <span class="at">names_to =</span> <span class="st">"total_length"</span>, <span class="co"># Where should column names be placed?</span></span>
-<span id="cb4-6"><a href=""></a>    <span class="at">values_to =</span> <span class="st">"abundance"</span>)   <span class="co"># Where should values be placed?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-6"><a href=""></a>    <span class="at">values_to =</span> <span class="st">"abundance"</span>)   <span class="co"># Where should values be placed?</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
 <div class="cell">
@@ -416,13 +418,13 @@ Juan Carlos Villaseñor-Derbez (JC)
 <section id="dealing-with-nas" class="slide level2">
 <h2>Dealing with NAs</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6" data-code-line-numbers="7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="co"># Make it tidy</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" data-code-line-numbers="7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="co"># Make it tidy</span></span>
 <span id="cb6-2"><a href=""></a>data_kelp <span class="sc">|&gt;</span> <span class="co"># data_kelp goes into...</span></span>
 <span id="cb6-3"><a href=""></a>  <span class="fu">pivot_longer</span>(</span>
 <span id="cb6-4"><a href=""></a>    <span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"TL_"</span>), <span class="co">#specify columns to pivot</span></span>
 <span id="cb6-5"><a href=""></a>    <span class="at">names_to =</span> <span class="st">"total_length"</span>, <span class="co"># Where should column names be placed?</span></span>
 <span id="cb6-6"><a href=""></a>    <span class="at">values_to =</span> <span class="st">"abundance"</span>,   <span class="co"># Where should values be placed?</span></span>
-<span id="cb6-7"><a href=""></a>    <span class="at">values_drop_na =</span> <span class="cn">TRUE</span>)     <span class="co"># Specify that NA values should be removed)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-7"><a href=""></a>    <span class="at">values_drop_na =</span> <span class="cn">TRUE</span>)     <span class="co"># Specify that NA values should be removed)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,116 × 6
    location site  transect genus_species         total_length abundance
@@ -444,14 +446,14 @@ Juan Carlos Villaseñor-Derbez (JC)
 <section id="removing-the-prefix" class="slide level2">
 <h2>Removing the prefix</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8" data-code-line-numbers="8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="co"># Make it tidy</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" data-code-line-numbers="8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="co"># Make it tidy</span></span>
 <span id="cb8-2"><a href=""></a>data_kelp <span class="sc">|&gt;</span> <span class="co"># data_kelp goes into...</span></span>
 <span id="cb8-3"><a href=""></a>  <span class="fu">pivot_longer</span>(</span>
 <span id="cb8-4"><a href=""></a>    <span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"TL_"</span>), <span class="co">#specify columns to pivot</span></span>
 <span id="cb8-5"><a href=""></a>    <span class="at">names_to =</span> <span class="st">"total_length"</span>, <span class="co"># Where should column names be placed?</span></span>
 <span id="cb8-6"><a href=""></a>    <span class="at">values_to =</span> <span class="st">"abundance"</span>,   <span class="co"># Where should values be placed?</span></span>
 <span id="cb8-7"><a href=""></a>    <span class="at">values_drop_na =</span> <span class="cn">TRUE</span>,     <span class="co"># Specify that NA values should be removed)</span></span>
-<span id="cb8-8"><a href=""></a>    <span class="at">names_prefix =</span> <span class="st">"TL_"</span>)      <span class="co"># Remove "TL_" from the total length</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-8"><a href=""></a>    <span class="at">names_prefix =</span> <span class="st">"TL_"</span>)      <span class="co"># Remove "TL_" from the total length</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,116 × 6
    location site  transect genus_species         total_length abundance
@@ -473,7 +475,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <section id="making-total_length-numeric" class="slide level2">
 <h2>Making <code>total_length</code> numeric</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10" data-code-line-numbers="9|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="co"># Make it tidy</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" data-code-line-numbers="9|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="co"># Make it tidy</span></span>
 <span id="cb10-2"><a href=""></a>tidy_kelp <span class="ot">&lt;-</span> data_kelp <span class="sc">|&gt;</span> <span class="co"># data_kelp goes into...</span></span>
 <span id="cb10-3"><a href=""></a>  <span class="fu">pivot_longer</span>(</span>
 <span id="cb10-4"><a href=""></a>    <span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"TL_"</span>), <span class="co">#specify columns to pivot</span></span>
@@ -483,7 +485,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <span id="cb10-8"><a href=""></a>    <span class="at">names_prefix =</span> <span class="st">"TL_"</span>) <span class="sc">|&gt;</span>   <span class="co"># Remove "TL_" from the total length</span></span>
 <span id="cb10-9"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">total_length =</span> <span class="fu">as.numeric</span>(total_length) <span class="sc">-</span><span class="fl">2.5</span>) <span class="co"># Use mutate to rewrite column</span></span>
 <span id="cb10-10"><a href=""></a>  </span>
-<span id="cb10-11"><a href=""></a>tidy_kelp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-11"><a href=""></a>tidy_kelp</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,116 × 6
    location site  transect genus_species         total_length abundance
@@ -505,7 +507,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <section id="other-arguments-to-pivot_longer" class="slide level2">
 <h2>Other arguments to <code>pivot_longer()</code></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>?<span class="fu">pivot_longer</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>?<span class="fu">pivot_longer</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">Documentation</a></p>
 </section>
@@ -514,7 +516,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <p><strong>Type of problem:</strong> Variables as stored as values, instead of column names</p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>fish_info</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>fish_info</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 15 × 3
    sciname               parameter        value
@@ -543,6 +545,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 </section>
 <section id="parenthesis-on-allometric-parameters" class="slide level2">
 <h2>Parenthesis on allometric parameters</h2>
+<p><span class="math display">\[TW = a \times TL ^ b\]</span> <span class="math display">\[log(TW) = a + b\times log(TL)\]</span></p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
@@ -555,38 +558,12 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">library</span>(fixest)</span>
-<span id="cb15-2"><a href=""></a><span class="fu">setFixest_dict</span>(<span class="fu">c</span>(<span class="st">"(Intercept)"</span> <span class="ot">=</span> <span class="st">"a"</span>,</span>
-<span id="cb15-3"><a href=""></a>               <span class="st">"log10(total_length_cm)"</span> <span class="ot">=</span> <span class="st">"b"</span>,</span>
-<span id="cb15-4"><a href=""></a>                <span class="st">"log10(total_weight_gr)"</span> <span class="ot">=</span> <span class="st">"Weight"</span>))</span>
-<span id="cb15-5"><a href=""></a><span class="fu">feols</span>(<span class="fu">log10</span>(total_weight_gr) <span class="sc">~</span> <span class="fu">log10</span>(total_length_cm),</span>
-<span id="cb15-6"><a href=""></a>              <span class="at">data =</span> data_lionfish) <span class="sc">|&gt;</span> </span>
-<span id="cb15-7"><a href=""></a>  <span class="fu">etable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>                feols(log10(tota..
-Dependent Var.:             Weight
-                                  
-a               -2.259*** (0.0544)
-b                3.235*** (0.0485)
-_______________ __________________
-S.E. type                      IID
-Observations                   109
-R2                         0.97656
-Adj. R2                    0.97634
----
-Signif. codes: 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
-</div>
-</div>
-</div></div>
 <ul>
 <li class="fragment"><code>a</code> is my intercept, and indicates the theoretical weight of a fish of length 0 (doesn’t mean much)</li>
 <li class="fragment"><code>b</code> is my slope, and indicates how much log-weight a fish gains for every log-length increase in length</li>
 <li class="fragment">If I know <code>a</code> and <code>b</code>, and I have <code>total_length</code>, I can calculate <code>total_weight</code></li>
 </ul>
+</div></div>
 </section>
 <section id="target-1" class="slide level2">
 <h2>Target</h2>
@@ -633,16 +610,19 @@ Signif. codes: 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <li class="fragment">Use the <strong>values from</strong> the column <code>value</code> to populate the new columns</li>
 </ul>
 </section>
+<section id="by-hand-in-excel-1" class="slide level2">
+<h2>By hand, in excel</h2>
+</section>
 <section id="solution-pivot_wider" class="slide level2">
 <h2>Solution: <code>pivot_wider()</code></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18" data-code-line-numbers="1-2|3|4|5|6|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="co"># Make it tidy</span></span>
-<span id="cb18-2"><a href=""></a>tidy_fish_info <span class="ot">&lt;-</span> fish_info <span class="sc">|&gt;</span> <span class="co"># Fish info goes into...</span></span>
-<span id="cb18-3"><a href=""></a>  <span class="fu">pivot_wider</span>(</span>
-<span id="cb18-4"><a href=""></a>    <span class="at">id_cols =</span> sciname,       <span class="co"># The column(s) that specifies my observation</span></span>
-<span id="cb18-5"><a href=""></a>    <span class="at">names_from =</span> parameter,  <span class="co"># My new names will come from...</span></span>
-<span id="cb18-6"><a href=""></a>    <span class="at">values_from =</span> value)     <span class="co"># And my values from...</span></span>
-<span id="cb18-7"><a href=""></a>tidy_fish_info</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16" data-code-line-numbers="1-2|3|4|5|6|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="co"># Make it tidy</span></span>
+<span id="cb16-2"><a href=""></a>tidy_fish_info <span class="ot">&lt;-</span> fish_info <span class="sc">|&gt;</span> <span class="co"># Fish info goes into...</span></span>
+<span id="cb16-3"><a href=""></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb16-4"><a href=""></a>    <span class="at">id_cols =</span> sciname,       <span class="co"># The column(s) that specifies my observation</span></span>
+<span id="cb16-5"><a href=""></a>    <span class="at">names_from =</span> parameter,  <span class="co"># My new names will come from...</span></span>
+<span id="cb16-6"><a href=""></a>    <span class="at">values_from =</span> value)     <span class="co"># And my values from...</span></span>
+<span id="cb16-7"><a href=""></a>tidy_fish_info</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 4
   sciname               trophic_level        a     b
@@ -708,7 +688,7 @@ Signif. codes: 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img/venn_joins.png"></p>
-<figcaption>Image Credit: <span class="citation" data-cites="Wickham2023-aa">Wickham, Cetinkaya-Rundel, and Grolemund (<a href="#/best-practices" role="doc-biblioref" onclick="">2023</a>)</span></figcaption>
+<figcaption>Image Credit: <span class="citation" data-cites="Wickham2023-aa">Wickham, Cetinkaya-Rundel, and Grolemund (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span></figcaption>
 </figure>
 </div>
 <ul>
@@ -792,7 +772,7 @@ Signif. codes: 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img/join_setup.png"></p>
-<figcaption>Image Credit: <span class="citation" data-cites="Wickham2023-aa">Wickham, Cetinkaya-Rundel, and Grolemund (<a href="#/best-practices" role="doc-biblioref" onclick="">2023</a>)</span></figcaption>
+<figcaption>Image Credit: <span class="citation" data-cites="Wickham2023-aa">Wickham, Cetinkaya-Rundel, and Grolemund (<a href="#/references" role="doc-biblioref" onclick="">2023</a>)</span></figcaption>
 </figure>
 </div>
 <ul>
@@ -801,12 +781,15 @@ Signif. codes: 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <li class="fragment"><code>by</code> argument is where we specify the <strong>key</strong> (<code>genus_species</code> on the right matches <code>sciname</code> on the left)</li>
 </ul>
 </section>
+<section id="by-hand-in-excel-2" class="slide level2">
+<h2>By hand, in excel</h2>
+</section>
 <section id="combining-data-with-left_join" class="slide level2">
 <h2>Combining data with <code>left_join()</code></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22" data-code-line-numbers="1|2|3|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a><span class="fu">left_join</span>(<span class="at">x =</span> tidy_kelp,                                <span class="co"># X is tidy kelp</span></span>
-<span id="cb22-2"><a href=""></a>          <span class="at">y =</span> tidy_fish_info <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span>trophic_level), <span class="co"># Y is tidy_fish_info, after removing trophic level</span></span>
-<span id="cb22-3"><a href=""></a>          <span class="at">by =</span> <span class="fu">join_by</span>(genus_species <span class="sc">==</span> sciname))       <span class="co"># And we tell R how to match them</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20" data-code-line-numbers="1|2|3|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="fu">left_join</span>(<span class="at">x =</span> tidy_kelp,                                <span class="co"># X is tidy kelp</span></span>
+<span id="cb20-2"><a href=""></a>          <span class="at">y =</span> tidy_fish_info <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span>trophic_level), <span class="co"># Y is tidy_fish_info, after removing trophic level</span></span>
+<span id="cb20-3"><a href=""></a>          <span class="at">by =</span> <span class="fu">join_by</span>(genus_species <span class="sc">==</span> sciname))       <span class="co"># And we tell R how to match them</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,116 × 8
    location site  transect genus_species   total_length abundance        a     b
@@ -832,9 +815,9 @@ Signif. codes: 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <section id="combining-data-with-right_join" class="slide level2">
 <h2>Combining data with <code>right_join()</code></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24" data-code-line-numbers="1|2|3|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="fu">right_join</span>(<span class="at">x =</span> tidy_kelp,                                <span class="co"># X is tidy kelp</span></span>
-<span id="cb24-2"><a href=""></a>           <span class="at">y =</span> tidy_fish_info <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span>trophic_level), <span class="co"># Y is tidy_fish_info, after removing trophic level</span></span>
-<span id="cb24-3"><a href=""></a>           <span class="at">by =</span> <span class="fu">join_by</span>(genus_species <span class="sc">==</span> sciname))       <span class="co"># And we tell R how to match them</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22" data-code-line-numbers="1|2|3|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a><span class="fu">right_join</span>(<span class="at">x =</span> tidy_kelp,                                <span class="co"># X is tidy kelp</span></span>
+<span id="cb22-2"><a href=""></a>           <span class="at">y =</span> tidy_fish_info <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span>trophic_level), <span class="co"># Y is tidy_fish_info, after removing trophic level</span></span>
+<span id="cb22-3"><a href=""></a>           <span class="at">by =</span> <span class="fu">join_by</span>(genus_species <span class="sc">==</span> sciname))       <span class="co"># And we tell R how to match them</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 192 × 8
    location site  transect genus_species    total_length abundance       a     b
@@ -860,10 +843,10 @@ Signif. codes: 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <h2>Combining data with <code>right_join()</code></h2>
 <p>Let’s look at the bottom of the table:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26" data-code-line-numbers="1|2|3|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a><span class="fu">right_join</span>(<span class="at">x =</span> tidy_kelp,                                <span class="co"># X is tidy kelp</span></span>
-<span id="cb26-2"><a href=""></a>           <span class="at">y =</span> tidy_fish_info <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span>trophic_level), <span class="co"># Y is tidy_fish_info, after removing trophic level</span></span>
-<span id="cb26-3"><a href=""></a>           <span class="at">by =</span> <span class="fu">join_by</span>(genus_species <span class="sc">==</span> sciname)) <span class="sc">|&gt;</span>    <span class="co"># And we tell R how to match them</span></span>
-<span id="cb26-4"><a href=""></a>  <span class="fu">tail</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24" data-code-line-numbers="1|2|3|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="fu">right_join</span>(<span class="at">x =</span> tidy_kelp,                                <span class="co"># X is tidy kelp</span></span>
+<span id="cb24-2"><a href=""></a>           <span class="at">y =</span> tidy_fish_info <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span>trophic_level), <span class="co"># Y is tidy_fish_info, after removing trophic level</span></span>
+<span id="cb24-3"><a href=""></a>           <span class="at">by =</span> <span class="fu">join_by</span>(genus_species <span class="sc">==</span> sciname)) <span class="sc">|&gt;</span>    <span class="co"># And we tell R how to match them</span></span>
+<span id="cb24-4"><a href=""></a>  <span class="fu">tail</span>(<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 8
    location site  transect genus_species    total_length abundance       a     b
@@ -887,9 +870,9 @@ Signif. codes: 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <section id="combining-data-with-inner_join" class="slide level2">
 <h2>Combining data with <code>inner_join()</code></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28" data-code-line-numbers="1|2|3|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="fu">inner_join</span>(<span class="at">x =</span> tidy_kelp,                                <span class="co"># X is tidy kelp</span></span>
-<span id="cb28-2"><a href=""></a>           <span class="at">y =</span> tidy_fish_info <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span>trophic_level), <span class="co"># Y is tidy_fish_info, after removing trophic level</span></span>
-<span id="cb28-3"><a href=""></a>           <span class="at">by =</span> <span class="fu">join_by</span>(genus_species <span class="sc">==</span> sciname))       <span class="co"># And we tell R how to match them</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26" data-code-line-numbers="1|2|3|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a><span class="fu">inner_join</span>(<span class="at">x =</span> tidy_kelp,                                <span class="co"># X is tidy kelp</span></span>
+<span id="cb26-2"><a href=""></a>           <span class="at">y =</span> tidy_fish_info <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span>trophic_level), <span class="co"># Y is tidy_fish_info, after removing trophic level</span></span>
+<span id="cb26-3"><a href=""></a>           <span class="at">by =</span> <span class="fu">join_by</span>(genus_species <span class="sc">==</span> sciname))       <span class="co"># And we tell R how to match them</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 191 × 8
    location site  transect genus_species    total_length abundance       a     b
@@ -911,9 +894,9 @@ Signif. codes: 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <section id="combining-data-with-full_join" class="slide level2">
 <h2>Combining data with <code>full_join()</code></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30" data-code-line-numbers="1|2|3|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a><span class="fu">full_join</span>(<span class="at">x =</span> tidy_kelp,                                <span class="co"># X is tidy kelp</span></span>
-<span id="cb30-2"><a href=""></a>          <span class="at">y =</span> tidy_fish_info <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span>trophic_level), <span class="co"># Y is tidy_fish_info, after removing trophic level</span></span>
-<span id="cb30-3"><a href=""></a>          <span class="at">by =</span> <span class="fu">join_by</span>(genus_species <span class="sc">==</span> sciname))       <span class="co"># And we tell R how to match them</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28" data-code-line-numbers="1|2|3|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="fu">full_join</span>(<span class="at">x =</span> tidy_kelp,                                <span class="co"># X is tidy kelp</span></span>
+<span id="cb28-2"><a href=""></a>          <span class="at">y =</span> tidy_fish_info <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span>trophic_level), <span class="co"># Y is tidy_fish_info, after removing trophic level</span></span>
+<span id="cb28-3"><a href=""></a>          <span class="at">by =</span> <span class="fu">join_by</span>(genus_species <span class="sc">==</span> sciname))       <span class="co"># And we tell R how to match them</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,117 × 8
    location site  transect genus_species   total_length abundance        a     b
@@ -960,9 +943,9 @@ Signif. codes: 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <section id="failing-to-specify-keys-results-in-duplicates" class="slide level2">
 <h2>Failing to specify keys results in duplicates</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33" data-code-line-numbers="1|2|3|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a>tidy_kelp <span class="sc">|&gt;</span> <span class="co"># Tidy kelp goes into... (Yes, you can pipe)</span></span>
-<span id="cb33-2"><a href=""></a>  <span class="fu">left_join</span>(tidy_fish_info2 <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span>trophic_level),</span>
-<span id="cb33-3"><a href=""></a>            <span class="at">by =</span> <span class="fu">join_by</span>(genus_species <span class="sc">==</span> sciname)) <span class="co"># I failed to link site to north_south</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31" data-code-line-numbers="1|2|3|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a>tidy_kelp <span class="sc">|&gt;</span> <span class="co"># Tidy kelp goes into... (Yes, you can pipe)</span></span>
+<span id="cb31-2"><a href=""></a>  <span class="fu">left_join</span>(tidy_fish_info2 <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span>trophic_level),</span>
+<span id="cb31-3"><a href=""></a>            <span class="at">by =</span> <span class="fu">join_by</span>(genus_species <span class="sc">==</span> sciname)) <span class="co"># I failed to link site to north_south</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
 <div class="cell">
@@ -996,10 +979,10 @@ Signif. codes: 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <section id="correctly-specify-the-two-keys" class="slide level2">
 <h2>Correctly specify the two keys</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a>tidy_kelp <span class="sc">|&gt;</span> <span class="co"># Tidy kelp goes into... (Yes, you can pipe)</span></span>
-<span id="cb36-2"><a href=""></a>  <span class="fu">left_join</span>(tidy_fish_info2 <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span>trophic_level),</span>
-<span id="cb36-3"><a href=""></a>            <span class="at">by =</span> <span class="fu">join_by</span>(genus_species <span class="sc">==</span> sciname,</span>
-<span id="cb36-4"><a href=""></a>                         site <span class="sc">==</span> north_south))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a>tidy_kelp <span class="sc">|&gt;</span> <span class="co"># Tidy kelp goes into... (Yes, you can pipe)</span></span>
+<span id="cb34-2"><a href=""></a>  <span class="fu">left_join</span>(tidy_fish_info2 <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span>trophic_level),</span>
+<span id="cb34-3"><a href=""></a>            <span class="at">by =</span> <span class="fu">join_by</span>(genus_species <span class="sc">==</span> sciname,</span>
+<span id="cb34-4"><a href=""></a>                         site <span class="sc">==</span> north_south))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,116 × 8
    location site  transect genus_species   total_length abundance        a     b
@@ -1023,32 +1006,32 @@ Signif. codes: 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="columns">
 <div class="column" style="width:65%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href=""></a><span class="co"># Tidy the transect data</span></span>
-<span id="cb38-2"><a href=""></a>tidy_kelp <span class="ot">&lt;-</span> data_kelp <span class="sc">|&gt;</span> <span class="co"># data_kelp goes into...</span></span>
-<span id="cb38-3"><a href=""></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb38-4"><a href=""></a>    <span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"TL_"</span>), <span class="co">#specify columns to pivot</span></span>
-<span id="cb38-5"><a href=""></a>    <span class="at">names_to =</span> <span class="st">"total_length"</span>, <span class="co"># Where should column names be placed?</span></span>
-<span id="cb38-6"><a href=""></a>    <span class="at">values_to =</span> <span class="st">"abundance"</span>,   <span class="co"># Where should values be placed?</span></span>
-<span id="cb38-7"><a href=""></a>    <span class="at">values_drop_na =</span> <span class="cn">TRUE</span>,     <span class="co"># Specify that NA values should be removed)</span></span>
-<span id="cb38-8"><a href=""></a>    <span class="at">names_prefix =</span> <span class="st">"TL_"</span>) <span class="sc">|&gt;</span>   <span class="co"># Remove "TL_" from the total length</span></span>
-<span id="cb38-9"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">total_length =</span> <span class="fu">as.numeric</span>(total_length) <span class="sc">-</span><span class="fl">2.5</span>) <span class="co"># Use mutate to rewrite column</span></span>
-<span id="cb38-10"><a href=""></a></span>
-<span id="cb38-11"><a href=""></a><span class="co"># Tidy the allometric data data</span></span>
-<span id="cb38-12"><a href=""></a>tidy_fish_info <span class="ot">&lt;-</span> fish_info <span class="sc">|&gt;</span> <span class="co"># Fish info goes into...</span></span>
-<span id="cb38-13"><a href=""></a>  <span class="fu">pivot_wider</span>(</span>
-<span id="cb38-14"><a href=""></a>    <span class="at">id_cols =</span> sciname,       <span class="co"># The column(s) that specifies my observation</span></span>
-<span id="cb38-15"><a href=""></a>    <span class="at">names_from =</span> parameter,  <span class="co"># My new names will come from...</span></span>
-<span id="cb38-16"><a href=""></a>    <span class="at">values_from =</span> value) <span class="sc">|&gt;</span>  <span class="co"># And my values from...</span></span>
-<span id="cb38-17"><a href=""></a>  <span class="fu">select</span>(<span class="sc">-</span>trophic_level)</span>
-<span id="cb38-18"><a href=""></a></span>
-<span id="cb38-19"><a href=""></a><span class="co"># And now combine them</span></span>
-<span id="cb38-20"><a href=""></a>biomass <span class="ot">&lt;-</span>tidy_kelp <span class="sc">|&gt;</span> </span>
-<span id="cb38-21"><a href=""></a>  <span class="fu">left_join</span>(tidy_fish_info,</span>
-<span id="cb38-22"><a href=""></a>            <span class="at">by =</span> <span class="fu">join_by</span>(genus_species <span class="sc">==</span> sciname)) <span class="sc">|&gt;</span></span>
-<span id="cb38-23"><a href=""></a> <span class="co"># And use last week's knowledge to calculate the rest</span></span>
-<span id="cb38-24"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">biomass =</span> (a <span class="sc">*</span> total_length <span class="sc">^</span> b) <span class="sc">*</span> abundance <span class="sc">/</span> <span class="dv">1000</span> ) <span class="sc">|&gt;</span> </span>
-<span id="cb38-25"><a href=""></a>  <span class="fu">group_by</span>(location, site, transect) <span class="sc">|&gt;</span> </span>
-<span id="cb38-26"><a href=""></a>  <span class="fu">summarize</span>(<span class="at">biomass =</span> <span class="fu">sum</span>(biomass, <span class="at">na.rm =</span> T) <span class="sc">/</span> <span class="dv">60</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a><span class="co"># Tidy the transect data</span></span>
+<span id="cb36-2"><a href=""></a>tidy_kelp <span class="ot">&lt;-</span> data_kelp <span class="sc">|&gt;</span> <span class="co"># data_kelp goes into...</span></span>
+<span id="cb36-3"><a href=""></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb36-4"><a href=""></a>    <span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"TL_"</span>), <span class="co">#specify columns to pivot</span></span>
+<span id="cb36-5"><a href=""></a>    <span class="at">names_to =</span> <span class="st">"total_length"</span>, <span class="co"># Where should column names be placed?</span></span>
+<span id="cb36-6"><a href=""></a>    <span class="at">values_to =</span> <span class="st">"abundance"</span>,   <span class="co"># Where should values be placed?</span></span>
+<span id="cb36-7"><a href=""></a>    <span class="at">values_drop_na =</span> <span class="cn">TRUE</span>,     <span class="co"># Specify that NA values should be removed)</span></span>
+<span id="cb36-8"><a href=""></a>    <span class="at">names_prefix =</span> <span class="st">"TL_"</span>) <span class="sc">|&gt;</span>   <span class="co"># Remove "TL_" from the total length</span></span>
+<span id="cb36-9"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">total_length =</span> <span class="fu">as.numeric</span>(total_length) <span class="sc">-</span><span class="fl">2.5</span>) <span class="co"># Use mutate to rewrite column</span></span>
+<span id="cb36-10"><a href=""></a></span>
+<span id="cb36-11"><a href=""></a><span class="co"># Tidy the allometric data data</span></span>
+<span id="cb36-12"><a href=""></a>tidy_fish_info <span class="ot">&lt;-</span> fish_info <span class="sc">|&gt;</span> <span class="co"># Fish info goes into...</span></span>
+<span id="cb36-13"><a href=""></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb36-14"><a href=""></a>    <span class="at">id_cols =</span> sciname,       <span class="co"># The column(s) that specifies my observation</span></span>
+<span id="cb36-15"><a href=""></a>    <span class="at">names_from =</span> parameter,  <span class="co"># My new names will come from...</span></span>
+<span id="cb36-16"><a href=""></a>    <span class="at">values_from =</span> value) <span class="sc">|&gt;</span>  <span class="co"># And my values from...</span></span>
+<span id="cb36-17"><a href=""></a>  <span class="fu">select</span>(<span class="sc">-</span>trophic_level)</span>
+<span id="cb36-18"><a href=""></a></span>
+<span id="cb36-19"><a href=""></a><span class="co"># And now combine them</span></span>
+<span id="cb36-20"><a href=""></a>biomass <span class="ot">&lt;-</span>tidy_kelp <span class="sc">|&gt;</span> </span>
+<span id="cb36-21"><a href=""></a>  <span class="fu">left_join</span>(tidy_fish_info,</span>
+<span id="cb36-22"><a href=""></a>            <span class="at">by =</span> <span class="fu">join_by</span>(genus_species <span class="sc">==</span> sciname)) <span class="sc">|&gt;</span></span>
+<span id="cb36-23"><a href=""></a> <span class="co"># And use last week's knowledge to calculate the rest</span></span>
+<span id="cb36-24"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">biomass =</span> (a <span class="sc">*</span> total_length <span class="sc">^</span> b) <span class="sc">*</span> abundance <span class="sc">/</span> <span class="dv">1000</span> ) <span class="sc">|&gt;</span> </span>
+<span id="cb36-25"><a href=""></a>  <span class="fu">group_by</span>(location, site, transect) <span class="sc">|&gt;</span> </span>
+<span id="cb36-26"><a href=""></a>  <span class="fu">summarize</span>(<span class="at">biomass =</span> <span class="fu">sum</span>(biomass, <span class="at">na.rm =</span> T) <span class="sc">/</span> <span class="dv">60</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:35%;">
 <div class="cell">
@@ -1072,7 +1055,7 @@ Signif. codes: 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div></div>
 </section>
-<section id="best-practices" class="slide level2 smaller scrollable">
+<section id="best-practices" class="slide level2">
 <h2>Best Practices</h2>
 <p><strong>Data Tidying:</strong></p>
 <ul>
@@ -1089,6 +1072,10 @@ Signif. codes: 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <li class="fragment">Use <code>left_join()</code> as default unless you have a specific reason</li>
 <li class="fragment">Validate results after joining</li>
 </ul>
+</div>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-tidy-data" class="csl-entry" role="listitem">
@@ -1096,7 +1083,6 @@ Wickham, Hadley. 2014. <span>“Tidy Data.”</span> <em>The Journal of Statisti
 </div>
 <div id="ref-Wickham2023-aa" class="csl-entry" role="listitem">
 Wickham, Hadley, Mine Cetinkaya-Rundel, and Garrett Grolemund. 2023. <em><span>R</span> for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. 2nd ed. Sebastopol, CA: O’Reilly Media.
-</div>
 </div>
 </div>
 </section></section>
@@ -1290,7 +1276,7 @@ Wickham, Hadley, Mine Cetinkaya-Rundel, and Garrett Grolemund. 2023. <em><span>R
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -1402,13 +1388,14 @@ Wickham, Hadley, Mine Cetinkaya-Rundel, and Garrett Grolemund. 2023. <em><span>R
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

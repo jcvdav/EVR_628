@@ -15,7 +15,7 @@ theme_set(
 )
 ```
 
-# Learning Objectives
+## Learning Objectives
 
 :::{.callout-note}
 ## By the end of this week, you should be able to:
@@ -117,6 +117,8 @@ We want to:
 . . .
 
 What do you expect the new dimensions of the data to be?
+
+## By hand, in excel
 
 
 ## Solution: `pivot_longer()`
@@ -247,6 +249,9 @@ fish_info
 
 ## Parenthesis on allometric parameters
 
+$$TW = a \times TL ^ b$$
+$$log(TW) = a + b\times log(TL)$$
+
 :::: {.columns}
 
 ::: {.column width='50%'}
@@ -264,22 +269,12 @@ data_lionfish <- data_lionfish |> mutate(total_length_cm = total_length_mm / 10)
 :::
 
 ::: {.column width='50%'}
-```{r}
-library(fixest)
-setFixest_dict(c("(Intercept)" = "a",
-               "log10(total_length_cm)" = "b",
-                "log10(total_weight_gr)" = "Weight"))
-feols(log10(total_weight_gr) ~ log10(total_length_cm),
-              data = data_lionfish) |> 
-  etable()
-```
-:::
-
-::::
-
 - `a` is my intercept, and indicates the theoretical weight of a fish of length 0 (doesn't mean much)
 - `b` is my slope, and indicates how much log-weight a fish gains for every log-length increase in length
 - If I know `a` and `b`, and I have `total_length`, I can calculate `total_weight`
+:::
+
+::::
 
 
 ## Target
@@ -311,6 +306,7 @@ We want to:
 - Construct new **names from** the data available in `parameter`
 - Use the **values from** the column `value` to populate the new columns
 
+## By hand, in excel
 
 
 ## Solution: `pivot_wider()`
@@ -455,6 +451,8 @@ so that we can calculate `total_weight`
 - `x` argument will be `tidy_kelp` (on the left)
 - `y` argument will be `tidy_fish_info` (on the right)
 - `by` argument is where we specify the **key** (`genus_species` on the right matches `sciname` on the left)
+
+## By hand, in excel
 
 ## Combining data with `left_join()`
 
@@ -612,10 +610,6 @@ biomass
 ::::
 
 
-
-
-
-
 ## Best Practices
 
 **Data Tidying:**
@@ -633,3 +627,5 @@ biomass
 - Check for duplicate keys before joining
 - Use `left_join()` as default unless you have a specific reason
 - Validate results after joining
+
+## References
