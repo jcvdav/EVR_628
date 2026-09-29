@@ -250,7 +250,7 @@ fish_info
 ## Parenthesis on allometric parameters
 
 $$TW = a \times TL ^ b$$
-$$log(TW) = a + b\times log(TL)$$
+$$log(TW) = b\times log(TL) + a$$
 
 :::: {.columns}
 
