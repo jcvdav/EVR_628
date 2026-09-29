@@ -61,7 +61,7 @@ Some examples of repositories that would get a 100%:
 ## Turning in your assignment
 
 - Please share the link to your github repo via Canvas
-- The deadline for this assignment is October 19, 2025 by 11:59
+- The deadline for this assignment is October 11, 2026 by 11:59
 
 # Project ideas with different data sets
 
