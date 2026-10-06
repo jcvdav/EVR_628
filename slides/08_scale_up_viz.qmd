@@ -1,5 +1,5 @@
 ---
-title: "Scaling up your data visualizations (Part 1)"
+title: "Scaling up your data visualizations"
 ---
 
 ```{r}
@@ -15,10 +15,19 @@ theme_set(
 )
 ```
 
-# Learning Objectives
+## Announcements
+
+- [GIS day](https://geography.as.miami.edu/events/gisday/index.html) Poster + Digital Exhibit Competition
+- Your assignment:
+  - Two scripts:
+    - Read data
+    - Modify / visualize
+    - Export data / figures using `write_rds()` or `ggsave()`
+
+## Learning Objectives
 
 :::{.callout-note}
-## By the end of this week, you should be able to:
+## By the end of this week(-ish), you should be able to:
 - Create complex figures
 - Develop simple documents
 :::
@@ -40,7 +49,6 @@ theme_set(
 - Position adjustments 
 - Labels
 - Summarizing data on the fly
-- Topics above not covered AND
 - Quarto markdown
 :::
 
@@ -259,7 +267,7 @@ p2 <- ggplot(data = data_mhw_events,
         legend.title.position = "top",
         legend.key.width = unit(1, "cm"))
 
-plot_grid(p1, p2, ncol = 1, rel_heights = c(0.5, 1))
+plot_grid(p1, p2, ncol = 2, rel_heights = c(0.5, 1))
 ```
 
 
@@ -386,7 +394,7 @@ Sometimes you might not want to `group_by` and `summarize`, but you can go strai
 ggplot(data_heatwaves,
        aes(x = year,
            y = temp_mean)) +
-  stat_summary(geom = "pointrange", fun.data = "mean_se") +
+  stat_summary(geom = "point", fun = "mean") +
   stat_summary(geom = "line", fun = "mean") +
   scale_x_continuous(breaks = seq(1985, 2020, by = 10)) +
   facet_wrap(~str_to_sentence(str_replace(fishery, "_", " ")),
@@ -426,7 +434,7 @@ ggplot(data_heatwaves,
 ## Quarto markdown
 
 - Install Quarto markdown [here](https://quarto.org/docs/get-started/)
-- We'll building a document from scratch
+- We'll build a document from scratch
 - Then a slide
 - Finally a website
 
