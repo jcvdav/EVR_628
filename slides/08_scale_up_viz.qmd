@@ -390,6 +390,7 @@ ggplot(data_heatwaves,
        aes(x = year,
            y = temp_mean)) +
   stat_summary(geom = "point", fun = "mean") +
+  stat_summary(geom = "linerange", fun.data = "mean_se") +
   stat_summary(geom = "line", fun = "mean") +
   scale_x_continuous(breaks = seq(1985, 2020, by = 10)) +
   facet_wrap(~str_to_sentence(str_replace(fishery, "_", " ")),
