@@ -15,21 +15,11 @@ theme_set(
 )
 ```
 
-## Announcements
-
-- [GIS day](https://geography.as.miami.edu/events/gisday/index.html) Poster + Digital Exhibit Competition
-- Your assignment:
-  - Two scripts:
-    - Read data
-    - Modify / visualize
-    - Export data / figures using `write_rds()` or `ggsave()`
-
 ## Learning Objectives
 
 :::{.callout-note}
 ## By the end of this week(-ish), you should be able to:
 - Create complex figures
-- Develop simple documents
 :::
 
 ## This week
@@ -49,7 +39,6 @@ theme_set(
 - Position adjustments 
 - Labels
 - Summarizing data on the fly
-- Quarto markdown
 :::
 
 ::::
@@ -290,13 +279,54 @@ ggplot(data_lionfish, aes(x = total_length_mm, y = site, fill = site)) +
 ## Position adjustments
 
 - Each `geom` has a default `position` argument
-- This argument controls how elements are placed on the graph
-- There are four options:
+- This argument controls how elements are placed on the graph relative to each other
+- There are four options when dealing with discrete data:
   - identity (allows for overlaps)
   - dodge (no overlaps, move elements horizontally)
   - stack (no overlaps, move elements vertically)
   - fill (no overlaps, move elements vertically and fill all the space)
+
+. . .
   
+> How many observations do we have in `lionfish_data`?
+
+## Position adjustments with bars
+
+Stack (default)
+
+```{r}
+ggplot(data_lionfish, aes(x = size_class, fill = site)) + 
+  geom_bar(color = "black", alpha = 0.5)
+```
+  
+## Position adjustments with bars
+
+Identity
+
+```{r}
+ggplot(data_lionfish, aes(x = size_class, fill = site)) + 
+  geom_bar(color = "black", position = "identity")
+```
+
+## Position adjustments with bars
+
+Dodge
+
+```{r}
+ggplot(data_lionfish, aes(x = size_class, fill = site)) + 
+  geom_bar(color = "black", position = "dodge")
+```
+
+## Position adjustments with bars
+
+Fill
+
+```{r}
+ggplot(data_lionfish, aes(x = size_class, fill = site)) + 
+  geom_bar(color = "black", position = "fill")
+```
+
+# For continuous data, you can `jitter`
 
 ## Position adjustments with points
 
@@ -310,45 +340,11 @@ ggplot(data_lionfish, aes(x = site, y = total_length_mm)) +
 
 ```{r}
 ggplot(data_lionfish, aes(x = site, y = total_length_mm)) + 
-  geom_point(position = position_jitter(width = 0.1, height = 0)) +
+  geom_point(position = position_jitter(width = 0.25, height = 0)) +
   coord_flip()
 ```  
 
-## Position adjustments with bars
-
-Stack (default)
-
-```{r}
-ggplot(mpg, aes(x = drv, fill = class)) + 
-  geom_bar()
-```
-  
-## Position adjustments with bars
-
-Identity
-
-```{r}
-ggplot(mpg, aes(x = drv, fill = class)) + 
-  geom_bar(position = "identity")
-```
-
-## Position adjustments with bars
-
-Dodge
-
-```{r}
-ggplot(mpg, aes(x = drv, fill = class)) + 
-  geom_bar(position = "dodge")
-```
-
-## Position adjustments with bars
-
-Fill
-
-```{r}
-ggplot(mpg, aes(x = drv, fill = class)) + 
-  geom_bar(position = "fill")
-```
+Always use with care
 
 
 # Labels
@@ -366,6 +362,7 @@ ggplot(mpg, aes(x = drv, fill = class)) +
 ```{r}
 #| fig-height: 3
 #| fig-width: 5
+# From: https://gml.noaa.gov/ccgg/trends/data.html
 data <- read_csv("https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_daily_mlo.csv",
                  skip = 32, 
                  col_names = c("year", "month", "day", "decimal", "co2_ppm"))
@@ -376,10 +373,8 @@ ggplot(data,
   theme_minimal(base_size = 10) +
   labs(x = "Date",
        y = quote(CO[2]~concentration~(ppm)),
-       caption = "Data from the Global Monitoring Laboratory")
+       caption = "Source: Global Monitoring Laboratory, 2026")
 ```
-
-
 
 
 # Summarizing data on the fly
@@ -403,40 +398,6 @@ ggplot(data_heatwaves,
   labs(x = "Year",
        y = "Mean Temperature (°C)")
 ```
-
-# Quarto markdown
-
-## Quarto markdown
-
-- Allows you to build documents
-  - slides
-  - html files
-  - pdfs
-  - word documents
-  - books...
-
-- Particularly useful if your document heavily depends on R-generated content
-
-. . .
-
-![Source: quarto.org](img/rstudio-qmd-how-it-works.png)
-
-## Quarto markdown
-
-- Some people use them throughout their analysis
-  - Pros:
-    - You can write tons and tons of explanations as to why you are doing something
-    - You can include equations
-  - Cons:
-    - You have to run the entire document, from top to bottom, every time you want to update it
-    - Sometimes more is not better
-
-## Quarto markdown
-
-- Install Quarto markdown [here](https://quarto.org/docs/get-started/)
-- We'll build a document from scratch
-- Then a slide
-- Finally a website
 
 
 

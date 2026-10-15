@@ -208,21 +208,6 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div>
 
 </section>
-<section id="announcements" class="slide level2">
-<h2>Announcements</h2>
-<ul>
-<li class="fragment"><a href="https://geography.as.miami.edu/events/gisday/index.html">GIS day</a> Poster + Digital Exhibit Competition</li>
-<li class="fragment">Your assignment:
-<ul>
-<li class="fragment">Two scripts:
-<ul>
-<li class="fragment">Read data</li>
-<li class="fragment">Modify / visualize</li>
-<li class="fragment">Export data / figures using <code>write_rds()</code> or <code>ggsave()</code></li>
-</ul></li>
-</ul></li>
-</ul>
-</section>
 <section id="learning-objectives" class="slide level2">
 <h2>Learning Objectives</h2>
 <div class="callout callout-note callout-titled callout-style-default">
@@ -236,7 +221,6 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="callout-content">
 <ul>
 <li class="fragment">Create complex figures</li>
-<li class="fragment">Develop simple documents</li>
 </ul>
 </div>
 </div>
@@ -262,7 +246,6 @@ Juan Carlos Villaseñor-Derbez (JC)
 <li class="fragment">Position adjustments</li>
 <li class="fragment">Labels</li>
 <li class="fragment">Summarizing data on the fly</li>
-<li class="fragment">Quarto markdown</li>
 </ul>
 </div></div>
 </section>
@@ -617,8 +600,8 @@ Juan Carlos Villaseñor-Derbez (JC)
 <h2>Position adjustments</h2>
 <ul>
 <li class="fragment">Each <code>geom</code> has a default <code>position</code> argument</li>
-<li class="fragment">This argument controls how elements are placed on the graph</li>
-<li class="fragment">There are four options:
+<li class="fragment">This argument controls how elements are placed on the graph relative to each other</li>
+<li class="fragment">There are four options when dealing with discrete data:
 <ul>
 <li class="fragment">identity (allows for overlaps)</li>
 <li class="fragment">dodge (no overlaps, move elements horizontally)</li>
@@ -626,41 +609,10 @@ Juan Carlos Villaseñor-Derbez (JC)
 <li class="fragment">fill (no overlaps, move elements vertically and fill all the space)</li>
 </ul></li>
 </ul>
-</section>
-<section id="position-adjustments-with-points" class="slide level2">
-<h2>Position adjustments with points</h2>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">ggplot</span>(data_lionfish, <span class="fu">aes</span>(<span class="at">x =</span> site, <span class="at">y =</span> total_length_mm)) <span class="sc">+</span> </span>
-<span id="cb14-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb14-3"><a href=""></a>  <span class="fu">coord_flip</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="08_scale_up_viz_files/figure-revealjs/unnamed-chunk-15-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="position-adjustments-with-points-1" class="slide level2">
-<h2>Position adjustments with points</h2>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">ggplot</span>(data_lionfish, <span class="fu">aes</span>(<span class="at">x =</span> site, <span class="at">y =</span> total_length_mm)) <span class="sc">+</span> </span>
-<span id="cb15-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb15-3"><a href=""></a>  <span class="fu">coord_flip</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="08_scale_up_viz_files/figure-revealjs/unnamed-chunk-16-1.png" width="960"></p>
-</figure>
-</div>
-</div>
+<div class="fragment">
+<blockquote>
+<p>How many observations do we have in <code>lionfish_data</code>?</p>
+</blockquote>
 </div>
 </section>
 <section id="position-adjustments-with-bars" class="slide level2">
@@ -669,13 +621,13 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> drv, <span class="at">fill =</span> class)) <span class="sc">+</span> </span>
-<span id="cb16-2"><a href=""></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">ggplot</span>(data_lionfish, <span class="fu">aes</span>(<span class="at">x =</span> size_class, <span class="at">fill =</span> site)) <span class="sc">+</span> </span>
+<span id="cb14-2"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="08_scale_up_viz_files/figure-revealjs/unnamed-chunk-17-1.png" width="960"></p>
+<p><img data-src="08_scale_up_viz_files/figure-revealjs/unnamed-chunk-15-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -687,13 +639,13 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> drv, <span class="at">fill =</span> class)) <span class="sc">+</span> </span>
-<span id="cb17-2"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"identity"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">ggplot</span>(data_lionfish, <span class="fu">aes</span>(<span class="at">x =</span> size_class, <span class="at">fill =</span> site)) <span class="sc">+</span> </span>
+<span id="cb15-2"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">position =</span> <span class="st">"identity"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="08_scale_up_viz_files/figure-revealjs/unnamed-chunk-18-1.png" width="960"></p>
+<p><img data-src="08_scale_up_viz_files/figure-revealjs/unnamed-chunk-16-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -705,13 +657,13 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> drv, <span class="at">fill =</span> class)) <span class="sc">+</span> </span>
-<span id="cb18-2"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="fu">ggplot</span>(data_lionfish, <span class="fu">aes</span>(<span class="at">x =</span> size_class, <span class="at">fill =</span> site)) <span class="sc">+</span> </span>
+<span id="cb16-2"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="08_scale_up_viz_files/figure-revealjs/unnamed-chunk-19-1.png" width="960"></p>
+<p><img data-src="08_scale_up_viz_files/figure-revealjs/unnamed-chunk-17-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -723,8 +675,49 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> drv, <span class="at">fill =</span> class)) <span class="sc">+</span> </span>
-<span id="cb19-2"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="fu">ggplot</span>(data_lionfish, <span class="fu">aes</span>(<span class="at">x =</span> size_class, <span class="at">fill =</span> site)) <span class="sc">+</span> </span>
+<span id="cb17-2"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">position =</span> <span class="st">"fill"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="08_scale_up_viz_files/figure-revealjs/unnamed-chunk-18-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="for-continuous-data-you-can-jitter" class="title-slide slide level1 center">
+<h1>For continuous data, you can <code>jitter</code></h1>
+
+</section>
+<section id="position-adjustments-with-points" class="slide level2">
+<h2>Position adjustments with points</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">ggplot</span>(data_lionfish, <span class="fu">aes</span>(<span class="at">x =</span> site, <span class="at">y =</span> total_length_mm)) <span class="sc">+</span> </span>
+<span id="cb18-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb18-3"><a href=""></a>  <span class="fu">coord_flip</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="08_scale_up_viz_files/figure-revealjs/unnamed-chunk-19-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="position-adjustments-with-points-1" class="slide level2">
+<h2>Position adjustments with points</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="fu">ggplot</span>(data_lionfish, <span class="fu">aes</span>(<span class="at">x =</span> site, <span class="at">y =</span> total_length_mm)) <span class="sc">+</span> </span>
+<span id="cb19-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.25</span>, <span class="at">height =</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb19-3"><a href=""></a>  <span class="fu">coord_flip</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -734,6 +727,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div>
 </div>
 </div>
+<p>Always use with care</p>
 </section></section>
 <section>
 <section id="labels" class="title-slide slide level1 center">
@@ -753,17 +747,18 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_daily_mlo.csv"</span>,</span>
-<span id="cb20-2"><a href=""></a>                 <span class="at">skip =</span> <span class="dv">32</span>, </span>
-<span id="cb20-3"><a href=""></a>                 <span class="at">col_names =</span> <span class="fu">c</span>(<span class="st">"year"</span>, <span class="st">"month"</span>, <span class="st">"day"</span>, <span class="st">"decimal"</span>, <span class="st">"co2_ppm"</span>))</span>
-<span id="cb20-4"><a href=""></a></span>
-<span id="cb20-5"><a href=""></a><span class="fu">ggplot</span>(data,</span>
-<span id="cb20-6"><a href=""></a>       <span class="fu">aes</span>(<span class="at">x =</span> decimal, <span class="at">y =</span> co2_ppm)) <span class="sc">+</span> </span>
-<span id="cb20-7"><a href=""></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb20-8"><a href=""></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
-<span id="cb20-9"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Date"</span>,</span>
-<span id="cb20-10"><a href=""></a>       <span class="at">y =</span> <span class="fu">quote</span>(CO[<span class="dv">2</span>]<span class="sc">~</span>concentration<span class="sc">~</span>(ppm)),</span>
-<span id="cb20-11"><a href=""></a>       <span class="at">caption =</span> <span class="st">"Data from the Global Monitoring Laboratory"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="co"># From: https://gml.noaa.gov/ccgg/trends/data.html</span></span>
+<span id="cb20-2"><a href=""></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_daily_mlo.csv"</span>,</span>
+<span id="cb20-3"><a href=""></a>                 <span class="at">skip =</span> <span class="dv">32</span>, </span>
+<span id="cb20-4"><a href=""></a>                 <span class="at">col_names =</span> <span class="fu">c</span>(<span class="st">"year"</span>, <span class="st">"month"</span>, <span class="st">"day"</span>, <span class="st">"decimal"</span>, <span class="st">"co2_ppm"</span>))</span>
+<span id="cb20-5"><a href=""></a></span>
+<span id="cb20-6"><a href=""></a><span class="fu">ggplot</span>(data,</span>
+<span id="cb20-7"><a href=""></a>       <span class="fu">aes</span>(<span class="at">x =</span> decimal, <span class="at">y =</span> co2_ppm)) <span class="sc">+</span> </span>
+<span id="cb20-8"><a href=""></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb20-9"><a href=""></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb20-10"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Date"</span>,</span>
+<span id="cb20-11"><a href=""></a>       <span class="at">y =</span> <span class="fu">quote</span>(CO[<span class="dv">2</span>]<span class="sc">~</span>concentration<span class="sc">~</span>(ppm)),</span>
+<span id="cb20-12"><a href=""></a>       <span class="at">caption =</span> <span class="st">"Source: Global Monitoring Laboratory, 2026"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -806,60 +801,6 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div>
 </div>
 </div>
-</section></section>
-<section>
-<section id="quarto-markdown" class="title-slide slide level1 center">
-<h1>Quarto markdown</h1>
-
-</section>
-<section id="quarto-markdown-1" class="slide level2">
-<h2>Quarto markdown</h2>
-<ul>
-<li class="fragment">Allows you to build documents
-<ul>
-<li class="fragment">slides</li>
-<li class="fragment">html files</li>
-<li class="fragment">pdfs</li>
-<li class="fragment">word documents</li>
-<li class="fragment">books…</li>
-</ul></li>
-<li class="fragment">Particularly useful if your document heavily depends on R-generated content</li>
-</ul>
-<div class="fragment">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/rstudio-qmd-how-it-works.png"></p>
-<figcaption>Source: quarto.org</figcaption>
-</figure>
-</div>
-</div>
-</section>
-<section id="quarto-markdown-2" class="slide level2">
-<h2>Quarto markdown</h2>
-<ul>
-<li class="fragment">Some people use them throughout their analysis
-<ul>
-<li class="fragment">Pros:
-<ul>
-<li class="fragment">You can write tons and tons of explanations as to why you are doing something</li>
-<li class="fragment">You can include equations</li>
-</ul></li>
-<li class="fragment">Cons:
-<ul>
-<li class="fragment">You have to run the entire document, from top to bottom, every time you want to update it</li>
-<li class="fragment">Sometimes more is not better</li>
-</ul></li>
-</ul></li>
-</ul>
-</section>
-<section id="quarto-markdown-3" class="slide level2">
-<h2>Quarto markdown</h2>
-<ul>
-<li class="fragment">Install Quarto markdown <a href="https://quarto.org/docs/get-started/">here</a></li>
-<li class="fragment">We’ll build a document from scratch</li>
-<li class="fragment">Then a slide</li>
-<li class="fragment">Finally a website</li>
-</ul>
 
 </section></section>
     </div>

@@ -159,10 +159,7 @@ _Labor day on Monday Sept 7_
 **Scaling up your code and visualizations** | [slides](slides/08_scale_up_viz.html)
 - Refresh on layers: aesthetics and geometries
 - Themes with ggplot2
-- Position adjustments (`jitter` and `dodge`)
-- Summarizing data on the fly (`stat_summary`, `geom_smooth`)
-- Plot extensions (`{ggridges}` and `{cowplot}`)
-- quarto markdown
+- Facetting
 
 **Relevant links for the week:**
 - Assigned readings:
@@ -176,9 +173,9 @@ _Fall Recess is Oct 10-13_
 
 **Scaling up your code and visualizations 2** | [slides](slides/08_scale_up_viz.html)
 - Facetting
-- Summarizing data on the fly (`stat_summary`, `geom_smooth`)
+- Position adjustments (`jitter` and `dodge`)
 - Plot extensions (`{ggridges}` and `{cowplot}`)
-- quarto markdown
+- Summarizing data on the fly (`stat_summary`, `geom_smooth`)
 
 
 ## Week 10 (Week of Oct 19)
