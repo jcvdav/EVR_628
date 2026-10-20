@@ -135,9 +135,6 @@ months_factor
 months_factor2 <- fct(x = months2, levels = month_levels) # This will fail
 ```
 
-- What does the "`forcats::`" in `forcats::fct()` mean?
-
-
 ## The `{forcats}` Package
 
 :::: {.columns}
@@ -164,7 +161,6 @@ months_factor2 <- fct(x = months2, levels = month_levels) # This will fail
 ## Today's data #1
 
 ```{r}
-#You will need to reinstall the package: remotes::install_github("jcvdav/EVR628tools")
 library(EVR628tools)
 # Load the geartypes data
 data("data_geartypes")
@@ -175,33 +171,34 @@ data_geartypes
 ## **Task:** Number of vessels by geartype?
 
 1. Check the [documentation](https://jcvdav.github.io/EVR628tools/reference/data_geartypes.html)
-2. Use my data tidying skills
+2. Use your data tidying skills
 
 . . .
 
 ```{r}
+#| output-location: fragment
 # Example: Total activity by gear type
 gear_summary <- data_geartypes |>
   group_by(geartype) |>
   summarize(n_vessels = n_distinct(vessel_id)) |> 
   arrange(desc(n_vessels))
 
+# What is the chunk above doing?
 gear_summary
 ```
-
-
 
 ## Reordering Factor Levels
 
 - When our data are already assembled, we can modify the order in which factor levels appear
 
-- This doesn't modify the _values_, just the order in which they are interpreted
+- This doesn't modify the _values_, just the order in which they are interpreted by R
 
 . . .
 
 ```{r}
 #| fig-width: 8
 #| fig-height: 4
+#| output-location: fragment
 # Default order (alphabetical)
 ggplot(gear_summary, aes(x = n_vessels, y = geartype)) +
   geom_col()
@@ -220,17 +217,19 @@ ggplot(gear_summary, aes(x = n_vessels, y = geartype)) +
 
 ```{r}
 #| code-line-numbers: "1-4|5|"
+#| output-location: fragment
 gear_summary <- data_geartypes |>
   group_by(geartype) |>
   summarize(n_vessels = n_distinct(vessel_id)) |> 
   arrange(desc(n_vessels)) |> 
-  mutate(geartype = fct_reorder(.f = geartype, .x = n_vessels))
+  mutate(geartype = fct_reorder(.f = geartype, .x = n_vessels)) # Modify the order of the factors
+
 gear_summary
 ```
 
 ## Reordering Factor Levels
 
-My ggplot code now produces the expected figure
+My ggplot code now produces the desired figure
 
 ```{r}
 #| fig-width: 8
@@ -243,15 +242,16 @@ ggplot(gear_summary, aes(x = n_vessels, y = geartype)) +
 
 - It is clear that three gears dominate the data
 - Let's `lump` all other gears into a new category of "others"
-- I will use the `fct_lump_n()` function.It **does** modify values
+- I will use the `fct_lump_n()` function. It **does** modify values
 - Check documentation [here](https://forcats.tidyverse.org/reference/fct_lump.html) for other versions
 
 . . .
 
 ```{r}
-#| code-line-numbers: "2|"
+#| code-line-numbers: "|2|"
+#| output-location: fragment
 gear_summary <- data_geartypes |>
-  mutate(geartype = fct_lump_n(f = geartype, n = 3)) |>     # Keep top 3, lump the rest)
+  mutate(geartype = fct_lump_n(f = geartype, n = 3)) |>     # Keep top 3, lump the rest
   group_by(geartype) |>
   summarize(n_vessels = n_distinct(vessel_id)) |> 
   arrange(desc(n_vessels)) |>  
@@ -274,7 +274,8 @@ ggplot(gear_summary, aes(x = n_vessels, y = geartype)) +
 . . .
 
 ```{r}
-#| code-line-numbers: "7"
+#| code-line-numbers: "|7"
+#| output-location: fragment
 gear_summary <- data_geartypes |>
   mutate(geartype = fct_lump_n(f = geartype, n = 3)) |>     # Keep top 3, lump the rest)
   group_by(geartype) |>
@@ -284,8 +285,11 @@ gear_summary <- data_geartypes |>
          geartype = fct_relevel(.f = geartype, c("FISHING", "POLE_AND_LINE", "TRAWLERS", "Other")))
 gear_summary
 ```
+. . .
 
 Did anything change?
+
+Easier to see in a figure
 
 ## Reordering Factor Levels _by hand_
 
@@ -307,7 +311,8 @@ ggplot(gear_summary, aes(x = n_vessels, y = geartype)) +
 . . .
 
 ```{r}
-#| code-line-numbers: "2-7"
+#| code-line-numbers: "|2-7|"
+#| output-location: fragment
 gear_summary <- data_geartypes |> 
   mutate(geartype = fct_collapse(geartype,
                                  "BOTTOM" = c("DREDGE_FISHING", "SET_GILLNETS",
@@ -361,12 +366,13 @@ In R, there are three types of date/time data that point at an instant in time:
 ## Why Dates Are Tricky
 
 ```{r}
+#| code-line-numbers: "2|2-3|4|5|6"
 #| echo: true
 #| code-fold: false
 # Dates seem simple but are complex!
 x1 <- "2010-10-01"
 x2 <- "2010/10/01" 
-x3 <- "01/10/2010"  # Which is day, which is month?
+x3 <- "01/10/2010"       # Which is day, which is month?
 x4 <- "October 1, 2010"
 x5 <- "1 Oct 2010"
 ```
@@ -413,22 +419,22 @@ There are four approaches:
 
 ## Creating Dates and Times when Importing Data
 
-- Does your CSV file contain an [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) date or date-time>
-- Lucky you... you don’t need to do anything; `readr` will automatically recognize it
+- Does your CSV file contain an [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) date or date-time?
+- Lucky you... you don’t need to do anything; `read_*` should automatically recognize it
 - Note that US approach to dates is not standard, ISO8601 mandates that:
   - Components are organized from biggest to smallest
   - Date components are separated by `-`
   - Time components are separated by `:` (24 hr format, no am / pm)
-  - Date is separated from time using ` ` or `T`
+  - Date is separated from time using a space or `T`
 
 ## Creating Dates and Times when Importing Data
 
-If your csv file looks like this:
+If your csv file under `data/raw/my_file.csv` looks like this:
 
 ```{txt}
 class_date, time_of_day, combined, event
-2025-10-21, 09:00, 2025-10-21 09:00:00, class_starts
-2025-10-21, 10:15, 2025-10-21 10:15:00, class_ends
+2026-10-20, 09:00, 2026-10-20 09:00:00, class_starts
+2026-10-20, 10:15, 2026-10-20 10:15:00, class_ends
 ```
 
 . . .
@@ -445,8 +451,8 @@ read_csv("data/raw/my_file.csv")
 
 a_csv_file <- "
   class_date, time_of_day, combined,  event
-  2025-10-21, 09:00,      2025-10-21  09:00:00,      class_starts
-  2025-10-21, 10:15,      2025-10-21  10:15:00,      class_ends
+  2026-10-20, 09:00,      2026-10-20  09:00:00,      class_starts
+  2026-10-20, 10:15,      2026-10-20  10:15:00,      class_ends
 "
 
 read_csv(a_csv_file)
@@ -466,21 +472,21 @@ read_csv(a_csv_file)
 . . .
 
 ```{r}
-my_date <- "10-21-2025"
+my_date <- "10-20-2026"
 ```
   - What is the class of this object?
   - What is the order of my components here?
-  - Likely `m`, `d`, `y`, so I can use the `mdy()` function
+  - Likely `m`, `d`, `y`, so I can use a function callled... `mdy()`
 
 . . .
 
 ```{r}
-my_date <- mdy("10-21-2025")
+my_date <- mdy("10-20-2026")
 class(my_date)
 my_date
 ```
 
-Once it is stored as a `Date` object, it will always be printed in the ISO standard order
+Once it is stored as a `Date` object, it will **always** be printed in the ISO standard order
 
 
 ## Creating Date-Time Objects from Strings
@@ -541,8 +547,8 @@ Can I directly build a figure with date on the x-axis and # whales on the y-axis
 . . .
 
 ```{r}
-#| fig-width: 6
-#| fig-height: 3
+#| fig-width: 8
+#| fig-height: 4
 ggplot(whale_counts, aes(x = date, y = whales_observed)) + 
   geom_line(linetype = "dashed") +
   geom_point(size = 2)
@@ -587,12 +593,10 @@ Steps:
 :::
 
 ```{r}
-#| code-line-numbers: "2"
+#| code-line-numbers: "2|"
+#| output-location: fragment
 whale_counts_dates <- whale_counts |> 
-  mutate(date = mdy(date))  # Step 2: convert my date column into an actual date object, overwrite
-```
-. . .
-```{r}
+  mutate(date = mdy(date))  # Step 2: convert my date column into an actual date object, rewrite
 whale_counts_dates
 ```
 
@@ -617,16 +621,16 @@ ggplot(whale_counts_dates, aes(x = date, y = whales_observed)) +
 
 ## Creating Date-Time Objects from Strings
 
-Many other helper functions
+Many other helper functions, depending on how your data look like
 
 ```{r}
 #| echo: true
 #| code-fold: false
-ymd("2025-10-21")
-mdy("October 21, 2025")
-dmy("21 Oct 2025")
-ymd_hms("2025-10-21 10:00:00")
-ymd_hm("2025-10-21 12:00")
+ymd("2026-10-20")
+mdy("October 20, 2026")
+dmy("20 Oct 2026")
+ymd_hms("2026-10-20 10:00:00")
+ymd_hm("2026-10-20 12:00")
 ```
 
 - You just have to get your data into an acceptable format
@@ -639,16 +643,16 @@ Sometimes you will not have a `date` column, and your data might look like this:
 ```{txt}
 #| code-fold: true
 year,month,day,whales_observed
-2025,1,15,12
-2025,1,22,8
-2025,2,5,7
-2025,2,18,8
-2025,3,3,7
-2025,3,20,12
-2025,4,2,14
-2025,4,25,8
-2025,5,8,6
-2025,5,30,6
+2026,1,15,12
+2026,1,22,8
+2026,2,5,7
+2026,2,18,8
+2026,3,3,7
+2026,3,20,12
+2026,4,2,14
+2026,4,25,8
+2026,5,8,6
+2026,5,30,6
 ```
 
 . . .
@@ -662,16 +666,16 @@ whale_counts <- read_csv(file = "data/raw/ymd_whale_counts.csv")
 ```{r}
 #| echo: false
 whale_counts <- read_csv("year,month,day,whales_observed
-2025,1,15,12
-2025,1,22,8
-2025,2,5,7
-2025,2,18,8
-2025,3,3,7
-2025,3,20,12
-2025,4,2,14
-2025,4,25,8
-2025,5,8,6
-2025,5,30,6")
+2026,1,15,12
+2026,1,22,8
+2026,2,5,7
+2026,2,18,8
+2026,3,3,7
+2026,3,20,12
+2026,4,2,14
+2026,4,25,8
+2026,5,8,6
+2026,5,30,6")
 
 whale_counts
 ```
@@ -684,26 +688,20 @@ whale_counts
 . . .
 
 ```{r}
-#| code-line-numbers: "3"
+#| code-line-numbers: "|2|"
+#| output-location: fragment
 whale_counts_dates <- whale_counts |>
-  mutate(date = make_date(year, month, day)) |> 
+  mutate(date = make_date(year, month, day)) |> # Build the date object
   select(date, whales_observed)
 
 whale_counts_dates
 ```
 
 
-## Getting Components
+## Now in Reverse: Getting Components
 
-- Sometimes we want to make calculations based on part of a date
+- Sometimes we want to make calculations based on _part_ of a date
 - For example, how many whales did I observe per **month**?
-
-. . .
-
-```{r}
-head(whale_counts_dates, 2)
-```
-
 - I can use `month()` to extract the month of a date
 
 . . .
@@ -715,7 +713,7 @@ whale_counts_dates |>
   summarize(total_whales = sum(whales_observed))
 ```
 
-## Getting Components
+## Now in Reverse: Getting Components
 
 Other useful functions
 
@@ -723,7 +721,7 @@ Other useful functions
 #| echo: true
 #| code-fold: false
 # Day of week/year
-now <- ymd("2025-10-21")
+now <- ymd("2026-10-20")
 year(now)
 day(now)
 
@@ -732,7 +730,7 @@ week(now)
 yday(now)
 ```
 
-## Time Spans
+## Time Spans... p(repare your brains)
 
 - **Durations** represent exact number of seconds
 - **Periods** represent human units, like weeks and months
@@ -746,7 +744,8 @@ Subtracting two dates will give you a `difftime` object:
 
 ```{r}
 school_foundation <- mdy("February 1, 1943")
-school_age <- today() - school_foundation
+school_age <- ymd("2026-10-20") - school_foundation
+class(school_age)
 school_age
 ```
 
@@ -766,7 +765,7 @@ a_date + ddays(1)
 a_date + days(1) 
 ```
 
-- What happened here? Daylight Saving Time ends on Nov 2, 2025 at 01:00
+- What happened here? Daylight Saving Time ends on Nov 1, 2026 at 01:00
 - These functions return different objects
 
 . . .

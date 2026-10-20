@@ -6,8 +6,8 @@
 <script src="10_factors_dates_text_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="10_factors_dates_text_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="10_factors_dates_text_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="10_factors_dates_text_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+<link href="10_factors_dates_text_files/libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="Juan Carlos Villaseñor-Derbez (JC)">
   <title>Factors, Dates, and Strings of Text</title>
@@ -95,7 +95,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="10_factors_dates_text_files/libs/revealjs/dist/theme/quarto-2c1b5f745a11cfad616ebade4a4a7d24.css">
+  <link rel="stylesheet" href="10_factors_dates_text_files/libs/revealjs/dist/theme/quarto-0fde88a82f0356838740f155f1088782.css">
   <link href="10_factors_dates_text_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="10_factors_dates_text_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="10_factors_dates_text_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -202,7 +202,7 @@
 Juan Carlos Villaseñor-Derbez (JC) 
 </div>
         <p class="quarto-title-affiliation">
-            Rosenstiel School of Marine, Atmospheric, and Earth Science and Institute for Data Science and Computing
+            Rosenstiel School of Marine, Atmospheric &amp; Earth Science and Institute for Data Science &amp; Computing
           </p>
     </div>
 </div>
@@ -268,8 +268,8 @@ Juan Carlos Villaseñor-Derbez (JC)
 <h2>Why Do We Need Factors?</h2>
 <p>Imagine you record the month in which some observation took place</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># String data has problems</span></span>
-<span id="cb1-2"><a href=""></a>months <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Dec"</span>, <span class="st">"Apr"</span>, <span class="st">"Jan"</span>, <span class="st">"Mar"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># String data has problems</span></span>
+<span id="cb1-2"><a href=""></a>months <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Dec"</span>, <span class="st">"Apr"</span>, <span class="st">"Jan"</span>, <span class="st">"Mar"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Using a character string to record this has two problems:</p>
 <ol type="1">
@@ -277,7 +277,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 </ol>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">sort</span>(months)  <span class="co"># Results are sorted alphabetically, not chronological!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">sort</span>(months)  <span class="co"># Results are sorted alphabetically, not chronological!</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Apr" "Dec" "Jan" "Mar"</code></pre>
 </div>
@@ -288,8 +288,8 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>months2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Dec"</span>, <span class="st">"Apr"</span>, <span class="st">"Jan"</span>, <span class="st">"Mar"</span>, <span class="st">"Jam"</span>)</span>
-<span id="cb4-2"><a href=""></a>months2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>months2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Dec"</span>, <span class="st">"Apr"</span>, <span class="st">"Jan"</span>, <span class="st">"Mar"</span>, <span class="st">"Jam"</span>)</span>
+<span id="cb4-2"><a href=""></a>months2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Dec" "Apr" "Jan" "Mar" "Jam"</code></pre>
 </div>
@@ -303,16 +303,16 @@ Juan Carlos Villaseñor-Derbez (JC)
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6" data-code-line-numbers="1-3|4|5|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="co"># Specify the levels (all possible values, and their order)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" data-code-line-numbers="1-3|4|5|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="co"># Specify the levels (all possible values, and their order)</span></span>
 <span id="cb6-2"><a href=""></a>month_levels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Jan"</span>, <span class="st">"Feb"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"May"</span>, <span class="st">"Jun"</span>,</span>
 <span id="cb6-3"><a href=""></a>                  <span class="st">"Jul"</span>, <span class="st">"Aug"</span>, <span class="st">"Sep"</span>, <span class="st">"Oct"</span>, <span class="st">"Nov"</span>, <span class="st">"Dec"</span>)</span>
 <span id="cb6-4"><a href=""></a>months_factor <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="at">x =</span> months, <span class="at">levels =</span> month_levels) <span class="co"># Build my factor</span></span>
-<span id="cb6-5"><a href=""></a>months_factor</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-5"><a href=""></a>months_factor</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] Dec Apr Jan Mar
 Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb8" data-code-line-numbers="1-3|4|5|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">sort</span>(months_factor)  <span class="co"># Now in proper order!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" data-code-line-numbers="1-3|4|5|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">sort</span>(months_factor)  <span class="co"># Now in proper order!</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] Jan Mar Apr Dec
 Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
@@ -324,13 +324,13 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>months_factor2 <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="at">x =</span> months2, <span class="at">levels =</span> month_levels)</span>
-<span id="cb10-2"><a href=""></a><span class="fu">sort</span>(months_factor2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>months_factor2 <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="at">x =</span> months2, <span class="at">levels =</span> month_levels)</span>
+<span id="cb10-2"><a href=""></a><span class="fu">sort</span>(months_factor2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] Jan Mar Apr Dec
 Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">length</span>(months_factor2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">length</span>(months_factor2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5</code></pre>
 </div>
@@ -347,10 +347,10 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">library</span>(tidyverse) <span class="co"># Load the tidyverse</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">library</span>(tidyverse) <span class="co"># Load the tidyverse</span></span>
 <span id="cb14-2"><a href=""></a><span class="co"># Use forcats::fct() - safer, orders by first appearance</span></span>
 <span id="cb14-3"><a href=""></a>months_factor <span class="ot">&lt;-</span> <span class="fu">fct</span>(<span class="at">x =</span> months, <span class="at">levels =</span> month_levels)</span>
-<span id="cb14-4"><a href=""></a>months_factor</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-4"><a href=""></a>months_factor</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] Dec Apr Jan Mar
 Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
@@ -362,16 +362,13 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>months_factor2 <span class="ot">&lt;-</span> <span class="fu">fct</span>(<span class="at">x =</span> months2, <span class="at">levels =</span> month_levels) <span class="co"># This will fail</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>months_factor2 <span class="ot">&lt;-</span> <span class="fu">fct</span>(<span class="at">x =</span> months2, <span class="at">levels =</span> month_levels) <span class="co"># This will fail</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error in `fct()`:
 ! All values of `x` must appear in `levels` or `na`
 ℹ Missing level: "Jam"</code></pre>
 </div>
 </div>
-<ul>
-<li class="fragment">What does the “<code>forcats::</code>” in <code>forcats::fct()</code> mean?</li>
-</ul>
 </div>
 </section>
 <section id="the-forcats-package" class="slide level2">
@@ -393,11 +390,10 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <section id="todays-data-1" class="slide level2">
 <h2>Today’s data #1</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="co">#You will need to reinstall the package: remotes::install_github("jcvdav/EVR628tools")</span></span>
-<span id="cb18-2"><a href=""></a><span class="fu">library</span>(EVR628tools)</span>
-<span id="cb18-3"><a href=""></a><span class="co"># Load the geartypes data</span></span>
-<span id="cb18-4"><a href=""></a><span class="fu">data</span>(<span class="st">"data_geartypes"</span>)</span>
-<span id="cb18-5"><a href=""></a>data_geartypes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">library</span>(EVR628tools)</span>
+<span id="cb18-2"><a href=""></a><span class="co"># Load the geartypes data</span></span>
+<span id="cb18-3"><a href=""></a><span class="fu">data</span>(<span class="st">"data_geartypes"</span>)</span>
+<span id="cb18-4"><a href=""></a>data_geartypes</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 840 × 3
    vessel_id                             geartype           effort_hours
@@ -420,17 +416,20 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <h2><strong>Task:</strong> Number of vessels by geartype?</h2>
 <ol type="1">
 <li class="fragment">Check the <a href="https://jcvdav.github.io/EVR628tools/reference/data_geartypes.html">documentation</a></li>
-<li class="fragment">Use my data tidying skills</li>
+<li class="fragment">Use your data tidying skills</li>
 </ol>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="co"># Example: Total activity by gear type</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="co"># Example: Total activity by gear type</span></span>
 <span id="cb20-2"><a href=""></a>gear_summary <span class="ot">&lt;-</span> data_geartypes <span class="sc">|&gt;</span></span>
 <span id="cb20-3"><a href=""></a>  <span class="fu">group_by</span>(geartype) <span class="sc">|&gt;</span></span>
 <span id="cb20-4"><a href=""></a>  <span class="fu">summarize</span>(<span class="at">n_vessels =</span> <span class="fu">n_distinct</span>(vessel_id)) <span class="sc">|&gt;</span> </span>
 <span id="cb20-5"><a href=""></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n_vessels))</span>
 <span id="cb20-6"><a href=""></a></span>
-<span id="cb20-7"><a href=""></a>gear_summary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-7"><a href=""></a><span class="co"># What is the chunk above doing?</span></span>
+<span id="cb20-8"><a href=""></a>gear_summary</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 11 × 2
    geartype           n_vessels
@@ -454,13 +453,15 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <h2>Reordering Factor Levels</h2>
 <ul>
 <li class="fragment"><p>When our data are already assembled, we can modify the order in which factor levels appear</p></li>
-<li class="fragment"><p>This doesn’t modify the <em>values</em>, just the order in which they are interpreted</p></li>
+<li class="fragment"><p>This doesn’t modify the <em>values</em>, just the order in which they are interpreted by R</p></li>
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a><span class="co"># Default order (alphabetical)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a><span class="co"># Default order (alphabetical)</span></span>
 <span id="cb22-2"><a href=""></a><span class="fu">ggplot</span>(gear_summary, <span class="fu">aes</span>(<span class="at">x =</span> n_vessels, <span class="at">y =</span> geartype)) <span class="sc">+</span></span>
-<span id="cb22-3"><a href=""></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-3"><a href=""></a>  <span class="fu">geom_col</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
 <div class="cell-output-display">
 <div>
 <figure>
@@ -483,12 +484,15 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23" data-code-line-numbers="1-4|5|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>gear_summary <span class="ot">&lt;-</span> data_geartypes <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23" data-code-line-numbers="1-4|5|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>gear_summary <span class="ot">&lt;-</span> data_geartypes <span class="sc">|&gt;</span></span>
 <span id="cb23-2"><a href=""></a>  <span class="fu">group_by</span>(geartype) <span class="sc">|&gt;</span></span>
 <span id="cb23-3"><a href=""></a>  <span class="fu">summarize</span>(<span class="at">n_vessels =</span> <span class="fu">n_distinct</span>(vessel_id)) <span class="sc">|&gt;</span> </span>
 <span id="cb23-4"><a href=""></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n_vessels)) <span class="sc">|&gt;</span> </span>
-<span id="cb23-5"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">geartype =</span> <span class="fu">fct_reorder</span>(<span class="at">.f =</span> geartype, <span class="at">.x =</span> n_vessels))</span>
-<span id="cb23-6"><a href=""></a>gear_summary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-5"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">geartype =</span> <span class="fu">fct_reorder</span>(<span class="at">.f =</span> geartype, <span class="at">.x =</span> n_vessels)) <span class="co"># Modify the order of the factors</span></span>
+<span id="cb23-6"><a href=""></a></span>
+<span id="cb23-7"><a href=""></a>gear_summary</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 11 × 2
    geartype           n_vessels
@@ -510,10 +514,10 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 </section>
 <section id="reordering-factor-levels-2" class="slide level2">
 <h2>Reordering Factor Levels</h2>
-<p>My ggplot code now produces the expected figure</p>
+<p>My ggplot code now produces the desired figure</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a><span class="fu">ggplot</span>(gear_summary, <span class="fu">aes</span>(<span class="at">x =</span> n_vessels, <span class="at">y =</span> geartype)) <span class="sc">+</span></span>
-<span id="cb25-2"><a href=""></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a><span class="fu">ggplot</span>(gear_summary, <span class="fu">aes</span>(<span class="at">x =</span> n_vessels, <span class="at">y =</span> geartype)) <span class="sc">+</span></span>
+<span id="cb25-2"><a href=""></a>  <span class="fu">geom_col</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -528,18 +532,20 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <ul>
 <li class="fragment">It is clear that three gears dominate the data</li>
 <li class="fragment">Let’s <code>lump</code> all other gears into a new category of “others”</li>
-<li class="fragment">I will use the <code>fct_lump_n()</code> function.It <strong>does</strong> modify values</li>
+<li class="fragment">I will use the <code>fct_lump_n()</code> function. It <strong>does</strong> modify values</li>
 <li class="fragment">Check documentation <a href="https://forcats.tidyverse.org/reference/fct_lump.html">here</a> for other versions</li>
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26" data-code-line-numbers="2|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a>gear_summary <span class="ot">&lt;-</span> data_geartypes <span class="sc">|&gt;</span></span>
-<span id="cb26-2"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">geartype =</span> <span class="fu">fct_lump_n</span>(<span class="at">f =</span> geartype, <span class="at">n =</span> <span class="dv">3</span>)) <span class="sc">|&gt;</span>     <span class="co"># Keep top 3, lump the rest)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26" data-code-line-numbers="|2|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a>gear_summary <span class="ot">&lt;-</span> data_geartypes <span class="sc">|&gt;</span></span>
+<span id="cb26-2"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">geartype =</span> <span class="fu">fct_lump_n</span>(<span class="at">f =</span> geartype, <span class="at">n =</span> <span class="dv">3</span>)) <span class="sc">|&gt;</span>     <span class="co"># Keep top 3, lump the rest</span></span>
 <span id="cb26-3"><a href=""></a>  <span class="fu">group_by</span>(geartype) <span class="sc">|&gt;</span></span>
 <span id="cb26-4"><a href=""></a>  <span class="fu">summarize</span>(<span class="at">n_vessels =</span> <span class="fu">n_distinct</span>(vessel_id)) <span class="sc">|&gt;</span> </span>
 <span id="cb26-5"><a href=""></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n_vessels)) <span class="sc">|&gt;</span>  </span>
 <span id="cb26-6"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">geartype =</span> <span class="fu">fct_reorder</span>(<span class="at">.f =</span> geartype, <span class="at">.x =</span> n_vessels)) <span class="co"># Then reorder based on new n by groups</span></span>
-<span id="cb26-7"><a href=""></a>gear_summary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-7"><a href=""></a>gear_summary</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 2
   geartype      n_vessels
@@ -555,8 +561,8 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <section id="lumping-small-categories-1" class="slide level2">
 <h2>Lumping Small Categories</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="fu">ggplot</span>(gear_summary, <span class="fu">aes</span>(<span class="at">x =</span> n_vessels, <span class="at">y =</span> geartype)) <span class="sc">+</span></span>
-<span id="cb28-2"><a href=""></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="fu">ggplot</span>(gear_summary, <span class="fu">aes</span>(<span class="at">x =</span> n_vessels, <span class="at">y =</span> geartype)) <span class="sc">+</span></span>
+<span id="cb28-2"><a href=""></a>  <span class="fu">geom_col</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -573,14 +579,16 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29" data-code-line-numbers="7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a>gear_summary <span class="ot">&lt;-</span> data_geartypes <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29" data-code-line-numbers="|7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a>gear_summary <span class="ot">&lt;-</span> data_geartypes <span class="sc">|&gt;</span></span>
 <span id="cb29-2"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">geartype =</span> <span class="fu">fct_lump_n</span>(<span class="at">f =</span> geartype, <span class="at">n =</span> <span class="dv">3</span>)) <span class="sc">|&gt;</span>     <span class="co"># Keep top 3, lump the rest)</span></span>
 <span id="cb29-3"><a href=""></a>  <span class="fu">group_by</span>(geartype) <span class="sc">|&gt;</span></span>
 <span id="cb29-4"><a href=""></a>  <span class="fu">summarize</span>(<span class="at">n_vessels =</span> <span class="fu">n_distinct</span>(vessel_id)) <span class="sc">|&gt;</span> </span>
 <span id="cb29-5"><a href=""></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n_vessels)) <span class="sc">|&gt;</span>  </span>
 <span id="cb29-6"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">geartype =</span> <span class="fu">fct_reorder</span>(<span class="at">.f =</span> geartype, <span class="at">.x =</span> n_vessels), <span class="co"># Then reorder based on new n by groups</span></span>
 <span id="cb29-7"><a href=""></a>         <span class="at">geartype =</span> <span class="fu">fct_relevel</span>(<span class="at">.f =</span> geartype, <span class="fu">c</span>(<span class="st">"FISHING"</span>, <span class="st">"POLE_AND_LINE"</span>, <span class="st">"TRAWLERS"</span>, <span class="st">"Other"</span>)))</span>
-<span id="cb29-8"><a href=""></a>gear_summary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-8"><a href=""></a>gear_summary</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 2
   geartype      n_vessels
@@ -591,14 +599,17 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 4 Other                73</code></pre>
 </div>
 </div>
+</div>
+<div class="fragment">
 <p>Did anything change?</p>
+<p>Easier to see in a figure</p>
 </div>
 </section>
 <section id="reordering-factor-levels-by-hand-1" class="slide level2">
 <h2>Reordering Factor Levels <em>by hand</em></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a><span class="fu">ggplot</span>(gear_summary, <span class="fu">aes</span>(<span class="at">x =</span> n_vessels, <span class="at">y =</span> geartype)) <span class="sc">+</span></span>
-<span id="cb31-2"><a href=""></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a><span class="fu">ggplot</span>(gear_summary, <span class="fu">aes</span>(<span class="at">x =</span> n_vessels, <span class="at">y =</span> geartype)) <span class="sc">+</span></span>
+<span id="cb31-2"><a href=""></a>  <span class="fu">geom_col</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -617,7 +628,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32" data-code-line-numbers="2-7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a>gear_summary <span class="ot">&lt;-</span> data_geartypes <span class="sc">|&gt;</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32" data-code-line-numbers="|2-7|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a>gear_summary <span class="ot">&lt;-</span> data_geartypes <span class="sc">|&gt;</span> </span>
 <span id="cb32-2"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">geartype =</span> <span class="fu">fct_collapse</span>(geartype,</span>
 <span id="cb32-3"><a href=""></a>                                 <span class="st">"BOTTOM"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"DREDGE_FISHING"</span>, <span class="st">"SET_GILLNETS"</span>,</span>
 <span id="cb32-4"><a href=""></a>                                              <span class="st">"SET_LONGLINES"</span>, <span class="st">"TRAWLERS"</span>),</span>
@@ -627,7 +638,9 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <span id="cb32-8"><a href=""></a>  <span class="fu">group_by</span>(geartype) <span class="sc">|&gt;</span></span>
 <span id="cb32-9"><a href=""></a>  <span class="fu">summarize</span>(<span class="at">n_vessels =</span> <span class="fu">n_distinct</span>(vessel_id))</span>
 <span id="cb32-10"><a href=""></a></span>
-<span id="cb32-11"><a href=""></a>gear_summary <span class="co"># Unspecified factor levels are left unmodified</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb32-11"><a href=""></a>gear_summary <span class="co"># Unspecified factor levels are left unmodified</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   geartype n_vessels
@@ -642,8 +655,8 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <section id="recoding-factor-levels-1" class="slide level2">
 <h2>Recoding Factor Levels</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a><span class="fu">ggplot</span>(gear_summary, <span class="fu">aes</span>(<span class="at">x =</span> n_vessels, <span class="at">y =</span> geartype)) <span class="sc">+</span></span>
-<span id="cb34-2"><a href=""></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a><span class="fu">ggplot</span>(gear_summary, <span class="fu">aes</span>(<span class="at">x =</span> n_vessels, <span class="at">y =</span> geartype)) <span class="sc">+</span></span>
+<span id="cb34-2"><a href=""></a>  <span class="fu">geom_col</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -700,12 +713,12 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <section id="why-dates-are-tricky" class="slide level2">
 <h2>Why Dates Are Tricky</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a><span class="co"># Dates seem simple but are complex!</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35" data-code-line-numbers="2|2-3|4|5|6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a><span class="co"># Dates seem simple but are complex!</span></span>
 <span id="cb35-2"><a href=""></a>x1 <span class="ot">&lt;-</span> <span class="st">"2010-10-01"</span></span>
 <span id="cb35-3"><a href=""></a>x2 <span class="ot">&lt;-</span> <span class="st">"2010/10/01"</span> </span>
-<span id="cb35-4"><a href=""></a>x3 <span class="ot">&lt;-</span> <span class="st">"01/10/2010"</span>  <span class="co"># Which is day, which is month?</span></span>
+<span id="cb35-4"><a href=""></a>x3 <span class="ot">&lt;-</span> <span class="st">"01/10/2010"</span>       <span class="co"># Which is day, which is month?</span></span>
 <span id="cb35-5"><a href=""></a>x4 <span class="ot">&lt;-</span> <span class="st">"October 1, 2010"</span></span>
-<span id="cb35-6"><a href=""></a>x5 <span class="ot">&lt;-</span> <span class="st">"1 Oct 2010"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb35-6"><a href=""></a>x5 <span class="ot">&lt;-</span> <span class="st">"1 Oct 2010"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
 <p>Problems:</p>
@@ -744,37 +757,37 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <section id="creating-dates-and-times-when-importing-data" class="slide level2">
 <h2>Creating Dates and Times when Importing Data</h2>
 <ul>
-<li class="fragment">Does your CSV file contain an <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO8601</a> date or date-time&gt;</li>
-<li class="fragment">Lucky you… you don’t need to do anything; <code>readr</code> will automatically recognize it</li>
+<li class="fragment">Does your CSV file contain an <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO8601</a> date or date-time?</li>
+<li class="fragment">Lucky you… you don’t need to do anything; <code>read_*</code> should automatically recognize it</li>
 <li class="fragment">Note that US approach to dates is not standard, ISO8601 mandates that:
 <ul>
 <li class="fragment">Components are organized from biggest to smallest</li>
 <li class="fragment">Date components are separated by <code>-</code></li>
 <li class="fragment">Time components are separated by <code>:</code> (24 hr format, no am / pm)</li>
-<li class="fragment">Date is separated from time using <code></code> or <code>T</code></li>
+<li class="fragment">Date is separated from time using a space or <code>T</code></li>
 </ul></li>
 </ul>
 </section>
 <section id="creating-dates-and-times-when-importing-data-1" class="slide level2">
 <h2>Creating Dates and Times when Importing Data</h2>
-<p>If your csv file looks like this:</p>
+<p>If your csv file under <code>data/raw/my_file.csv</code> looks like this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb36-1"><a href=""></a>class_date, time_of_day, combined, event</span>
-<span id="cb36-2"><a href=""></a>2025-10-21, 09:00, 2025-10-21 09:00:00, class_starts</span>
-<span id="cb36-3"><a href=""></a>2025-10-21, 10:15, 2025-10-21 10:15:00, class_ends</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb36-1"><a href=""></a>class_date, time_of_day, combined, event</span>
+<span id="cb36-2"><a href=""></a>2026-10-20, 09:00, 2026-10-20 09:00:00, class_starts</span>
+<span id="cb36-3"><a href=""></a>2026-10-20, 10:15, 2026-10-20 10:15:00, class_ends</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
 <p>Then you can simply read it in:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a><span class="fu">read_csv</span>(<span class="st">"data/raw/my_file.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a><span class="fu">read_csv</span>(<span class="st">"data/raw/my_file.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 4
   class_date time_of_day combined             event       
   &lt;date&gt;     &lt;time&gt;      &lt;chr&gt;                &lt;chr&gt;       
-1 2025-10-21 09:00       2025-10-21  09:00:00 class_starts
-2 2025-10-21 10:15       2025-10-21  10:15:00 class_ends  </code></pre>
+1 2026-10-20 09:00       2026-10-20  09:00:00 class_starts
+2 2026-10-20 10:15       2026-10-20  10:15:00 class_ends  </code></pre>
 </div>
 </div>
 <ul>
@@ -793,27 +806,27 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a>my_date <span class="ot">&lt;-</span> <span class="st">"10-21-2025"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a>my_date <span class="ot">&lt;-</span> <span class="st">"10-20-2026"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li class="fragment">What is the class of this object?</li>
 <li class="fragment">What is the order of my components here?</li>
-<li class="fragment">Likely <code>m</code>, <code>d</code>, <code>y</code>, so I can use the <code>mdy()</code> function</li>
+<li class="fragment">Likely <code>m</code>, <code>d</code>, <code>y</code>, so I can use a function callled… <code>mdy()</code></li>
 </ul>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href=""></a>my_date <span class="ot">&lt;-</span> <span class="fu">mdy</span>(<span class="st">"10-21-2025"</span>)</span>
-<span id="cb40-2"><a href=""></a><span class="fu">class</span>(my_date)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href=""></a>my_date <span class="ot">&lt;-</span> <span class="fu">mdy</span>(<span class="st">"10-20-2026"</span>)</span>
+<span id="cb40-2"><a href=""></a><span class="fu">class</span>(my_date)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Date"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href=""></a>my_date</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href=""></a>my_date</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2025-10-21"</code></pre>
+<pre><code>[1] "2026-10-20"</code></pre>
 </div>
 </div>
-<p>Once it is stored as a <code>Date</code> object, it will always be printed in the ISO standard order</p>
+<p>Once it is stored as a <code>Date</code> object, it will <strong>always</strong> be printed in the ISO standard order</p>
 </div>
 </section>
 <section id="creating-date-time-objects-from-strings-1" class="slide level2">
@@ -822,7 +835,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb44-1"><a href=""></a>date,whales_observed</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb44-1"><a href=""></a>date,whales_observed</span>
 <span id="cb44-2"><a href=""></a>Jan-15-2024,12</span>
 <span id="cb44-3"><a href=""></a>Jan-22-2024,8</span>
 <span id="cb44-4"><a href=""></a>Feb-5-2024,7</span>
@@ -832,15 +845,15 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <span id="cb44-8"><a href=""></a>Apr-2-2024,14</span>
 <span id="cb44-9"><a href=""></a>Apr-25-2024,8</span>
 <span id="cb44-10"><a href=""></a>May-8-2024,6</span>
-<span id="cb44-11"><a href=""></a>May-30-2024,6</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb44-11"><a href=""></a>May-30-2024,6</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <div class="fragment">
 <p>So when you read them in, they look like this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href=""></a>whale_counts <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"data/raw/daily_whale_counts.csv"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href=""></a>whale_counts <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"data/raw/daily_whale_counts.csv"</span>)</span>
 <span id="cb45-2"><a href=""></a></span>
-<span id="cb45-3"><a href=""></a>whale_counts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb45-3"><a href=""></a>whale_counts</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -869,13 +882,13 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <p>Can I directly build a figure with date on the x-axis and # whales on the y-axis?</p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href=""></a><span class="fu">ggplot</span>(whale_counts, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> whales_observed)) <span class="sc">+</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href=""></a><span class="fu">ggplot</span>(whale_counts, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> whales_observed)) <span class="sc">+</span> </span>
 <span id="cb47-2"><a href=""></a>  <span class="fu">geom_line</span>(<span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb47-3"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb47-3"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10_factors_dates_text_files/figure-revealjs/unnamed-chunk-29-1.png" width="576"></p>
+<p><img data-src="10_factors_dates_text_files/figure-revealjs/unnamed-chunk-29-1.png" width="768"></p>
 </figure>
 </div>
 </div>
@@ -903,7 +916,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <li>Plot my data</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href=""></a>whale_counts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href=""></a>whale_counts</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 2
    date        whales_observed
@@ -930,12 +943,11 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <li>Plot my data</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href=""></a>whale_counts_dates <span class="ot">&lt;-</span> whale_counts <span class="sc">|&gt;</span> </span>
-<span id="cb50-2"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">mdy</span>(date))  <span class="co"># Step 2: convert my date column into an actual date object, overwrite</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50" data-code-line-numbers="2|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href=""></a>whale_counts_dates <span class="ot">&lt;-</span> whale_counts <span class="sc">|&gt;</span> </span>
+<span id="cb50-2"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">mdy</span>(date))  <span class="co"># Step 2: convert my date column into an actual date object, rewrite</span></span>
+<span id="cb50-3"><a href=""></a>whale_counts_dates</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href=""></a>whale_counts_dates</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell fragment">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 2
    date       whales_observed
@@ -952,7 +964,6 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 10 2024-05-30               6</code></pre>
 </div>
 </div>
-</div>
 </section>
 <section id="creating-date-time-objects-from-strings-6" class="slide level2">
 <h2>Creating Date-Time Objects from Strings</h2>
@@ -963,13 +974,13 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <li><strong>Plot my data</strong></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href=""></a><span class="fu">ggplot</span>(whale_counts_dates, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> whales_observed)) <span class="sc">+</span> </span>
-<span id="cb53-2"><a href=""></a>  <span class="fu">geom_line</span>(<span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb53-3"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href=""></a><span class="fu">ggplot</span>(whale_counts_dates, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> whales_observed)) <span class="sc">+</span> </span>
+<span id="cb52-2"><a href=""></a>  <span class="fu">geom_line</span>(<span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb52-3"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10_factors_dates_text_files/figure-revealjs/unnamed-chunk-33-1.png" width="576"></p>
+<p><img data-src="10_factors_dates_text_files/figure-revealjs/unnamed-chunk-32-1.png" width="576"></p>
 </figure>
 </div>
 </div>
@@ -977,27 +988,27 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 </section>
 <section id="creating-date-time-objects-from-strings-7" class="slide level2">
 <h2>Creating Date-Time Objects from Strings</h2>
-<p>Many other helper functions</p>
+<p>Many other helper functions, depending on how your data look like</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href=""></a><span class="fu">ymd</span>(<span class="st">"2025-10-21"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href=""></a><span class="fu">ymd</span>(<span class="st">"2026-10-20"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2025-10-21"</code></pre>
+<pre><code>[1] "2026-10-20"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href=""></a><span class="fu">mdy</span>(<span class="st">"October 21, 2025"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href=""></a><span class="fu">mdy</span>(<span class="st">"October 20, 2026"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2025-10-21"</code></pre>
+<pre><code>[1] "2026-10-20"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href=""></a><span class="fu">dmy</span>(<span class="st">"21 Oct 2025"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href=""></a><span class="fu">dmy</span>(<span class="st">"20 Oct 2026"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2025-10-21"</code></pre>
+<pre><code>[1] "2026-10-20"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href=""></a><span class="fu">ymd_hms</span>(<span class="st">"2025-10-21 10:00:00"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href=""></a><span class="fu">ymd_hms</span>(<span class="st">"2026-10-20 10:00:00"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2025-10-21 10:00:00 UTC"</code></pre>
+<pre><code>[1] "2026-10-20 10:00:00 UTC"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href=""></a><span class="fu">ymd_hm</span>(<span class="st">"2025-10-21 12:00"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href=""></a><span class="fu">ymd_hm</span>(<span class="st">"2026-10-20 12:00"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2025-10-21 12:00:00 UTC"</code></pre>
+<pre><code>[1] "2026-10-20 12:00:00 UTC"</code></pre>
 </div>
 </div>
 <ul>
@@ -1011,39 +1022,39 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb64-1"><a href=""></a>year,month,day,whales_observed</span>
-<span id="cb64-2"><a href=""></a>2025,1,15,12</span>
-<span id="cb64-3"><a href=""></a>2025,1,22,8</span>
-<span id="cb64-4"><a href=""></a>2025,2,5,7</span>
-<span id="cb64-5"><a href=""></a>2025,2,18,8</span>
-<span id="cb64-6"><a href=""></a>2025,3,3,7</span>
-<span id="cb64-7"><a href=""></a>2025,3,20,12</span>
-<span id="cb64-8"><a href=""></a>2025,4,2,14</span>
-<span id="cb64-9"><a href=""></a>2025,4,25,8</span>
-<span id="cb64-10"><a href=""></a>2025,5,8,6</span>
-<span id="cb64-11"><a href=""></a>2025,5,30,6</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb63-1"><a href=""></a>year,month,day,whales_observed</span>
+<span id="cb63-2"><a href=""></a>2026,1,15,12</span>
+<span id="cb63-3"><a href=""></a>2026,1,22,8</span>
+<span id="cb63-4"><a href=""></a>2026,2,5,7</span>
+<span id="cb63-5"><a href=""></a>2026,2,18,8</span>
+<span id="cb63-6"><a href=""></a>2026,3,3,7</span>
+<span id="cb63-7"><a href=""></a>2026,3,20,12</span>
+<span id="cb63-8"><a href=""></a>2026,4,2,14</span>
+<span id="cb63-9"><a href=""></a>2026,4,25,8</span>
+<span id="cb63-10"><a href=""></a>2026,5,8,6</span>
+<span id="cb63-11"><a href=""></a>2026,5,30,6</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <div class="fragment">
 <p>Reading them yields:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href=""></a>whale_counts <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"data/raw/ymd_whale_counts.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href=""></a>whale_counts <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"data/raw/ymd_whale_counts.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 4
     year month   day whales_observed
    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;           &lt;dbl&gt;
- 1  2025     1    15              12
- 2  2025     1    22               8
- 3  2025     2     5               7
- 4  2025     2    18               8
- 5  2025     3     3               7
- 6  2025     3    20              12
- 7  2025     4     2              14
- 8  2025     4    25               8
- 9  2025     5     8               6
-10  2025     5    30               6</code></pre>
+ 1  2026     1    15              12
+ 2  2026     1    22               8
+ 3  2026     2     5               7
+ 4  2026     2    18               8
+ 5  2026     3     3               7
+ 6  2026     3    20              12
+ 7  2026     4     2              14
+ 8  2026     4    25               8
+ 9  2026     5     8               6
+10  2026     5    30               6</code></pre>
 </div>
 </div>
 </div>
@@ -1056,56 +1067,44 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb67" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href=""></a>whale_counts_dates <span class="ot">&lt;-</span> whale_counts <span class="sc">|&gt;</span></span>
-<span id="cb67-2"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">make_date</span>(year, month, day)) <span class="sc">|&gt;</span> </span>
-<span id="cb67-3"><a href=""></a>  <span class="fu">select</span>(date, whales_observed)</span>
-<span id="cb67-4"><a href=""></a></span>
-<span id="cb67-5"><a href=""></a>whale_counts_dates</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66" data-code-line-numbers="|2|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href=""></a>whale_counts_dates <span class="ot">&lt;-</span> whale_counts <span class="sc">|&gt;</span></span>
+<span id="cb66-2"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">make_date</span>(year, month, day)) <span class="sc">|&gt;</span> <span class="co"># Build the date object</span></span>
+<span id="cb66-3"><a href=""></a>  <span class="fu">select</span>(date, whales_observed)</span>
+<span id="cb66-4"><a href=""></a></span>
+<span id="cb66-5"><a href=""></a>whale_counts_dates</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 2
    date       whales_observed
    &lt;date&gt;               &lt;dbl&gt;
- 1 2025-01-15              12
- 2 2025-01-22               8
- 3 2025-02-05               7
- 4 2025-02-18               8
- 5 2025-03-03               7
- 6 2025-03-20              12
- 7 2025-04-02              14
- 8 2025-04-25               8
- 9 2025-05-08               6
-10 2025-05-30               6</code></pre>
+ 1 2026-01-15              12
+ 2 2026-01-22               8
+ 3 2026-02-05               7
+ 4 2026-02-18               8
+ 5 2026-03-03               7
+ 6 2026-03-20              12
+ 7 2026-04-02              14
+ 8 2026-04-25               8
+ 9 2026-05-08               6
+10 2026-05-30               6</code></pre>
 </div>
 </div>
 </div>
 </section>
-<section id="getting-components" class="slide level2">
-<h2>Getting Components</h2>
+<section id="now-in-reverse-getting-components" class="slide level2">
+<h2>Now in Reverse: Getting Components</h2>
 <ul>
-<li class="fragment">Sometimes we want to make calculations based on part of a date</li>
+<li class="fragment">Sometimes we want to make calculations based on <em>part</em> of a date</li>
 <li class="fragment">For example, how many whales did I observe per <strong>month</strong>?</li>
-</ul>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href=""></a><span class="fu">head</span>(whale_counts_dates, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 2
-  date       whales_observed
-  &lt;date&gt;               &lt;dbl&gt;
-1 2025-01-15              12
-2 2025-01-22               8</code></pre>
-</div>
-</div>
-<ul>
 <li class="fragment">I can use <code>month()</code> to extract the month of a date</li>
 </ul>
-</div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href=""></a>whale_counts_dates <span class="sc">|&gt;</span> </span>
-<span id="cb71-2"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">month =</span> <span class="fu">month</span>(date)) <span class="sc">|&gt;</span> </span>
-<span id="cb71-3"><a href=""></a>  <span class="fu">group_by</span>(month) <span class="sc">|&gt;</span> </span>
-<span id="cb71-4"><a href=""></a>  <span class="fu">summarize</span>(<span class="at">total_whales =</span> <span class="fu">sum</span>(whales_observed))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href=""></a>whale_counts_dates <span class="sc">|&gt;</span> </span>
+<span id="cb68-2"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">month =</span> <span class="fu">month</span>(date)) <span class="sc">|&gt;</span> </span>
+<span id="cb68-3"><a href=""></a>  <span class="fu">group_by</span>(month) <span class="sc">|&gt;</span> </span>
+<span id="cb68-4"><a href=""></a>  <span class="fu">summarize</span>(<span class="at">total_whales =</span> <span class="fu">sum</span>(whales_observed))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 2
   month total_whales
@@ -1119,36 +1118,36 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 </div>
 </div>
 </section>
-<section id="getting-components-1" class="slide level2">
-<h2>Getting Components</h2>
+<section id="now-in-reverse-getting-components-1" class="slide level2">
+<h2>Now in Reverse: Getting Components</h2>
 <p>Other useful functions</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href=""></a><span class="co"># Day of week/year</span></span>
-<span id="cb73-2"><a href=""></a>now <span class="ot">&lt;-</span> <span class="fu">ymd</span>(<span class="st">"2025-10-21"</span>)</span>
-<span id="cb73-3"><a href=""></a><span class="fu">year</span>(now)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href=""></a><span class="co"># Day of week/year</span></span>
+<span id="cb70-2"><a href=""></a>now <span class="ot">&lt;-</span> <span class="fu">ymd</span>(<span class="st">"2026-10-20"</span>)</span>
+<span id="cb70-3"><a href=""></a><span class="fu">year</span>(now)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2025</code></pre>
+<pre><code>[1] 2026</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href=""></a><span class="fu">day</span>(now)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href=""></a><span class="fu">day</span>(now)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 21</code></pre>
+<pre><code>[1] 20</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href=""></a><span class="fu">wday</span>(now)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href=""></a><span class="fu">wday</span>(now)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href=""></a><span class="fu">week</span>(now)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href=""></a><span class="fu">week</span>(now)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 42</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href=""></a><span class="fu">yday</span>(now)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href=""></a><span class="fu">yday</span>(now)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 294</code></pre>
+<pre><code>[1] 293</code></pre>
 </div>
 </div>
 </section>
-<section id="time-spans" class="slide level2">
-<h2>Time Spans</h2>
+<section id="time-spans-prepare-your-brains" class="slide level2">
+<h2>Time Spans… p(repare your brains)</h2>
 <ul>
 <li class="fragment"><strong>Durations</strong> represent exact number of seconds</li>
 <li class="fragment"><strong>Periods</strong> represent human units, like weeks and months</li>
@@ -1160,11 +1159,15 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 </blockquote>
 <p>Subtracting two dates will give you a <code>difftime</code> object:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href=""></a>school_foundation <span class="ot">&lt;-</span> <span class="fu">mdy</span>(<span class="st">"February 1, 1943"</span>)</span>
-<span id="cb83-2"><a href=""></a>school_age <span class="ot">&lt;-</span> <span class="fu">today</span>() <span class="sc">-</span> school_foundation</span>
-<span id="cb83-3"><a href=""></a>school_age</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href=""></a>school_foundation <span class="ot">&lt;-</span> <span class="fu">mdy</span>(<span class="st">"February 1, 1943"</span>)</span>
+<span id="cb80-2"><a href=""></a>school_age <span class="ot">&lt;-</span> <span class="fu">ymd</span>(<span class="st">"2026-10-20"</span>) <span class="sc">-</span> school_foundation</span>
+<span id="cb80-3"><a href=""></a><span class="fu">class</span>(school_age)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time difference of 30261 days</code></pre>
+<pre><code>[1] "difftime"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href=""></a>school_age</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Time difference of 30577 days</code></pre>
 </div>
 </div>
 </div>
@@ -1172,8 +1175,8 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <section id="duration-vs-periods" class="slide level2">
 <h2>Duration vs Periods</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href=""></a>a_date <span class="ot">&lt;-</span> <span class="fu">mdy_hms</span>(<span class="st">"Nov 1, 2025 02:01:01"</span>, <span class="at">tz =</span> <span class="st">"America/New_York"</span>)</span>
-<span id="cb85-2"><a href=""></a>a_date</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href=""></a>a_date <span class="ot">&lt;-</span> <span class="fu">mdy_hms</span>(<span class="st">"Nov 1, 2025 02:01:01"</span>, <span class="at">tz =</span> <span class="st">"America/New_York"</span>)</span>
+<span id="cb84-2"><a href=""></a>a_date</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2025-11-01 02:01:01 EDT"</code></pre>
 </div>
@@ -1183,27 +1186,27 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href=""></a>a_date <span class="sc">+</span> <span class="fu">ddays</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href=""></a>a_date <span class="sc">+</span> <span class="fu">ddays</span>(<span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2025-11-02 01:01:01 EST"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href=""></a>a_date <span class="sc">+</span> <span class="fu">days</span>(<span class="dv">1</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href=""></a>a_date <span class="sc">+</span> <span class="fu">days</span>(<span class="dv">1</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2025-11-02 02:01:01 EST"</code></pre>
 </div>
 </div>
 <ul>
-<li class="fragment">What happened here? Daylight Saving Time ends on Nov 2, 2025 at 01:00</li>
+<li class="fragment">What happened here? Daylight Saving Time ends on Nov 1, 2026 at 01:00</li>
 <li class="fragment">These functions return different objects</li>
 </ul>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href=""></a><span class="fu">ddays</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href=""></a><span class="fu">ddays</span>(<span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "86400s (~1 days)"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href=""></a><span class="fu">days</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href=""></a><span class="fu">days</span>(<span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "1d 0H 0M 0S"</code></pre>
 </div>
@@ -1247,17 +1250,17 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb95-1"><a href=""></a>trip_id, passengers, notes</span>
-<span id="cb95-2"><a href=""></a>1, 25, Dolphins; whales</span>
-<span id="cb95-3"><a href=""></a>2, 32, Whale; Sea lions</span>
-<span id="cb95-4"><a href=""></a>3, 30, Sea lions; sea turtles</span>
-<span id="cb95-5"><a href=""></a>4, 30, Sea lion; sea turtles</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb94-1"><a href=""></a>trip_id, passengers, notes</span>
+<span id="cb94-2"><a href=""></a>1, 25, Dolphins; whales</span>
+<span id="cb94-3"><a href=""></a>2, 32, Whale; Sea lions</span>
+<span id="cb94-4"><a href=""></a>3, 30, Sea lions; sea turtles</span>
+<span id="cb94-5"><a href=""></a>4, 30, Sea lion; sea turtles</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href=""></a>sightings <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/raw/sightings.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href=""></a>sightings <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/raw/sightings.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -1286,9 +1289,9 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <div class="fragment">
 <p><code>separate_longer_delim()</code> allows me to <code>separate</code> a column and make the data <code>longer</code> based on a <code>delim</code>iter:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href=""></a>sightings_tidy <span class="ot">&lt;-</span> sightings <span class="sc">|&gt;</span> </span>
-<span id="cb98-2"><a href=""></a>  <span class="fu">separate_longer_delim</span>(<span class="at">cols =</span> notes, <span class="at">delim =</span> <span class="st">"; "</span>)</span>
-<span id="cb98-3"><a href=""></a>sightings_tidy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href=""></a>sightings_tidy <span class="ot">&lt;-</span> sightings <span class="sc">|&gt;</span> </span>
+<span id="cb97-2"><a href=""></a>  <span class="fu">separate_longer_delim</span>(<span class="at">cols =</span> notes, <span class="at">delim =</span> <span class="st">"; "</span>)</span>
+<span id="cb97-3"><a href=""></a>sightings_tidy</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 8 × 3
   trip_id passengers notes      
@@ -1313,11 +1316,11 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <p>The <code>stringr</code> package provides functions to modify, detect, and extract parts of strings</p>
 <p>Let’s convert all letters to lowercase</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb100" data-code-line-numbers="|4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href=""></a>sightings_tidy <span class="ot">&lt;-</span> sightings <span class="sc">|&gt;</span> </span>
-<span id="cb100-2"><a href=""></a>  <span class="fu">separate_longer_delim</span>(<span class="at">cols =</span> notes, <span class="at">delim =</span> <span class="st">"; "</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb100-3"><a href=""></a>  <span class="fu">rename</span>(<span class="at">species =</span> notes) <span class="sc">|&gt;</span> </span>
-<span id="cb100-4"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">species =</span> <span class="fu">str_to_lower</span>(<span class="at">string =</span> species))</span>
-<span id="cb100-5"><a href=""></a>sightings_tidy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb99" data-code-line-numbers="|4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href=""></a>sightings_tidy <span class="ot">&lt;-</span> sightings <span class="sc">|&gt;</span> </span>
+<span id="cb99-2"><a href=""></a>  <span class="fu">separate_longer_delim</span>(<span class="at">cols =</span> notes, <span class="at">delim =</span> <span class="st">"; "</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb99-3"><a href=""></a>  <span class="fu">rename</span>(<span class="at">species =</span> notes) <span class="sc">|&gt;</span> </span>
+<span id="cb99-4"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">species =</span> <span class="fu">str_to_lower</span>(<span class="at">string =</span> species))</span>
+<span id="cb99-5"><a href=""></a>sightings_tidy</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 8 × 3
   trip_id passengers species    
@@ -1347,12 +1350,12 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb102" data-code-line-numbers="|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href=""></a>sightings_tidy <span class="ot">&lt;-</span> sightings <span class="sc">|&gt;</span> </span>
-<span id="cb102-2"><a href=""></a>  <span class="fu">separate_longer_delim</span>(<span class="at">cols =</span> notes, <span class="at">delim =</span> <span class="st">"; "</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb102-3"><a href=""></a>  <span class="fu">rename</span>(<span class="at">species =</span> notes) <span class="sc">|&gt;</span> </span>
-<span id="cb102-4"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">species =</span> <span class="fu">str_to_lower</span>(<span class="at">string =</span> species),</span>
-<span id="cb102-5"><a href=""></a>         <span class="at">species =</span> <span class="fu">str_remove</span>(<span class="at">string =</span> species, <span class="at">pattern =</span> <span class="st">"s"</span>))</span>
-<span id="cb102-6"><a href=""></a>sightings_tidy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb101" data-code-line-numbers="|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href=""></a>sightings_tidy <span class="ot">&lt;-</span> sightings <span class="sc">|&gt;</span> </span>
+<span id="cb101-2"><a href=""></a>  <span class="fu">separate_longer_delim</span>(<span class="at">cols =</span> notes, <span class="at">delim =</span> <span class="st">"; "</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb101-3"><a href=""></a>  <span class="fu">rename</span>(<span class="at">species =</span> notes) <span class="sc">|&gt;</span> </span>
+<span id="cb101-4"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">species =</span> <span class="fu">str_to_lower</span>(<span class="at">string =</span> species),</span>
+<span id="cb101-5"><a href=""></a>         <span class="at">species =</span> <span class="fu">str_remove</span>(<span class="at">string =</span> species, <span class="at">pattern =</span> <span class="st">"s"</span>))</span>
+<span id="cb101-6"><a href=""></a>sightings_tidy</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 8 × 3
   trip_id passengers species   
@@ -1382,12 +1385,12 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb104" data-code-line-numbers="|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href=""></a>sightings_tidy <span class="ot">&lt;-</span> sightings <span class="sc">|&gt;</span> </span>
-<span id="cb104-2"><a href=""></a>  <span class="fu">separate_longer_delim</span>(<span class="at">cols =</span> notes, <span class="at">delim =</span> <span class="st">"; "</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb104-3"><a href=""></a>  <span class="fu">rename</span>(<span class="at">species =</span> notes) <span class="sc">|&gt;</span> </span>
-<span id="cb104-4"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">species =</span> <span class="fu">str_to_lower</span>(<span class="at">string =</span> species),</span>
-<span id="cb104-5"><a href=""></a>         <span class="at">species =</span> <span class="fu">str_remove</span>(<span class="at">string =</span> species, <span class="at">pattern =</span> <span class="st">"s$"</span>)) <span class="co"># Match the "s" at the end of a line only</span></span>
-<span id="cb104-6"><a href=""></a>sightings_tidy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb103" data-code-line-numbers="|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href=""></a>sightings_tidy <span class="ot">&lt;-</span> sightings <span class="sc">|&gt;</span> </span>
+<span id="cb103-2"><a href=""></a>  <span class="fu">separate_longer_delim</span>(<span class="at">cols =</span> notes, <span class="at">delim =</span> <span class="st">"; "</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb103-3"><a href=""></a>  <span class="fu">rename</span>(<span class="at">species =</span> notes) <span class="sc">|&gt;</span> </span>
+<span id="cb103-4"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">species =</span> <span class="fu">str_to_lower</span>(<span class="at">string =</span> species),</span>
+<span id="cb103-5"><a href=""></a>         <span class="at">species =</span> <span class="fu">str_remove</span>(<span class="at">string =</span> species, <span class="at">pattern =</span> <span class="st">"s$"</span>)) <span class="co"># Match the "s" at the end of a line only</span></span>
+<span id="cb103-6"><a href=""></a>sightings_tidy</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 8 × 3
   trip_id passengers species   
@@ -1407,16 +1410,16 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
 <section id="we-can-now-answer-the-question" class="slide level2">
 <h2>We Can Now Answer the Question</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href=""></a>sightings_tidy <span class="sc">|&gt;</span> </span>
-<span id="cb106-2"><a href=""></a>  <span class="fu">group_by</span>(species) <span class="sc">|&gt;</span> </span>
-<span id="cb106-3"><a href=""></a>  <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">sum</span>(passengers)) <span class="sc">|&gt;</span> </span>
-<span id="cb106-4"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">species =</span> <span class="fu">fct_reorder</span>(species, n)) <span class="sc">|&gt;</span> </span>
-<span id="cb106-5"><a href=""></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> n, <span class="at">y =</span> species)) <span class="sc">+</span></span>
-<span id="cb106-6"><a href=""></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href=""></a>sightings_tidy <span class="sc">|&gt;</span> </span>
+<span id="cb105-2"><a href=""></a>  <span class="fu">group_by</span>(species) <span class="sc">|&gt;</span> </span>
+<span id="cb105-3"><a href=""></a>  <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">sum</span>(passengers)) <span class="sc">|&gt;</span> </span>
+<span id="cb105-4"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">species =</span> <span class="fu">fct_reorder</span>(species, n)) <span class="sc">|&gt;</span> </span>
+<span id="cb105-5"><a href=""></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> n, <span class="at">y =</span> species)) <span class="sc">+</span></span>
+<span id="cb105-6"><a href=""></a>  <span class="fu">geom_col</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10_factors_dates_text_files/figure-revealjs/unnamed-chunk-53-1.png" width="960"></p>
+<p><img data-src="10_factors_dates_text_files/figure-revealjs/unnamed-chunk-51-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1652,7 +1655,7 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -1764,13 +1767,14 @@ Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy
