@@ -11,13 +11,16 @@ include: true
 code-fold: true
 ---
 
-Preamble:
+Prompt:
+
+> You are given a logbook of fauna sightings during whale watching tours from two vessels operating in the Revillagigedo Archipelago (A.K.A. the Socorro Islands), Mexico. You are about to embark on a tagging expedition, so you want to make sure you get on the right boat. Your goal is therefore to: a) Identify which vessel has the most sightings, and b) Identify the most frequent species sighted.
 
 # Exercise 0 - Set up
 
 **Post-it up**
 
-1. Download this [CSV](../data/tour_data.csv) file to your `EVR 628` project folder. Save it into `data/raw/`.
+0. Add the [outline snippet](https://gist.github.com/jcvdav/1093d757bf1773751e951d009de4d857) to your snippets.^[Hint: Tools > Edit Code Snippets... Remember to use tabs, not spaces]
+1. Download this [csv](../data/tour_data.csv) file to your `EVR 628` project folder. Save it into `data/raw/`.
 2. Start a new script, call it `factors_dates_and_strings.R` and save it into your `scripts/01_processing/` folder
 3. Add a code outline and load the `tidyverse` and `janitor` packages at the top of your script
 
@@ -25,6 +28,7 @@ Preamble:
 
 ```{r}
 #| message: false
+#| warning: false
 ## SET UP ######################################################################
 # Load packages ----------------------------------------------------------------
 library(janitor)
@@ -35,7 +39,7 @@ library(tidyverse)
 
 **Post-it up**
 
-1. Load your data into an object called `tour_data <- ` and clean the column names
+1. Read your data into an object called `tour_data <- ` and clean the column names
 2. Inspect your data. How many columns / rows? What are these columns?
 3. Create a new object called `tour_data_clean <-` and add a new column called `date` that contains the date. We will build a large pipeline starting here.
 4. Remove the `year`, `month`, and `day` columns that we no longer need
@@ -50,12 +54,11 @@ tour_data <- read_csv("data/raw/tour_data.csv") |>
 
 dim(tour_data)
 colnames(tour_data)
-head(tour_data)
 
 ## PROCESSING ##################################################################
 # Add a date -------------------------------------------------------------------
-tour_data_clean <- tour_data |>                 #3) New object
-  mutate(date = make_date(year, month, day)) |> # 4) Build my date
+tour_data_clean <- tour_data |>                    # 3) New object
+  mutate(date = make_date(year, month, day)) |>    # 4) Build my date
   select(date, everything(), -c(year, month, day)) # 5) Remove and organize columns
 ```
 
@@ -68,13 +71,15 @@ tour_data <- read_csv(here::here("data/tour_data.csv")) |> # 1) load data
 # 2) Inspect data
 dim(tour_data)
 colnames(tour_data)
-head(tour_data)
 
 ## PROCESSING ##################################################################
 # Add a date -------------------------------------------------------------------
-tour_data_clean <- tour_data |>                 #3) New object
-  mutate(date = make_date(year, month, day)) |> # 4) Build my date
+tour_data_clean <- tour_data |>                    # 3) New object
+  mutate(date = make_date(year, month, day)) |>    # 4) Build my date
   select(date, everything(), -c(year, month, day)) # 5) Remove and organize columns
+
+cat("The data look like this now:")
+head(tour_data_clean)
 ```
 
 **Post-it down**
@@ -97,12 +102,15 @@ tour_data_clean <- tour_data |>
   select(date, everything(), -c(year, month, day)) |>
   separate_longer_delim(cols = notes, delim = ";") |>  # 1) Separate column into new rows
   mutate(notes = str_to_lower(notes),                  # 2) All strings as lower case
-         notes = str_remove(notes, "s$"))
+         notes = str_remove(notes, "s$"))              # 3) All are singular now
+
+cat("The data look like this now:")
+head(tour_data_clean)
 ```
 
 **Post-it down**
 
-## Part 2 - Data STILL contained in a column with strings of text!
+## Part 2 - Oh no! Data are STILL contained in a column with strings of text!
 
 **Post-it up**
 
@@ -130,6 +138,9 @@ tour_data_clean <- tour_data |>
          n = str_extract(string = notes, pattern = "[:digit:]+"),   # 5) Extract n
          n = as.numeric(n)) |>                                            # and make sure it's numeric
   select(-notes)                                                      # 6) Remove notes
+
+cat("The data look like this now:")
+head(tour_data_clean)
 ```
 
 
@@ -139,19 +150,34 @@ tour_data_clean <- tour_data |>
 
 **Post-it up**
 
-1. Recreate the plot below
+1. Build a new data frame called `tour_data_viz` that contains the following columns^[Hint, you will need two `group_by`s, one `mutate`, and one `summarize`]:
+  - `vessel`
+  - `fauna`
+  - `n_per_trip`
+2. Recreate the plot below
 
 **Post-it down**
 
 ```{r}
 #| fig-height: 8
+## Build tour_data_viz ---------------------------------------------------------
+tour_data_viz <- tour_data_clean |> 
+  group_by(vessel) |> 
+  mutate(effort = n_distinct(date)) |> 
+  group_by(vessel, fauna) |> 
+  summarize(n_per_trip = sum(n / effort),
+            .groups = "drop")
+
+cat("The data look like this now:")
+head(tour_data_viz)
+
 ## VISUALIZE ###################################################################
-ggplot(data = tour_data_clean,
+ggplot(data = tour_data_viz,
        mapping = aes(x = str_to_sentence(fauna), # This is the only str-relevant change here
-                     y = n)) +
-  stat_summary(geom = "col", fun = "sum") +
+                     y = n_per_trip)) +
+  geom_col() +
   facet_wrap(~vessel, ncol = 1) +
-  labs(title = "Sigthings by vessel",
+  labs(title = "Sightings by vessel",
        x = "Fauna",
        y = "N") +
   theme_minimal(base_size = 14)
