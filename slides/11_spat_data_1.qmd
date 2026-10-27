@@ -14,6 +14,8 @@ pacman::p_load(
   mapview
 )
 
+mapviewOptions(basemaps = "Esri.WorldGrayCanvas")
+
 theme_set(
   theme_bw(base_size = 20)
 )
@@ -21,7 +23,8 @@ theme_set(
 
 # Quick announcements
 
-[VIzUM 2025: Critical Cartography](https://idsc.miami.edu/vizum-2025/). Monday, November 10, 2025 | 4:00-7:00 PM
+- [VIzUM 2026: Humane Visualization](https://events.miami.edu/event/vizum-2026). Monday, November 16, 2026 | 4:00-19:00
+- [GIS Day 2026](https://geography.as.miami.edu/events/gisday/index.html). Monday, November 16, 2026 | 12:00 - 16:00 (submissions due Nov 11 by 5 pm!)
 
 # Introduction
 
@@ -84,11 +87,11 @@ In today's class:
 :::{.callout-note}
 # By the end of the lecture, you should be able to:
 
-- list the two main data models, and articulate their main characteristics
-- understand the principles of `vector` data
-- list the three main components of a spatial `vector` object
-- list the tree main types of a _simple feature_
-- given an `sf` object, plot it and inspect it
+- List the two main data models, and articulate their main characteristics
+- Understand the principles of `vector` data
+- List the three main components of a spatial `vector` object
+- List the tree main types of a _simple feature_
+- Given an `sf` object, plot it and inspect it
 :::
 
 
@@ -98,7 +101,7 @@ In today's class:
 
 ::: {.column width="50%"}
 ### `vector`
-- World is represented using geometries: points, lines, and polygons
+- World is represented using _geometries_: points, lines, and polygons
 - Discrete and well-defined borders = high precision
 - Computationally intensive
 :::
@@ -114,7 +117,7 @@ In today's class:
 
 . . .
 
-## Example: Rosenstiel {.scrollable}
+## Example: Rosenstiel, four ways {.scrollable}
 
 :::: {.panel-tabset}
 
@@ -131,7 +134,7 @@ rsmaes_pt <- st_sf(id = "Rosenstiel (point)",
                    geometry = rsmaes_pt_coords)
 # Visualize
 m <- mapview(rsmaes_pt) 
-m@map |> leaflet::setView(lng = -80.16328, lat = 25.73281, zoom = 17)
+m@map |> leaflet::setView(lng = -80.16328, lat = 25.73281, zoom = 15)
 ```
 
 ### Line
@@ -157,7 +160,7 @@ rsmaes_line <- st_sf(id = "Rosenstiel (line)",
                      geometry = rsmaes_line_coords)
 
 m <- mapview(rsmaes_line)
-m@map |> leaflet::setView(lng = -80.16328, lat = 25.73281, zoom = 17)
+m@map |> leaflet::setView(lng = -80.16328, lat = 25.73281, zoom = 15)
 ```
 
 ### Polygon
@@ -185,7 +188,7 @@ rsmaes_poly <- st_sf(id = "Rosenstiel (polygon)",
                      geometry = rsmaes_poly_coords)
 
 m <- mapview(rsmaes_poly)
-m@map |> leaflet::setView(lng = -80.16328, lat = 25.73281, zoom = 17)
+m@map |> leaflet::setView(lng = -80.16328, lat = 25.73281, zoom = 15)
 ```
 
 
@@ -205,7 +208,7 @@ names(rsmaes_rast) <- "Rosenstiel"
 rsmaes_rast[is.na(rsmaes_rast)] <- 0
 
 m <- mapview(rsmaes_rast, legend = F)
-m@map |> leaflet::setView(lng = -80.16328, lat = 25.73281, zoom = 17)
+m@map |> leaflet::setView(lng = -80.16328, lat = 25.73281, zoom = 15)
 ```
 
 ::::
@@ -225,7 +228,6 @@ m@map |> leaflet::setView(lng = -80.16328, lat = 25.73281, zoom = 17)
 ::: {.column width="50%"}
 ### `raster`
 - Common in natural sciences:
-    - Sea surface temperature
     - Satellite imagery
     - Species distribution models
 :::
@@ -269,7 +271,7 @@ m@map |> leaflet::setView(lng = -80.16328, lat = 25.73281, zoom = 17)
 **A:** Two numbers representing distance from an **origin**: a coordinate reference system
 
 
-# What is where? And what does "where" mean?
+# What is where? And what does "_where_" mean?
 
 Coordinates, Coordinate Reference Systems, and Attributes
 
@@ -326,7 +328,10 @@ cowplot::plot_grid(p1, p2, ncol = 2, rel_widths = c(3.5, 1))
 . . .
 
 ::: {.callout-note}
-The three main components of a spatial `vector` object are attributes (what), geometry, and CRS (where)
+The three main components of a spatial `vector` object are:
+1. attributes
+2. geometry
+4. coordinate reference system
 :::
 
 ## Attributes
@@ -344,7 +349,7 @@ The three main components of a spatial `vector` object are attributes (what), ge
 
 ## How are these compotents handled in a computer?
 
-We rely on four key low-level libraries for geocomputation:
+We rely on four key low-level programs for geocomputation:
 
 - `GDAL`: read, write, and manipulating geographic data
 - `PROJ`: coordinate system transformation
@@ -359,6 +364,7 @@ All are incredibly powerful and open source, but not exactly user-friendly
 ## Ways of interacting with these libraries
 
 ![](img/cli_and_gui.png)
+
 . . .
 
 From R, our main point of access will be the `sf` package
@@ -444,17 +450,13 @@ summary(data_milton_sf$wind_speed)
 
 . . .
 
-Keep only some columns
+Keep only some columns (geometry columns are "sticky")
 
 ```{r}
 milton_light <- data_milton_sf |> 
   select(iso_time, wind_speed)
 milton_light
 ```
-
-. . .
-
-geometry columns are "sticky"
 
 
 ## Quick example 4: Yes, `sf` objects play along with `ggplot`
@@ -543,8 +545,6 @@ plot(USA[,18])
 
 ::::
 
-. . .
-
 - These are mainly helpful as check for ourselves
 - You won't always get a legend
 
@@ -592,6 +592,7 @@ Base `plot()` is great for:
 Base `plot()` is terrible for:
 
 - Building complex visualizations (including formal maps)
+- Dealing with. large, intricate geometries
 
 :::
 ::::
@@ -628,6 +629,8 @@ p +
 ```
 :::
 ::::
+
+. . .
 
 This is what I use to build 99% of my maps, including those for publications and proposals
 
@@ -827,10 +830,6 @@ ggplot(data = rnaturalearth::ne_countries()) +
   geom_sf(data = route, color = "red") +
   geom_sf(data = route1, color = "black")
 ```
-
-## Which one is right?
-
-![In reality](img/mex-amsterdam.png)
 
 # Wrap up
 
