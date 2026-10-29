@@ -192,12 +192,6 @@ _Fall Recess is Oct 10-13_
   - R4DS [CH17: Dates and times](https://r4ds.hadley.nz/datetimes.html)
 - [Link](https://jcvdav.github.io/EVR_628/docs/10_live.html) to document from live coding session
 
----
-
-**Third assignment:** [_Data visualization_](docs/assig_3.html) due TBD
-
----
-
 ## Week 11 (Week of Oct 26)
 **Working with spatial data in R** | [slides](slides/11_spat_data_1.html)
 - Vector data and `sf`
@@ -225,12 +219,12 @@ _Fall Recess is Oct 10-13_
 
 ---
 
-**Fourth assignment:** [_Visualizing spatial data_](docs/assig_4.html), due TBD
+**Third assignment:** [_Visualizing spatial data_](docs/assig_3.html) due TBD
 
 ---
 
 ## Week 13 (Week of Nov 09)
-**Quarto markdown** | [slides](slides/13_quarto.html)
+**Markdown** | [slides](slides/13_quarto.html)
 - Intro to quarto markdown
 - Slides
 - Documents (html and pdf)
@@ -242,6 +236,12 @@ _Fall Recess is Oct 10-13_
   - R4DS [CH29: Quarto formats](https://r4ds.hadley.nz/quarto-formats.html)
 - [Link](slides/sample_slides.html) to sample slide deck we'll build
 - [Link](docs/sample_doc.html) to sample doc we'll build
+
+---
+
+**Fourth assignment:** [_Documenting your repo_](docs/assig_4.html), due TBD
+
+---
 
 ## Week 14 (Week of Nov 16)
 **Programming** | [slides](slides/14_programming)
