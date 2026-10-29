@@ -4,9 +4,9 @@ lightbox: true
 format:
   html:
     toc: true
-echo: true
-include: true
-code-fold: true
+    echo: true
+    include: true
+    code-fold: true
 ---
 
 # Exercise 0 - Set up
@@ -17,10 +17,9 @@ code-fold: true
 ```{r}
 #| code-fold: false
 #| eval: false
-install.packages("sf")            # You should have this from Tuesday
-install.packages("rnaturalearth") # You should have this from Tuesday
-install.packages("mapview")       # You should have this from Tuesday
-remotes::install_github("jcvdav/EVR628tools")
+install.packages("sf")            # Run this in your console
+install.packages("rnaturalearth") # Run this in your console
+install.packages("mapview")       # Run this in your console
 ```
 
 3. Start a new R script called `vector_data.R` and save it under `scripts/02_analysis.R`
@@ -31,14 +30,10 @@ remotes::install_github("jcvdav/EVR628tools")
 
 ## Part 1: FL counties
 
-**Post-it up**
-
-1. Go to the [FDOT website](https://gis-fdot.opendata.arcgis.com/datasets/florida-county-boundaries-with-fdot-districts/explore) and download the county **Geopackage** file^[[Geopackage are superior to shapefiles or GeoJSON files](https://towardsdatascience.com/why-you-need-to-use-geopackage-files-instead-of-shapefile-or-geojson-7cb24fe56416/)]. Make sure you save them to your `data/raw` folder.
+1. Go to the [FDOT website](https://gis-fdot.opendata.arcgis.com/datasets/florida-county-boundaries-with-fdot-districts/explore) and download the county **Geopackage** file^[If that fails, use [this instead](https://github.com/jcvdav/EVR_628/raw/refs/heads/main/data/raw/Florida_County_Boundaries_with_FDOT_Districts_-801746881308969010.gpkg)]. Make sure you save them to your `data/raw` folder.
 2. Look at the documentation for `?read_sf`
 3. Read the FL counties geopackage and assign it to an object called `FL_counties <-`
 4. Immediately after that, pipe into `clean_names()` and then again into `st_set_geometry("geometry")`. FDOT data are weird, I will explain why we are doing this.
-
-**Post-it down**
 
 ```{r}
 #| message: false
@@ -50,6 +45,8 @@ library(rnaturalearth)
 library(mapview)
 library(EVR628tools)
 
+mapviewOptions(basemaps = "Esri.WorldGrayCanvas")
+
 # Load FL counties
 FL_counties <- read_sf("data/raw/Florida_County_Boundaries_with_FDOT_Districts_-801746881308969010.gpkg") |> 
   clean_names() |> 
@@ -59,14 +56,10 @@ FL_counties <- read_sf("data/raw/Florida_County_Boundaries_with_FDOT_Districts_-
 
 ## Part 2: Inspect FL counties
 
-**Post-it up**
-
 1. How many columns do we have? How many rows?
 2. What are the column names?
 3. Use R's base `plot()` to visualize them. CAREFUL, make sure you specify `max.plot = 1`.
 4. Now use `mapview` to visualize your data.
-
-**Post-it down**
 
 ```{r}
 # Inspect attributes
@@ -83,13 +76,9 @@ mapview(FL_counties)
 
 ## Part 3: Prep the data
 
-**Post-it up**
-
 1. The FL County vector file has more columns than we need. Modify your pipeline to retain only county name and first_fips (rename them as `county_name` and `county_fips`).
-2. Load the new `data_hurricanes` data that I've included in the latest version of the `EVR628tools` package
+2. Load the `data_hurricanes` from `EVR628tools`
 3. Quickly inspect them with the usual methods
-
-**Post-it down**
 
 ```{r}
 FL_counties <- read_sf("data/raw/Florida_County_Boundaries_with_FDOT_Districts_-801746881308969010.gpkg") |> 
@@ -111,7 +100,7 @@ mapview(data_hurricanes)
 
 ## Part 1: Spatial join (`st_join`)
 
-**Task:** Count the number of storms to which each county has been exposed between 2022 and 2024
+**Task:** Count the number of storms that crossed each county between 2022 and 2024
 
 **We'll do this one together**
 
@@ -124,7 +113,8 @@ mapview(data_hurricanes)
 county_hur <- st_join(FL_counties, data_hurricanes) |> 
   group_by(county_name, county_fips) |> 
   summarize(n_storms = n_distinct(name,
-                                  na.rm = T))
+                                  na.rm = T),
+            .groups = "drop")
 
 ggplot() +
   geom_sf(data = county_hur,
@@ -137,20 +127,18 @@ ggplot() +
 
 **Task:** Which hurricanes affected FL counties?
 
-**Post-it up**
-
 1. Read the documentation for the `?st_filter()` function
 2. If our goal is to filter hurricanes based on their location, what is `x` and what is `y`?
-3. Use the `st_filter()` function to find the hurricanes that went over FL counties, save the output to `FL_hurricanes`
+3. Use the `st_filter()` function to find the hurricanes that went over FL counties, save the output to a new object called `FL_hurricanes`
 4. Make a quick map using ggplot
 5. Look at the documentation for `st_crop()`
 6. Extend your pipeline for `FL_hurricanes` to use `st_crop()`
 
-**Post-it down**
-
 ```{r}
 FL_hurricanes <- st_filter(data_hurricanes, FL_counties) |> 
   st_crop(FL_counties)
+
+FL_hurricanes
 
 ggplot() +
   geom_sf(data = FL_hurricanes,
@@ -183,14 +171,10 @@ ggplot() +
 
 # Exercise 3 - Building your own `sf` object
 
-**Post-it up**
-
 1. Load the `data_milton` dataset from the `EVR628tools` package into your environment and familiarize yourself with it (again)
 2. Look at the documentation for `?st_as_sf()`
-3. Convert our `data_milton` data.frame into an `sf` object called `milton_sf`
-4. Plot them using base `plot()`
-
-**Post-it down**
+3. Convert our `data_milton` tibble into an `sf` object called `milton_sf`
+4. Plot it using base `plot()` or `ggplot()`
 
 ```{r}
 data("data_milton")
@@ -204,6 +188,9 @@ milton_sf <- st_as_sf(data_milton,
 
 # Plot them
 plot(milton_sf, max.plot = 1)
+
+ggplot(data = milton_sf) +
+  geom_sf()
 ```
 
 
