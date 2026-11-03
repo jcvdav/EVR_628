@@ -19,12 +19,6 @@ theme_set(
 )
 ```
 
-# Announcements
-
-## Upcoming EVR Seminar
-
-![Travis Coan, Professor of Computational Social Science, University of Exeter](img/seminar_announcement.png){width=50%}
-
 ## Last Week
 
 - Spatial data can be represented in a `vector` model, or a `raster` model
@@ -107,6 +101,7 @@ FL_counties_rast_high <- FL_counties |>
 ```
 
 ```{r}
+#| echo: false
 plot(FL_counties_rast_high)
 ```
 
@@ -437,7 +432,7 @@ The `{tidyterra}` package:
 #| code-fold: false
 #| code-line-numbers: "1|2|3|4|5|"
 #| fig-width: 6
-#| fig-height: 5
+#| fig-height: 3
 library(tidyterra) # Load terra
 ggplot() +         # Begin a ggplot
   geom_spatraster(data = depth, # specify object to plot
@@ -622,7 +617,6 @@ ggplot() +
 
 ## Before Next Class:
 
-- Update RStudio
 - Install `terra`, `tidyterra`, and `ggspatial`
 
 ```{r}

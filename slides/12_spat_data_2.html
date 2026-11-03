@@ -6,8 +6,8 @@
 <script src="12_spat_data_2_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="12_spat_data_2_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="12_spat_data_2_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="12_spat_data_2_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+<link href="12_spat_data_2_files/libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="Juan Carlos Villaseñor-Derbez (JC)">
   <title>Working with spatial data in R</title>
@@ -115,7 +115,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="12_spat_data_2_files/libs/revealjs/dist/theme/quarto-2c1b5f745a11cfad616ebade4a4a7d24.css">
+  <link rel="stylesheet" href="12_spat_data_2_files/libs/revealjs/dist/theme/quarto-0fde88a82f0356838740f155f1088782.css">
   <link href="12_spat_data_2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="12_spat_data_2_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="12_spat_data_2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -222,25 +222,11 @@
 Juan Carlos Villaseñor-Derbez (JC) 
 </div>
         <p class="quarto-title-affiliation">
-            Rosenstiel School of Marine, Atmospheric, and Earth Science and Institute for Data Science and Computing
+            Rosenstiel School of Marine, Atmospheric &amp; Earth Science and Institute for Data Science &amp; Computing
           </p>
     </div>
 </div>
 
-</section>
-<section>
-<section id="announcements" class="title-slide slide level1 center">
-<h1>Announcements</h1>
-
-</section>
-<section id="upcoming-evr-seminar" class="slide level2">
-<h2>Upcoming EVR Seminar</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/seminar_announcement.png" style="width:50.0%"></p>
-<figcaption>Travis Coan, Professor of Computational Social Science, University of Exeter</figcaption>
-</figure>
-</div>
 </section>
 <section id="last-week" class="slide level2">
 <h2>Last Week</h2>
@@ -277,7 +263,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div>
 </div>
 </div>
-</section></section>
+</section>
 <section>
 <section id="raster-data-model" class="title-slide slide level1 center">
 <h1>Raster Data Model</h1>
@@ -321,10 +307,6 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div>
 <div id="tabset-1-3">
 <div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">plot</span>(FL_counties_rast_high)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -487,22 +469,22 @@ Juan Carlos Villaseñor-Derbez (JC)
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2" data-code-line-numbers="1|2-3|4|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">library</span>(terra) <span class="co"># Load terra</span></span>
-<span id="cb2-2"><a href=""></a><span class="co"># Load in my raster</span></span>
-<span id="cb2-3"><a href=""></a>depth <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">"data/raw/depth_raster.tif"</span>)</span>
-<span id="cb2-4"><a href=""></a>depth <span class="co"># Printing a raster reveals the header, not the data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" data-code-line-numbers="1|2-3|4|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(terra) <span class="co"># Load terra</span></span>
+<span id="cb1-2"><a href=""></a><span class="co"># Load in my raster</span></span>
+<span id="cb1-3"><a href=""></a>depth <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">"data/raw/depth_raster.tif"</span>)</span>
+<span id="cb1-4"><a href=""></a>depth <span class="co"># Printing a raster reveals the header, not the data</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>class       : SpatRaster 
+<pre><code>class       : SpatRaster
 size        : 3600, 7200, 1  (nrow, ncol, nlyr)
 resolution  : 0.05, 0.05  (x, y)
 extent      : -180, 180, -90, 90  (xmin, xmax, ymin, ymax)
-coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-source      : depth_raster.tif 
-name        :       depth_m 
-min value   : -10273.276367 
-max value   :      0.985951 </code></pre>
+coord. ref. : lon/lat WGS 84 (EPSG:4326)
+source      : depth_raster.tif
+name        :       depth_m
+min value   : -10273.276367
+max value   :      0.985951</code></pre>
 </div>
 </div>
 </div>
@@ -516,23 +498,23 @@ max value   :      0.985951 </code></pre>
 <div class="fragment">
 <p>Find info contained in the header with specific functions:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">ext</span>(depth)   <span class="co"># Gets the extent</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">ext</span>(depth)   <span class="co"># Gets the extent</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>SpatExtent : -180, 180, -90, 90 (xmin, xmax, ymin, ymax)</code></pre>
+<pre><code>SpatExtent : -180, 180.00000000000003, -90.000000000000014, 90 (xmin, xmax, ymin, ymax)</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">res</span>(depth)   <span class="co"># Gets the resolution</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="fu">res</span>(depth)   <span class="co"># Gets the resolution</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.05 0.05</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">dim</span>(depth)   <span class="co"># Returns nrow, ncol, nlayers</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">dim</span>(depth)   <span class="co"># Returns nrow, ncol, nlayers</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3600 7200    1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">ncell</span>(depth) <span class="co"># Number of pixels (values)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">ncell</span>(depth) <span class="co"># Number of pixels (values)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 25920000</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">names</span>(depth) <span class="co"># Gets the names for each layer</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">names</span>(depth) <span class="co"># Gets the names for each layer</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "depth_m"</code></pre>
 </div>
@@ -544,7 +526,7 @@ max value   :      0.985951 </code></pre>
 <h2>Visualizing Rasters in R</h2>
 <p>The fastest way is to use the base <code>plot()</code> function</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">plot</span>(depth) <span class="co"># Single line of code gets me a decent map</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="fu">plot</span>(depth) <span class="co"># Single line of code gets me a decent map</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -558,8 +540,8 @@ max value   :      0.985951 </code></pre>
 <h2>Visualizing Rasters in R</h2>
 <p>As with vector data, I can layer different pieces of my plot</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15" data-code-line-numbers="1-2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">plot</span>(depth) <span class="co"># Build plot</span></span>
-<span id="cb15-2"><a href=""></a><span class="fu">plot</span>(FL_counties, <span class="at">add =</span> T) <span class="co"># Add FL counties on top</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14" data-code-line-numbers="1-2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">plot</span>(depth) <span class="co"># Build plot</span></span>
+<span id="cb14-2"><a href=""></a><span class="fu">plot</span>(FL_counties, <span class="at">add =</span> T) <span class="co"># Add FL counties on top</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -582,9 +564,9 @@ max value   :      0.985951 </code></pre>
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16" data-code-line-numbers="1|2|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>FL_depth <span class="ot">&lt;-</span> <span class="fu">crop</span>(depth, FL_counties) <span class="co"># Crop the global depth raster to the extent of FL_counties</span></span>
-<span id="cb16-2"><a href=""></a><span class="fu">plot</span>(FL_depth)</span>
-<span id="cb16-3"><a href=""></a><span class="fu">plot</span>(FL_counties, <span class="at">add =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15" data-code-line-numbers="1|2|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>FL_depth <span class="ot">&lt;-</span> <span class="fu">crop</span>(depth, FL_counties) <span class="co"># Crop the global depth raster to the extent of FL_counties</span></span>
+<span id="cb15-2"><a href=""></a><span class="fu">plot</span>(FL_depth)</span>
+<span id="cb15-3"><a href=""></a><span class="fu">plot</span>(FL_counties, <span class="at">add =</span> T)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -603,7 +585,7 @@ max value   :      0.985951 </code></pre>
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="fu">plot</span>(FL_depth <span class="sc">&lt;=</span> <span class="sc">-</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="fu">plot</span>(FL_depth <span class="sc">&lt;=</span> <span class="sc">-</span><span class="dv">100</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -626,13 +608,13 @@ max value   :      0.985951 </code></pre>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18" data-code-line-numbers="1-2|3-4|5-7|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="co"># Crop FL</span></span>
-<span id="cb18-2"><a href=""></a>FL_depth <span class="ot">&lt;-</span> <span class="fu">crop</span>(depth, FL_counties)</span>
-<span id="cb18-3"><a href=""></a><span class="co"># Find pixels deeper than 100 and replace them with NA</span></span>
-<span id="cb18-4"><a href=""></a>FL_depth[FL_depth <span class="sc">&lt;=</span> <span class="sc">-</span><span class="dv">100</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb18-5"><a href=""></a><span class="co"># Plot it</span></span>
-<span id="cb18-6"><a href=""></a><span class="fu">plot</span>(FL_depth)</span>
-<span id="cb18-7"><a href=""></a><span class="fu">plot</span>(FL_counties, <span class="at">add =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17" data-code-line-numbers="1-2|3-4|5-7|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="co"># Crop FL</span></span>
+<span id="cb17-2"><a href=""></a>FL_depth <span class="ot">&lt;-</span> <span class="fu">crop</span>(depth, FL_counties)</span>
+<span id="cb17-3"><a href=""></a><span class="co"># Find pixels deeper than 100 and replace them with NA</span></span>
+<span id="cb17-4"><a href=""></a>FL_depth[FL_depth <span class="sc">&lt;=</span> <span class="sc">-</span><span class="dv">100</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb17-5"><a href=""></a><span class="co"># Plot it</span></span>
+<span id="cb17-6"><a href=""></a><span class="fu">plot</span>(FL_depth)</span>
+<span id="cb17-7"><a href=""></a><span class="fu">plot</span>(FL_counties, <span class="at">add =</span> T)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li class="fragment">This code is not very readable</li>
@@ -676,11 +658,11 @@ max value   :      0.985951 </code></pre>
 <section id="visualizing-rasters-in-r-tidyterra" class="slide level2">
 <h2>Visualizing Rasters in R: <code>{tidyterra}</code></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19" data-code-line-numbers="1|2|3|4|5|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="fu">library</span>(tidyterra) <span class="co"># Load terra</span></span>
-<span id="cb19-2"><a href=""></a><span class="fu">ggplot</span>() <span class="sc">+</span>         <span class="co"># Begin a ggplot</span></span>
-<span id="cb19-3"><a href=""></a>  <span class="fu">geom_spatraster</span>(<span class="at">data =</span> depth, <span class="co"># specify object to plot</span></span>
-<span id="cb19-4"><a href=""></a>                  <span class="fu">aes</span>(<span class="at">fill =</span> depth_m)) <span class="sc">+</span> <span class="co"># specify layer to plot</span></span>
-<span id="cb19-5"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> FL_counties) <span class="co"># Add FL counties on top</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18" data-code-line-numbers="1|2|3|4|5|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">library</span>(tidyterra) <span class="co"># Load terra</span></span>
+<span id="cb18-2"><a href=""></a><span class="fu">ggplot</span>() <span class="sc">+</span>         <span class="co"># Begin a ggplot</span></span>
+<span id="cb18-3"><a href=""></a>  <span class="fu">geom_spatraster</span>(<span class="at">data =</span> depth, <span class="co"># specify object to plot</span></span>
+<span id="cb18-4"><a href=""></a>                  <span class="fu">aes</span>(<span class="at">fill =</span> depth_m)) <span class="sc">+</span> <span class="co"># specify layer to plot</span></span>
+<span id="cb18-5"><a href=""></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> FL_counties) <span class="co"># Add FL counties on top</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -699,13 +681,13 @@ max value   :      0.985951 </code></pre>
 <div class="columns">
 <div class="column" style="width:45%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20" data-code-line-numbers="1|2|3|4|6-7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="fu">library</span>(tidyterra)</span>
-<span id="cb20-2"><a href=""></a>FL_depth <span class="ot">&lt;-</span> depth <span class="sc">|&gt;</span> </span>
-<span id="cb20-3"><a href=""></a>  terra<span class="sc">::</span><span class="fu">crop</span>(FL_counties) <span class="sc">|&gt;</span> </span>
-<span id="cb20-4"><a href=""></a>  tidyterra<span class="sc">::</span><span class="fu">filter</span>(depth_m <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">100</span>)</span>
-<span id="cb20-5"><a href=""></a></span>
-<span id="cb20-6"><a href=""></a><span class="fu">plot</span>(FL_depth)</span>
-<span id="cb20-7"><a href=""></a><span class="fu">plot</span>(FL_counties, <span class="at">add =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19" data-code-line-numbers="1|2|3|4|6-7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="fu">library</span>(tidyterra)</span>
+<span id="cb19-2"><a href=""></a>FL_depth <span class="ot">&lt;-</span> depth <span class="sc">|&gt;</span> </span>
+<span id="cb19-3"><a href=""></a>  terra<span class="sc">::</span><span class="fu">crop</span>(FL_counties) <span class="sc">|&gt;</span> </span>
+<span id="cb19-4"><a href=""></a>  tidyterra<span class="sc">::</span><span class="fu">filter</span>(depth_m <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">100</span>)</span>
+<span id="cb19-5"><a href=""></a></span>
+<span id="cb19-6"><a href=""></a><span class="fu">plot</span>(FL_depth)</span>
+<span id="cb19-7"><a href=""></a><span class="fu">plot</span>(FL_counties, <span class="at">add =</span> T)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -742,27 +724,27 @@ max value   :      0.985951 </code></pre>
 <section id="combining-rasters-in-terra-1" class="slide level2">
 <h2>Combining Rasters in <code>terra</code></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21" data-code-line-numbers="1-5|6-7|8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="co"># Let's read habitat suitability models for four sea turtle species</span></span>
-<span id="cb21-2"><a href=""></a>log <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">"data/raw/AquaMaps/Caretta_caretta.tiff"</span>)</span>
-<span id="cb21-3"><a href=""></a>green <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">"data/raw/AquaMaps/Chelonia_mydas.tiff"</span>)</span>
-<span id="cb21-4"><a href=""></a>leather <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">"data/raw/AquaMaps/Dermochelys_coriacea.tiff"</span>)</span>
-<span id="cb21-5"><a href=""></a>hawk <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">"data/raw/AquaMaps/Eretmochelys_imbricata.tiff"</span>)</span>
-<span id="cb21-6"><a href=""></a><span class="co"># We can combine them together using the `c()` function</span></span>
-<span id="cb21-7"><a href=""></a>turtles <span class="ot">&lt;-</span> <span class="fu">c</span>(log, green, leather, hawk)</span>
-<span id="cb21-8"><a href=""></a>turtles</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20" data-code-line-numbers="1-5|6-7|8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="co"># Let's read habitat suitability models for four sea turtle species</span></span>
+<span id="cb20-2"><a href=""></a>log <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">"data/raw/AquaMaps/Caretta_caretta.tiff"</span>)</span>
+<span id="cb20-3"><a href=""></a>green <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">"data/raw/AquaMaps/Chelonia_mydas.tiff"</span>)</span>
+<span id="cb20-4"><a href=""></a>leather <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">"data/raw/AquaMaps/Dermochelys_coriacea.tiff"</span>)</span>
+<span id="cb20-5"><a href=""></a>hawk <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">"data/raw/AquaMaps/Eretmochelys_imbricata.tiff"</span>)</span>
+<span id="cb20-6"><a href=""></a><span class="co"># We can combine them together using the `c()` function</span></span>
+<span id="cb20-7"><a href=""></a>turtles <span class="ot">&lt;-</span> <span class="fu">c</span>(log, green, leather, hawk)</span>
+<span id="cb20-8"><a href=""></a>turtles</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>class       : SpatRaster 
+<pre><code>class       : SpatRaster
 size        : 300, 720, 4  (nrow, ncol, nlyr)
 resolution  : 0.5, 0.5  (x, y)
 extent      : -180, 180, -75, 75  (xmin, xmax, ymin, ymax)
-coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-sources     : Caretta_caretta.tiff  
-              Chelonia_mydas.tiff  
-              Dermochelys_coriacea.tiff  
-              Eretmochelys_imbricata.tiff  
-names       : Caretta_caretta, Chelonia_mydas, Dermoch~oriacea, Eretmoc~bricata 
-min values  :            0.01,           0.01,            0.01,            0.01 
-max values  :            1.00,           1.00,            1.00,            1.00 </code></pre>
+coord. ref. : lon/lat WGS 84 (EPSG:4326)
+sources     : Caretta_caretta.tiff
+              Chelonia_mydas.tiff
+              Dermochelys_coriacea.tiff
+              Eretmochelys_imbricata.tiff
+names       : Caretta_caretta, Chelonia_mydas, Dermoch~oriacea, Eretmoc~bricata
+min values  :            0.01,           0.01,            0.01,            0.01
+max values  :               1,              1,               1,               1</code></pre>
 </div>
 </div>
 </section>
@@ -770,7 +752,7 @@ max values  :            1.00,           1.00,            1.00,            1.00 
 <h2>Multi-Layer Rasters</h2>
 <p>Calling <code>plot()</code> on a multi-layer raster shows us one sub-plot per layer</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a><span class="fu">plot</span>(turtles)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a><span class="fu">plot</span>(turtles)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -786,28 +768,28 @@ max values  :            1.00,           1.00,            1.00,            1.00 
 <div class="columns">
 <div class="column" style="width:65%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24" data-code-line-numbers="1|2-6|7-8|9-10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a>turtle_habitat <span class="ot">&lt;-</span> turtles <span class="sc">|&gt;</span> <span class="co"># Start from turtles</span></span>
-<span id="cb24-2"><a href=""></a>  <span class="co"># And pipe into filter()</span></span>
-<span id="cb24-3"><a href=""></a>  <span class="fu">filter</span>(Caretta_caretta <span class="sc">&gt;</span> <span class="fl">0.5</span>,</span>
-<span id="cb24-4"><a href=""></a>         Chelonia_mydas <span class="sc">&gt;</span> <span class="fl">0.5</span>,</span>
-<span id="cb24-5"><a href=""></a>         Dermochelys_coriacea <span class="sc">&gt;</span> <span class="fl">0.5</span>,</span>
-<span id="cb24-6"><a href=""></a>         Eretmochelys_imbricata <span class="sc">&gt;</span> <span class="fl">0.5</span>)</span>
-<span id="cb24-7"><a href=""></a><span class="co"># Inspect the metadata</span></span>
-<span id="cb24-8"><a href=""></a>turtle_habitat</span>
-<span id="cb24-9"><a href=""></a><span class="co"># And plot it</span></span>
-<span id="cb24-10"><a href=""></a><span class="fu">plot</span>(turtle_habitat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23" data-code-line-numbers="1|2-6|7-8|9-10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>turtle_habitat <span class="ot">&lt;-</span> turtles <span class="sc">|&gt;</span> <span class="co"># Start from turtles</span></span>
+<span id="cb23-2"><a href=""></a>  <span class="co"># And pipe into filter()</span></span>
+<span id="cb23-3"><a href=""></a>  <span class="fu">filter</span>(Caretta_caretta <span class="sc">&gt;</span> <span class="fl">0.5</span>,</span>
+<span id="cb23-4"><a href=""></a>         Chelonia_mydas <span class="sc">&gt;</span> <span class="fl">0.5</span>,</span>
+<span id="cb23-5"><a href=""></a>         Dermochelys_coriacea <span class="sc">&gt;</span> <span class="fl">0.5</span>,</span>
+<span id="cb23-6"><a href=""></a>         Eretmochelys_imbricata <span class="sc">&gt;</span> <span class="fl">0.5</span>)</span>
+<span id="cb23-7"><a href=""></a><span class="co"># Inspect the metadata</span></span>
+<span id="cb23-8"><a href=""></a>turtle_habitat</span>
+<span id="cb23-9"><a href=""></a><span class="co"># And plot it</span></span>
+<span id="cb23-10"><a href=""></a><span class="fu">plot</span>(turtle_habitat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>class       : SpatRaster 
+<pre><code>class       : SpatRaster
 size        : 300, 720, 4  (nrow, ncol, nlyr)
 resolution  : 0.5, 0.5  (x, y)
 extent      : -180, 180, -75, 75  (xmin, xmax, ymin, ymax)
-coord. ref. : lon/lat WGS 84 (EPSG:4326) 
+coord. ref. : lon/lat WGS 84 (EPSG:4326)
 source(s)   : memory
-names       : Caretta_caretta, Chelonia_mydas, Dermoch~oriacea, Eretmoc~bricata 
-min values  :            0.51,           0.51,            0.55,            0.51 
-max values  :            1.00,           1.00,            1.00,            1.00 </code></pre>
+names       : Caretta_caretta, Chelonia_mydas, Dermoch~oriacea, Eretmoc~bricata
+min values  :            0.51,           0.51,            0.55,            0.51
+max values  :               1,              1,               1,               1</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:35%;">
@@ -828,15 +810,15 @@ max values  :            1.00,           1.00,            1.00,            1.00 
 <h2>Multi-Layer Rasters</h2>
 <p><strong>Task</strong>: Calculate the <em>mean</em> habitat suitability around FL waters</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26" data-code-line-numbers="1|2-6|7-8|9|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a>turtle_habitat <span class="ot">&lt;-</span> turtles <span class="sc">|&gt;</span> <span class="co"># Start from turtles</span></span>
-<span id="cb26-2"><a href=""></a>  <span class="co"># And pipe into filter()</span></span>
-<span id="cb26-3"><a href=""></a>  <span class="fu">filter</span>(Caretta_caretta <span class="sc">&gt;</span> <span class="fl">0.5</span>,</span>
-<span id="cb26-4"><a href=""></a>         Chelonia_mydas <span class="sc">&gt;</span> <span class="fl">0.5</span>,</span>
-<span id="cb26-5"><a href=""></a>         Dermochelys_coriacea <span class="sc">&gt;</span> <span class="fl">0.5</span>,</span>
-<span id="cb26-6"><a href=""></a>         Eretmochelys_imbricata <span class="sc">&gt;</span> <span class="fl">0.5</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb26-7"><a href=""></a>  <span class="co"># Then crop it to FL counties</span></span>
-<span id="cb26-8"><a href=""></a>  <span class="fu">crop</span>(<span class="fu">st_buffer</span>(FL_counties, <span class="at">dist =</span> <span class="dv">100000</span>)) <span class="sc">|&gt;</span>  <span class="co"># Any guesses on what st_buffer is doing?</span></span>
-<span id="cb26-9"><a href=""></a>  <span class="fu">mean</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25" data-code-line-numbers="1|2-6|7-8|9|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a>turtle_habitat <span class="ot">&lt;-</span> turtles <span class="sc">|&gt;</span> <span class="co"># Start from turtles</span></span>
+<span id="cb25-2"><a href=""></a>  <span class="co"># And pipe into filter()</span></span>
+<span id="cb25-3"><a href=""></a>  <span class="fu">filter</span>(Caretta_caretta <span class="sc">&gt;</span> <span class="fl">0.5</span>,</span>
+<span id="cb25-4"><a href=""></a>         Chelonia_mydas <span class="sc">&gt;</span> <span class="fl">0.5</span>,</span>
+<span id="cb25-5"><a href=""></a>         Dermochelys_coriacea <span class="sc">&gt;</span> <span class="fl">0.5</span>,</span>
+<span id="cb25-6"><a href=""></a>         Eretmochelys_imbricata <span class="sc">&gt;</span> <span class="fl">0.5</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb25-7"><a href=""></a>  <span class="co"># Then crop it to FL counties</span></span>
+<span id="cb25-8"><a href=""></a>  <span class="fu">crop</span>(<span class="fu">st_buffer</span>(FL_counties, <span class="at">dist =</span> <span class="dv">100000</span>)) <span class="sc">|&gt;</span>  <span class="co"># Any guesses on what st_buffer is doing?</span></span>
+<span id="cb25-9"><a href=""></a>  <span class="fu">mean</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -885,13 +867,12 @@ max values  :            1.00,           1.00,            1.00,            1.00 
 <section id="before-next-class" class="slide level2">
 <h2>Before Next Class:</h2>
 <ul>
-<li class="fragment">Update RStudio</li>
 <li class="fragment">Install <code>terra</code>, <code>tidyterra</code>, and <code>ggspatial</code></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"terra"</span>)</span>
-<span id="cb27-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"tidyterra"</span>)</span>
-<span id="cb27-3"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"ggspatial"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"terra"</span>)</span>
+<span id="cb26-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"tidyterra"</span>)</span>
+<span id="cb26-3"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"ggspatial"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="references" class="slide level2 smaller scrollable">
@@ -1097,7 +1078,7 @@ Wickham, Hadley, Mine Cetinkaya-Rundel, and Garrett Grolemund. 2023. <em><span>R
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -1209,13 +1190,14 @@ Wickham, Hadley, Mine Cetinkaya-Rundel, and Garrett Grolemund. 2023. <em><span>R
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy
