@@ -39,7 +39,7 @@ NOAA Fisheries has identified [Rice's whale core habitat](https://www.fisheries.
 
 ## Exercise 1: Download datasets
 
-**Post-it up**
+
 
 **Rice's whale Core Habitat**
 
@@ -54,11 +54,11 @@ NOAA Fisheries has identified [Rice's whale core habitat](https://www.fisheries.
 2. Save it to `data/raw`
 3. Is this a `vector` or a `raster` file?
 
-**Post-it down**
+
 
 ## Exercise 2: Read datasets into R
 
-**Post-it up**
+
 
 1. Create a new R script called `rices_whale.R` and save it to your `scripts/analysis` folder.
 2. Add a basic comment structure to your script.
@@ -70,7 +70,7 @@ NOAA Fisheries has identified [Rice's whale core habitat](https://www.fisheries.
 5. Use `data()` to load the `data_fishing_effort` dataset from the `EVR628tools` package.
 6. Quickly inspect your `whale` and `coast` data using `mapview()`. Inspect `depth` with `plot()`.
 
-**Post-it down**
+
 
 ```{r}
 #| message: false
@@ -83,6 +83,8 @@ library(sf)            # Working with vector data
 library(terra)         # Working with raster data
 library(tidyterra)     # Working with raster data in tidy approach
 library(mapview)       # To quickly inspect data
+
+mapviewOptions(basemaps = "Esri.WorldGrayCanvas") # To make sure MapView works
 
 # Load data --------------------------------------------------------------------
 # Load whale core habitat
@@ -104,16 +106,12 @@ plot(depth)
 
 ## Exercise 1: Rasterize fishing effort
 
-Printing the `data_fishing_effort` object reveals that it contains monthly fishing effort by pixel^[Hint: Use `?data_fishing_effort` to look at the documentation], but it is not yet a raster object... we'll get there after some piping.
+Printing the `data_fishing_effort` object reveals that it contains monthly fishing effort by pixel^[Hint: Use `?data_fishing_effort` to look at the documentation], but it is not yet a raster object... we'll get there after some piping. Do steps 1-3 on your own.
 
-**Post-it up**
 
 1. Look at the documentation for the `?rast()` function. Scroll down to where it says "`## S4 method for signature 'data.frame'`".
 2. Start building a pipeline. Create a new object called `effort_raster <- ` that receives the `data_fishing_effort` object.
 3. Calculate total fishing effort (in hours) for each pixel (`lon`, `lat`) using `group_by()` and `summarize()`. Name the new column `hours`.
-
-**Post-it down**
-
 4. After the `summarize()`, pipe into `rast()`. For the `crs` argument, use `crs = "EPSG:4326"`^[More on EPSG codes at [EPSG.io](https://epsg.io/)].
 5. Print the new `effort_raster` to your console.
     - What is the `class` of `effort_raster`?
@@ -143,10 +141,10 @@ We now want to extract the data associated with pixels inside the whale's core h
 
 1. Look at the documentation for the `?extract()` function in the `terra` package.
 2. Pay attention to the section "`## S4 method for signature 'SpatRaster,SpatVector'`"
-    - What are `x` and `y`?
+    - What are `x` and `y` supposed to be?
     - What does the `fun` argument do?
-    - What is the `exact` parameter for?
-3. Extract all fishing effort occurring inside the whale's core habitat. Use `fun = sum` and `na.rm = T`
+    - What does the `exact` parameter do?
+3. Extract all fishing effort occurring inside the whale's core habitat. What should `fun` be?^[Use `fun = sum` and `na.rm = T`]
 4. Then try adding `touches = T`. What happens to the answer?
 5. Now use `exact = T`. What happens now?
 

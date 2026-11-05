@@ -8,7 +8,7 @@
 
 <meta name="author" content="Juan Carlos Villaseñor-Derbez (JC)">
 
-<title>Assignment 3: Visualizing your data</title>
+<title>Assignment 4: Visualizing spatial data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -90,9 +90,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#this-assignment" id="toc-this-assignment" class="nav-link" data-scroll-target="#this-assignment">This assignment</a>
   <ul class="collapse">
   <li><a href="#turning-in-your-assignment" id="toc-turning-in-your-assignment" class="nav-link" data-scroll-target="#turning-in-your-assignment">Turning in your assignment</a></li>
-  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
+  <li><a href="#important-notes" id="toc-important-notes" class="nav-link" data-scroll-target="#important-notes">Important notes</a></li>
   </ul></li>
-  <li><a href="#example-of-a-figure-that-would-get-100" id="toc-example-of-a-figure-that-would-get-100" class="nav-link" data-scroll-target="#example-of-a-figure-that-would-get-100">Example of a figure that would get 100%</a></li>
+  <li><a href="#example-of-a-script-and-map-that-would-get-100" id="toc-example-of-a-script-and-map-that-would-get-100" class="nav-link" data-scroll-target="#example-of-a-script-and-map-that-would-get-100">Example of a script and map that would get 100%</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="assig_3.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </div>
@@ -100,7 +100,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Assignment 3: Visualizing your data</h1>
+<h1 class="title">Assignment 4: Visualizing spatial data</h1>
 <p class="subtitle lead"><a href="https://jcvdav.github.io/EVR_628/">EVR 628</a>- Intro to Environmental Data Science</p>
 </div>
 
@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   <div class="quarto-title-meta-contents">
         <p class="affiliation">
-            Rosenstiel School of Marine, Atmospheric, and Earth Science and Institute for Data Science and Computing
+            Rosenstiel School of Marine, Atmospheric &amp; Earth Science and Institute for Data Science &amp; Computing
           </p>
       </div>
   </div>
@@ -133,126 +133,215 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="the-big-picture" class="level1">
 <h1>The big picture</h1>
-<p>Remember that the final goal is to have a GitHub repository where you can showcase your work. Assignment 1 was to create the repository. Assignment two required you to develop one R script to clean some data in that same repository. <strong>For this third assignment, you will visualize the data you cleaned last week.</strong> Your fourth assignment will require you to work with spatial data. Your final project will leverage the data and visualizations you’ll produce to wrap it all together.</p>
+<p>Remember that the final goal is to have a GitHub repository where you can showcase your work. Assignment 1 was to create the repository. Assignment two required you to develop R scripts to clean and visualize your datathat same repository. <strong>For your thirds assignment, you will work with spatial data to produce a map of your “study site”, broadly defined.</strong> Your final project will leverage the data and visualizations you’ll produce to wrap it all together.</p>
 </section>
 <section id="this-assignment" class="level1">
 <h1>This assignment</h1>
-<p><strong>Task:</strong> Develop one data visualization script that reads the clean data you exported last week, visualizes them, and exports 1-2 figures in <code>.png</code> format.</p>
-<p>Your visualization should meet the following criteria (50% of your grade):</p>
+<p><strong>Task:</strong> Produce a map that shows a spatial aspect of your data, and export it as a <code>.png</code> figure. Your map can show the study area or your data themselves, depending on what you are working with.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Use of generative AI
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Remember you <em>can</em> use AI to troubleshoot and debug your code, but:</p>
+<ol type="1">
+<li>You should be the one writing the code</li>
+<li>You should be able to describe what your code does. That is, don’t just write code you don’t understand.</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>No Big Data on GitHub!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Spatial data can get quite large. If at any point a data file exceeds 100 MB, <strong>DO NOT PUT IT ON GITHUB</strong>. Your options are two add it to the <code>.gitignore</code> file (come to office hours if needed) or to make a conscious decision not to commit and push that file.</p>
+</div>
+</div>
+<p>Your script should have the following (50% of your grade):</p>
 <ul class="task-list">
-<li><label><input type="checkbox">(10%) You must use at lest two different <code>geoms</code> to show <em>different</em> visualizations<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</label></li>
-<li><label><input type="checkbox">(10%) You must modify labels as appropriate, and make sure to include units when relevant. Use the <code>caption</code> argument to attribute the source of your data.</label></li>
-<li><label><input type="checkbox">(10%) All text appears in <code>Sentence case</code>, as relevant.</label></li>
-<li><label><input type="checkbox">(10%) You must use any theme other than the default theme.</label></li>
-<li><label><input type="checkbox">(10%) At least one of your figures should have panels, produced either with <code>facet_*()</code> or by combining multiple plots with <code>cowplot::plot_grid()</code> or the <code>patchwork</code> package.</label></li>
+<li><label><input type="checkbox">(10%) Be called <code>spatial_data_visualization.R</code> and be saved inside the <code>scripts/03_content/</code> folder.</label></li>
+<li><label><input type="checkbox">(10%) Contain code documentation using comments <code>#</code>.</label></li>
+<li><label><input type="checkbox">(10%) Clearly indicate all packages and data loaded at the top of the script.</label></li>
+<li><label><input type="checkbox">(10%) Uses <strong>relative</strong> paths to read data and write figures. Figure(s) are exported to the <code>results/img</code> folder in <code>*.png</code> format.</label></li>
+<li><label><input type="checkbox">(10%) I can reproduce your map without needing to modify any code (unless you have large data).</label></li>
 </ul>
-<p>Additionally, your script should have the following (50% of your grade):</p>
+<p>Your map should meet the following criteria (50% of your grade):</p>
 <ul class="task-list">
-<li><label><input type="checkbox">(10%) Be called <code>data_visualization.R</code> and be saved inside the <code>scripts/03_content/</code> folder</label></li>
-<li><label><input type="checkbox">(10%) Contain code documentation using comments <code>#</code></label></li>
-<li><label><input type="checkbox">(10%) Clearly indicate all packages and data loaded at the top of the script<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></label></li>
-<li><label><input type="checkbox">(10%) Uses <strong>relative</strong> paths to read data and write figures. Figure(s) are exported to the <code>results/img</code> folder.</label></li>
-<li><label><input type="checkbox">(10%) I can reproduce your figure without needing to modify any code.</label></li>
+<li><label><input type="checkbox">(25%) You use <code>geom_sf()</code> and / or <code>geom_spatraster()</code> at a minimum (but feel free to add more layers if necessary, like we did for <a href="12_live.html#part-3-visualize">Rices whale</a>).</label></li>
+<li><label><input type="checkbox">(10%) You must use a base layer that is not part of your data to add context to your map<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</label></li>
+<li><label><input type="checkbox">(10%) It includes a north arrow and a scale bar.</label></li>
+<li><label><input type="checkbox">(5%) You must modify labels as appropriate, and make sure to include units when relevant. Use the <code>caption</code> argument to attribute the source of your data.</label></li>
 </ul>
 <section id="turning-in-your-assignment" class="level2">
 <h2 class="anchored" data-anchor-id="turning-in-your-assignment">Turning in your assignment</h2>
 <ul>
 <li>Please share the link to your github repo via Canvas</li>
-<li>The deadline for this assignment is Nov 2 by 23:59</li>
+<li>The deadline for this assignment is Nov 15 by 23:59</li>
 </ul>
 </section>
-<section id="resources" class="level2">
-<h2 class="anchored" data-anchor-id="resources">Resources</h2>
+<section id="important-notes" class="level2">
+<h2 class="anchored" data-anchor-id="important-notes">Important notes</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">I know I have spatial data</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">I don’t think I have spatial data</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Where might I find data?</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">Other Resources</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Some of you were already working with data that has latitude and longitude. That is great, you can use those coordinates to build points, lines or polygons as you see fit. You may also elect to simply build a map that shows where you data came from, rather than your data themselves.</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Some of you are working with data that don’t have coordinates. That is also fine, and that is often the case for most data out there. However, the data were likely collected from somewhere in the world or, at least, generated in a laboratory. You can elect to build a map of said location in a few different ways:</p>
+<ul>
+<li>Get coordinates from Google Maps and <a href="https://jcvdav.github.io/EVR_628/slides/11_spat_data_1.html#/example-rosenstiel-four-ways">build your own sf object from scratch</a>.</li>
+<li>Find the relevant data online (see next tab) and highlight the relevant spatial feature.</li>
+</ul>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p><strong>R packages</strong></p>
+<ul>
+<li><a href="https://ropensci.github.io/rnaturalearth/"><code>{rnaturalearth}</code></a></li>
+<li><a href="https://docs.ropensci.org/rnaturalearthhires/"><code>{rnaturalearthhires}</code></a></li>
+<li><a href="https://jakubnowosad.com/spData/"><code>{spData}</code></a></li>
+<li><a href="https://github.com/Nowosad/spData?tab=readme-ov-file#spdatalarge"><code>{spDataLarge}</code></a></li>
+<li><a href="https://docs.ropensci.org/mregions2/"><code>{mregions2}</code></a></li>
+<li><a href="https://emlab-ucsb.github.io/oceandatr/"><code>{oceandatr}</code></a></li>
+<li><a href="https://github.com/tcarleton/stagg"><code>{stag}</code></a></li>
+</ul>
+<p><strong>Websites</strong></p>
+<ul>
+<li><a href="https://gdsc.idsc.miami.edu/">UM’s Geospatial Digital Special Collections</a></li>
+<li><a href="https://www.marineregions.org/downloads.php">Marineregions.org</a> for vectors</li>
+<li><a href="http://gmed.auckland.ac.nz/">GMED</a> for rasters</li>
+<li><a href="https://www.fisheries.noaa.gov/resources/maps">NOAA Fisheries Science &amp; Data Maps</a></li>
+</ul>
+<p>Or ask me, <strong>ASAP</strong></p>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
 <p><strong>Class material</strong></p>
 <ul>
-<li><a href="https://jcvdav.github.io/EVR_628/slides/02_data_vis.html#/title-slide">Intro to ggplot slides</a></li>
-<li><a href="https://jcvdav.github.io/EVR_628/slides/08_scale_up_viz.html#/title-slide">More on ggplot slides</a></li>
-<li><a href="https://jcvdav.github.io/EVR_628/docs/02_live.html">ggplot live coding session</a></li>
+<li><a href="https://jcvdav.github.io/EVR_628/slides/11_spat_data_1.html">Vector data slides</a></li>
+<li><a href="https://jcvdav.github.io/EVR_628/docs/11_live.html">Vector data live coding session</a></li>
+<li><a href="https://jcvdav.github.io/EVR_628/slides/12_spat_data_2.html">Raster data slides</a></li>
+<li><a href="https://jcvdav.github.io/EVR_628/docs/12_live.html">Raster data live coding session</a></li>
 </ul>
 <p><strong>R4DS</strong></p>
 <ul>
-<li><a href="https://r4ds.hadley.nz/data-visualize.html">Visualization</a> (Look at <a href="https://r4ds.hadley.nz/data-visualize.html#sec-ggsave">section 1.6</a> for saving your plot)</li>
-<li><a href="https://r4ds.hadley.nz/layers.html">Layers</a></li>
+<li>Geocomputation with R <a href="https://r.geocompx.org/intro">CH1 - Introduction</a></li>
+<li>Geocomputation with R <a href="https://r.geocompx.org/spatial-class">CH2 - Geographic data in R</a></li>
 </ul>
+</div>
+</div>
+</div>
 </section>
 </section>
-<section id="example-of-a-figure-that-would-get-100" class="level1">
-<h1>Example of a figure that would get 100%</h1>
+<section id="example-of-a-script-and-map-that-would-get-100" class="level1">
+<h1>Example of a script and map that would get 100%</h1>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## SET UP ######################################################################</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(EVR628tools)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"data_geartypes"</span>) <span class="co"># In your case you will load them from your data/processed folder</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="do">## PROCESSING ##################################################################</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># My data are already clean, but I need to make some final touches for visualization</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>data_vis <span class="ot">&lt;-</span> data_geartypes <span class="sc">|&gt;</span> </span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">geartype =</span> <span class="fu">str_replace_all</span>(geartype, <span class="st">"_"</span>, <span class="st">" "</span>), <span class="co"># swap the underscores for spaces</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">geartype =</span> <span class="fu">str_to_sentence</span>(geartype), <span class="co"># Make them into sentence case</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">geartype =</span> <span class="fu">fct_lump_n</span>(geartype, <span class="dv">5</span>), <span class="co"># Lump them (5 categories + others)</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">geartype =</span> <span class="fu">fct_reorder</span>(geartype, effort_hours, <span class="at">.fun =</span> mean))  <span class="co"># Order them based on mean effort</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="do">## VISUALIZE ###################################################################</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Build a figure</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> data_vis,</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>             <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> effort_hours, <span class="at">y =</span> geartype)) <span class="sc">+</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">"pointrange"</span>,</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>               <span class="at">fun.data =</span> mean_se,</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>               <span class="at">pch =</span> <span class="dv">21</span>,</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">"black"</span>,</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mean fishing effort by gear"</span>,</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Catergory 'Other' contains 7 gears combined"</span>,</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Fishing effort (hours) [Mean ± SE]"</span>,</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Gear"</span>,</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Data come from the `gfwr` package"</span>) <span class="sc">+</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="dv">1</span>))</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Build my second figure</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> data_vis <span class="sc">|&gt;</span> </span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(geartype) <span class="sc">|&gt;</span> </span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n_vessels =</span> <span class="fu">n_distinct</span>(vessel_id)) <span class="sc">|&gt;</span> </span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> n_vessels, <span class="at">y =</span> <span class="fu">fct_reorder</span>(geartype, n_vessels))) <span class="sc">+</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"cadetblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Fleet capacity by gear"</span>,</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Catergory 'Other' contains 7 gears combined"</span>,</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Fleet capacity (# of vessels)"</span>,</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Gear"</span>,</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Data come from the `gfwr` package"</span>) <span class="sc">+</span></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>my_plot <span class="ot">&lt;-</span> <span class="fu">plot_grid</span>(p1, p2,</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>                     <span class="at">ncol =</span> <span class="dv">1</span>,</span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"A)"</span>, <span class="st">"B)"</span>))</span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="do">## EXPORT ######################################################################</span></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">plot =</span> my_plot,</span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>       <span class="at">filename =</span> <span class="st">"results/img/effort_and_capacity.png"</span>, <span class="co"># Export my file as png</span></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">8</span>,</span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">################################################################################</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># A map of my study area</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="do">################################################################################</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Juan Carlos Villaseñor-Derbez</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># jc_villasenor@miami.edu</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Nov , 2025</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># This script loads geospatial data, wrangles it, and produces a map.</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="do">################################################################################</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># SET UP #######################################################################</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages ----------------------------------------------------------------</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(EVR628tools)   <span class="co"># For fishing effort data and color palettes</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggspatial)     <span class="co"># To add map elements to a ggplot</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearth) <span class="co"># To add country outlines</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)     <span class="co"># General data wrangling</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)            <span class="co"># Working with vector data</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)         <span class="co"># Working with raster data</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyterra)     <span class="co"># Working with raster data in tidy approach</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mapview)       <span class="co"># To quickly inspect data</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data --------------------------------------------------------------------</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Load whale core habitat</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>whale <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(<span class="st">"data/raw/shapefile_Rices_whale_core_distribution_area_Jun19_SERO/shapefile_Rices_whale_core_distribution_area_Jun19_SERO.shp"</span>)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Load depth raster</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>depth <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">"data/raw/depth_raster.tif"</span>)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Load world's coastline</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>coast <span class="ot">&lt;-</span> <span class="fu">ne_countries</span>(<span class="at">country =</span> <span class="fu">c</span>(<span class="st">"United States of America"</span>, <span class="st">"Mexico"</span>, <span class="st">"Belize"</span>, <span class="st">"Guatemala"</span>))</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Load fishing effort data.frame</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"data_fishing_effort"</span>)</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co"># PROCESSING ###################################################################</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new object to contain a raster of fishing effort</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>effort_raster <span class="ot">&lt;-</span> data_fishing_effort <span class="sc">|&gt;</span>    <span class="co"># Start with my data.frame</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(lon, lat) <span class="sc">|&gt;</span>                    <span class="co"># group by lon and lat</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">hours =</span> <span class="fu">sum</span>(effort_hours)) <span class="sc">|&gt;</span>  <span class="co"># Calculate total effort by pixel</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rast</span>(<span class="at">crs =</span> <span class="st">"EPSG:4326"</span>)                  <span class="co"># Build a raster</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="do">## Crop layers</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>gulf_depth <span class="ot">&lt;-</span> <span class="fu">crop</span>(depth, <span class="fu">extend</span>(effort_raster, <span class="dv">10</span>))</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>gulf_coast <span class="ot">&lt;-</span> <span class="fu">st_crop</span>(coast, <span class="fu">extend</span>(effort_raster, <span class="dv">10</span>))</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="co"># VISUALIZE ####################################################################</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="do">## Build the map ---------------------------------------------------------------</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add the depth contours as the first laeyer</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_spatraster_contour</span>(<span class="at">data =</span> gulf_depth,</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">aes</span>(<span class="at">colour =</span> <span class="fu">after_stat</span>(level)),</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>                          <span class="at">linewidth =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add fishing effort raster on top</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_spatraster</span>(<span class="at">data =</span> <span class="fu">log</span>(effort_raster)) <span class="sc">+</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add gulf coast coastline</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> gulf_coast,</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>          <span class="at">fill =</span> <span class="st">"gray"</span>,</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>          <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add whale's core habitat</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> whale, <span class="at">fill =</span> <span class="st">"transparent"</span>,</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>          <span class="at">color =</span> <span class="st">"black"</span>,</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>          <span class="at">linewidth =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Modify the colors for the depth contours</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>(<span class="at">option =</span> <span class="st">"mako"</span>) <span class="sc">+</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Modify the fill of the effort raster</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>(<span class="at">option =</span> <span class="st">"magma"</span>,</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>                       <span class="at">na.value =</span> <span class="st">"transparent"</span>) <span class="sc">+</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Modify the theme</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add a north arrow from ggspatial</span></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotation_north_arrow</span>(<span class="at">location =</span> <span class="st">"tl"</span>) <span class="sc">+</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add a scalebar from ggspatial</span></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotation_scale</span>(<span class="at">location =</span> <span class="st">"bl"</span>) <span class="sc">+</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Trim whitespace</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Update labels</span></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">"Depth (m)"</span>,</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"Effort [log(hours)]"</span>,</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Longitude"</span>,</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Latitude"</span>,</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Fishing effort in and around Rice's whale core habitat"</span>,</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Data sources: NOAA Fisheries, GMED, GFW"</span>)</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="co"># EXPORT #######################################################################</span></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="do">## Export as png ---------------------------------------------------------------</span></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">plot =</span> p,</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>       <span class="at">filename =</span> <span class="st">"results/img/my_map.png"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'ggplot2' was built under R version 4.5.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tidyr' was built under R version 4.5.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'dplyr' was built under R version 4.5.2</code></pre>
-</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -267,8 +356,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p><em>e.g.</em> Don’t produce the same plot simply switching <code>geom_line()</code> to <code>geom_point()</code><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>I recommend you use <a href="https://gist.github.com/jcvdav/1093d757bf1773751e951d009de4d857">my snippets</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>In the rice’s whale example, the base layers were the coastline and the depth. Our target data were the effort raster and the core habitat polygon.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main>
 <!-- /main column -->

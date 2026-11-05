@@ -193,7 +193,7 @@ _Fall Recess is Oct 10-13_
 - [Link](https://jcvdav.github.io/EVR_628/docs/10_live.html) to document from live coding session
 
 ## Week 11 (Week of Oct 26)
-**Working with spatial data in R** | [slides](slides/11_spat_data_1.html)
+**Working with spatial data in R (vector)** | [slides](slides/11_spat_data_1.html)
 - Vector data and `sf`
 - Exploratory visualizations with `plot` and `mapview`
 
@@ -207,7 +207,7 @@ _Fall Recess is Oct 10-13_
 
 
 ## Week 12 (Week of Nov 02)
-**Visualizing spatial data** | [slides](slides/12_spat_data_2.html)
+**Working with spatial data in R (raster)** | [slides](slides/12_spat_data_2.html)
 - Raster data and `terra`
 - Attribute operations
 - Building maps with `ggspatial` and `tidyterra`
@@ -219,7 +219,7 @@ _Fall Recess is Oct 10-13_
 
 ---
 
-**Third assignment:** [_Visualizing spatial data_](docs/assig_3.html) due TBD
+**Third assignment:** [_Visualizing spatial data_](docs/assig_3.html) due Nov 15 at 11:59 pm on Canvas
 
 ---
 
