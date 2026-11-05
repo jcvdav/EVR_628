@@ -1,5 +1,5 @@
 ---
-title: "Assignment 4: Visualizing spatial data"
+title: "Assignment 3: Visualizing spatial data"
 lightbox: true
 format:
   html:
