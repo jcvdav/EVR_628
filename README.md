@@ -262,7 +262,6 @@ _Thanksgiving recess is Nov 24-29_
 - No class
 
 ## Week 16 (Week of Nov 30)
-
 **Extensions** | [slides](slides/15_wrap_up.html)
 
 -	Reactive programming
