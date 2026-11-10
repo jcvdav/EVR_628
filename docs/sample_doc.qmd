@@ -27,6 +27,7 @@ library(EVR628tools)
 library(here)
 library(sf)
 library(mapview)
+mapviewOptions(basemaps = "Esri.WorldGrayCanvas")
 # Load data
 data("data_hurricanes")
 FL_counties <- read_sf(here("data/raw/Florida_County_Boundaries_with_FDOT_Districts_-801746881308969010.gpkg")) |> 

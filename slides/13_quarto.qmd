@@ -170,7 +170,7 @@ You can build tables by hand
 ::::
 
 - The location of the `:` defines alignment of the cell contents
-- Although I prefer building them with code
+- Although I prefer building them with code ([`{gt}`](https://gt.rstudio.com/), [`{modelsummary}`](https://modelsummary.com/), `{knitr}`)
 
 ## Content: Equations are easy to include
 
@@ -211,13 +211,16 @@ You can embed R code that produces content in your Quarto file using code chunks
 library(EVR628tools)
 library(tidyverse)
 library(knitr)
+
 # Load data
 data("data_milton")
+
 # What am I doing here?
 max_wind <- data_milton |> 
   mutate(date = date(iso_time)) |> 
   group_by(date) |> 
   summarize(max_wind = max(wind_speed))
+  
 # Build a table
 kable(x = max_wind,
       col.names = c("Date", "Max. wind speed (kts)"),
@@ -281,9 +284,9 @@ ggplot(data = max_wind,
 ```
 
 
-# Let's build some slides
+# Let's build some slides and a document
 
-# Let's build a sebsite
+# Let's build a website
 
 ## 1) Building a website with Quarto
 
