@@ -237,12 +237,6 @@ _Fall Recess is Oct 10-13_
 - [Link](slides/sample_slides.html) to sample slide deck we'll build
 - [Link](docs/sample_doc.html) to sample doc we'll build
 
----
-
-**Fourth assignment:** [_Documenting your repo_](docs/assig_4.html), due TBD
-
----
-
 ## Week 14 (Week of Nov 16)
 **Programming** | [slides](slides/14_programming)
 -	User-defined functions
@@ -255,6 +249,12 @@ _Fall Recess is Oct 10-13_
   - R4DS [CH25: Functions](https://r4ds.hadley.nz/functions.html)
   - R4DS [CH27: `for` loops](https://r4ds.hadley.nz/base-R.html#for-loops) (Section 27.5 only)
 - [Link](docs/14_live.html) to document for live coding session
+
+---
+
+**Fourth assignment:** [_Documenting your repo_](docs/assig_4.html), due Nov 28 at 11:59 pm on Canvas
+
+---
 
 ## *Week 15 (Week of Nov 23)
 _Thanksgiving recess is Nov 24-29_
