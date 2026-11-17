@@ -10,7 +10,7 @@ format:
 
 # The big picture
 
-Remember that the final goal is to have a GitHub repository where you can showcase your work. Assignment 1 was to create the repository. Assignment two required you to develop R scripts to clean and visualize your datathat same repository. **For your thirds assignment, you will work with spatial data to produce a map of your "study site", broadly defined.** Your final project will leverage the data and visualizations you'll produce to wrap it all together.
+Remember that the final goal is to have a GitHub repository where you can showcase your work. Assignment 1 was to create the repository. Assignment two required you to develop R scripts to clean and visualize your data that same repository. **For your third assignment, you will work with spatial data to produce a map of your "study site", broadly defined.** Your final project will leverage the data and visualizations you'll produce to wrap it all together.
 
 # This assignment
 

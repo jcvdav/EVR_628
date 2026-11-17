@@ -274,7 +274,7 @@ Classes end after lecture on Tuesday Dec 1
 
 [**Final Exams week Dec 3 - Dec 9**](https://registrar.miami.edu/_assets/pdf/academic-calendar-fall-2026.pdf)
 
-Final exam scheduled for Thursday December 8th
+Final exam scheduled for Tuesday December 8th from 8:00-10:30 @ SLAB 120
 
 ---
 

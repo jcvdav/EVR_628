@@ -1,0 +1,133 @@
+---
+title: "Assignment 4: Documenting your repo"
+lightbox: true
+format:
+  html:
+    toc: true
+  pdf:
+    documentclass: article
+---
+
+# The big picture
+
+Remember that the final goal is to have a GitHub repository where you can showcase your work. Assignment 1 was to create the repository. Assignment two required you to develop R scripts to clean and visualize your data that same repository. For your third assignment, you worked with spatial data to produce a map of your "study site", broadly defined. **Your fourth assignment is to document your GitHub repo in the `README.md` file (no coding)** Your final project will leverage the data and visualizations you'll produce to wrap it all together into a quarto document.
+
+# This Assignment
+
+**Task:** Fully document your GitHub repository writing appropriate markdown in your `README.md` file.
+
+Your `README.md` file should:
+
+- [ ] 5% Contain a title using level-1 heading with `#`
+- [ ] 5% Contain a 1-3 sentence explanation of your project
+- [ ] 30% Clearly indicate all sources of raw data used
+- [ ] 50% Clearly describe _every_ file you created in the repo, and how they are connected
+- [ ] 10% Every file in the repo is documented, and every documented file is in the repo
+
+Use the following template:
+
+``` markdown
+# [Project title goes here]
+
+A 1-3 setnence description of what this project does goes here.
+
+## Data sources
+
+For each data source, indicate the following:
+
+- **Name and location of the file in this repo:**
+- **Title of the dataset:**
+- **Source:**
+- **Date of download or access, if relevant:**
+
+## Repository structure and contents
+
+- `folder_name`: Description of what it contains
+  - `folder_name/file1.R`: This file reads `data/raw/X.csv`, does Y to it, and exports `Z.rds`
+- `another_folder`: Another description
+  - `another_folder/file2.png` Figure showing relationship between A and B, produced by `path/to/script.R`
+
+```
+
+
+## Example
+
+Markdown code should look like this:
+
+``` markdown
+# Trends in tuna catch and effort in Mexican waters and ENSO events
+
+This project uses publicly available data from the WCPFC to test for changes in catch and effort data in Mexican waters. I am particularly interested in asking how ENSO affects fisheries production.
+
+## Data sources
+
+For each **raw** data source, indicate the following:
+
+### `data/raw/WCPFC_G_PUBLIC_BY_YR_MON_2.csv`
+
+- **Title of the dataset:** WCPFC Public Domain Aggregated Catch/Effort data download page
+- **Source:** <https://www.wcpfc.int/sustainability/scientific-data/wcpfc-public-domain-aggregated-catcheffort-data-download-page>
+- **Date of download or access, if relevant:** Nov 17, 2026
+
+## `mexico_eez.gpkg`
+
+- **Title of the dataset:** Mexican Exclusive Economic Zone
+- **Source:** Marine regions of the world
+- **Date of download or access, if relevant:** Nov 17, 2026
+
+## Repository structure and contents
+
+- `data`: Contains the raw, processed, and output data:
+  - `data/raw/WCPFC_G_PUBLIC_BY_YR_MON_2.csv`: Raw catch and effort data
+  - `data/processed/clean_tuna_data.rds`: Clean catch and effort data
+  - `data/processed/tuna_output.rds`: Catch and effort data within Mexico's EEZ
+- `scripts`: Contains all R scripts used in this project
+  - `scripts/01_processing/clean_data.R`: This file reads `data/raw/WCPFC_G_PUBLIC_BY_YR_MON_2.csv`, standardizes column names, and exports `clean_tuna_data.rds`
+  - `scripts/02_analyses/extract_data.R`: This file reads `clean_tuna_data.rds` and `mexico_eez.gpkg`, performs a spatial filter, and exports `tuna_output.rds`
+  - `scripts/03_content/build_map.R`: This file reads `tuna_output.rds` and `mexico_eez.gpkg`, builds a map exported in `results/img/map.png`
+- `results`: Contains all output
+  - `results/img/map.png` Map of total catch by grid cell, produced by `scripts/03_content/build_map.R`
+
+```
+
+And will render like this:
+
+# Trends in tuna catch and effort in Mexican waters and ENSO events
+
+This project uses publicly available data from the WCPFC to test for changes in catch and effort data in Mexican waters. I am particularly interested in asking how ENSO affects fisheries production.
+
+## Data sources
+
+For each **raw** data source, indicate the following:
+
+### `data/raw/WCPFC_G_PUBLIC_BY_YR_MON_2.csv`
+
+- **Title of the dataset:** WCPFC Public Domain Aggregated Catch/Effort data download page
+- **Source:** <https://www.wcpfc.int/sustainability/scientific-data/wcpfc-public-domain-aggregated-catcheffort-data-download-page>
+- **Date of download or access, if relevant:** Nov 17, 2026
+
+## `mexico_eez.gpkg`
+
+- **Title of the dataset:** Mexican Exclusive Economic Zone
+- **Source:** Marine regions of the world
+- **Date of download or access, if relevant:** Nov 17, 2026
+
+## Repository structure and contents
+
+- `data`: Contains the raw, processed, and output data:
+  - `data/raw/WCPFC_G_PUBLIC_BY_YR_MON_2.csv`: Raw catch and effort data
+  - `data/processed/clean_tuna_data.rds`: Clean catch and effort data
+  - `data/processed/tuna_output.rds`: Catch and effort data within Mexico's EEZ
+- `scripts`: Contains all R scripts used in this project
+  - `scripts/01_processing/clean_data.R`: This file reads `data/raw/WCPFC_G_PUBLIC_BY_YR_MON_2.csv`, standardizes column names, and exports `clean_tuna_data.rds`
+  - `scripts/02_analyses/extract_data.R`: This file reads `clean_tuna_data.rds` and `mexico_eez.gpkg`, performs a spatial filter, and exports `tuna_output.rds`
+  - `scripts/03_content/build_map.R`: This file reads `tuna_output.rds` and `mexico_eez.gpkg`, builds a map exported in `results/img/map.png`
+- `results`: Contains all output
+  - `results/img/map.png` Map of total catch by grid cell, produced by `scripts/03_content/build_map.R`
+
+
+
+
+
+
+

@@ -6,8 +6,8 @@
 <script src="14_programming_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="14_programming_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="14_programming_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="14_programming_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+<link href="14_programming_files/libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="Juan Carlos Villaseñor-Derbez (JC)">
   <title>Functions and for loops</title>
@@ -115,7 +115,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="14_programming_files/libs/revealjs/dist/theme/quarto-2c1b5f745a11cfad616ebade4a4a7d24.css">
+  <link rel="stylesheet" href="14_programming_files/libs/revealjs/dist/theme/quarto-0fde88a82f0356838740f155f1088782.css">
   <link href="14_programming_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="14_programming_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="14_programming_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -222,7 +222,7 @@
 Juan Carlos Villaseñor-Derbez (JC) 
 </div>
         <p class="quarto-title-affiliation">
-            Rosenstiel School of Marine, Atmospheric, and Earth Science and Institute for Data Science and Computing
+            Rosenstiel School of Marine, Atmospheric &amp; Earth Science and Institute for Data Science &amp; Computing
           </p>
     </div>
 </div>
@@ -256,9 +256,6 @@ Juan Carlos Villaseñor-Derbez (JC)
 <h1>Functions</h1>
 
 </section>
-<section id="functions-1" class="slide level2">
-<h2>Functions</h2>
-</section>
 <section id="when-might-we-want-to-build-one" class="slide level2">
 <h2>When Might We Want to Build One?</h2>
 <div class="fragment">
@@ -288,7 +285,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
 <span id="cb1-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> total_length_mm,</span>
 <span id="cb1-3"><a href=""></a>                     <span class="at">y =</span> total_weight_gr)) <span class="sc">+</span></span>
 <span id="cb1-4"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
@@ -306,7 +303,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <span id="cb1-16"><a href=""></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"black"</span>),</span>
 <span id="cb1-17"><a href=""></a>        <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"black"</span>,</span>
 <span id="cb1-18"><a href=""></a>                            <span class="at">face =</span> <span class="st">"bold"</span>,</span>
-<span id="cb1-19"><a href=""></a>                            <span class="at">size =</span> <span class="dv">12</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-19"><a href=""></a>                            <span class="at">size =</span> <span class="dv">12</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -317,7 +314,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
 <span id="cb2-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> total_length_mm)) <span class="sc">+</span></span>
 <span id="cb2-3"><a href=""></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
 <span id="cb2-4"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Total Length (mm)"</span>,</span>
@@ -334,7 +331,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <span id="cb2-15"><a href=""></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"black"</span>),</span>
 <span id="cb2-16"><a href=""></a>        <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"black"</span>,</span>
 <span id="cb2-17"><a href=""></a>                            <span class="at">face =</span> <span class="st">"bold"</span>,</span>
-<span id="cb2-18"><a href=""></a>                            <span class="at">size =</span> <span class="dv">14</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-18"><a href=""></a>                            <span class="at">size =</span> <span class="dv">14</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -348,7 +345,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
 <span id="cb3-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> depth_m,</span>
 <span id="cb3-3"><a href=""></a>                     <span class="at">y =</span> total_length_mm)) <span class="sc">+</span></span>
 <span id="cb3-4"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
@@ -366,7 +363,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <span id="cb3-16"><a href=""></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"black"</span>),</span>
 <span id="cb3-17"><a href=""></a>        <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"black"</span>,</span>
 <span id="cb3-18"><a href=""></a>                            <span class="at">face =</span> <span class="st">"bold"</span>,</span>
-<span id="cb3-19"><a href=""></a>                            <span class="at">size =</span> <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-19"><a href=""></a>                            <span class="at">size =</span> <span class="dv">10</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -377,7 +374,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
 <span id="cb4-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> depth_m,</span>
 <span id="cb4-3"><a href=""></a>                     <span class="at">y =</span> total_weight_gr)) <span class="sc">+</span></span>
 <span id="cb4-4"><a href=""></a>  <span class="fu">geom_bin_2d</span>() <span class="sc">+</span></span>
@@ -395,7 +392,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <span id="cb4-16"><a href=""></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"black"</span>),</span>
 <span id="cb4-17"><a href=""></a>        <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"black"</span>,</span>
 <span id="cb4-18"><a href=""></a>                            <span class="at">face =</span> <span class="st">"bold"</span>,</span>
-<span id="cb4-19"><a href=""></a>                            <span class="at">size =</span> <span class="dv">14</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-19"><a href=""></a>                            <span class="at">size =</span> <span class="dv">14</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -427,9 +424,9 @@ Juan Carlos Villaseñor-Derbez (JC)
 <li>Body</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5" data-code-line-numbers="1|2|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>name <span class="ot">&lt;-</span> <span class="cf">function</span>(arguments){ <span class="co"># What changes</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" data-code-line-numbers="1|2|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>name <span class="ot">&lt;-</span> <span class="cf">function</span>(arguments){ <span class="co"># What changes</span></span>
 <span id="cb5-2"><a href=""></a>  body <span class="co"># What your function does</span></span>
-<span id="cb5-3"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-3"><a href=""></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="lets-build-our-own-theme" class="slide level2">
@@ -438,7 +435,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
 <span id="cb6-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> total_length_mm,</span>
 <span id="cb6-3"><a href=""></a>                     <span class="at">y =</span> total_weight_gr)) <span class="sc">+</span></span>
 <span id="cb6-4"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
@@ -456,11 +453,11 @@ Juan Carlos Villaseñor-Derbez (JC)
 <span id="cb6-16"><a href=""></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"black"</span>),</span>
 <span id="cb6-17"><a href=""></a>        <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"black"</span>,</span>
 <span id="cb6-18"><a href=""></a>                            <span class="at">face =</span> <span class="st">"bold"</span>,</span>
-<span id="cb6-19"><a href=""></a>                            <span class="at">size =</span> <span class="dv">12</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-19"><a href=""></a>                            <span class="at">size =</span> <span class="dv">12</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
 <span id="cb7-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> depth_m,</span>
 <span id="cb7-3"><a href=""></a>                     <span class="at">y =</span> total_length_mm)) <span class="sc">+</span></span>
 <span id="cb7-4"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
@@ -478,7 +475,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <span id="cb7-16"><a href=""></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"black"</span>),</span>
 <span id="cb7-17"><a href=""></a>        <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"black"</span>,</span>
 <span id="cb7-18"><a href=""></a>                            <span class="at">face =</span> <span class="st">"bold"</span>,</span>
-<span id="cb7-19"><a href=""></a>                            <span class="at">size =</span> <span class="dv">10</span>)) <span class="co"># Font size changes to accomodate text</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-19"><a href=""></a>                            <span class="at">size =</span> <span class="dv">10</span>)) <span class="co"># Font size changes to accommodate text</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 <ul>
@@ -489,7 +486,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <section id="build-a-function" class="slide level2 scrollable">
 <h2>Build a function</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="co"># Function name</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="co"># Function name</span></span>
 <span id="cb8-2"><a href=""></a>my_theme <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">text_size =</span> <span class="dv">12</span>) { <span class="co"># Function arguments</span></span>
 <span id="cb8-3"><a href=""></a>  <span class="co"># Function body</span></span>
 <span id="cb8-4"><a href=""></a>  <span class="fu">theme</span>(<span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"black"</span>,</span>
@@ -504,8 +501,8 @@ Juan Carlos Villaseñor-Derbez (JC)
 <span id="cb8-13"><a href=""></a>          <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"black"</span>),</span>
 <span id="cb8-14"><a href=""></a>          <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"black"</span>,</span>
 <span id="cb8-15"><a href=""></a>                              <span class="at">face =</span> <span class="st">"bold"</span>,</span>
-<span id="cb8-16"><a href=""></a>                              <span class="at">size =</span> text_size)) <span class="co"># Note how my argument isbeing used down here</span></span>
-<span id="cb8-17"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-16"><a href=""></a>                              <span class="at">size =</span> text_size)) <span class="co"># Note how my argument isb eing used down here</span></span>
+<span id="cb8-17"><a href=""></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="we-can-now-use-our-function" class="slide level2">
@@ -513,13 +510,13 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9" data-code-line-numbers="|7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" data-code-line-numbers="|7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
 <span id="cb9-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> total_length_mm,</span>
 <span id="cb9-3"><a href=""></a>                     <span class="at">y =</span> total_weight_gr)) <span class="sc">+</span></span>
 <span id="cb9-4"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb9-5"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Total length (mm)"</span>,</span>
 <span id="cb9-6"><a href=""></a>       <span class="at">y =</span> <span class="st">"Total weight (gr)"</span>) <span class="sc">+</span></span>
-<span id="cb9-7"><a href=""></a>  <span class="fu">my_theme</span>(<span class="at">text_size =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-7"><a href=""></a>  <span class="fu">my_theme</span>(<span class="at">text_size =</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -530,13 +527,13 @@ Juan Carlos Villaseñor-Derbez (JC)
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10" data-code-line-numbers="|7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" data-code-line-numbers="|7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_lionfish,</span>
 <span id="cb10-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> depth_m,</span>
 <span id="cb10-3"><a href=""></a>                     <span class="at">y =</span> total_length_mm)) <span class="sc">+</span></span>
 <span id="cb10-4"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
 <span id="cb10-5"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Depth (m)"</span>,</span>
 <span id="cb10-6"><a href=""></a>       <span class="at">y =</span> <span class="st">"Total Length (mm)"</span>) <span class="sc">+</span></span>
-<span id="cb10-7"><a href=""></a>  <span class="fu">my_theme</span>(<span class="at">text_size =</span> <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-7"><a href=""></a>  <span class="fu">my_theme</span>(<span class="at">text_size =</span> <span class="dv">8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -568,7 +565,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>n_0 <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>n_0 <span class="ot">&lt;-</span> <span class="dv">10</span></span>
 <span id="cb11-2"><a href=""></a>n_1 <span class="ot">&lt;-</span> n_0 <span class="sc">+</span> (<span class="fl">1.05</span> <span class="sc">*</span> n_0 <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> (n_0 <span class="sc">/</span> <span class="dv">100</span>)))</span>
 <span id="cb11-3"><a href=""></a>n_2 <span class="ot">&lt;-</span> n_1 <span class="sc">+</span> (<span class="fl">1.05</span> <span class="sc">*</span> n_1 <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> (n_1 <span class="sc">/</span> <span class="dv">100</span>)))</span>
 <span id="cb11-4"><a href=""></a>n_3 <span class="ot">&lt;-</span> n_2 <span class="sc">+</span> (<span class="fl">1.05</span> <span class="sc">*</span> n_2 <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> (n_2 <span class="sc">/</span> <span class="dv">100</span>)))</span>
@@ -578,7 +575,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <span id="cb11-8"><a href=""></a>n_7 <span class="ot">&lt;-</span> n_6 <span class="sc">+</span> (<span class="fl">1.05</span> <span class="sc">*</span> n_6 <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> (n_6 <span class="sc">/</span> <span class="dv">100</span>)))</span>
 <span id="cb11-9"><a href=""></a>n_8 <span class="ot">&lt;-</span> n_7 <span class="sc">+</span> (<span class="fl">1.05</span> <span class="sc">*</span> n_7 <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> (n_7 <span class="sc">/</span> <span class="dv">100</span>)))</span>
 <span id="cb11-10"><a href=""></a>n_9 <span class="ot">&lt;-</span> n_8 <span class="sc">+</span> (<span class="fl">1.05</span> <span class="sc">*</span> n_8 <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> (n_8 <span class="sc">/</span> <span class="dv">100</span>)))</span>
-<span id="cb11-11"><a href=""></a>n_10 <span class="ot">&lt;-</span> n_9 <span class="sc">+</span> (<span class="fl">1.05</span> <span class="sc">*</span> n_9 <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> (n_9 <span class="sc">/</span> <span class="dv">100</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-11"><a href=""></a>n_10 <span class="ot">&lt;-</span> n_9 <span class="sc">+</span> (<span class="fl">1.05</span> <span class="sc">*</span> n_9 <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> (n_9 <span class="sc">/</span> <span class="dv">100</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
@@ -599,16 +596,16 @@ Juan Carlos Villaseñor-Derbez (JC)
 <section id="build-a-function-for-population-growth" class="slide level2">
 <h2>Build a Function for Population Growth</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="co"># Function name</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="co"># Function name</span></span>
 <span id="cb12-2"><a href=""></a>pop_grow <span class="ot">&lt;-</span> <span class="cf">function</span>(N, <span class="at">r =</span> <span class="fl">1.05</span>, <span class="at">K =</span> <span class="dv">100</span>) { <span class="co"># Function arguments</span></span>
 <span id="cb12-3"><a href=""></a>  N_next <span class="ot">&lt;-</span> N <span class="sc">+</span> (r <span class="sc">*</span> N <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> (N <span class="sc">/</span> K))) <span class="co"># Function body</span></span>
 <span id="cb12-4"><a href=""></a>  <span class="fu">return</span>(N_next) <span class="co"># This is a formality, but highly recommended</span></span>
-<span id="cb12-5"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-5"><a href=""></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
 <p>This allows me to do:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>n_0 <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>n_0 <span class="ot">&lt;-</span> <span class="dv">10</span></span>
 <span id="cb13-2"><a href=""></a>n_1 <span class="ot">&lt;-</span> <span class="fu">pop_grow</span>(<span class="at">N =</span> n_0)</span>
 <span id="cb13-3"><a href=""></a>n_2 <span class="ot">&lt;-</span> <span class="fu">pop_grow</span>(<span class="at">N =</span> n_1)</span>
 <span id="cb13-4"><a href=""></a>n_3 <span class="ot">&lt;-</span> <span class="fu">pop_grow</span>(<span class="at">N =</span> n_2)</span>
@@ -617,7 +614,7 @@ Juan Carlos Villaseñor-Derbez (JC)
 <span id="cb13-7"><a href=""></a>n_6 <span class="ot">&lt;-</span> <span class="fu">pop_grow</span>(<span class="at">N =</span> n_5)</span>
 <span id="cb13-8"><a href=""></a>n_7 <span class="ot">&lt;-</span> <span class="fu">pop_grow</span>(<span class="at">N =</span> n_6)</span>
 <span id="cb13-9"><a href=""></a>n_8 <span class="ot">&lt;-</span> <span class="fu">pop_grow</span>(<span class="at">N =</span> n_7)</span>
-<span id="cb13-10"><a href=""></a><span class="co"># and so forth...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-10"><a href=""></a><span class="co"># and so forth...</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li class="fragment">This is still not good enough</li>
@@ -634,31 +631,31 @@ Juan Carlos Villaseñor-Derbez (JC)
 </section></section>
 <section>
 <section id="for-loops" class="title-slide slide level1 center">
-<h1>For loops</h1>
+<h1><code>for</code> loops</h1>
 
 </section>
 <section id="for-loops-1" class="slide level2">
-<h2>For loops</h2>
+<h2><code>for</code> loops</h2>
 <ul>
 <li class="fragment">Allow us to automatically repeat operations without having to write the same code multiple times</li>
 </ul>
 <div class="fragment">
 <p>The basic structure is this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="cf">for</span> (index <span class="cf">in</span> list_of_possible_values_for_index) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="cf">for</span> (index <span class="cf">in</span> list_of_possible_values_for_index) {</span>
 <span id="cb14-2"><a href=""></a>  Do something with my index</span>
-<span id="cb14-3"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-3"><a href=""></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
 <section id="for-loops-2" class="slide level2">
 <h2>For loops</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>N <span class="ot">&lt;-</span> <span class="dv">10</span> <span class="co"># Start with a population of 10</span></span>
-<span id="cb15-2"><a href=""></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">50</span>) { <span class="co"># For every value of i, where i can be 0, 1, 2, 3, 4... 50</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a>N <span class="ot">&lt;-</span> <span class="dv">10</span> <span class="co"># Start with a population of 10</span></span>
+<span id="cb15-2"><a href=""></a><span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">50</span>) { <span class="co"># For every value of i, where i can be 0, 1, 2, 3, 4... 50</span></span>
 <span id="cb15-3"><a href=""></a>  N <span class="ot">&lt;-</span> <span class="fu">pop_grow</span>(<span class="at">N =</span> N) <span class="co"># Overwrite my population</span></span>
-<span id="cb15-4"><a href=""></a>  <span class="fu">print</span>(N) <span class="co"># Print the pop size to the console</span></span>
-<span id="cb15-5"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-4"><a href=""></a>  <span class="fu">print</span>(N)</span>
+<span id="cb15-5"><a href=""></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 19.45
 [1] 35.90032
@@ -715,12 +712,12 @@ Juan Carlos Villaseñor-Derbez (JC)
 <section id="for-loops-leveraging-the-index" class="slide level2">
 <h2>For loops, leveraging the index</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a>N <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="dv">50</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a>N <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="dv">50</span>)</span>
 <span id="cb17-2"><a href=""></a>N[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">10</span> <span class="co"># Start with a population of 10</span></span>
-<span id="cb17-3"><a href=""></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">49</span>) { <span class="co"># For every value of i, where i can be 0, 1, 2, 3, 4... 50</span></span>
-<span id="cb17-4"><a href=""></a>  N[i<span class="sc">+</span><span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="fu">pop_grow</span>(<span class="at">N =</span> N[i]) <span class="co"># Overwrite my population</span></span>
+<span id="cb17-3"><a href=""></a><span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">49</span>) { <span class="co"># For every value of i, where i can be 0, 1, 2, 3, 4... 50</span></span>
+<span id="cb17-4"><a href=""></a>  N[t<span class="sc">+</span><span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="fu">pop_grow</span>(<span class="at">N =</span> N[t]) <span class="co"># Overwrite my population</span></span>
 <span id="cb17-5"><a href=""></a>}</span>
-<span id="cb17-6"><a href=""></a><span class="fu">print</span>(N) <span class="co"># Print the pop size to the console</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-6"><a href=""></a><span class="fu">print</span>(N) <span class="co"># Print the pop size to the console</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  10.00000  19.45000  35.90032  60.06291  85.24966  98.45301 100.05222
  [8]  99.99736 100.00013  99.99999 100.00000 100.00000 100.00000 100.00000
@@ -932,7 +929,7 @@ Wickham, Hadley, Mine Cetinkaya-Rundel, and Garrett Grolemund. 2023. <em><span>R
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -1044,13 +1041,14 @@ Wickham, Hadley, Mine Cetinkaya-Rundel, and Garrett Grolemund. 2023. <em><span>R
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

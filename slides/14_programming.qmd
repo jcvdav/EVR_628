@@ -22,8 +22,6 @@ title: "Functions and for loops"
 
 # Functions
 
-## Functions
-
 ## When Might We Want to Build One?
 
 . . .
@@ -251,7 +249,7 @@ ggplot(data = data_lionfish,
         axis.text = element_text(color = "black"),
         text = element_text(color = "black",
                             face = "bold",
-                            size = 10)) # Font size changes to accomodate text
+                            size = 10)) # Font size changes to accommodate text
 ```
 
 :::
@@ -280,7 +278,7 @@ my_theme <- function(text_size = 12) { # Function arguments
           axis.text = element_text(color = "black"),
           text = element_text(color = "black",
                               face = "bold",
-                              size = text_size)) # Note how my argument isbeing used down here
+                              size = text_size)) # Note how my argument isb eing used down here
 }
 
 ```
@@ -428,9 +426,9 @@ n_8 <- pop_grow(N = n_7)
 <!-- - Your own color palette -->
 <!-- -  -->
 
-# For loops
+# `for` loops
 
-## For loops
+## `for` loops
 
 - Allow us to automatically repeat operations without having to write the same code multiple times
 
@@ -451,9 +449,9 @@ for (index in list_of_possible_values_for_index) {
 ```{r}
 #| code-fold: false
 N <- 10 # Start with a population of 10
-for (i in 2:50) { # For every value of i, where i can be 0, 1, 2, 3, 4... 50
+for (t in 2:50) { # For every value of i, where i can be 0, 1, 2, 3, 4... 50
   N <- pop_grow(N = N) # Overwrite my population
-  print(N) # Print the pop size to the console
+  print(N)
 }
 ```
 
@@ -463,8 +461,8 @@ for (i in 2:50) { # For every value of i, where i can be 0, 1, 2, 3, 4... 50
 #| code-fold: false
 N <- numeric(50)
 N[1] <- 10 # Start with a population of 10
-for (i in 1:49) { # For every value of i, where i can be 0, 1, 2, 3, 4... 50
-  N[i+1] <- pop_grow(N = N[i]) # Overwrite my population
+for (t in 1:49) { # For every value of i, where i can be 0, 1, 2, 3, 4... 50
+  N[t+1] <- pop_grow(N = N[t]) # Overwrite my population
 }
 print(N) # Print the pop size to the console
 ```
