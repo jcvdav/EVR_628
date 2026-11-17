@@ -252,7 +252,7 @@ _Fall Recess is Oct 10-13_
 
 ---
 
-**Fourth assignment:** [_Documenting your repo_](docs/assig_4.html), due Nov 28 at 11:59 pm on Canvas
+**Fourth assignment:** [_Documenting your repo_](docs/assig_4.html), due Nov 29 at 11:59 pm on Canvas
 
 ---
 
