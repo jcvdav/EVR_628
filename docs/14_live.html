@@ -86,13 +86,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#part-0-set-up" id="toc-part-0-set-up" class="nav-link active" data-scroll-target="#part-0-set-up">Part 0: Set up</a></li>
-  <li><a href="#part-1-functions" id="toc-part-1-functions" class="nav-link" data-scroll-target="#part-1-functions">Part 1: Functions</a>
+  <li><a href="#part-1-functions" id="toc-part-1-functions" class="nav-link active" data-scroll-target="#part-1-functions">Part 1: Functions</a>
   <ul class="collapse">
-  <li><a href="#exercise-1-a-function-that-cleans-latitude-longitude-data" id="toc-exercise-1-a-function-that-cleans-latitude-longitude-data" class="nav-link" data-scroll-target="#exercise-1-a-function-that-cleans-latitude-longitude-data">Exercise 1: A function that cleans latitude / longitude data</a></li>
-  <li><a href="#exercise-2-a-function-that-builds-a-plot" id="toc-exercise-2-a-function-that-builds-a-plot" class="nav-link" data-scroll-target="#exercise-2-a-function-that-builds-a-plot">Exercise 2: A function that builds a plot</a></li>
+  <li><a href="#exercise-1-a-function-that-builds-a-plot" id="toc-exercise-1-a-function-that-builds-a-plot" class="nav-link" data-scroll-target="#exercise-1-a-function-that-builds-a-plot">Exercise 1: A function that builds a plot</a></li>
   </ul></li>
-  <li><a href="#part-2-for-loops" id="toc-part-2-for-loops" class="nav-link" data-scroll-target="#part-2-for-loops">Part 2: <code>for</code> loops</a></li>
+  <li><a href="#part-2-for-loops" id="toc-part-2-for-loops" class="nav-link" data-scroll-target="#part-2-for-loops">Part 2: <code>for</code> loops</a>
+  <ul class="collapse">
+  <li><a href="#exercise-1-multiple-plots" id="toc-exercise-1-multiple-plots" class="nav-link" data-scroll-target="#exercise-1-multiple-plots">Exercise 1: Multiple plots</a></li>
+  </ul></li>
+  <li><a href="#extra" id="toc-extra" class="nav-link" data-scroll-target="#extra">Extra</a>
+  <ul class="collapse">
+  <li><a href="#exercise-2-a-function-that-cleans-latitude-longitude-data" id="toc-exercise-2-a-function-that-cleans-latitude-longitude-data" class="nav-link" data-scroll-target="#exercise-2-a-function-that-cleans-latitude-longitude-data">Exercise 2: A function that cleans latitude / longitude data</a>
+  <ul class="collapse">
+  <li><a href="#set-up" id="toc-set-up" class="nav-link" data-scroll-target="#set-up">Set up</a></li>
+  <li><a href="#build-a-function" id="toc-build-a-function" class="nav-link" data-scroll-target="#build-a-function">Build a function</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="14_live.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </div>
@@ -114,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   <div class="quarto-title-meta-contents">
         <p class="affiliation">
-            Rosenstiel School of Marine, Atmospheric, and Earth Science and Institute for Data Science and Computing
+            Rosenstiel School of Marine, Atmospheric &amp; Earth Science and Institute for Data Science &amp; Computing
           </p>
       </div>
   </div>
@@ -131,85 +140,191 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="part-0-set-up" class="level1">
-<h1>Part 0: Set up</h1>
-<ol type="1">
-<li>Go to the WCPFC website <a href="https://www.wcpfc.int/wcpfc-public-domain-aggregated-catcheffort-data-download-page">here</a>.</li>
-<li>Towards the bottom of the page, look for a data set called <code>Aggregated data, grouped by 1°x1° latitude/longitude grids, YEAR and MONTH.</code></li>
-<li>Click on green link (should say 3.33 MB) to download the data to your <code>data/raw</code> folder in your EVR 628 project</li>
-<li>You will have downloaded a ziped folder called <code>WCPFC_S_PUBLIC_BY_1x1_MM_5.zip</code>. Unzip it.</li>
-<li>Navigate to <code>data/raw/WCPFC_S_PUBLIC_BY_1x1_MM_5</code> and open the pdf called <code>purse_seine_by_mon_1x1.pdf</code>.</li>
-<li>What does the metadata say about <code>LAT_short</code> and <code>LON_short</code>?</li>
-</ol>
-</section>
 <section id="part-1-functions" class="level1">
 <h1>Part 1: Functions</h1>
-<section id="exercise-1-a-function-that-cleans-latitude-longitude-data" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-1-a-function-that-cleans-latitude-longitude-data">Exercise 1: A function that cleans latitude / longitude data</h2>
-<p>For now, you will work with just one of the 12 data sets available in the WCPFC website. But if you had to work with all of them, you might want to build a function that deals with the</p>
+<section id="exercise-1-a-function-that-builds-a-plot" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1-a-function-that-builds-a-plot">Exercise 1: A function that builds a plot</h2>
+<blockquote class="blockquote">
+<p>Task: You are building 10 monographs for 10 different dive sites where lionfish are found. People are interested in knowing “how big are the lionfish in dive site X?”.</p>
+</blockquote>
+<ol start="0" type="1">
+<li>Start a new R script called <code>functions_and_loops.R</code>, and save it to your <code>scripts/processing</code> folder. Add a header/outline and load the <code>tidyverse</code> and <code>EVR628tools</code></li>
+<li>Using the <code>data_lionfish</code> data, build a histogram of lionfish length (<code>total_length_m</code>) for all fish sampled from <code>site == Paraiso</code>. Don’t worry about themes and labels for now.</li>
+<li>Using the <code>data_lionfish</code> data, build a histogram of lionfish length (<code>total_length_m</code>) for all fish sampled from <code>site == Canones</code>. Don’t worry about themes and labels for now.</li>
+<li>Using the <code>data_lionfish</code> data, build a histogram of lionfish length (<code>total_length_m</code>) for all fish sampled from <code>site == Paamul</code>. Don’t worry about themes and labels for now.</li>
+<li>I think you see where I’m going. We can’t use <code>facet_wrap</code> or <code>facet_grid</code> because each dive site will have it’s own plot.</li>
+<li>Let’s identify the general structure:
+<ol type="a">
+<li>Step 1: What are we repeating?</li>
+<li>Step 2: Within that code, what is constant and what changes?</li>
+</ol></li>
+<li>Build a new function called <code>site_histogram()</code></li>
+</ol>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SET UP #######################################################################</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Load packages ---------------------------------------------------------------</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.1     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.3     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(EVR628tools)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>✔ ✔ ✔ You sucessfully loaded the EVR628tools package ✔ ✔ ✔</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Load data -------------------------------------------------------------------</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"data_lionfish"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>site_histogram <span class="ot">&lt;-</span> <span class="cf">function</span>(data, my_site) {</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Filter my data</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  inside_data <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(site <span class="sc">==</span> my_site)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Build my plot</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(inside_data,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> total_length_mm)) <span class="sc">+</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">50</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Return my plot</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(p)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="fu">site_histogram</span>(<span class="at">data =</span> data_lionfish, </span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>               <span class="at">my_site =</span> <span class="st">"Paraiso"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="14_live_files/figure-html/unnamed-chunk-1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="14_live_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="part-2-for-loops" class="level1">
+<h1>Part 2: <code>for</code> loops</h1>
+<section id="exercise-1-multiple-plots" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1-multiple-plots">Exercise 1: Multiple plots</h2>
+<p>We’ll do this one together.</p>
 <ol type="1">
-<li>Start a new R script called <code>functions_and_loops.R</code>, and save it to your <code>scripts/processing</code> folder</li>
+<li>Build a for loop that:
+<ol type="a">
+<li>calls your <code>site_histogram()</code> function, and then</li>
+<li>saves it out as <code>results/img/&lt;site_name&gt;.png</code></li>
+</ol></li>
+</ol>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(site_i <span class="cf">in</span> <span class="fu">unique</span>(data_lionfish<span class="sc">$</span>site)) {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Build plot with my function</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="fu">site_histogram</span>(<span class="at">data =</span> data_lionfish,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">my_site =</span> site_i)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Save the plot</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggsave</span>(<span class="at">plot =</span> p,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">filename =</span> <span class="fu">paste</span>(<span class="st">"results/img/"</span>, site_i, <span class="st">".png"</span>),</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">width =</span> <span class="dv">6</span>,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">height =</span> <span class="dv">4</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># End of item i</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+</section>
+<section id="extra" class="level1">
+<h1>Extra</h1>
+<section id="exercise-2-a-function-that-cleans-latitude-longitude-data" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2-a-function-that-cleans-latitude-longitude-data">Exercise 2: A function that cleans latitude / longitude data</h2>
+<section id="set-up" class="level3">
+<h3 class="anchored" data-anchor-id="set-up">Set up</h3>
+<ol type="1">
+<li>Go to the WCPFC website <a href="https://www.wcpfc.int/sustainability/scientific-data/wcpfc-public-domain-aggregated-catcheffort-data-download-page">here</a>.</li>
+<li>Towards the bottom of the page, look for a data set called <code>1°x1° grids, YEAR and MONTH</code></li>
+<li>Click on the line that says <code>PURSE SEINE</code> to download the data to your <code>data/raw</code> folder in your EVR 628 project</li>
+<li>You will have downloaded a zipped folder called <code>WCPFC_S_PUBLIC_BY_YY_MM_1x1.zip</code>. Unzip it.</li>
+<li>Navigate to <code>data/raw/WCPFC_S_PUBLIC_BY_YY_MM_1x1</code> and open the pdf called <code>Purse_seine.pdf</code>.</li>
+<li>What does the metadata say about <code>LAT1</code> and <code>LON1</code> columns?</li>
+</ol>
+</section>
+<section id="build-a-function" class="level3">
+<h3 class="anchored" data-anchor-id="build-a-function">Build a function</h3>
+<p>For now, you will work with just one of the 12 data sets available in the WCPFC website. But if you had to work with all of them, you might want to build a function that deals with the coordinates.</p>
+<ol type="1">
+<li>Start a new R script</li>
 <li>Copy the code below to your new script (you can use the clipboard icon on the top right of the code chunk)</li>
 <li>Run everything to make sure it works. Take some time to inspect the <code>wcpfc</code> and the <code>wcpfc_clean</code> items.</li>
 <li>Look at the code. Does it look like some code is repeating? (Again. Imagine you will have to do this for other 11 data sets. And some of those will have a resolution of 5 vs 1 degree.)</li>
 </ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SET UP #######################################################################</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Load packages ---------------------------------------------------------------</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'ggplot2' was built under R version 4.5.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tidyr' was built under R version 4.5.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'dplyr' was built under R version 4.5.2</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(EVR628tools)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Load data -------------------------------------------------------------------</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>wcpfc <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/raw/WCPFC_S_PUBLIC_BY_1x1_MM_5/WCPFC_S_PUBLIC_BY_1x1_MM.CSV"</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># PROCESSING ###################################################################</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Clean data -------------------------------------------------------------------</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>wcpfc_clean <span class="ot">&lt;-</span> wcpfc <span class="sc">|&gt;</span> </span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">year =</span> yy,</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">lat =</span> lat_short,</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">lon =</span> lon_short,</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>         days) <span class="sc">|&gt;</span> </span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># WCPFC reports "the latitude of the south-west corner"</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># We need to fix that</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Find if it's in the S or W hemisphere</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">lat_mult =</span> <span class="fu">ifelse</span>(<span class="fu">str_detect</span>(lat, <span class="st">"N"</span>), <span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>),</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">lon_mult =</span> <span class="fu">ifelse</span>(<span class="fu">str_detect</span>(lon, <span class="st">"E"</span>), <span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>),</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Find if it's in the S or W hemisphere</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">lat =</span> <span class="fu">as.numeric</span>(<span class="fu">str_remove_all</span>(lat, <span class="st">"[:alpha:]"</span>)),</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">lon =</span> <span class="fu">as.numeric</span>(<span class="fu">str_remove_all</span>(lon, <span class="st">"[:alpha:]"</span>)),</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Find if it's in the S or W hemisphere</span></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">lat =</span> lat_mult <span class="sc">*</span> lat <span class="sc">+</span> <span class="fl">0.5</span>,</span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">lon =</span> lat_mult <span class="sc">*</span> lon <span class="sc">+</span> <span class="fl">0.5</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>lat_mult, <span class="sc">-</span>lon_mult)</span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>wcpfc_clean</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SET UP #######################################################################</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Load packages ---------------------------------------------------------------</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(EVR628tools)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Load data -------------------------------------------------------------------</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>wcpfc <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/raw/WCPFC_S_PUBLIC_BY_YY_MM_1x1/WCPFC_S_PUBLIC_BY_YY_MM_1x1.csv"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co"># PROCESSING ###################################################################</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="do">## Clean data -------------------------------------------------------------------</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>wcpfc_clean <span class="ot">&lt;-</span> wcpfc <span class="sc">|&gt;</span> </span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">year =</span> yy,</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">lat =</span> lat1,</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>         <span class="at">lon =</span> lon1,</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>         days) <span class="sc">|&gt;</span> </span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># WCPFC reports "the latitude of the south-west corner"</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># We need to fix that</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Find if it's in the S or W hemisphere</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">lat_mult =</span> <span class="fu">ifelse</span>(<span class="fu">str_detect</span>(lat, <span class="st">"N"</span>), <span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>),</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">lon_mult =</span> <span class="fu">ifelse</span>(<span class="fu">str_detect</span>(lon, <span class="st">"E"</span>), <span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>),</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Find if it's in the S or W hemisphere</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">lat =</span> <span class="fu">as.numeric</span>(<span class="fu">str_remove_all</span>(lat, <span class="st">"[:alpha:]"</span>)),</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">lon =</span> <span class="fu">as.numeric</span>(<span class="fu">str_remove_all</span>(lon, <span class="st">"[:alpha:]"</span>)),</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Find if it's in the S or W hemisphere</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">lat =</span> lat_mult <span class="sc">*</span> lat <span class="sc">+</span> <span class="fl">0.5</span>,</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">lon =</span> lat_mult <span class="sc">*</span> lon <span class="sc">+</span> <span class="fl">0.5</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>lat_mult, <span class="sc">-</span>lon_mult)</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>wcpfc_clean</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 193,063 × 4
+<pre><code># A tibble: 188,344 × 4
     year   lat   lon  days
    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
- 1  1967   0.5  140.     0
- 2  1967   0.5  142.     0
- 3  1967  -0.5 -140.     0
- 4  1967  -0.5 -142.     0
- 5  1967   3.5  136.     0
- 6  1967   7.5  134.     0
- 7  1967   8.5  134.     0
- 8  1968   0.5  140.     0
- 9  1968   0.5  144.     0
-10  1968  -0.5 -140.     0
-# ℹ 193,053 more rows</code></pre>
+ 1  1967  -0.5 -142.     0
+ 2  1967   3.5  136.     0
+ 3  1968   0.5  140.     0
+ 4  1968   0.5  140.     0
+ 5  1968  -0.5 -142.     0
+ 6  1968   0.5  140.     0
+ 7  1968   5.5  136.     0
+ 8  1968   9.5  134.     0
+ 9  1968   0.5  140.     0
+10  1968   0.5  142.     0
+# ℹ 188,334 more rows</code></pre>
 </div>
 </div>
 <ol start="3" type="1">
@@ -223,12 +338,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>clean_coords <span class="ot">&lt;-</span> <span class="cf">function</span>(x, res) {</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  mult <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">str_detect</span>(x, <span class="st">"N|E"</span>), <span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  coord <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">str_remove_all</span>(x, <span class="st">"[:alpha:]"</span>))</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> (mult <span class="sc">*</span> coord) <span class="sc">+</span> (res <span class="sc">/</span> <span class="dv">2</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(out)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>clean_coords <span class="ot">&lt;-</span> <span class="cf">function</span>(x, res) {</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  mult <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">str_detect</span>(x, <span class="st">"N|E"</span>), <span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  coord <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">str_remove_all</span>(x, <span class="st">"[:alpha:]"</span>))</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> (mult <span class="sc">*</span> coord) <span class="sc">+</span> (res <span class="sc">/</span> <span class="dv">2</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(out)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <ol start="5" type="1">
@@ -237,11 +352,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># These are equivalent to 10, -10, 10, -10 for the bottom-left corner</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>test_coord <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"10N"</span>, <span class="st">"10S"</span>, <span class="st">"10E"</span>, <span class="st">"10W"</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Once centered, they should be 10.5, -9.5, 10.5, -9.5</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">clean_coords</span>(test_coord, <span class="at">res =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># These are equivalent to 10, -10, 10, -10 for the bottom-left corner</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>test_coord <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"10N"</span>, <span class="st">"10S"</span>, <span class="st">"10E"</span>, <span class="st">"10W"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Once centered, they should be 10.5, -9.5, 10.5, -9.5</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">clean_coords</span>(test_coord, <span class="at">res =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 10.5 -9.5 10.5 -9.5</code></pre>
@@ -251,38 +366,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>After confirming they perform, update the code to use our function</li>
 </ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SET UP #######################################################################</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Load packages ---------------------------------------------------------------</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(EVR628tools)</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="do">## User defined functions ------------------------------------------------------</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>clean_coords <span class="ot">&lt;-</span> <span class="cf">function</span>(x, res) {</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  mult <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">str_detect</span>(x, <span class="st">"N|E"</span>), <span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>)</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  coord <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">str_remove_all</span>(x, <span class="st">"[:alpha:]"</span>))</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> (mult <span class="sc">*</span> coord) <span class="sc">+</span> (res <span class="sc">/</span> <span class="dv">2</span>)</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(out)</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="do">## Load data -------------------------------------------------------------------</span></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>wcpfc <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/raw/WCPFC_S_PUBLIC_BY_1x1_MM_5/WCPFC_S_PUBLIC_BY_1x1_MM.CSV"</span>)</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="co"># PROCESSING ###################################################################</span></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="do">## Clean data -------------------------------------------------------------------</span></span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>wcpfc_clean <span class="ot">&lt;-</span> wcpfc <span class="sc">|&gt;</span> </span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">year =</span> yy,</span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>         <span class="at">lat =</span> lat_short,</span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>         <span class="at">lon =</span> lon_short,</span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>         days) <span class="sc">|&gt;</span> </span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>  <span class="co"># WCPFC reports "the latitude of the south-west corner"</span></span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># We need to fix that</span></span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">lat =</span> <span class="fu">clean_coords</span>(lat, <span class="dv">1</span>),</span>
-<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">lon =</span> <span class="fu">clean_coords</span>(lon, <span class="dv">1</span>))</span>
-<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>wcpfc_clean</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SET UP #######################################################################</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Load packages ---------------------------------------------------------------</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(EVR628tools)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="do">## User defined functions ------------------------------------------------------</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>clean_coords <span class="ot">&lt;-</span> <span class="cf">function</span>(x, res) {</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  mult <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">str_detect</span>(x, <span class="st">"N|E"</span>), <span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  coord <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">str_remove_all</span>(x, <span class="st">"[:alpha:]"</span>))</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> (mult <span class="sc">*</span> coord) <span class="sc">+</span> (res <span class="sc">/</span> <span class="dv">2</span>)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(out)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="do">## Load data -------------------------------------------------------------------</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>wcpfc <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/raw/WCPFC_S_PUBLIC_BY_1x1_MM_5/WCPFC_S_PUBLIC_BY_1x1_MM.CSV"</span>)</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="co"># PROCESSING ###################################################################</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="do">## Clean data -------------------------------------------------------------------</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>wcpfc_clean <span class="ot">&lt;-</span> wcpfc <span class="sc">|&gt;</span> </span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">year =</span> yy,</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>         <span class="at">lat =</span> lat_short,</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>         <span class="at">lon =</span> lon_short,</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>         days) <span class="sc">|&gt;</span> </span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>  <span class="co"># WCPFC reports "the latitude of the south-west corner"</span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># We need to fix that</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">lat =</span> <span class="fu">clean_coords</span>(lat, <span class="dv">1</span>),</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">lon =</span> <span class="fu">clean_coords</span>(lon, <span class="dv">1</span>))</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>wcpfc_clean</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 193,063 × 4
     year   lat   lon  days
@@ -301,81 +416,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="exercise-2-a-function-that-builds-a-plot" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-2-a-function-that-builds-a-plot">Exercise 2: A function that builds a plot</h2>
-<p>You are building 10 monographs for 10 different dive sites where lionfish are found. People are interested in knowing “how big are the lionfish in dive site X?”.</p>
-<ol type="1">
-<li>Using the <code>data_lionfish</code> data, build a histogram of lionfish length (<code>total_length_m</code>) for all fish sampled from <code>site == Paraiso</code>. Don’t worry about themes and labels for now.</li>
-<li>Using the <code>data_lionfish</code> data, build a histogram of lionfish length (<code>total_length_m</code>) for all fish sampled from <code>site == Canones</code>. Don’t worry about themes and labels for now.</li>
-<li>Using the <code>data_lionfish</code> data, build a histogram of lionfish length (<code>total_length_m</code>) for all fish sampled from <code>site == Paamul</code>. Don’t worry about themes and labels for now.</li>
-<li>I think you see where I’m going. We can’t use <code>facet_wrap</code> or <code>facet_grid</code> because each dive site will have it’s own plot.</li>
-<li>Let’s identify the general structure:
-<ol type="a">
-<li>Step 1: What are we repeating?</li>
-<li>Step 2: Within that code, what is constant and what changes?</li>
-</ol></li>
-<li>Build a new function called <code>site_histogram()</code></li>
-</ol>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"data_lionfish"</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>site_histogram <span class="ot">&lt;-</span> <span class="cf">function</span>(data, my_site) {</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Filter my data</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  inside_data <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> </span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(site <span class="sc">==</span> my_site)</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Build my plot</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(inside_data,</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> total_length_mm)) <span class="sc">+</span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">50</span>)</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Return my plot</span></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(p)</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="fu">site_histogram</span>(<span class="at">data =</span> data_lionfish, </span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>               <span class="at">my_site =</span> <span class="st">"Paraiso"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><a href="14_live_files/figure-html/unnamed-chunk-5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="14_live_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></a></p>
-</figure>
-</div>
-</div>
-</div>
 </section>
-</section>
-<section id="part-2-for-loops" class="level1">
-<h1>Part 2: <code>for</code> loops</h1>
-<p>We’ll do this one together.</p>
-<ol type="1">
-<li>Build a for loop that:
-<ol type="a">
-<li>calls your <code>site_histogram()</code> function, and then</li>
-<li>saves it out as <code>results/img/&lt;site_name&gt;.png</code></li>
-</ol></li>
-</ol>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(site_i <span class="cf">in</span> <span class="fu">unique</span>(data_lionfish<span class="sc">$</span>site)) {</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Build plot with my function</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="fu">site_histogram</span>(<span class="at">data =</span> data_lionfish,</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">my_site =</span> site_i)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Save the ploit</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggsave</span>(<span class="at">plot =</span> p,</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">filename =</span> <span class="fu">paste</span>(<span class="st">"results/img/"</span>, site_i, <span class="st">".png"</span>),</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">width =</span> <span class="dv">6</span>,</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">height =</span> <span class="dv">4</span>)</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># End of item i</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-</div>
 </section>
 
 </main>
